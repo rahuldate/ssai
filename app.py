@@ -373,13 +373,13 @@ def generate_qprf_report(res: Dict[str, Any]) -> bytes:
     st.subheader("📊 Bayesian Integrated Testing Strategy (ITS) & Posterior Probability")
     b_col1, b_col2, b_col3, b_col4 = st.columns(4)
     with b_col1:
-    st.metric("Prior Probability", "40.0%", help="Baseline industrial chemical sensitization prevalence")
+        st.metric("Prior Probability", "40.0%", help="Baseline industrial chemical sensitization prevalence")
     with b_col2:
-    st.metric("Integrated Likelihood Ratio", "12.5x", help="Combined Bayes factor from DPRA, KeratinoSens, h-CLAT & Vina docking")
+        st.metric("Integrated Likelihood Ratio", "12.5x", help="Combined Bayes factor from DPRA, KeratinoSens, h-CLAT & Vina docking")
     with b_col3:
-    st.metric("Posterior Probability", "94.2%", help="Updated probability of skin sensitization under OECD 497 ITS framework")
+        st.metric("Posterior Probability", "94.2%", help="Updated probability of skin sensitization under OECD 497 ITS framework")
     with b_col4:
-    st.metric("Credible Interval", "91.2% - 97.8%", help="95% Highest Density Posterior Interval (HDPI)")
+        st.metric("Credible Interval", "91.2% - 97.8%", help="95% Highest Density Posterior Interval (HDPI)")
     st.success("**Bayesian Decision Conclusion:** **Category 1A (Strong Sensitizer)** — Posterior confidence exceeds the regulatory 85% threshold for definitive hazard classification.")
     st.markdown("---")
     pdf.cell(0, 5, "Autonomous Multi-Agent Dossier | OECD GL 497 & ChemBERTa + Keap1 Docking", ln=True, align="C")
@@ -859,6 +859,7 @@ def generate_pdf_report(res: Dict[str, Any]) -> bytes:
             mime="application/xml",
             use_container_width=True
             )
+
 
 
 
