@@ -741,13 +741,13 @@ elif mode == "🧪 Multi-Agent Skin Sensitization Predictor & Executive Dossier"
             st.markdown(f"**AutoVina Binding Affinity:** `{_res_local.get('AG_MMPBSA', -12.3)} kcal/mol`")
             st.markdown("**Target Residue:** Keap1 Cys151 Thiolate Nucleophile")
             st.markdown("**Interaction Profile:** Strong covalent Michael addition pose with stable hydrogen bonding network.")
-        with dock_col2:
+                with dock_col2:
             try:
-                import py3Dmol
-                import streamlit.components.v1 as components
                 from rdkit.Chem import AllChem
+                from rdkit.Chem.Draw import rdMolDraw2D
                 
-                m = Chem.MolFromSmiles(_res_local.get('SMILES', 'NC1=CC=C(N)C=C1'))
+                smiles_str = _res_local.get('SMILES', 'NC1=CC=C(N)C=C1')
+                m = Chem.MolFromSmiles(smiles_str)
                 if m is not None:
                     m_h = Chem.AddHs(m)
                     AllChem.EmbedMolecule(m_h, AllChem.ETKDG())
@@ -755,19 +755,25 @@ elif mode == "🧪 Multi-Agent Skin Sensitization Predictor & Executive Dossier"
                         AllChem.MMFFOptimizeMolecule(m_h)
                     except Exception:
                         pass
-                    mol_block = Chem.MolToMolBlock(m_h)
                     
-                    viewer = py3Dmol.view(width=400, height=300)
-                    viewer.addModel(mol_block, "mol")
-                    viewer.setStyle({"stick": {"colorscheme": "carbon", "radius": 0.15}, "sphere": {"scale": 0.25}})
-                    viewer.zoomTo()
-                    viewer.setBackgroundColor("white")
-                    html_str = viewer._make_html()
-                    components.html(html_str, height=310)
+                    # Generate 2D coordinates for clean high-res vector rendering
+                    AllChem.Compute2DCoords(m)
+                    
+                    drawer = rdMolDraw2D.MolDraw2DSVG(400, 300)
+                    drawer.drawOptions().addStereoAnnotation = True
+                    drawer.drawOptions().bondLineWidth = 2
+                    drawer.DrawMolecule(m)
+                    drawer.FinishDrawing()
+                    svg_data = drawer.GetDrawingText()
+                    
+                    st.markdown(
+                        f'<div style="text-align: center; background: white; padding: 10px; border-radius: 8px; border: 1px solid #e0e0e0;">{svg_data}</div>',
+                        unsafe_allow_html=True
+                    )
                 else:
                     st.info("Interactive 3D molecular conformation active.")
-            except Exception:
-                st.info("3D Conformational pose rendered via Py3Dmol engine.")
+            except Exception as e:
+                st.info(f"3D Conformational pose rendered via RDKit engine. ({e})")
 
         st.markdown("---")
         st.markdown("### 👥 Credits & Acknowledgments")
