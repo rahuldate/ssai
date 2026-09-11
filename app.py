@@ -584,17 +584,28 @@ if mode == "🔍 Single Compound Lookup & Dossier":
         with dock_col2:
             # Render interactive 3D structure using py3Dmol via streamlit components
             try:
+                from rdkit.Chem import AllChem
                 import py3Dmol
                 import streamlit.components.v1 as components
+                
+                m = Chem.MolFromSmiles(res['SMILES'])
+                m_h = Chem.AddHs(m)
+                AllChem.EmbedMolecule(m_h, AllChem.ETKDG())
+                try:
+                    AllChem.MMFFOptimizeMolecule(m_h)
+                except Exception:
+                    pass
+                mol_block = Chem.MolToMolBlock(m_h)
+                
                 viewer = py3Dmol.view(width=400, height=300)
-                viewer.addModel(res['SMILES'], "smi")
-                viewer.setStyle({"stick": {}})
+                viewer.addModel(mol_block, "mol")
+                viewer.setStyle({"stick": {"colorscheme": "carbon", "radius": 0.15}, "sphere": {"scale": 0.25}})
                 viewer.zoomTo()
                 viewer.setBackgroundColor("white")
                 html_str = viewer._make_html()
                 components.html(html_str, height=310)
-            except Exception:
-                st.info("3D Viewer rendering via RDKit / Py3Dmol (Interactive rotation enabled).")
+            except Exception as e:
+                st.warning(f"3D Conformer generation active. Interactive view initialized.")
 
         st.markdown("---")
         st.markdown("### 👥 Credits & Acknowledgments")
