@@ -373,47 +373,47 @@ def generate_qprf_report(res: Dict[str, Any]) -> bytes:
     st.subheader("📊 Bayesian Integrated Testing Strategy (ITS) & Posterior Probability")
     b_col1, b_col2, b_col3, b_col4 = st.columns(4)
     with b_col1:
-        st.metric("Prior Probability", "40.0%", help="Baseline industrial chemical sensitization prevalence")
-        with b_col2:
-            st.metric("Integrated Likelihood Ratio", "12.5x", help="Combined Bayes factor from DPRA, KeratinoSens, h-CLAT & Vina docking")
-            with b_col3:
-                st.metric("Posterior Probability", "94.2%", help="Updated probability of skin sensitization under OECD 497 ITS framework")
-                with b_col4:
-                    st.metric("Credible Interval", "91.2% - 97.8%", help="95% Highest Density Posterior Interval (HDPI)")
-                    st.success("**Bayesian Decision Conclusion:** **Category 1A (Strong Sensitizer)** — Posterior confidence exceeds the regulatory 85% threshold for definitive hazard classification.")
-                    st.markdown("---")
-                    pdf.cell(0, 5, "Autonomous Multi-Agent Dossier | OECD GL 497 & ChemBERTa + Keap1 Docking", ln=True, align="C")
-                    pdf.ln(3)
+    st.metric("Prior Probability", "40.0%", help="Baseline industrial chemical sensitization prevalence")
+    with b_col2:
+    st.metric("Integrated Likelihood Ratio", "12.5x", help="Combined Bayes factor from DPRA, KeratinoSens, h-CLAT & Vina docking")
+    with b_col3:
+    st.metric("Posterior Probability", "94.2%", help="Updated probability of skin sensitization under OECD 497 ITS framework")
+    with b_col4:
+    st.metric("Credible Interval", "91.2% - 97.8%", help="95% Highest Density Posterior Interval (HDPI)")
+    st.success("**Bayesian Decision Conclusion:** **Category 1A (Strong Sensitizer)** — Posterior confidence exceeds the regulatory 85% threshold for definitive hazard classification.")
+    st.markdown("---")
+    pdf.cell(0, 5, "Autonomous Multi-Agent Dossier | OECD GL 497 & ChemBERTa + Keap1 Docking", ln=True, align="C")
+    pdf.ln(3)
 
-                    pdf.set_fill_color(230, 230, 230)
-                    pdf.set_font("Helvetica", "B", 10)
-                    pdf.cell(0, 6, "1. SUBSTANCE IDENTIFICATION & DESCRIPTORS", ln=True, fill=True)
-                    pdf.set_font("Helvetica", "", 9)
-                    pdf.cell(0, 5, f"Chemical Name: {res['Resolved_Name']} | CAS RN: {res['Input']}", ln=True)
-                    pdf.cell(0, 5, f"SMILES: {res['SMILES']} | MW/LogP: {res['MW']} g/mol | {res['LogP']}", ln=True)
-                    pdf.cell(0, 5, f"Keap1 3D Docking AG: {res['AG_MMPBSA']} kcal/mol (Cys151 Thiolate Attack)", ln=True)
-                    pdf.cell(0, 5, f"Applicability Domain: {res['Applicability_Domain']} (Distance Index D_M: {res['Distance_Index']})", ln=True)
-                    pdf.ln(2)
+    pdf.set_fill_color(230, 230, 230)
+    pdf.set_font("Helvetica", "B", 10)
+    pdf.cell(0, 6, "1. SUBSTANCE IDENTIFICATION & DESCRIPTORS", ln=True, fill=True)
+    pdf.set_font("Helvetica", "", 9)
+    pdf.cell(0, 5, f"Chemical Name: {res['Resolved_Name']} | CAS RN: {res['Input']}", ln=True)
+    pdf.cell(0, 5, f"SMILES: {res['SMILES']} | MW/LogP: {res['MW']} g/mol | {res['LogP']}", ln=True)
+    pdf.cell(0, 5, f"Keap1 3D Docking AG: {res['AG_MMPBSA']} kcal/mol (Cys151 Thiolate Attack)", ln=True)
+    pdf.cell(0, 5, f"Applicability Domain: {res['Applicability_Domain']} (Distance Index D_M: {res['Distance_Index']})", ln=True)
+    pdf.ln(2)
 
-                    pdf.set_font("Helvetica", "B", 10)
-                    pdf.cell(0, 6, "2. DEFINED APPROACHES & NAMS PREDICTIONS", ln=True, fill=True)
-                    pdf.set_font("Helvetica", "", 9)
-                    pdf.cell(0, 5, f"2-out-of-3 DA / ITS Matrix Score: {res['OECD_497_Call']} (Confidence: {res['Confidence']*100}%)", ln=True)
-                    pdf.cell(0, 5, f"KE1 DPRA: {res['KE1_DPRA']:.2f} | KE2 KeratinoSens: {res['KE2_KeratinoSens']:.2f} | KE3 h-CLAT: {res['KE3_hCLAT']:.2f}", ln=True)
-                    pdf.cell(0, 5, f"ChemBERTa Score: {res['ChemBERTa']} | Deep GNN Score: {res['GNN_Score']} (p-val: {res['GNN_Pval']})", ln=True)
-                    pdf.ln(2)
+    pdf.set_font("Helvetica", "B", 10)
+    pdf.cell(0, 6, "2. DEFINED APPROACHES & NAMS PREDICTIONS", ln=True, fill=True)
+    pdf.set_font("Helvetica", "", 9)
+    pdf.cell(0, 5, f"2-out-of-3 DA / ITS Matrix Score: {res['OECD_497_Call']} (Confidence: {res['Confidence']*100}%)", ln=True)
+    pdf.cell(0, 5, f"KE1 DPRA: {res['KE1_DPRA']:.2f} | KE2 KeratinoSens: {res['KE2_KeratinoSens']:.2f} | KE3 h-CLAT: {res['KE3_hCLAT']:.2f}", ln=True)
+    pdf.cell(0, 5, f"ChemBERTa Score: {res['ChemBERTa']} | Deep GNN Score: {res['GNN_Score']} (p-val: {res['GNN_Pval']})", ln=True)
+    pdf.ln(2)
 
-                    pdf.set_font("Helvetica", "B", 10)
-                    pdf.cell(0, 6, "3. SARA-ICE HUMAN POD, POTENCY & BIOAVAILABILITY", ln=True, fill=True)
-                    pdf.set_font("Helvetica", "", 9)
-                    pdf.cell(0, 5, f"SARA Human ED01 PoD: {res['SARA_ICE']} ug/cm2 | Predicted LLNA EC3: {res['LLNA']}%", ln=True)
-                    pdf.cell(0, 5, f"Skin Sensitization Potency Call: {res['OECD_497_Call']}", ln=True)
-                    pdf.ln(2)
+    pdf.set_font("Helvetica", "B", 10)
+    pdf.cell(0, 6, "3. SARA-ICE HUMAN POD, POTENCY & BIOAVAILABILITY", ln=True, fill=True)
+    pdf.set_font("Helvetica", "", 9)
+    pdf.cell(0, 5, f"SARA Human ED01 PoD: {res['SARA_ICE']} ug/cm2 | Predicted LLNA EC3: {res['LLNA']}%", ln=True)
+    pdf.cell(0, 5, f"Skin Sensitization Potency Call: {res['OECD_497_Call']}", ln=True)
+    pdf.ln(2)
 
-                    pdf.set_font("Helvetica", "B", 10)
-                    pdf.cell(0, 6, "4. REGULATORY QUALITY AUDIT & SIGN-OFF", ln=True, fill=True)
-                    pdf.set_font("Helvetica", "", 8)
-                    pdf.cell(0, 5, f"Audit Signature Hash: {res['Audit_ID']} | QA Determination: APPROVED_AUTONOMOUS_SIGNOFF", ln=True)
+    pdf.set_font("Helvetica", "B", 10)
+    pdf.cell(0, 6, "4. REGULATORY QUALITY AUDIT & SIGN-OFF", ln=True, fill=True)
+    pdf.set_font("Helvetica", "", 8)
+    pdf.cell(0, 5, f"Audit Signature Hash: {res['Audit_ID']} | QA Determination: APPROVED_AUTONOMOUS_SIGNOFF", ln=True)
 
     with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp:
         pdf.output(tmp.name)
@@ -473,31 +473,31 @@ def generate_qmrf_report(res: Dict[str, Any]) -> bytes:
         return pdf_bytes
 
 def generate_iuclid_xml(res: Dict[str, Any]) -> str:
-            xml_content = f"""<?xml version="1.0" encoding="UTF-8"?>
-            <iuclid6:Dossier xmlns:iuclid6="http://iuclid6.echa.europa.eu/schema" version="6.0">
-            <Header>
-            <SubmissionType>REACH_REGISTRATION</SubmissionType>
-            <LegalEntity>SensAOP_Autonomous_Assessment_Suite</LegalEntity>
-            <CreationTimestamp>{time.strftime('%Y-%m-%dT%H:%M:%SZ')}</CreationTimestamp>
-            </Header>
-            <Substance>
-            <ChemicalIdentity>
-            <SubstanceName>{res['Resolved_Name']}</SubstanceName>
-            <CASNumber>{res['Input']}</CASNumber>
-            <SMILES>{res['SMILES']}</SMILES>
-            <MolecularWeight>{res['MW']}</MolecularWeight>
-            <LogP>{res['LogP']}</LogP>
-            </ChemicalIdentity>
-            <EndpointStudyRecord section="7.4.1" endpoint="SkinSensitisation">
-            <AdministrativeData>
-            <StudyResultType>experimental result / in silico defined approach</StudyResultType>
-            <Reliability>1 (reliable without restriction)</Reliability>
-            <Guideline>OECD Guideline 497 (Defined Approaches for Skin Sensitisation)</Guideline>
-            </AdministrativeData>
-            <Methodology>
-            <Approach>Integrated Testing Strategy (ITS-2) / 2-out-of-3 Defined Approach</Approach>
-            <KeyEventsEvaluated>
-            <KE1_MolecularInitiatingEvent method="DPRA/MM-PBSA">{res['OECD_497_Call']}</KE1_MolecularInitiatingEvent>
+    xml_content = f"""<?xml version="1.0" encoding="UTF-8"?>
+    <iuclid6:Dossier xmlns:iuclid6="http://iuclid6.echa.europa.eu/schema" version="6.0">
+    <Header>
+    <SubmissionType>REACH_REGISTRATION</SubmissionType>
+    <LegalEntity>SensAOP_Autonomous_Assessment_Suite</LegalEntity>
+    <CreationTimestamp>{time.strftime('%Y-%m-%dT%H:%M:%SZ')}</CreationTimestamp>
+    </Header>
+    <Substance>
+    <ChemicalIdentity>
+    <SubstanceName>{res['Resolved_Name']}</SubstanceName>
+    <CASNumber>{res['Input']}</CASNumber>
+    <SMILES>{res['SMILES']}</SMILES>
+    <MolecularWeight>{res['MW']}</MolecularWeight>
+    <LogP>{res['LogP']}</LogP>
+    </ChemicalIdentity>
+    <EndpointStudyRecord section="7.4.1" endpoint="SkinSensitisation">
+    <AdministrativeData>
+    <StudyResultType>experimental result / in silico defined approach</StudyResultType>
+    <Reliability>1 (reliable without restriction)</Reliability>
+    <Guideline>OECD Guideline 497 (Defined Approaches for Skin Sensitisation)</Guideline>
+    </AdministrativeData>
+    <Methodology>
+    <Approach>Integrated Testing Strategy (ITS-2) / 2-out-of-3 Defined Approach</Approach>
+    <KeyEventsEvaluated>
+    <KE1_MolecularInitiatingEvent method="DPRA/MM-PBSA">{res['OECD_497_Call']}</KE1_MolecularInitiatingEvent>
     <KE2_KeratinocyteActivation method="KeratinoSens">{res['OECD_497_Call']}</KE2_KeratinocyteActivation>
     <KE3_DendriticCellActivation method="h-CLAT">{res['OECD_497_Call']}</KE3_DendriticCellActivation>
     <ComputationalTier model="ChemBERTa_MPNN">{res['ChemBERTa']}</ComputationalTier>
@@ -514,19 +514,19 @@ def generate_iuclid_xml(res: Dict[str, Any]) -> str:
     st.subheader("📊 Bayesian Integrated Testing Strategy (ITS) & Posterior Probability")
     b_col1, b_col2, b_col3, b_col4 = st.columns(4)
     with b_col1:
-        st.metric("Prior Probability", "40.0%", help="Baseline industrial chemical sensitization prevalence")
-        with b_col2:
-            st.metric("Integrated Likelihood Ratio", "12.5x", help="Combined Bayes factor from DPRA, KeratinoSens, h-CLAT & Vina docking")
-            with b_col3:
-                st.metric("Posterior Probability", "94.2%", help="Updated probability of skin sensitization under OECD 497 ITS framework")
-                with b_col4:
-                    st.metric("Credible Interval", "91.2% - 97.8%", help="95% Highest Density Posterior Interval (HDPI)")
-                    st.success("**Bayesian Decision Conclusion:** **Category 1A (Strong Sensitizer)** — Posterior confidence exceeds the regulatory 85% threshold for definitive hazard classification.")
-                    st.markdown("---")
-                    Autonomous Multi-Agent consensus derived under OECD GL 497 standards. Chemical classified as {res['OECD_497_Call']} with consensus confidence score of {res['Confidence']}. HITL Rationale: {res['HITL_Justification']}
-                    </ExecutiveSummary>
-                    </EndpointStudyRecord>
-                    </Substance>
+    st.metric("Prior Probability", "40.0%", help="Baseline industrial chemical sensitization prevalence")
+    with b_col2:
+    st.metric("Integrated Likelihood Ratio", "12.5x", help="Combined Bayes factor from DPRA, KeratinoSens, h-CLAT & Vina docking")
+    with b_col3:
+    st.metric("Posterior Probability", "94.2%", help="Updated probability of skin sensitization under OECD 497 ITS framework")
+    with b_col4:
+    st.metric("Credible Interval", "91.2% - 97.8%", help="95% Highest Density Posterior Interval (HDPI)")
+    st.success("**Bayesian Decision Conclusion:** **Category 1A (Strong Sensitizer)** — Posterior confidence exceeds the regulatory 85% threshold for definitive hazard classification.")
+    st.markdown("---")
+    Autonomous Multi-Agent consensus derived under OECD GL 497 standards. Chemical classified as {res['OECD_497_Call']} with consensus confidence score of {res['Confidence']}. HITL Rationale: {res['HITL_Justification']}
+    </ExecutiveSummary>
+    </EndpointStudyRecord>
+    </Substance>
 </iuclid6:Dossier>"""
     return xml_content
 
@@ -859,6 +859,7 @@ def generate_pdf_report(res: Dict[str, Any]) -> bytes:
             mime="application/xml",
             use_container_width=True
             )
+
 
 
 
