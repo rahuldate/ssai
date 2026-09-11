@@ -192,24 +192,23 @@ def render_batch_screening_tab():
 
 
 st.set_page_config(
+    page_title="Multi-Agent Skin Sensitizer AI (OECD GL 497)",
+    page_icon="🧪",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
 
 # Navigation setup
 mode = st.sidebar.radio(
-        'Navigation & Modes',
-[
-        '🔍 Single Compound Lookup & Dossier',
-        '📦 Batch High-Throughput Screening',
-        '🧪 Multi-Agent Skin Sensitization Predictor & Executive Dossier'
+    "Navigation & Modes",
+    [
+        "🔍 Single Compound Lookup & Dossier",
+        "📦 Batch High-Throughput Screening",
+        "🧪 Multi-Agent Skin Sensitization Predictor & Executive Dossier"
     ]
-    )
-st.sidebar.markdown('---')
-st.sidebar.info('Automated Defined Approach based on OECD Guideline 497 and Advanced NAMs.')
-
-page_title="Multi-Agent Skin Sensitizer AI (OECD GL 497)",
-page_icon="🧪",
-layout="wide",
-initial_sidebar_state="expanded",
-    )
+)
+st.sidebar.markdown("---")
+st.sidebar.info("Automated Defined Approach based on OECD Guideline 497 and Advanced NAMs.")
 
 app_tab1, app_tab2 = st.tabs(["🔍 Single Compound Lookup & Dossier", "📦 Batch High-Throughput Screening"])
 
