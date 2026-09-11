@@ -510,8 +510,8 @@ def generate_qmrf_report(res: Dict[str, Any]) -> bytes:
             <BioactivationAlert>Direct/Pro-hapten</BioactivationAlert>
             </ResultsAndDiscussion>
             <ExecutiveSummary>
-    st.markdown("---")
-    st.subheader("📊 Bayesian Integrated Testing Strategy (ITS) & Posterior Probability")
+            st.markdown("---")
+            st.subheader("📊 Bayesian Integrated Testing Strategy (ITS) & Posterior Probability")
     b_col1, b_col2, b_col3, b_col4 = st.columns(4)
     with b_col1:
         st.metric("Prior Probability", "40.0%", help="Baseline industrial chemical sensitization prevalence")
