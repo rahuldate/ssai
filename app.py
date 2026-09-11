@@ -448,12 +448,12 @@ def generate_qmrf_report(res: Dict[str, Any]) -> bytes:
     pdf.ln(1)
     pdf.multi_cell(w=190, h=4, txt=f"AOP MIE & Key Events: {res['Mechanisms']}")
     pdf.ln(1)
-    pdf.multi_cell(w=190, h=4, txt=f"Toxicological Synthesis: {res['Toxicologist_Synthesis']}")
-    pdf.ln(2)
+            pdf.multi_cell(w=190, h=4, txt=f"Toxicological Synthesis: {res['Toxicologist_Synthesis']}")
+            pdf.ln(2)
 
-    pdf.set_font("Helvetica", "B", 10)
-    pdf.cell(0, 6, "3. READ-ACROSS ANALOGUE SEARCH MATRIX (OECD PRINCIPLE 6)", ln=True, fill=True)
-    pdf.set_font("Helvetica", "", 8)
+            pdf.set_font("Helvetica", "B", 10)
+            pdf.cell(0, 6, "3. READ-ACROSS ANALOGUE SEARCH MATRIX (OECD PRINCIPLE 6)", ln=True, fill=True)
+            pdf.set_font("Helvetica", "", 8)
         for an in res.get("Analogues", []):
             pdf.cell(0, 4, f"Analogue: {an['name']} (CAS: {an['cas']}) | Tanimoto Sim: {an['similarity']}% | LLNA: {an['llna']}", ln=True)
             pdf.ln(2)
