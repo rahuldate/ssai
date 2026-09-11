@@ -710,7 +710,7 @@ def generate_pdf_report(res: Dict[str, Any]) -> bytes:
 
 
             col_res1, col_res2 = st.columns(2)
-        with col_res1:
+            with col_res1:
 
 
 
@@ -724,7 +724,7 @@ def generate_pdf_report(res: Dict[str, Any]) -> bytes:
             st.write(f"- **KE4 (Deep Graph AI GNN):** `{res['GNN_Score']}` (p-val: `{res['GNN_Pval']}`)")
             st.write(f"- **Applicability Domain:** `{res['Applicability_Domain']}` (DM: `{res['Distance_Index']}`)")
 
-        with col_res2:
+            with col_res2:
             st.markdown("#### ⚡ Biophysical & Potency Metrics")
             st.write("- **OpenMM Sampling:** 10.0 ns (CHARMM36m)")
             st.write(f"- **Backbone RMSD / Cys-RMSF:** `{res['RMSD']} Å` / `{res['RMSF']} Å`")
@@ -732,17 +732,17 @@ def generate_pdf_report(res: Dict[str, Any]) -> bytes:
             st.write(f"- **Predicted LLNA EC3:** `{res['LLNA']}%`")
             st.write(f"- **ChemBERTa Transformer:** `{res['ChemBERTa']}`")
 
-        st.markdown("---")
-        col_adme1, col_adme2 = st.columns(2)
-        with col_adme1:
+            st.markdown("---")
+            col_adme1, col_adme2 = st.columns(2)
+            with col_adme1:
             st.markdown("#### 💧 Skin Permeability (ADME)")
             adme_dat = res.get("ADME", {})
-        st.write(f"- **Skin Permeability (Kp):** `{adme_dat.get('kp', 0)} cm/h`")
-        st.write(f"- **Maximum Flux (Jmax):** `{adme_dat.get('flux', 0)} µg/cm²/h`")
-        st.write(f"- **Dermal Bioavailability:** `{adme_dat.get('bioavailability', 'N/A')}`")
+            st.write(f"- **Skin Permeability (Kp):** `{adme_dat.get('kp', 0)} cm/h`")
+            st.write(f"- **Maximum Flux (Jmax):** `{adme_dat.get('flux', 0)} µg/cm²/h`")
+            st.write(f"- **Dermal Bioavailability:** `{adme_dat.get('bioavailability', 'N/A')}`")
 
-        with col_adme2:
-        for an in res.get("Analogues", []):
+            with col_adme2:
+            for an in res.get("Analogues", []):
             st.write(f"- **{an['name']}** (CAS: `{an['cas']}`): `{an['similarity']}%` similarity | Call: `{an['call']}`")
 
             st.markdown("---")
@@ -754,109 +754,109 @@ def generate_pdf_report(res: Dict[str, Any]) -> bytes:
             st.metric("Integrated Likelihood Ratio", "12.5x", help="Combined Bayes factor from DPRA, KeratinoSens, h-CLAT & Vina docking")
             with b_col3:
             st.metric("Posterior Probability", "94.2%", help="Updated probability of skin sensitization under OECD 497 ITS framework")
-        with b_col4:
+            with b_col4:
             st.metric("Credible Interval", "91.2% - 97.8%", help="95% Highest Density Posterior Interval (HDPI)")
-        st.success("**Bayesian Decision Conclusion:** **Category 1A (Strong Sensitizer)** — Posterior confidence exceeds the regulatory 85% threshold for definitive hazard classification.")
-        st.markdown("---")
-        st.markdown("#### 🤖 Autonomous Multi-Agent Council Synthesis")
-        st.info(f"**Chemist Agent Mechanism:** {res['Mechanisms']}")
-        st.success(f"**Toxicologist AOP Synthesis:** {res['Toxicologist_Synthesis']}")
-        st.warning(f"**Weight of Evidence Justification:** {res['WoE']}")
+            st.success("**Bayesian Decision Conclusion:** **Category 1A (Strong Sensitizer)** — Posterior confidence exceeds the regulatory 85% threshold for definitive hazard classification.")
+            st.markdown("---")
+            st.markdown("#### 🤖 Autonomous Multi-Agent Council Synthesis")
+            st.info(f"**Chemist Agent Mechanism:** {res['Mechanisms']}")
+            st.success(f"**Toxicologist AOP Synthesis:** {res['Toxicologist_Synthesis']}")
+            st.warning(f"**Weight of Evidence Justification:** {res['WoE']}")
 
-        st.markdown("---")
-        st.markdown("#### 👨‍⚖️ Human-in-the-Loop (HITL) Regulatory Review & Override")
+            st.markdown("---")
+            st.markdown("#### 👨‍⚖️ Human-in-the-Loop (HITL) Regulatory Review & Override")
 
-        if "hitl_mode" not in st.session_state:
+            if "hitl_mode" not in st.session_state:
             st.session_state["hitl_mode"] = "Accept Automated Default (Category 1A/1B Sensitizer)"
-        if "hitl_comment" not in st.session_state:
+            if "hitl_comment" not in st.session_state:
             st.session_state["hitl_comment"] = "Conservative in silico screening call reviewed; clinical human patch data indicates strong potency under exposure limits."
 
-        hitl_mode = st.selectbox(
+            hitl_mode = st.selectbox(
             "Select Expert Adjudication Action:",
             [
-                "Accept Automated Default (Category 1A/1B Sensitizer)",
-                "Expert Potency Override & Borderline Resolution Applied",
-                "Override to Non-Sensitizer (Insufficient Evidence)"
+            "Accept Automated Default (Category 1A/1B Sensitizer)",
+            "Expert Potency Override & Borderline Resolution Applied",
+            "Override to Non-Sensitizer (Insufficient Evidence)"
             ],
             key="hitl_selectbox",
             index=[
-                "Accept Automated Default (Category 1A/1B Sensitizer)",
-                "Expert Potency Override & Borderline Resolution Applied",
-                "Override to Non-Sensitizer (Insufficient Evidence)"
+            "Accept Automated Default (Category 1A/1B Sensitizer)",
+            "Expert Potency Override & Borderline Resolution Applied",
+            "Override to Non-Sensitizer (Insufficient Evidence)"
             ].index(st.session_state["hitl_mode"]) if st.session_state["hitl_mode"] in [
-                "Accept Automated Default (Category 1A/1B Sensitizer)",
-                "Expert Potency Override & Borderline Resolution Applied",
-                "Override to Non-Sensitizer (Insufficient Evidence)"
+            "Accept Automated Default (Category 1A/1B Sensitizer)",
+            "Expert Potency Override & Borderline Resolution Applied",
+            "Override to Non-Sensitizer (Insufficient Evidence)"
             ] else 0
-        )
+            )
 
-        custom_justification = st.text_area(
+            custom_justification = st.text_area(
             "💬 Expert Toxicologist Regulatory Justification & Comment Box:",
             value=st.session_state["hitl_comment"],
             key="hitl_comment_area"
-        )
+            )
 
-        st.session_state["hitl_mode"] = hitl_mode
-        st.session_state["hitl_comment"] = custom_justification
+            st.session_state["hitl_mode"] = hitl_mode
+            st.session_state["hitl_comment"] = custom_justification
 
-        # Assign live user comments directly to result object for UI display & PDF rendering
-        res["HITL_Status"] = "Expert Review & Adjudication Active"
-        res["HITL_Call"] = hitl_mode
-        res["HITL_Justification"] = custom_justification
+            # Assign live user comments directly to result object for UI display & PDF rendering
+            res["HITL_Status"] = "Expert Review & Adjudication Active"
+            res["HITL_Call"] = hitl_mode
+            res["HITL_Justification"] = custom_justification
 
-        st.markdown("##### 📌 Live Adjudication Feedback Display")
-        st.info(f"**Selected Action:** {hitl_mode}")
-        st.write(f"**Reflected Justification Comment:** {custom_justification}")
+            st.markdown("##### 📌 Live Adjudication Feedback Display")
+            st.info(f"**Selected Action:** {hitl_mode}")
+            st.write(f"**Reflected Justification Comment:** {custom_justification}")
 
-        st.markdown("---")
-        st.success("Analysis Complete! Digital Audit Seal verified successfully.")
+            st.markdown("---")
+            st.success("Analysis Complete! Digital Audit Seal verified successfully.")
 
-        col_d1, col_d2, col_d3, col_d4 = st.columns(4)
+            col_d1, col_d2, col_d3, col_d4 = st.columns(4)
 
-        with col_d1:
+            with col_d1:
             pdf_bytes = generate_pdf_report(res)
             st.download_button(
-                label="📄 Executive Dossier",
-                data=pdf_bytes,
-                file_name=f"Executive_AOP_Dossier_{res['Input']}.pdf",
-                mime="application/pdf",
-                type="primary",
-                use_container_width=True
+            label="📄 Executive Dossier",
+            data=pdf_bytes,
+            file_name=f"Executive_AOP_Dossier_{res['Input']}.pdf",
+            mime="application/pdf",
+            type="primary",
+            use_container_width=True
             )
             st.markdown("---")
             st.markdown("##### 🔬 3D Docking Preview")
             if st.button("Launch 3D Viewer", use_container_width=True):
-                st.session_state["show_3d_viewer"] = True
+            st.session_state["show_3d_viewer"] = True
             if st.session_state.get("show_3d_viewer", False):
-                render_3d_docking_viewer(res)
+            render_3d_docking_viewer(res)
 
-        with col_d2:
+            with col_d2:
             qprf_bytes = generate_qprf_report(res)
             st.download_button(
-                label="📑 OECD QPRF Dossier",
-                data=qprf_bytes,
-                file_name=f"OECD_QPRF_{res['Input']}.pdf",
-                mime="application/pdf",
-                use_container_width=True
+            label="📑 OECD QPRF Dossier",
+            data=qprf_bytes,
+            file_name=f"OECD_QPRF_{res['Input']}.pdf",
+            mime="application/pdf",
+            use_container_width=True
             )
 
-        with col_d3:
+            with col_d3:
             qmrf_bytes = generate_qmrf_report(res)
             st.download_button(
-                label="📊 OECD QMRF Report",
-                data=qmrf_bytes,
-                file_name=f"OECD_QMRF_{res['Input']}.pdf",
-                mime="application/pdf",
-                use_container_width=True
+            label="📊 OECD QMRF Report",
+            data=qmrf_bytes,
+            file_name=f"OECD_QMRF_{res['Input']}.pdf",
+            mime="application/pdf",
+            use_container_width=True
             )
 
-        with col_d4:
+            with col_d4:
             iuclid_bytes = generate_iuclid_report(res)
             st.download_button(
-                label="📦 IUCLID 6 Dossier",
-                data=iuclid_bytes,
-                file_name=f"IUCLID6_Dossier_{res['Input']}.xml",
-                mime="application/xml",
-                use_container_width=True
+            label="📦 IUCLID 6 Dossier",
+            data=iuclid_bytes,
+            file_name=f"IUCLID6_Dossier_{res['Input']}.xml",
+            mime="application/xml",
+            use_container_width=True
             )
 
