@@ -733,7 +733,7 @@ elif mode == "🧪 Multi-Agent Skin Sensitization Predictor & Executive Dossier"
                 st.success("Expert adjudication successfully locked and recorded into the audit trail!")
 
         st.markdown("---")
-                st.markdown("---")
+        st.markdown("---")
         st.markdown("### 🔬 3D Molecular Structure & AutoVina Cys151 Docking Viewer")
         dock_col1, dock_col2 = st.columns([1, 1])
         with dock_col1:
