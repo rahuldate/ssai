@@ -454,23 +454,23 @@ def generate_qmrf_report(res: Dict[str, Any]) -> bytes:
     pdf.set_font("Helvetica", "B", 10)
     pdf.cell(0, 6, "3. READ-ACROSS ANALOGUE SEARCH MATRIX (OECD PRINCIPLE 6)", ln=True, fill=True)
     pdf.set_font("Helvetica", "", 8)
-    for an in res.get("Analogues", []):
-        pdf.cell(0, 4, f"Analogue: {an['name']} (CAS: {an['cas']}) | Tanimoto Sim: {an['similarity']}% | LLNA: {an['llna']}", ln=True)
-    pdf.ln(2)
+        for an in res.get("Analogues", []):
+            pdf.cell(0, 4, f"Analogue: {an['name']} (CAS: {an['cas']}) | Tanimoto Sim: {an['similarity']}% | LLNA: {an['llna']}", ln=True)
+            pdf.ln(2)
 
-    pdf.set_font("Helvetica", "B", 10)
-    pdf.cell(0, 6, "4. APPLICABILITY DOMAIN & EXPERT HITL ASSESSMENT", ln=True, fill=True)
-    pdf.set_font("Helvetica", "", 9)
-    pdf.cell(0, 5, f"Applicability Domain: {res['Applicability_Domain']} (D_M: {res['Distance_Index']})", ln=True)
-    pdf.ln(1)
-    pdf.multi_cell(w=190, h=4, txt=f"Expert HITL Rationale: {res['HITL_Justification']}")
+            pdf.set_font("Helvetica", "B", 10)
+            pdf.cell(0, 6, "4. APPLICABILITY DOMAIN & EXPERT HITL ASSESSMENT", ln=True, fill=True)
+            pdf.set_font("Helvetica", "", 9)
+            pdf.cell(0, 5, f"Applicability Domain: {res['Applicability_Domain']} (D_M: {res['Distance_Index']})", ln=True)
+            pdf.ln(1)
+            pdf.multi_cell(w=190, h=4, txt=f"Expert HITL Rationale: {res['HITL_Justification']}")
 
-    with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp:
-        pdf.output(tmp.name)
-        with open(tmp.name, "rb") as f:
+            with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp:
+            pdf.output(tmp.name)
+            with open(tmp.name, "rb") as f:
             pdf_bytes = f.read()
-    os.unlink(tmp.name)
-    return pdf_bytes
+            os.unlink(tmp.name)
+            return pdf_bytes
 
 def generate_iuclid_xml(res: Dict[str, Any]) -> str:
     xml_content = f"""<?xml version="1.0" encoding="UTF-8"?>
@@ -570,43 +570,43 @@ def generate_pdf_report(res: Dict[str, Any]) -> bytes:
     pdf.set_font("Helvetica", "B", 9)
     pdf.cell(0, 5, "Top Read-Across Analogues (Tanimoto Similarity):", ln=True)
     pdf.set_font("Helvetica", "", 8)
-    for an in res.get("Analogues", []):
-        pdf.cell(0, 4, f"- {an['name']} (CAS: {an['cas']}): {an['similarity']}% similarity | Call: {an['call']} (LLNA: {an['llna']})", ln=True)
-    pdf.ln(3)
+        for an in res.get("Analogues", []):
+            pdf.cell(0, 4, f"- {an['name']} (CAS: {an['cas']}): {an['similarity']}% similarity | Call: {an['call']} (LLNA: {an['llna']})", ln=True)
+            pdf.ln(3)
 
-    pdf.set_font("Helvetica", "B", 10)
-    pdf.cell(0, 7, "OPENMM MD DYNAMICS & POTENCY", ln=True, fill=True)
-    pdf.set_font("Helvetica", "", 9)
-    pdf.cell(0, 5, f"Sampling: 10.0 ns (OpenMM/CHARMM36m) | Backbone RMSD/Cys-RMSF: {res['RMSD']} A / {res['RMSF']} A", ln=True)
-    pdf.cell(0, 5, f"SARA-ICE Human ED01 PoD: {res['SARA_ICE']} ug/cm2 | Predicted LLNA EC3: {res['LLNA']}%", ln=True)
-    pdf.cell(0, 5, f"ChemBERTa Transformer: {res['ChemBERTa']} | Human HRIPT: {'Positive' if res['Consensus_Score'] > 0.5 else 'Negative'}", ln=True)
-    pdf.ln(3)
+            pdf.set_font("Helvetica", "B", 10)
+            pdf.cell(0, 7, "OPENMM MD DYNAMICS & POTENCY", ln=True, fill=True)
+            pdf.set_font("Helvetica", "", 9)
+            pdf.cell(0, 5, f"Sampling: 10.0 ns (OpenMM/CHARMM36m) | Backbone RMSD/Cys-RMSF: {res['RMSD']} A / {res['RMSF']} A", ln=True)
+            pdf.cell(0, 5, f"SARA-ICE Human ED01 PoD: {res['SARA_ICE']} ug/cm2 | Predicted LLNA EC3: {res['LLNA']}%", ln=True)
+            pdf.cell(0, 5, f"ChemBERTa Transformer: {res['ChemBERTa']} | Human HRIPT: {'Positive' if res['Consensus_Score'] > 0.5 else 'Negative'}", ln=True)
+            pdf.ln(3)
 
-    pdf.set_font("Helvetica", "B", 10)
-    pdf.cell(0, 7, "AUTONOMOUS MULTI-AGENT COUNCIL SYNTHESIS & HITL", ln=True, fill=True)
-    pdf.set_font("Helvetica", "", 8)
-    pdf.ln(1)
-    pdf.multi_cell(w=190, h=4, txt=f"Chemist Agent Mechanism: {res['Mechanisms']}")
-    pdf.ln(1)
-    pdf.multi_cell(w=190, h=4, txt=f"Toxicologist AOP Synthesis: {res['Toxicologist_Synthesis']}")
-    pdf.ln(1)
-    pdf.multi_cell(w=190, h=4, txt=f"Weight of Evidence Justification: {res['WoE']}")
-    pdf.ln(1)
-    pdf.multi_cell(w=190, h=4, txt=f"Expert HITL Status: {res['HITL_Status']} - {res['HITL_Justification']}")
-    pdf.ln(3)
+            pdf.set_font("Helvetica", "B", 10)
+            pdf.cell(0, 7, "AUTONOMOUS MULTI-AGENT COUNCIL SYNTHESIS & HITL", ln=True, fill=True)
+            pdf.set_font("Helvetica", "", 8)
+            pdf.ln(1)
+            pdf.multi_cell(w=190, h=4, txt=f"Chemist Agent Mechanism: {res['Mechanisms']}")
+            pdf.ln(1)
+            pdf.multi_cell(w=190, h=4, txt=f"Toxicologist AOP Synthesis: {res['Toxicologist_Synthesis']}")
+            pdf.ln(1)
+            pdf.multi_cell(w=190, h=4, txt=f"Weight of Evidence Justification: {res['WoE']}")
+            pdf.ln(1)
+            pdf.multi_cell(w=190, h=4, txt=f"Expert HITL Status: {res['HITL_Status']} - {res['HITL_Justification']}")
+            pdf.ln(3)
 
-    pdf.set_font("Helvetica", "B", 10)
-    pdf.cell(0, 7, "REGULATORY AUDIT TRAIL & CITATIONS", ln=True, fill=True)
-    pdf.set_font("Helvetica", "", 8)
-    pdf.cell(0, 5, f"Digital SHA-256 Audit Seal: {res['Audit_ID']} | Determination: APPROVED_AUTONOMOUS_SIGNOFF", ln=True)
-    pdf.multi_cell(w=190, h=4, txt="References: 1. OECD Guideline 497 (2021); 2. OpenMM Molecular Dynamics Suite; 3. SARA-ICE Human PoD (NIEHS/NICEATM).")
+            pdf.set_font("Helvetica", "B", 10)
+            pdf.cell(0, 7, "REGULATORY AUDIT TRAIL & CITATIONS", ln=True, fill=True)
+            pdf.set_font("Helvetica", "", 8)
+            pdf.cell(0, 5, f"Digital SHA-256 Audit Seal: {res['Audit_ID']} | Determination: APPROVED_AUTONOMOUS_SIGNOFF", ln=True)
+            pdf.multi_cell(w=190, h=4, txt="References: 1. OECD Guideline 497 (2021); 2. OpenMM Molecular Dynamics Suite; 3. SARA-ICE Human PoD (NIEHS/NICEATM).")
 
-    with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp:
-        pdf.output(tmp.name)
-        with open(tmp.name, "rb") as f:
+            with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp:
+            pdf.output(tmp.name)
+            with open(tmp.name, "rb") as f:
             pdf_bytes = f.read()
-    os.unlink(tmp.name)
-    return pdf_bytes
+            os.unlink(tmp.name)
+            return pdf_bytes
 
 def process_single_chemical(identifier: str) -> Dict[str, Any]:
     resolved = UniversalChemicalResolver.resolve_input(identifier)
