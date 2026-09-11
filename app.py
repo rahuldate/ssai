@@ -363,65 +363,77 @@ class QAAgent:
 # =====================================================================
 def generate_qprf_report(res: Dict[str, Any]) -> bytes:
     pdf = FPDF(orientation='P', unit='mm', format='A4')
+    pdf.set_auto_page_break(auto=True, margin=15)
     pdf.set_margins(left=10, top=10, right=10)
     pdf.add_page()
 
-    pdf.set_font("Helvetica", "B", 13)
-    pdf.cell(0, 7, "OECD QUANTITATIVE PREDICTION REPORTING FORMAT (QPRF)", ln=True, align="C")
-    pdf.set_font("Helvetica", "I", 9)
-    st.markdown("---")
-    st.subheader("📊 Bayesian Integrated Testing Strategy (ITS) & Posterior Probability")
+    pdf.set_font('Helvetica', 'B', 13)
+    pdf.cell(0, 7, 'OECD QUANTITATIVE PREDICTION REPORTING FORMAT (QPRF)', ln=True, align='C')
+    pdf.set_font('Helvetica', 'I', 9)
+    st.markdown('---')
+    st.subheader('📊 Bayesian Integrated Testing Strategy (ITS) & Posterior Probability')
     b_col1, b_col2, b_col3, b_col4 = st.columns(4)
     with b_col1:
-        st.metric("Prior Probability", "40.0%", help="Baseline industrial chemical sensitization prevalence")
+        st.metric('Prior Probability', '40.0%', help='Baseline industrial chemical sensitization prevalence')
     with b_col2:
-        st.metric("Integrated Likelihood Ratio", "12.5x", help="Combined Bayes factor from DPRA, KeratinoSens, h-CLAT & Vina docking")
+        st.metric('Integrated Likelihood Ratio', '12.5x', help='Combined Bayes factor from DPRA, KeratinoSens, h-CLAT & Vina docking')
     with b_col3:
-        st.metric("Posterior Probability", "94.2%", help="Updated probability of skin sensitization under OECD 497 ITS framework")
+        st.metric('Posterior Probability', '94.2%', help='Updated probability of skin sensitization under OECD 497 ITS framework')
     with b_col4:
-        st.metric("Credible Interval", "91.2% - 97.8%", help="95% Highest Density Posterior Interval (HDPI)")
-    st.success("**Bayesian Decision Conclusion:** **Category 1A (Strong Sensitizer)** — Posterior confidence exceeds the regulatory 85% threshold for definitive hazard classification.")
-    st.markdown("---")
-    pdf.cell(0, 5, "Autonomous Multi-Agent Dossier | OECD GL 497 & ChemBERTa + Keap1 Docking", ln=True, align="C")
+        st.metric('Credible Interval', '91.2% - 97.8%', help='95% Highest Density Posterior Interval (HDPI)')
+    st.success('**Bayesian Decision Conclusion:** **Category 1A (Strong Sensitizer)** — Posterior confidence exceeds the regulatory 85% threshold for definitive hazard classification.')
+    st.markdown('---')
+    pdf.cell(0, 5, 'Autonomous Multi-Agent Dossier | OECD GL 497 & ChemBERTa + Keap1 Docking', ln=True, align='C')
     pdf.ln(3)
 
     pdf.set_fill_color(230, 230, 230)
-    pdf.set_font("Helvetica", "B", 10)
-    pdf.cell(0, 6, "1. SUBSTANCE IDENTIFICATION & DESCRIPTORS", ln=True, fill=True)
-    pdf.set_font("Helvetica", "", 9)
+    pdf.set_font('Helvetica', 'B', 10)
+    pdf.cell(0, 6, '1. SUBSTANCE IDENTIFICATION & DESCRIPTORS', ln=True, fill=True)
+    pdf.set_font('Helvetica', '', 9)
     pdf.cell(0, 5, f"Chemical Name: {res['Resolved_Name']} | CAS RN: {res['Input']}", ln=True)
     pdf.cell(0, 5, f"SMILES: {res['SMILES']} | MW/LogP: {res['MW']} g/mol | {res['LogP']}", ln=True)
     pdf.cell(0, 5, f"Keap1 3D Docking AG: {res['AG_MMPBSA']} kcal/mol (Cys151 Thiolate Attack)", ln=True)
     pdf.cell(0, 5, f"Applicability Domain: {res['Applicability_Domain']} (Distance Index D_M: {res['Distance_Index']})", ln=True)
     pdf.ln(2)
 
-    pdf.set_font("Helvetica", "B", 10)
-    pdf.cell(0, 6, "2. DEFINED APPROACHES & NAMS PREDICTIONS", ln=True, fill=True)
-    pdf.set_font("Helvetica", "", 9)
+    pdf.set_font('Helvetica', 'B', 10)
+    pdf.cell(0, 6, '2. DEFINED APPROACHES & NAMS PREDICTIONS', ln=True, fill=True)
+    pdf.set_font('Helvetica', '', 9)
     pdf.cell(0, 5, f"2-out-of-3 DA / ITS Matrix Score: {res['OECD_497_Call']} (Confidence: {res['Confidence']*100}%)", ln=True)
     pdf.cell(0, 5, f"KE1 DPRA: {res['KE1_DPRA']:.2f} | KE2 KeratinoSens: {res['KE2_KeratinoSens']:.2f} | KE3 h-CLAT: {res['KE3_hCLAT']:.2f}", ln=True)
     pdf.cell(0, 5, f"ChemBERTa Score: {res['ChemBERTa']} | Deep GNN Score: {res['GNN_Score']} (p-val: {res['GNN_Pval']})", ln=True)
     pdf.ln(2)
 
-    pdf.set_font("Helvetica", "B", 10)
-    pdf.cell(0, 6, "3. SARA-ICE HUMAN POD, POTENCY & BIOAVAILABILITY", ln=True, fill=True)
-    pdf.set_font("Helvetica", "", 9)
+    pdf.set_font('Helvetica', 'B', 10)
+    pdf.cell(0, 6, '3. SARA-ICE HUMAN POD, POTENCY & BIOAVAILABILITY', ln=True, fill=True)
+    pdf.set_font('Helvetica', '', 9)
     pdf.cell(0, 5, f"SARA Human ED01 PoD: {res['SARA_ICE']} ug/cm2 | Predicted LLNA EC3: {res['LLNA']}%", ln=True)
     pdf.cell(0, 5, f"Skin Sensitization Potency Call: {res['OECD_497_Call']}", ln=True)
+    pdf.ln(1)
+    pdf.multi_cell(w=190, h=4, txt=f"Toxicological Synthesis: {res['Toxicologist_Synthesis']}")
     pdf.ln(2)
 
-    pdf.set_font("Helvetica", "B", 10)
-    pdf.cell(0, 6, "4. REGULATORY QUALITY AUDIT & SIGN-OFF", ln=True, fill=True)
-    pdf.set_font("Helvetica", "", 8)
-    pdf.cell(0, 5, f"Audit Signature Hash: {res['Audit_ID']} | QA Determination: APPROVED_AUTONOMOUS_SIGNOFF", ln=True)
+    pdf.set_font('Helvetica', 'B', 10)
+    pdf.cell(0, 6, '4. READ-ACROSS ANALOGUE SEARCH MATRIX (OECD PRINCIPLE 6)', ln=True, fill=True)
+    pdf.set_font('Helvetica', '', 8)
+    for an in res.get('Analogues', []):
+        pdf.cell(0, 4, f"Analogue: {an['name']} (CAS: {an['cas']}) | Tanimoto Sim: {an['similarity']}% | LLNA: {an['llna']}", ln=True)
+    pdf.ln(2)
+
+    pdf.set_font('Helvetica', 'B', 10)
+    pdf.cell(0, 6, '5. APPLICABILITY DOMAIN & EXPERT HITL ASSESSMENT', ln=True, fill=True)
+    pdf.set_font('Helvetica', '', 9)
+    pdf.cell(0, 5, f"Applicability Domain: {res['Applicability_Domain']} (D_M: {res['Distance_Index']})", ln=True)
+    pdf.ln(1)
+    pdf.multi_cell(w=190, h=4, txt=f"Expert HITL Rationale: {res['HITL_Justification']}")
+    pdf.ln(2)
 
     with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp:
         pdf.output(tmp.name)
-    with open(tmp.name, "rb") as f:
+    with open(tmp.name, 'rb') as f:
         pdf_bytes = f.read()
-        os.unlink(tmp.name)
-        return pdf_bytes
-
+    os.unlink(tmp.name)
+    return pdf_bytes
 def generate_qmrf_report(res: Dict[str, Any]) -> bytes:
         pdf = FPDF(orientation='P', unit='mm', format='A4')
         pdf.set_margins(left=10, top=10, right=10)
@@ -859,6 +871,7 @@ def generate_pdf_report(res: Dict[str, Any]) -> bytes:
             mime="application/xml",
             use_container_width=True
             )
+
 
 
 
