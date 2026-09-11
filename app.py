@@ -472,42 +472,42 @@ def generate_qmrf_report(res: Dict[str, Any]) -> bytes:
             os.unlink(tmp.name)
             return pdf_bytes
 
-def generate_iuclid_xml(res: Dict[str, Any]) -> str:
-    xml_content = f"""<?xml version="1.0" encoding="UTF-8"?>
-<iuclid6:Dossier xmlns:iuclid6="http://iuclid6.echa.europa.eu/schema" version="6.0">
-    <Header>
-        <SubmissionType>REACH_REGISTRATION</SubmissionType>
-        <LegalEntity>SensAOP_Autonomous_Assessment_Suite</LegalEntity>
-        <CreationTimestamp>{time.strftime('%Y-%m-%dT%H:%M:%SZ')}</CreationTimestamp>
-    </Header>
-    <Substance>
-        <ChemicalIdentity>
+            def generate_iuclid_xml(res: Dict[str, Any]) -> str:
+            xml_content = f"""<?xml version="1.0" encoding="UTF-8"?>
+            <iuclid6:Dossier xmlns:iuclid6="http://iuclid6.echa.europa.eu/schema" version="6.0">
+            <Header>
+            <SubmissionType>REACH_REGISTRATION</SubmissionType>
+            <LegalEntity>SensAOP_Autonomous_Assessment_Suite</LegalEntity>
+            <CreationTimestamp>{time.strftime('%Y-%m-%dT%H:%M:%SZ')}</CreationTimestamp>
+            </Header>
+            <Substance>
+            <ChemicalIdentity>
             <SubstanceName>{res['Resolved_Name']}</SubstanceName>
             <CASNumber>{res['Input']}</CASNumber>
             <SMILES>{res['SMILES']}</SMILES>
             <MolecularWeight>{res['MW']}</MolecularWeight>
             <LogP>{res['LogP']}</LogP>
-        </ChemicalIdentity>
-        <EndpointStudyRecord section="7.4.1" endpoint="SkinSensitisation">
+            </ChemicalIdentity>
+            <EndpointStudyRecord section="7.4.1" endpoint="SkinSensitisation">
             <AdministrativeData>
-                <StudyResultType>experimental result / in silico defined approach</StudyResultType>
-                <Reliability>1 (reliable without restriction)</Reliability>
-                <Guideline>OECD Guideline 497 (Defined Approaches for Skin Sensitisation)</Guideline>
+            <StudyResultType>experimental result / in silico defined approach</StudyResultType>
+            <Reliability>1 (reliable without restriction)</Reliability>
+            <Guideline>OECD Guideline 497 (Defined Approaches for Skin Sensitisation)</Guideline>
             </AdministrativeData>
             <Methodology>
-                <Approach>Integrated Testing Strategy (ITS-2) / 2-out-of-3 Defined Approach</Approach>
-                <KeyEventsEvaluated>
-                    <KE1_MolecularInitiatingEvent method="DPRA/MM-PBSA">{res['OECD_497_Call']}</KE1_MolecularInitiatingEvent>
-                    <KE2_KeratinocyteActivation method="KeratinoSens">{res['OECD_497_Call']}</KE2_KeratinocyteActivation>
-                    <KE3_DendriticCellActivation method="h-CLAT">{res['OECD_497_Call']}</KE3_DendriticCellActivation>
-                    <ComputationalTier model="ChemBERTa_MPNN">{res['ChemBERTa']}</ComputationalTier>
-                </KeyEventsEvaluated>
+            <Approach>Integrated Testing Strategy (ITS-2) / 2-out-of-3 Defined Approach</Approach>
+            <KeyEventsEvaluated>
+            <KE1_MolecularInitiatingEvent method="DPRA/MM-PBSA">{res['OECD_497_Call']}</KE1_MolecularInitiatingEvent>
+            <KE2_KeratinocyteActivation method="KeratinoSens">{res['OECD_497_Call']}</KE2_KeratinocyteActivation>
+            <KE3_DendriticCellActivation method="h-CLAT">{res['OECD_497_Call']}</KE3_DendriticCellActivation>
+            <ComputationalTier model="ChemBERTa_MPNN">{res['ChemBERTa']}</ComputationalTier>
+            </KeyEventsEvaluated>
             </Methodology>
             <ResultsAndDiscussion>
-                <HazardClassification>{res['OECD_497_Call']}</HazardClassification>
-                <GHS_PotencySubCategory>{res['HITL_Call']}</GHS_PotencySubCategory>
-                <StratumCorneumFlux_Jmax unit="ug/cm2/h">N/A</StratumCorneumFlux_Jmax>
-                <BioactivationAlert>Direct/Pro-hapten</BioactivationAlert>
+            <HazardClassification>{res['OECD_497_Call']}</HazardClassification>
+            <GHS_PotencySubCategory>{res['HITL_Call']}</GHS_PotencySubCategory>
+            <StratumCorneumFlux_Jmax unit="ug/cm2/h">N/A</StratumCorneumFlux_Jmax>
+            <BioactivationAlert>Direct/Pro-hapten</BioactivationAlert>
             </ResultsAndDiscussion>
             <ExecutiveSummary>
     st.markdown("---")
@@ -608,108 +608,108 @@ def generate_pdf_report(res: Dict[str, Any]) -> bytes:
             os.unlink(tmp.name)
             return pdf_bytes
 
-def process_single_chemical(identifier: str) -> Dict[str, Any]:
-    resolved = UniversalChemicalResolver.resolve_input(identifier)
-    if not resolved:
-        return {"Status": "FAILED"}
+            def process_single_chemical(identifier: str) -> Dict[str, Any]:
+            resolved = UniversalChemicalResolver.resolve_input(identifier)
+            if not resolved:
+            return {"Status": "FAILED"}
 
-    chem = ChemicalProfile(
-        query_term=identifier, resolved_name=resolved["name"], cas=identifier,
-        smiles=resolved["smiles"], mol=Chem.MolFromSmiles(resolved["smiles"]), is_metal=resolved.get("is_metal", False)
-    )
-    chem.compute_descriptors()
+            chem = ChemicalProfile(
+            query_term=identifier, resolved_name=resolved["name"], cas=identifier,
+            smiles=resolved["smiles"], mol=Chem.MolFromSmiles(resolved["smiles"]), is_metal=resolved.get("is_metal", False)
+            )
+            chem.compute_descriptors()
 
-    b1 = ChemistAgent().evaluate(chem)
-    b2 = ToxicologistAgent().evaluate(chem, b1)
-    b3 = StatisticianAgent().evaluate(chem, b2)
+            b1 = ChemistAgent().evaluate(chem)
+            b2 = ToxicologistAgent().evaluate(chem, b1)
+            b3 = StatisticianAgent().evaluate(chem, b2)
 
-    is_sens = b3["call"] == "SENSITIZER"
-    b6 = BiophysicsAgent().evaluate(is_sens)
-    b7 = DeepLearningAgent().evaluate(is_sens)
-    b8 = HITLAgent().evaluate(b3)
-    analogues = AnalogueAgent().evaluate(chem)
-    adme = ADMEAgent().evaluate(chem)
+            is_sens = b3["call"] == "SENSITIZER"
+            b6 = BiophysicsAgent().evaluate(is_sens)
+            b7 = DeepLearningAgent().evaluate(is_sens)
+            b8 = HITLAgent().evaluate(b3)
+            analogues = AnalogueAgent().evaluate(chem)
+            adme = ADMEAgent().evaluate(chem)
 
-    return {
-        "Status": "SUCCESS",
-        "Input": identifier,
-        "Resolved_Name": chem.resolved_name,
-        "SMILES": chem.smiles,
-        "MW": chem.mw,
-        "LogP": chem.log_p,
-        "TPSA": chem.tpsa,
-        "Mechanisms": b1["mechanisms"][0],
-        "Toxicologist_Synthesis": b2["synthesis"],
-        "WoE": b3["weight_of_evidence"],
-        "KE1_DPRA": b2["KE1_DPRA"],
-        "KE2_KeratinoSens": b2["KE2_KeratinoSens"],
-        "KE3_hCLAT": b2["KE3_hCLAT"],
-        "Consensus_Score": b3["score"],
-        "OECD_497_Call": b3["call"],
-        "Applicability_Domain": b3["ad"],
-        "Distance_Index": b3["distance_index"],
-        "AG_MMPBSA": b6["ag_mmpbsa"],
-        "RMSD": b6["rmsd"],
-        "RMSF": b6["rmsf"],
-        "GNN_Score": b7["gnn_score"],
-        "GNN_Pval": b7["pval"],
-        "ChemBERTa": b7["chemberta_score"],
-        "SARA_ICE": b7["sara_ice"],
-        "LLNA": b7["llna"],
-        "HITL_Status": b8["status"],
-        "HITL_Call": b8["adjudicated_call"],
-        "HITL_Justification": b8["justification"],
-        "Analogues": analogues,
-        "ADME": adme,
-        "Confidence": 0.95 if is_sens else 0.88,
-        "Audit_ID": QAAgent.audit(chem),
-    }
+            return {
+            "Status": "SUCCESS",
+            "Input": identifier,
+            "Resolved_Name": chem.resolved_name,
+            "SMILES": chem.smiles,
+            "MW": chem.mw,
+            "LogP": chem.log_p,
+            "TPSA": chem.tpsa,
+            "Mechanisms": b1["mechanisms"][0],
+            "Toxicologist_Synthesis": b2["synthesis"],
+            "WoE": b3["weight_of_evidence"],
+            "KE1_DPRA": b2["KE1_DPRA"],
+            "KE2_KeratinoSens": b2["KE2_KeratinoSens"],
+            "KE3_hCLAT": b2["KE3_hCLAT"],
+            "Consensus_Score": b3["score"],
+            "OECD_497_Call": b3["call"],
+            "Applicability_Domain": b3["ad"],
+            "Distance_Index": b3["distance_index"],
+            "AG_MMPBSA": b6["ag_mmpbsa"],
+            "RMSD": b6["rmsd"],
+            "RMSF": b6["rmsf"],
+            "GNN_Score": b7["gnn_score"],
+            "GNN_Pval": b7["pval"],
+            "ChemBERTa": b7["chemberta_score"],
+            "SARA_ICE": b7["sara_ice"],
+            "LLNA": b7["llna"],
+            "HITL_Status": b8["status"],
+            "HITL_Call": b8["adjudicated_call"],
+            "HITL_Justification": b8["justification"],
+            "Analogues": analogues,
+            "ADME": adme,
+            "Confidence": 0.95 if is_sens else 0.88,
+            "Audit_ID": QAAgent.audit(chem),
+            }
 
-with app_tab2:
-    render_batch_screening_tab()
+            with app_tab2:
+            render_batch_screening_tab()
 
-with app_tab1:
-    st.markdown("### 🔍 Single Compound Lookup & Analysis")
+            with app_tab1:
+            st.markdown("### 🔍 Single Compound Lookup & Analysis")
 
-with st.form(key="prediction_form"):
-    single_input = st.text_input(
-        "Enter CAS RN, Chemical Name, or SMILES",
-        value=st.session_state.get("last_input", "106-50-3")
-    )
-    submit_clicked = st.form_submit_button("Run Multi-Agent Prediction", type="primary")
+            with st.form(key="prediction_form"):
+            single_input = st.text_input(
+            "Enter CAS RN, Chemical Name, or SMILES",
+            value=st.session_state.get("last_input", "106-50-3")
+            )
+            submit_clicked = st.form_submit_button("Run Multi-Agent Prediction", type="primary")
 
-if submit_clicked or "analysis_result" not in st.session_state:
-    query_val = single_input if submit_clicked else st.session_state.get("last_input", "106-50-3")
-    with st.spinner("Executing Multi-Agent Council & OpenMM Simulations..."):
-        res = process_single_chemical(query_val)
-        if res["Status"] == "FAILED":
+            if submit_clicked or "analysis_result" not in st.session_state:
+            query_val = single_input if submit_clicked else st.session_state.get("last_input", "106-50-3")
+            with st.spinner("Executing Multi-Agent Council & OpenMM Simulations..."):
+            res = process_single_chemical(query_val)
+            if res["Status"] == "FAILED":
             st.error("Failed to resolve chemical structure.")
-        else:
+            else:
             st.session_state["analysis_result"] = res
             st.session_state["last_input"] = query_val
 
-if "analysis_result" in st.session_state:
-    res = st.session_state["analysis_result"]
-    if res["Status"] == "SUCCESS":
-        m1, m2, m3, m4 = st.columns([1.2, 1.8, 1, 1])
-        m1.metric("Consensus Score", res["Consensus_Score"])
+            if "analysis_result" in st.session_state:
+            res = st.session_state["analysis_result"]
+            if res["Status"] == "SUCCESS":
+            m1, m2, m3, m4 = st.columns([1.2, 1.8, 1, 1])
+            m1.metric("Consensus Score", res["Consensus_Score"])
 
-        call_color = "#15803d" if res['OECD_497_Call'] == "NON_SENSITIZER" else "#b91c1c"
-        m2.markdown(
+            call_color = "#15803d" if res['OECD_497_Call'] == "NON_SENSITIZER" else "#b91c1c"
+            m2.markdown(
             f"""
             <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; padding: 10px 14px; border-radius: 6px;">
-                <span style="font-size: 12px; color: #64748b; font-weight: 600; display: block; margin-bottom: 2px;">OECD 497 CALL</span>
-                <span style="font-size: 15px; color: {call_color}; font-weight: 700; word-break: break-word;">{res['OECD_497_Call']}</span>
+            <span style="font-size: 12px; color: #64748b; font-weight: 600; display: block; margin-bottom: 2px;">OECD 497 CALL</span>
+            <span style="font-size: 15px; color: {call_color}; font-weight: 700; word-break: break-word;">{res['OECD_497_Call']}</span>
             </div>
             """,
             unsafe_allow_html=True
-        )
-        m3.metric("MW (g/mol)", res["MW"])
-        m4.metric("Keap1 AG (kcal/mol)", res["AG_MMPBSA"])
+            )
+            m3.metric("MW (g/mol)", res["MW"])
+            m4.metric("Keap1 AG (kcal/mol)", res["AG_MMPBSA"])
 
 
 
-        col_res1, col_res2 = st.columns(2)
+            col_res1, col_res2 = st.columns(2)
         with col_res1:
 
 
