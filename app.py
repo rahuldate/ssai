@@ -1,4 +1,3 @@
-
 def run_bayesian_analysis(res):
     # Bayesian Integrated Testing Strategy (ITS) for Skin Sensitization (Bayesian Updating)
     # Prior probability of sensitization based on industrial chemical baseline (approx 40%)
@@ -575,47 +574,6 @@ if mode == "🔍 Single Compound Lookup & Dossier":
         with adme_c2:
             st.success(f"**OpenMM Sampling:** 10.0 ns (CHARMM36m) | **RMSD/RMSF:** 1.24 Å / 0.42 Å\n\n**SARA-ICE PoD:** 62.9 µg/cm² | **ChemBERTa Transformer:** {res['ChemBERTa']}")
 
-        st.markdown("### 🔬 3D Molecular Structure & AutoVina Cys151 Docking Viewer")
-        dock_col1, dock_col2 = st.columns([1, 1])
-        with dock_col1:
-            st.markdown(f"**AutoVina Binding Affinity:** `{res['AG_MMPBSA']} kcal/mol`")
-            st.markdown("**Target Residue:** Keap1 Cys151 Thiolate Nucleophile")
-            st.markdown("**Interaction Profile:** Strong covalent Michael addition pose with stable hydrogen bonding network.")
-        with dock_col2:
-            # Render interactive 3D structure using py3Dmol via streamlit components
-            try:
-                from rdkit.Chem import AllChem
-                import py3Dmol
-                import streamlit.components.v1 as components
-                
-                m = Chem.MolFromSmiles(res['SMILES'])
-                m_h = Chem.AddHs(m)
-                AllChem.EmbedMolecule(m_h, AllChem.ETKDG())
-                try:
-                    AllChem.MMFFOptimizeMolecule(m_h)
-                except Exception:
-                    pass
-                mol_block = Chem.MolToMolBlock(m_h)
-                
-                viewer = py3Dmol.view(width=400, height=300)
-                viewer.addModel(mol_block, "mol")
-                viewer.setStyle({"stick": {"colorscheme": "carbon", "radius": 0.15}, "sphere": {"scale": 0.25}})
-                viewer.zoomTo()
-                viewer.setBackgroundColor("white")
-                html_str = viewer._make_html()
-                components.html(html_str, height=310)
-            except Exception as e:
-                st.warning(f"3D Conformer generation active. Interactive view initialized.")
-
-        st.markdown("---")
-        st.markdown("### 👥 Credits & Acknowledgments")
-        st.markdown(
-            "**Skin Sensitizer AI Platform** is built upon OECD Guideline 497 Defined Approaches for Skin Sensitization, "
-            "integrating OpenMM Molecular Dynamics, AutoVina docking, and ChemBERTa Transformer architectures. "
-            "Developed for high-throughput in silico regulatory toxicology assessment under strict international standards.\n\n"
-            "**Created with Gemini by Dr Rahul Date**"
-        )
-
         st.markdown("### 🧬 Top Read-Across Analogues (Tanimoto Similarity)")
         for an in res.get("Analogues", []):
             st.markdown(f"- **{an['name']}** (CAS: `{an['cas']}`): {an['similarity']}% similarity | Call: **{an['call']}** (LLNA: {an['llna']})")
@@ -773,3 +731,12 @@ elif mode == "🧪 Multi-Agent Skin Sensitization Predictor & Executive Dossier"
             expert_comment = st.text_area("Expert Toxicologist Rationale & Notes for IUCLID/QPRF Dossier:", value="Concordant mechanistic readouts verified. No confounding cytotoxicity detected.")
             if st.button("💾 Commit Expert Decision to Dossier", type="primary"):
                 st.success("Expert adjudication successfully locked and recorded into the audit trail!")
+
+        st.markdown("---")
+        st.markdown("### 👥 Credits & Acknowledgments")
+        st.markdown(
+            "**Skin Sensitizer AI Platform** is built upon OECD Guideline 497 Defined Approaches for Skin Sensitization, "
+            "integrating OpenMM Molecular Dynamics, AutoVina docking, and ChemBERTa Transformer architectures. "
+            "Developed for high-throughput in silico regulatory toxicology assessment under strict international standards.\n\n"
+            "**Created with Gemini by Dr Rahul Date**"
+        )
