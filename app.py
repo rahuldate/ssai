@@ -473,60 +473,60 @@ def generate_qmrf_report(res: Dict[str, Any]) -> bytes:
             return pdf_bytes
 
 def generate_iuclid_xml(res: Dict[str, Any]) -> str:
-        xml_content = f"""<?xml version="1.0" encoding="UTF-8"?>
-        <iuclid6:Dossier xmlns:iuclid6="http://iuclid6.echa.europa.eu/schema" version="6.0">
-        <Header>
-        <SubmissionType>REACH_REGISTRATION</SubmissionType>
-        <LegalEntity>SensAOP_Autonomous_Assessment_Suite</LegalEntity>
-            <CreationTimestamp>{time.strftime('%Y-%m-%dT%H:%M:%SZ')}</CreationTimestamp>
-            </Header>
-            <Substance>
-            <ChemicalIdentity>
-            <SubstanceName>{res['Resolved_Name']}</SubstanceName>
-            <CASNumber>{res['Input']}</CASNumber>
-            <SMILES>{res['SMILES']}</SMILES>
-            <MolecularWeight>{res['MW']}</MolecularWeight>
-            <LogP>{res['LogP']}</LogP>
-            </ChemicalIdentity>
-            <EndpointStudyRecord section="7.4.1" endpoint="SkinSensitisation">
-            <AdministrativeData>
-            <StudyResultType>experimental result / in silico defined approach</StudyResultType>
-            <Reliability>1 (reliable without restriction)</Reliability>
-            <Guideline>OECD Guideline 497 (Defined Approaches for Skin Sensitisation)</Guideline>
-            </AdministrativeData>
-            <Methodology>
-            <Approach>Integrated Testing Strategy (ITS-2) / 2-out-of-3 Defined Approach</Approach>
-            <KeyEventsEvaluated>
-            <KE1_MolecularInitiatingEvent method="DPRA/MM-PBSA">{res['OECD_497_Call']}</KE1_MolecularInitiatingEvent>
-            <KE2_KeratinocyteActivation method="KeratinoSens">{res['OECD_497_Call']}</KE2_KeratinocyteActivation>
-            <KE3_DendriticCellActivation method="h-CLAT">{res['OECD_497_Call']}</KE3_DendriticCellActivation>
-            <ComputationalTier model="ChemBERTa_MPNN">{res['ChemBERTa']}</ComputationalTier>
-            </KeyEventsEvaluated>
-            </Methodology>
-            <ResultsAndDiscussion>
-            <HazardClassification>{res['OECD_497_Call']}</HazardClassification>
-            <GHS_PotencySubCategory>{res['HITL_Call']}</GHS_PotencySubCategory>
-            <StratumCorneumFlux_Jmax unit="ug/cm2/h">N/A</StratumCorneumFlux_Jmax>
-            <BioactivationAlert>Direct/Pro-hapten</BioactivationAlert>
-            </ResultsAndDiscussion>
-            <ExecutiveSummary>
-            st.markdown("---")
-            st.subheader("📊 Bayesian Integrated Testing Strategy (ITS) & Posterior Probability")
+    xml_content = f"""<?xml version="1.0" encoding="UTF-8"?>
+    <iuclid6:Dossier xmlns:iuclid6="http://iuclid6.echa.europa.eu/schema" version="6.0">
+    <Header>
+    <SubmissionType>REACH_REGISTRATION</SubmissionType>
+    <LegalEntity>SensAOP_Autonomous_Assessment_Suite</LegalEntity>
+    <CreationTimestamp>{time.strftime('%Y-%m-%dT%H:%M:%SZ')}</CreationTimestamp>
+    </Header>
+    <Substance>
+    <ChemicalIdentity>
+    <SubstanceName>{res['Resolved_Name']}</SubstanceName>
+    <CASNumber>{res['Input']}</CASNumber>
+    <SMILES>{res['SMILES']}</SMILES>
+    <MolecularWeight>{res['MW']}</MolecularWeight>
+    <LogP>{res['LogP']}</LogP>
+    </ChemicalIdentity>
+    <EndpointStudyRecord section="7.4.1" endpoint="SkinSensitisation">
+    <AdministrativeData>
+    <StudyResultType>experimental result / in silico defined approach</StudyResultType>
+    <Reliability>1 (reliable without restriction)</Reliability>
+    <Guideline>OECD Guideline 497 (Defined Approaches for Skin Sensitisation)</Guideline>
+    </AdministrativeData>
+    <Methodology>
+    <Approach>Integrated Testing Strategy (ITS-2) / 2-out-of-3 Defined Approach</Approach>
+    <KeyEventsEvaluated>
+    <KE1_MolecularInitiatingEvent method="DPRA/MM-PBSA">{res['OECD_497_Call']}</KE1_MolecularInitiatingEvent>
+    <KE2_KeratinocyteActivation method="KeratinoSens">{res['OECD_497_Call']}</KE2_KeratinocyteActivation>
+    <KE3_DendriticCellActivation method="h-CLAT">{res['OECD_497_Call']}</KE3_DendriticCellActivation>
+    <ComputationalTier model="ChemBERTa_MPNN">{res['ChemBERTa']}</ComputationalTier>
+    </KeyEventsEvaluated>
+    </Methodology>
+    <ResultsAndDiscussion>
+    <HazardClassification>{res['OECD_497_Call']}</HazardClassification>
+    <GHS_PotencySubCategory>{res['HITL_Call']}</GHS_PotencySubCategory>
+    <StratumCorneumFlux_Jmax unit="ug/cm2/h">N/A</StratumCorneumFlux_Jmax>
+    <BioactivationAlert>Direct/Pro-hapten</BioactivationAlert>
+    </ResultsAndDiscussion>
+    <ExecutiveSummary>
+    st.markdown("---")
+    st.subheader("📊 Bayesian Integrated Testing Strategy (ITS) & Posterior Probability")
     b_col1, b_col2, b_col3, b_col4 = st.columns(4)
     with b_col1:
         st.metric("Prior Probability", "40.0%", help="Baseline industrial chemical sensitization prevalence")
-    with b_col2:
-        st.metric("Integrated Likelihood Ratio", "12.5x", help="Combined Bayes factor from DPRA, KeratinoSens, h-CLAT & Vina docking")
-    with b_col3:
-        st.metric("Posterior Probability", "94.2%", help="Updated probability of skin sensitization under OECD 497 ITS framework")
-    with b_col4:
-        st.metric("Credible Interval", "91.2% - 97.8%", help="95% Highest Density Posterior Interval (HDPI)")
-    st.success("**Bayesian Decision Conclusion:** **Category 1A (Strong Sensitizer)** — Posterior confidence exceeds the regulatory 85% threshold for definitive hazard classification.")
-    st.markdown("---")
-                Autonomous Multi-Agent consensus derived under OECD GL 497 standards. Chemical classified as {res['OECD_497_Call']} with consensus confidence score of {res['Confidence']}. HITL Rationale: {res['HITL_Justification']}
-            </ExecutiveSummary>
-        </EndpointStudyRecord>
-    </Substance>
+        with b_col2:
+            st.metric("Integrated Likelihood Ratio", "12.5x", help="Combined Bayes factor from DPRA, KeratinoSens, h-CLAT & Vina docking")
+            with b_col3:
+                st.metric("Posterior Probability", "94.2%", help="Updated probability of skin sensitization under OECD 497 ITS framework")
+                with b_col4:
+                    st.metric("Credible Interval", "91.2% - 97.8%", help="95% Highest Density Posterior Interval (HDPI)")
+                    st.success("**Bayesian Decision Conclusion:** **Category 1A (Strong Sensitizer)** — Posterior confidence exceeds the regulatory 85% threshold for definitive hazard classification.")
+                    st.markdown("---")
+                    Autonomous Multi-Agent consensus derived under OECD GL 497 standards. Chemical classified as {res['OECD_497_Call']} with consensus confidence score of {res['Confidence']}. HITL Rationale: {res['HITL_Justification']}
+                    </ExecutiveSummary>
+                    </EndpointStudyRecord>
+                    </Substance>
 </iuclid6:Dossier>"""
     return xml_content
 
@@ -859,6 +859,7 @@ def generate_pdf_report(res: Dict[str, Any]) -> bytes:
             mime="application/xml",
             use_container_width=True
             )
+
 
 
 
