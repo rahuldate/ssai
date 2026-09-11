@@ -415,12 +415,12 @@ def generate_qprf_report(res: Dict[str, Any]) -> bytes:
                     pdf.set_font("Helvetica", "", 8)
                     pdf.cell(0, 5, f"Audit Signature Hash: {res['Audit_ID']} | QA Determination: APPROVED_AUTONOMOUS_SIGNOFF", ln=True)
 
-                    with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp:
-                        pdf.output(tmp.name)
-                        with open(tmp.name, "rb") as f:
-                            pdf_bytes = f.read()
-    os.unlink(tmp.name)
-    return pdf_bytes
+    with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp:
+        pdf.output(tmp.name)
+    with open(tmp.name, "rb") as f:
+        pdf_bytes = f.read()
+        os.unlink(tmp.name)
+        return pdf_bytes
 
 def generate_qmrf_report(res: Dict[str, Any]) -> bytes:
         pdf = FPDF(orientation='P', unit='mm', format='A4')
@@ -467,7 +467,7 @@ def generate_qmrf_report(res: Dict[str, Any]) -> bytes:
 
     with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp:
         pdf.output(tmp.name)
-        with open(tmp.name, "rb") as f:
+    with open(tmp.name, "rb") as f:
         pdf_bytes = f.read()
         os.unlink(tmp.name)
         return pdf_bytes
@@ -601,12 +601,12 @@ def generate_pdf_report(res: Dict[str, Any]) -> bytes:
             pdf.cell(0, 5, f"Digital SHA-256 Audit Seal: {res['Audit_ID']} | Determination: APPROVED_AUTONOMOUS_SIGNOFF", ln=True)
             pdf.multi_cell(w=190, h=4, txt="References: 1. OECD Guideline 497 (2021); 2. OpenMM Molecular Dynamics Suite; 3. SARA-ICE Human PoD (NIEHS/NICEATM).")
 
-            with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp:
-            pdf.output(tmp.name)
-            with open(tmp.name, "rb") as f:
-            pdf_bytes = f.read()
-            os.unlink(tmp.name)
-            return pdf_bytes
+    with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp:
+        pdf.output(tmp.name)
+    with open(tmp.name, "rb") as f:
+        pdf_bytes = f.read()
+        os.unlink(tmp.name)
+        return pdf_bytes
 
             def process_single_chemical(identifier: str) -> Dict[str, Any]:
             resolved = UniversalChemicalResolver.resolve_input(identifier)
@@ -859,6 +859,7 @@ def generate_pdf_report(res: Dict[str, Any]) -> bytes:
             mime="application/xml",
             use_container_width=True
             )
+
 
 
 
