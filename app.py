@@ -741,39 +741,39 @@ elif mode == "🧪 Multi-Agent Skin Sensitization Predictor & Executive Dossier"
             st.markdown(f"**AutoVina Binding Affinity:** `{_res_local.get('AG_MMPBSA', -12.3)} kcal/mol`")
             st.markdown("**Target Residue:** Keap1 Cys151 Thiolate Nucleophile")
             st.markdown("**Interaction Profile:** Strong covalent Michael addition pose with stable hydrogen bonding network.")
-                with dock_col2:
+        with dock_col2:
             try:
-                from rdkit.Chem import AllChem
-                from rdkit.Chem.Draw import rdMolDraw2D
-                
-                smiles_str = _res_local.get('SMILES', 'NC1=CC=C(N)C=C1')
-                m = Chem.MolFromSmiles(smiles_str)
-                if m is not None:
-                    m_h = Chem.AddHs(m)
-                    AllChem.EmbedMolecule(m_h, AllChem.ETKDG())
-                    try:
-                        AllChem.MMFFOptimizeMolecule(m_h)
-                    except Exception:
-                        pass
-                    
-                    # Generate 2D coordinates for clean high-res vector rendering
-                    AllChem.Compute2DCoords(m)
-                    
-                    drawer = rdMolDraw2D.MolDraw2DSVG(400, 300)
-                    drawer.drawOptions().addStereoAnnotation = True
-                    drawer.drawOptions().bondLineWidth = 2
-                    drawer.DrawMolecule(m)
-                    drawer.FinishDrawing()
-                    svg_data = drawer.GetDrawingText()
-                    
-                    st.markdown(
-                        f'<div style="text-align: center; background: white; padding: 10px; border-radius: 8px; border: 1px solid #e0e0e0;">{svg_data}</div>',
-                        unsafe_allow_html=True
-                    )
-                else:
-                    st.info("Interactive 3D molecular conformation active.")
-            except Exception as e:
-                st.info(f"3D Conformational pose rendered via RDKit engine. ({e})")
+            from rdkit.Chem import AllChem
+            from rdkit.Chem.Draw import rdMolDraw2D
+
+            smiles_str = _res_local.get('SMILES', 'NC1=CC=C(N)C=C1')
+            m = Chem.MolFromSmiles(smiles_str)
+            if m is not None:
+            m_h = Chem.AddHs(m)
+        AllChem.EmbedMolecule(m_h, AllChem.ETKDG())
+        try:
+        AllChem.MMFFOptimizeMolecule(m_h)
+        except Exception:
+            pass
+
+            # Generate 2D coordinates for clean high-res vector rendering
+        AllChem.Compute2DCoords(m)
+
+        drawer = rdMolDraw2D.MolDraw2DSVG(400, 300)
+        drawer.drawOptions().addStereoAnnotation = True
+        drawer.drawOptions().bondLineWidth = 2
+        drawer.DrawMolecule(m)
+        drawer.FinishDrawing()
+        svg_data = drawer.GetDrawingText()
+
+        st.markdown(
+            f'<div style="text-align: center; background: white; padding: 10px; border-radius: 8px; border: 1px solid #e0e0e0;">{svg_data}</div>',
+            unsafe_allow_html=True
+            )
+        else:
+        st.info("Interactive 3D molecular conformation active.")
+        except Exception as e:
+        st.info(f"3D Conformational pose rendered via RDKit engine. ({e})")
 
         st.markdown("---")
         st.markdown("### 👥 Credits & Acknowledgments")
