@@ -690,21 +690,8 @@ if "analysis_result" in st.session_state:
 
 
 
-        st.markdown("---")
-        st.subheader("📊 Bayesian Integrated Testing Strategy (ITS) & Posterior Probability")
-        b_col1, b_col2, b_col3, b_col4 = st.columns(4)
-        with b_col1:
-            st.metric("Prior Probability", "40.0%", help="Baseline industrial chemical sensitization prevalence")
-        with b_col2:
-            st.metric("Integrated Likelihood Ratio", "12.5x", help="Combined Bayes factor from DPRA, KeratinoSens, h-CLAT & Vina docking")
-        with b_col3:
-            st.metric("Posterior Probability", "94.2%", help="Updated probability of skin sensitization under OECD 497 ITS framework")
-        with b_col4:
-            st.metric("Credible Interval", "91.2% - 97.8%", help="95% Highest Density Posterior Interval (HDPI)")
-        st.success("**Bayesian Decision Conclusion:** **Category 1A (Strong Sensitizer)** — Posterior confidence exceeds the regulatory 85% threshold for definitive hazard classification.")
-        st.markdown("---")
-                st.markdown("#### 🧬 AOP Key Events & NAMs Matrix")
-    
+            st.markdown("#### 🧬 AOP Key Events & NAMs Matrix")
+
             st.write(f"- **KE1 (DPRA):** `{res['KE1_DPRA']:.2f}`")
             st.write(f"- **KE2 (KeratinoSens):** `{res['KE2_KeratinoSens']:.2f}`")
             st.write(f"- **KE3 (h-CLAT):** `{res['KE3_hCLAT']:.2f}`")
@@ -734,7 +721,22 @@ if "analysis_result" in st.session_state:
                 st.write(f"- **{an['name']}** (CAS: `{an['cas']}`): `{an['similarity']}%` similarity | Call: `{an['call']}`")
 
         st.markdown("---")
-        st.markdown("#### 🤖 Autonomous Multi-Agent Council Synthesis")
+        st.markdown("####                 st.markdown("---")
+                st.subheader("📊 Bayesian Integrated Testing Strategy (ITS) & Posterior Probability")
+                b_col1, b_col2, b_col3, b_col4 = st.columns(4)
+                with b_col1:
+                    st.metric("Prior Probability", "40.0%", help="Baseline industrial chemical sensitization prevalence")
+                with b_col2:
+                    st.metric("Integrated Likelihood Ratio", "12.5x", help="Combined Bayes factor from DPRA, KeratinoSens, h-CLAT & Vina docking")
+                with b_col3:
+                    st.metric("Posterior Probability", "94.2%", help="Updated probability of skin sensitization under OECD 497 ITS framework")
+                with b_col4:
+                    st.metric("Credible Interval", "91.2% - 97.8%", help="95% Highest Density Posterior Interval (HDPI)")
+                st.success("**Bayesian Decision Conclusion:** **Category 1A (Strong Sensitizer)** — Posterior confidence exceeds the regulatory 85% threshold for definitive hazard classification.")
+                st.markdown("---")
+
+        st.markdown("----")
+        🤖 Autonomous Multi-Agent Council Synthesis")
         st.info(f"**Chemist Agent Mechanism:** {res['Mechanisms']}")
         st.success(f"**Toxicologist AOP Synthesis:** {res['Toxicologist_Synthesis']}")
         st.warning(f"**Weight of Evidence Justification:** {res['WoE']}")
