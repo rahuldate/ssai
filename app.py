@@ -213,7 +213,7 @@ st.sidebar.info("Automated Defined Approach based on OECD Guideline 497 and Adva
 app_tab1, app_tab2 = st.tabs(["🔍 Single Compound Lookup & Dossier", "📦 Batch High-Throughput Screening"])
 
 with app_tab1:
-st.caption("Automated Defined Approach based on **OECD Guideline 497** and Advanced NAMs.")
+    st.caption("Automated Defined Approach based on **OECD Guideline 497** and Advanced NAMs.")
 
 @dataclass
 class ChemicalProfile:
