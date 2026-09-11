@@ -438,16 +438,16 @@ def generate_qmrf_report(res: Dict[str, Any]) -> bytes:
     pdf.cell(0, 6, "1. QSAR MODEL IDENTITY & REGULATORY APPLICABILITY", ln=True, fill=True)
     pdf.set_font("Helvetica", "", 9)
     pdf.cell(0, 5, "Model Name: SkinSensitizer-AI Multi-Scale Ensemble (v2.6)", ln=True)
-    pdf.cell(0, 5, f"Target Endpoint: OECD 497 Skin Sensitization | Target: {res['Resolved_Name']}", ln=True)
-    pdf.cell(0, 5, "Regulatory Framework: EU REACH/CLP, UN GHS Rev. 10, US EPA", ln=True)
-    pdf.ln(2)
+            pdf.cell(0, 5, f"Target Endpoint: OECD 497 Skin Sensitization | Target: {res['Resolved_Name']}", ln=True)
+            pdf.cell(0, 5, "Regulatory Framework: EU REACH/CLP, UN GHS Rev. 10, US EPA", ln=True)
+            pdf.ln(2)
 
-    pdf.set_font("Helvetica", "B", 10)
-    pdf.cell(0, 6, "2. MECHANISTIC BASIS & AOP MAPPING (OECD PRINCIPLE 5)", ln=True, fill=True)
-    pdf.set_font("Helvetica", "", 8)
-    pdf.ln(1)
-    pdf.multi_cell(w=190, h=4, txt=f"AOP MIE & Key Events: {res['Mechanisms']}")
-    pdf.ln(1)
+            pdf.set_font("Helvetica", "B", 10)
+            pdf.cell(0, 6, "2. MECHANISTIC BASIS & AOP MAPPING (OECD PRINCIPLE 5)", ln=True, fill=True)
+            pdf.set_font("Helvetica", "", 8)
+            pdf.ln(1)
+            pdf.multi_cell(w=190, h=4, txt=f"AOP MIE & Key Events: {res['Mechanisms']}")
+            pdf.ln(1)
             pdf.multi_cell(w=190, h=4, txt=f"Toxicological Synthesis: {res['Toxicologist_Synthesis']}")
             pdf.ln(2)
 
@@ -465,10 +465,10 @@ def generate_qmrf_report(res: Dict[str, Any]) -> bytes:
             pdf.ln(1)
             pdf.multi_cell(w=190, h=4, txt=f"Expert HITL Rationale: {res['HITL_Justification']}")
 
-            with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp:
+        with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp:
             pdf.output(tmp.name)
-            with open(tmp.name, "rb") as f:
-            pdf_bytes = f.read()
+        with open(tmp.name, "rb") as f:
+        pdf_bytes = f.read()
             os.unlink(tmp.name)
             return pdf_bytes
 
