@@ -417,15 +417,15 @@ def generate_qprf_report(res: Dict[str, Any]) -> bytes:
 
     with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp:
         pdf.output(tmp.name)
-        with open(tmp.name, "rb") as f:
-            pdf_bytes = f.read()
-    os.unlink(tmp.name)
-    return pdf_bytes
+    with open(tmp.name, "rb") as f:
+        pdf_bytes = f.read()
+        os.unlink(tmp.name)
+        return pdf_bytes
 
 def generate_qmrf_report(res: Dict[str, Any]) -> bytes:
-    pdf = FPDF(orientation='P', unit='mm', format='A4')
-    pdf.set_margins(left=10, top=10, right=10)
-    pdf.add_page()
+        pdf = FPDF(orientation='P', unit='mm', format='A4')
+        pdf.set_margins(left=10, top=10, right=10)
+        pdf.add_page()
 
         pdf.set_font("Helvetica", "B", 13)
         pdf.cell(0, 7, "OECD QSAR MODEL REPORTING FORMAT (QMRF)", ln=True, align="C")
@@ -463,21 +463,21 @@ def generate_qmrf_report(res: Dict[str, Any]) -> bytes:
         pdf.set_font("Helvetica", "", 9)
         pdf.cell(0, 5, f"Applicability Domain: {res['Applicability_Domain']} (D_M: {res['Distance_Index']})", ln=True)
         pdf.ln(1)
-            pdf.multi_cell(w=190, h=4, txt=f"Expert HITL Rationale: {res['HITL_Justification']}")
+        pdf.multi_cell(w=190, h=4, txt=f"Expert HITL Rationale: {res['HITL_Justification']}")
 
-        with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp:
-            pdf.output(tmp.name)
-        with open(tmp.name, "rb") as f:
+    with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp:
+        pdf.output(tmp.name)
+    with open(tmp.name, "rb") as f:
         pdf_bytes = f.read()
-            os.unlink(tmp.name)
-            return pdf_bytes
+        os.unlink(tmp.name)
+        return pdf_bytes
 
-            def generate_iuclid_xml(res: Dict[str, Any]) -> str:
-            xml_content = f"""<?xml version="1.0" encoding="UTF-8"?>
-            <iuclid6:Dossier xmlns:iuclid6="http://iuclid6.echa.europa.eu/schema" version="6.0">
-            <Header>
-            <SubmissionType>REACH_REGISTRATION</SubmissionType>
-            <LegalEntity>SensAOP_Autonomous_Assessment_Suite</LegalEntity>
+def generate_iuclid_xml(res: Dict[str, Any]) -> str:
+        xml_content = f"""<?xml version="1.0" encoding="UTF-8"?>
+        <iuclid6:Dossier xmlns:iuclid6="http://iuclid6.echa.europa.eu/schema" version="6.0">
+        <Header>
+        <SubmissionType>REACH_REGISTRATION</SubmissionType>
+        <LegalEntity>SensAOP_Autonomous_Assessment_Suite</LegalEntity>
             <CreationTimestamp>{time.strftime('%Y-%m-%dT%H:%M:%SZ')}</CreationTimestamp>
             </Header>
             <Substance>
