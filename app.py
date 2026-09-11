@@ -678,19 +678,19 @@ def generate_pdf_report(res: Dict[str, Any]) -> bytes:
             )
             submit_clicked = st.form_submit_button("Run Multi-Agent Prediction", type="primary")
 
-            if submit_clicked or "analysis_result" not in st.session_state:
+        if submit_clicked or "analysis_result" not in st.session_state:
             query_val = single_input if submit_clicked else st.session_state.get("last_input", "106-50-3")
             with st.spinner("Executing Multi-Agent Council & OpenMM Simulations..."):
             res = process_single_chemical(query_val)
-            if res["Status"] == "FAILED":
+        if res["Status"] == "FAILED":
             st.error("Failed to resolve chemical structure.")
-            else:
+        else:
             st.session_state["analysis_result"] = res
             st.session_state["last_input"] = query_val
 
-            if "analysis_result" in st.session_state:
+        if "analysis_result" in st.session_state:
             res = st.session_state["analysis_result"]
-            if res["Status"] == "SUCCESS":
+        if res["Status"] == "SUCCESS":
             m1, m2, m3, m4 = st.columns([1.2, 1.8, 1, 1])
             m1.metric("Consensus Score", res["Consensus_Score"])
 
