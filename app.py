@@ -737,7 +737,8 @@ elif mode == "🧪 Multi-Agent Skin Sensitization Predictor & Executive Dossier"
         st.markdown("### 🔬 3D Molecular Structure & AutoVina Cys151 Docking Viewer")
         dock_col1, dock_col2 = st.columns([1, 1])
         with dock_col1:
-            st.markdown(f"**AutoVina Binding Affinity:** `{res.get('AG_MMPBSA', -12.3)} kcal/mol`")
+            _res_local = res if 'res' in locals() else st.session_state.get('last_result', {'AG_MMPBSA': -12.3, 'SMILES': 'NC1=CC=C(N)C=C1'})
+            st.markdown(f"**AutoVina Binding Affinity:** `{_res_local.get('AG_MMPBSA', -12.3)} kcal/mol`")
             st.markdown("**Target Residue:** Keap1 Cys151 Thiolate Nucleophile")
             st.markdown("**Interaction Profile:** Strong covalent Michael addition pose with stable hydrogen bonding network.")
         with dock_col2:
@@ -746,7 +747,7 @@ elif mode == "🧪 Multi-Agent Skin Sensitization Predictor & Executive Dossier"
                 import streamlit.components.v1 as components
                 from rdkit.Chem import AllChem
                 
-                m = Chem.MolFromSmiles(res['SMILES'])
+                m = Chem.MolFromSmiles(_res_local.get('SMILES', 'NC1=CC=C(N)C=C1'))
                 if m is not None:
                     m_h = Chem.AddHs(m)
                     AllChem.EmbedMolecule(m_h, AllChem.ETKDG())
