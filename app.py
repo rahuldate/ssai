@@ -743,7 +743,7 @@ if "analysis_result" in st.session_state:
 
         with col_adme2:
         for an in res.get("Analogues", []):
-        st.write(f"- **{an['name']}** (CAS: `{an['cas']}`): `{an['similarity']}%` similarity | Call: `{an['call']}`")
+            st.write(f"- **{an['name']}** (CAS: `{an['cas']}`): `{an['similarity']}%` similarity | Call: `{an['call']}`")
 
         st.markdown("---")
         st.subheader("📊 Bayesian Integrated Testing Strategy (ITS) & Posterior Probability")
