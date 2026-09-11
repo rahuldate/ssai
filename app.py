@@ -441,3 +441,30 @@ def generate_iuclid_xml(res: Dict[str, Any]) -> str:
     </Header>
     </iuclid6:Dossier>"""
     return xml_content
+
+
+if mode == "🔍 Single Compound Lookup & Dossier":
+    st.title("🔍 Single Compound Lookup & Dossier")
+    st.markdown("Enter a chemical identifier (SMILES string or CAS RN) to execute the OECD Guideline 497 Defined Approach and generate an autonomous QPRF & IUCLID dossier.")
+    
+    col1, col2 = st.columns([3, 1])
+    with col1:
+        query_input = st.text_input("Chemical Identifier (SMILES or CAS RN)", value="c1ccccc1") # benzene or typical test
+    with col2:
+        st.write("")
+        st.write("")
+        run_single = st.button("🚀 Run Assessment & Generate Dossier", type="primary")
+
+elif mode == "📦 Batch High-Throughput Screening":
+    st.title("📦 Batch High-Throughput Screening")
+    st.markdown("Upload a CSV or SDF file containing multiple chemical structures for high-throughput skin sensitization screening.")
+    uploaded_file = st.file_uploader("Upload Chemical Library (CSV / SDF)", type=["csv", "sdf"])
+    if uploaded_file is not None:
+        st.success("File uploaded successfully! Ready for batch screening.")
+        run_batch = st.button("🚀 Execute Batch Screening", type="primary")
+
+elif mode == "🧪 Multi-Agent Skin Sensitization Predictor & Executive Dossier":
+    st.title("🧪 Multi-Agent Skin Sensitization Predictor & Executive Dossier")
+    st.markdown("Configure multi-agent parameters, molecular docking (Keap1 Cys151), and Bayesian posterior evaluation.")
+    advanced_smiles = st.text_input("Target SMILES", value="CC(=O)OC1=CC=CC=C1C(=O)O") # Aspirin
+    run_agent = st.button("🤖 Run Multi-Agent Prediction Suite", type="primary")
