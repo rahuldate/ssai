@@ -763,7 +763,7 @@ elif mode == "🧪 Multi-Agent Skin Sensitization Predictor & Executive Dossier"
                     drawer.FinishDrawing()
                     svg_data = drawer.GetDrawingText()
                     st.markdown(
-                        f'<div style="text-align: center; background: white; padding: 10px; border-radius: 8px; border: 1px solid #e0e0e0;">{{svg_data}}</div>',
+                        f'<div style="text-align: center; background: white; padding: 10px; border-radius: 8px; border: 1px solid #e0e0e0;">{svg_data}</div>',
                         unsafe_allow_html=True
                     )
                 else:
