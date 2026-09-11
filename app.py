@@ -744,8 +744,9 @@ elif mode == "🧪 Multi-Agent Skin Sensitization Predictor & Executive Dossier"
             st.markdown("**Interaction Profile:** Strong covalent Michael addition pose with stable hydrogen bonding network.")
         with dock_col2:
             try:
+                import base64
+                import streamlit.components.v1 as components
                 from rdkit.Chem import AllChem
-                from rdkit.Chem.Draw import rdMolDraw2D
                 smiles_str = _res_local.get('SMILES', 'NC1=CC=C(N)C=C1')
                 m = Chem.MolFromSmiles(smiles_str)
                 if m is not None:
@@ -755,21 +756,26 @@ elif mode == "🧪 Multi-Agent Skin Sensitization Predictor & Executive Dossier"
                         AllChem.MMFFOptimizeMolecule(m_h)
                     except Exception:
                         pass
-                    AllChem.Compute2DCoords(m)
-                    drawer = rdMolDraw2D.MolDraw2DSVG(400, 300)
-                    drawer.drawOptions().addStereoAnnotation = True
-                    drawer.drawOptions().bondLineWidth = 2
-                    drawer.DrawMolecule(m)
-                    drawer.FinishDrawing()
-                    svg_data = drawer.GetDrawingText()
-                    st.markdown(
-                        f'<div style="text-align: center; background: white; padding: 10px; border-radius: 8px; border: 1px solid #e0e0e0;">{svg_data}</div>',
-                        unsafe_allow_html=True
-                    )
+                    mol_block = Chem.MolToMolBlock(m_h)
+                    b64_mol = base64.b64encode(mol_block.encode('utf-8')).decode('utf-8')
+                    html_code = f"""
+                    <script src="https://3Dmol.csb.pitt.edu/build/3Dmol-min.js"></script>
+                    <div id="container" class="mol-container" style="width: 100%; height: 300px; border-radius: 8px; border: 1px solid #e0e0e0; background: white;"></div>
+                    <script>
+                        var b64 = "{b64_mol}";
+                        var mdata = atob(b64);
+                        var viewer = $3Dmol.createViewer("container", {{ backgroundColor: "white" }});
+                        viewer.addModel(mdata, "mol");
+                        viewer.setStyle({{}}, {{stick: {{colorscheme: "cyanCarbon", radius: 0.15}}, sphere: {{scale: 0.25}}}});
+                        viewer.zoomTo();
+                        viewer.render();
+                    </script>
+                    """
+                    components.html(html_code, height=315)
                 else:
-                    st.info("Interactive 3D molecular conformation active.")
+                    st.info("Interactive 3D generation active.")
             except Exception as e:
-                st.info(f"3D Conformational pose rendered via RDKit engine. ({{e}})")
+                st.error(f"3D Viewer Error: {e}")
         st.markdown("---")
         st.markdown("---")
         st.markdown("### 👥 Credits & Acknowledgments")
