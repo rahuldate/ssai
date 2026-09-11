@@ -742,7 +742,7 @@ def generate_pdf_report(res: Dict[str, Any]) -> bytes:
             st.write(f"- **Dermal Bioavailability:** `{adme_dat.get('bioavailability', 'N/A')}`")
 
             with col_adme2:
-            for an in res.get("Analogues", []):
+        for an in res.get("Analogues", []):
             st.write(f"- **{an['name']}** (CAS: `{an['cas']}`): `{an['similarity']}%` similarity | Call: `{an['call']}`")
 
             st.markdown("---")
