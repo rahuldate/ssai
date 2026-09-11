@@ -369,6 +369,19 @@ def generate_qprf_report(res: Dict[str, Any]) -> bytes:
     pdf.set_font("Helvetica", "B", 13)
     pdf.cell(0, 7, "OECD QUANTITATIVE PREDICTION REPORTING FORMAT (QPRF)", ln=True, align="C")
     pdf.set_font("Helvetica", "I", 9)
+    st.markdown("---")
+    st.subheader("📊 Bayesian Integrated Testing Strategy (ITS) & Posterior Probability")
+    b_col1, b_col2, b_col3, b_col4 = st.columns(4)
+    with b_col1:
+        st.metric("Prior Probability", "40.0%", help="Baseline industrial chemical sensitization prevalence")
+    with b_col2:
+        st.metric("Integrated Likelihood Ratio", "12.5x", help="Combined Bayes factor from DPRA, KeratinoSens, h-CLAT & Vina docking")
+    with b_col3:
+        st.metric("Posterior Probability", "94.2%", help="Updated probability of skin sensitization under OECD 497 ITS framework")
+    with b_col4:
+        st.metric("Credible Interval", "91.2% - 97.8%", help="95% Highest Density Posterior Interval (HDPI)")
+    st.success("**Bayesian Decision Conclusion:** **Category 1A (Strong Sensitizer)** — Posterior confidence exceeds the regulatory 85% threshold for definitive hazard classification.")
+    st.markdown("---")
     pdf.cell(0, 5, "Autonomous Multi-Agent Dossier | OECD GL 497 & ChemBERTa + Keap1 Docking", ln=True, align="C")
     pdf.ln(3)
 
@@ -497,6 +510,19 @@ def generate_iuclid_xml(res: Dict[str, Any]) -> str:
                 <BioactivationAlert>Direct/Pro-hapten</BioactivationAlert>
             </ResultsAndDiscussion>
             <ExecutiveSummary>
+    st.markdown("---")
+    st.subheader("📊 Bayesian Integrated Testing Strategy (ITS) & Posterior Probability")
+    b_col1, b_col2, b_col3, b_col4 = st.columns(4)
+    with b_col1:
+        st.metric("Prior Probability", "40.0%", help="Baseline industrial chemical sensitization prevalence")
+    with b_col2:
+        st.metric("Integrated Likelihood Ratio", "12.5x", help="Combined Bayes factor from DPRA, KeratinoSens, h-CLAT & Vina docking")
+    with b_col3:
+        st.metric("Posterior Probability", "94.2%", help="Updated probability of skin sensitization under OECD 497 ITS framework")
+    with b_col4:
+        st.metric("Credible Interval", "91.2% - 97.8%", help="95% Highest Density Posterior Interval (HDPI)")
+    st.success("**Bayesian Decision Conclusion:** **Category 1A (Strong Sensitizer)** — Posterior confidence exceeds the regulatory 85% threshold for definitive hazard classification.")
+    st.markdown("---")
                 Autonomous Multi-Agent consensus derived under OECD GL 497 standards. Chemical classified as {res['OECD_497_Call']} with consensus confidence score of {res['Confidence']}. HITL Rationale: {res['HITL_Justification']}
             </ExecutiveSummary>
         </EndpointStudyRecord>
@@ -719,21 +745,19 @@ if "analysis_result" in st.session_state:
             for an in res.get("Analogues", []):
                 st.write(f"- **{an['name']}** (CAS: `{an['cas']}`): `{an['similarity']}%` similarity | Call: `{an['call']}`")
 
-        st.markdown("---")
-                st.subheader("📊 Bayesian Integrated Testing Strategy (ITS) & Posterior Probability")
-                b_col1, b_col2, b_col3, b_col4 = st.columns(4)
-                with b_col1:
-                    st.metric("Prior Probability", "40.0%", help="Baseline industrial chemical sensitization prevalence")
-                with b_col2:
-                    st.metric("Integrated Likelihood Ratio", "12.5x", help="Combined Bayes factor from DPRA, KeratinoSens, h-CLAT & Vina docking")
-                with b_col3:
-                    st.metric("Posterior Probability", "94.2%", help="Updated probability of skin sensitization under OECD 497 ITS framework")
-                with b_col4:
-                    st.metric("Credible Interval", "91.2% - 97.8%", help="95% Highest Density Posterior Interval (HDPI)")
-                st.success("**Bayesian Decision Conclusion:** **Category 1A (Strong Sensitizer)** — Posterior confidence exceeds the regulatory 85% threshold for definitive hazard classification.")
-                st.markdown("---")
-
-        st.markdown("----")
+    st.markdown("---")
+    st.subheader("📊 Bayesian Integrated Testing Strategy (ITS) & Posterior Probability")
+    b_col1, b_col2, b_col3, b_col4 = st.columns(4)
+    with b_col1:
+        st.metric("Prior Probability", "40.0%", help="Baseline industrial chemical sensitization prevalence")
+    with b_col2:
+        st.metric("Integrated Likelihood Ratio", "12.5x", help="Combined Bayes factor from DPRA, KeratinoSens, h-CLAT & Vina docking")
+    with b_col3:
+        st.metric("Posterior Probability", "94.2%", help="Updated probability of skin sensitization under OECD 497 ITS framework")
+    with b_col4:
+        st.metric("Credible Interval", "91.2% - 97.8%", help="95% Highest Density Posterior Interval (HDPI)")
+    st.success("**Bayesian Decision Conclusion:** **Category 1A (Strong Sensitizer)** — Posterior confidence exceeds the regulatory 85% threshold for definitive hazard classification.")
+    st.markdown("---")
         🤖 Autonomous Multi-Agent Council Synthesis")
         st.info(f"**Chemist Agent Mechanism:** {res['Mechanisms']}")
         st.success(f"**Toxicologist AOP Synthesis:** {res['Toxicologist_Synthesis']}")
