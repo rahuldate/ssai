@@ -758,7 +758,7 @@ if "analysis_result" in st.session_state:
         st.metric("Credible Interval", "91.2% - 97.8%", help="95% Highest Density Posterior Interval (HDPI)")
     st.success("**Bayesian Decision Conclusion:** **Category 1A (Strong Sensitizer)** — Posterior confidence exceeds the regulatory 85% threshold for definitive hazard classification.")
     st.markdown("---")
-        🤖 Autonomous Multi-Agent Council Synthesis")
+        st.markdown("#### 🤖 Autonomous Multi-Agent Council Synthesis")
         st.info(f"**Chemist Agent Mechanism:** {res['Mechanisms']}")
         st.success(f"**Toxicologist AOP Synthesis:** {res['Toxicologist_Synthesis']}")
         st.warning(f"**Weight of Evidence Justification:** {res['WoE']}")
