@@ -612,7 +612,8 @@ if mode == "🔍 Single Compound Lookup & Dossier":
         st.markdown(
             "**Skin Sensitizer AI Platform** is built upon OECD Guideline 497 Defined Approaches for Skin Sensitization, "
             "integrating OpenMM Molecular Dynamics, AutoVina docking, and ChemBERTa Transformer architectures. "
-            "Developed for high-throughput in silico regulatory toxicology assessment under strict international standards."
+            "Developed for high-throughput in silico regulatory toxicology assessment under strict international standards.\n\n"
+            "**Created with Gemini by Dr Rahul Date**"
         )
 
         st.markdown("### 🧬 Top Read-Across Analogues (Tanimoto Similarity)")
