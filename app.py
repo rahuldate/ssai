@@ -466,11 +466,11 @@ def generate_qmrf_report(res: Dict[str, Any]) -> bytes:
             pdf.multi_cell(w=190, h=4, txt=f"Expert HITL Rationale: {res['HITL_Justification']}")
 
     with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp:
-            pdf.output(tmp.name)
-    with open(tmp.name, "rb") as f:
-            pdf_bytes = f.read()
-            os.unlink(tmp.name)
-            return pdf_bytes
+    pdf.output(tmp.name)
+        with open(tmp.name, "rb") as f:
+        pdf_bytes = f.read()
+        os.unlink(tmp.name)
+        return pdf_bytes
 
 def generate_iuclid_xml(res: Dict[str, Any]) -> str:
             xml_content = f"""<?xml version="1.0" encoding="UTF-8"?>
@@ -859,6 +859,7 @@ def generate_pdf_report(res: Dict[str, Any]) -> bytes:
             mime="application/xml",
             use_container_width=True
             )
+
 
 
 
