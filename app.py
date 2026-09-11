@@ -561,31 +561,62 @@ if mode == "🔍 Single Compound Lookup & Dossier":
             st.metric("Applicability Domain", res["Applicability_Domain"], delta=f"D_M: {res['Distance_Index']}")
             
         st.markdown("### 📥 Regulatory Dossier Exports")
-        col_pdf, col_xml = st.columns(2)
-        with col_pdf:
+        col1, col2, col3, col4 = st.columns(4)
+        
+        with col1:
             try:
                 pdf_bytes = generate_qprf_report(res)
                 st.download_button(
-                    label="📄 Download QPRF PDF Report",
+                    label="📄 QPRF PDF",
                     data=pdf_bytes,
-                    file_name=f"QPRF_Dossier_{res['Audit_ID']}.pdf",
+                    file_name=f"QPRF_{res['Audit_ID']}.pdf",
                     mime="application/pdf",
-                    type="primary"
+                    type="primary",
+                    use_container_width=True
                 )
             except Exception as e:
-                st.error(f"Error generating PDF QPRF: {e}")
+                st.error(f"PDF Error: {e}")
                 
-        with col_xml:
+        with col2:
+            try:
+                # If generate_iuclid_report or QMRF report exists, use it, else QPRF fallback
+                rep_bytes = generate_iuclid_report(res) if 'generate_iuclid_report' in globals() else pdf_bytes
+                st.download_button(
+                    label="📊 IUCLID Report",
+                    data=rep_bytes,
+                    file_name=f"IUCLID_Report_{res['Audit_ID']}.pdf",
+                    mime="application/pdf",
+                    use_container_width=True
+                )
+            except Exception as e:
+                st.error(f"Report Error: {e}")
+
+        with col3:
             try:
                 xml_data = generate_iuclid_xml(res)
                 st.download_button(
-                    label="📦 Download IUCLID6 XML Dossier",
+                    label="📦 IUCLID XML",
                     data=xml_data,
                     file_name=f"IUCLID6_{res['Audit_ID']}.xml",
-                    mime="application/xml"
+                    mime="application/xml",
+                    use_container_width=True
                 )
             except Exception as e:
-                st.error(f"Error generating IUCLID XML: {e}")
+                st.error(f"XML Error: {e}")
+
+        with col4:
+            try:
+                import json
+                json_data = json.dumps(res, indent=2).encode('utf-8')
+                st.download_button(
+                    label="📋 JSON Audit",
+                    data=json_data,
+                    file_name=f"Audit_{res['Audit_ID']}.json",
+                    mime="application/json",
+                    use_container_width=True
+                )
+            except Exception as e:
+                st.error(f"JSON Error: {e}")
 
 elif mode == "📦 Batch High-Throughput Screening":
     if 'run_batch' in locals() and run_batch and uploaded_file is not None:
