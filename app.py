@@ -466,7 +466,7 @@ def generate_qmrf_report(res: Dict[str, Any]) -> bytes:
             pdf.multi_cell(w=190, h=4, txt=f"Expert HITL Rationale: {res['HITL_Justification']}")
 
     with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp:
-    pdf.output(tmp.name)
+        pdf.output(tmp.name)
         with open(tmp.name, "rb") as f:
         pdf_bytes = f.read()
         os.unlink(tmp.name)
@@ -859,6 +859,7 @@ def generate_pdf_report(res: Dict[str, Any]) -> bytes:
             mime="application/xml",
             use_container_width=True
             )
+
 
 
 
