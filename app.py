@@ -195,7 +195,7 @@ st.set_page_config(
 
 # Navigation setup
 mode = st.sidebar.radio(
-    'Navigation & Modes',
+'Navigation & Modes',
     [
         '🔍 Single Compound Lookup & Dossier',
         '📦 Batch High-Throughput Screening',
