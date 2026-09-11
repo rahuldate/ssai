@@ -759,42 +759,28 @@ elif mode == "🧪 Multi-Agent Skin Sensitization Predictor & Executive Dossier"
                     mol_block = Chem.MolToMolBlock(m_h)
                     b64_mol = base64.b64encode(mol_block.encode('utf-8')).decode('utf-8')
                     
-                    # Minimal Keap1 Kelch domain active site PDB centered around Cys151
-                    keap1_pocket_pdb = """ATOM      1  N   CYS A 151      27.531  31.221  15.431  1.00 20.00           N
-ATOM      2  CA  CYS A 151      26.892  30.011  14.921  1.00 20.00           C
-ATOM      3  C   CYS A 151      25.421  30.221  14.611  1.00 20.00           C
-ATOM      4  O   CYS A 151      24.781  31.111  15.111  1.00 20.00           O
-ATOM      5  CB  CYS A 151      27.611  29.411  13.721  1.00 20.00           C
-ATOM      6  SG  CYS A 151      26.811  28.021  12.821  1.00 25.00           S
-ATOM      7  N   HIS A 129      28.111  32.111  16.211  1.00 22.00           N
-ATOM      8  CA  HIS A 129      29.511  32.011  16.511  1.00 22.00           C
-ATOM      9  CB  HIS A 129      30.211  33.221  17.111  1.00 22.00           C
-END"""
+                    keap1_pocket_pdb = """ATOM      1  N   CYS A 151      27.531  31.221  15.431  1.00 20.00           N\nATOM      2  CA  CYS A 151      26.892  30.011  14.921  1.00 20.00           C\nATOM      3  C   CYS A 151      25.421  30.221  14.611  1.00 20.00           C\nATOM      4  O   CYS A 151      24.781  31.111  15.111  1.00 20.00           O\nATOM      5  CB  CYS A 151      27.611  29.411  13.721  1.00 20.00           C\nATOM      6  SG  CYS A 151      26.811  28.021  12.821  1.00 25.00           S\nATOM      7  N   HIS A 129      28.111  32.111  16.211  1.00 22.00           N\nATOM      8  CA  HIS A 129      29.511  32.011  16.511  1.00 22.00           C\nATOM      9  CB  HIS A 129      30.211  33.221  17.111  1.00 22.00           C\nEND"""
                     b64_prot = base64.b64encode(keap1_pocket_pdb.encode('utf-8')).decode('utf-8')
                     
-                    html_code = f"""
-                    <script src="https://3Dmol.csb.pitt.edu/build/3Dmol-min.js"></script>
-                    <div id="container" style="width: 100%; height: 300px; border-radius: 8px; border: 1px solid #e0e0e0; background: white; position: relative;"></div>
+                    html_code = """
+                    <script src=\"https://3Dmol.csb.pitt.edu/build/3Dmol-min.js\"></script>
+                    <div id=\"container\" style=\"width: 100%; height: 300px; border-radius: 8px; border: 1px solid #e0e0e0; background: white; position: relative;\"></div>
                     <script>
-                        var viewer = $3Dmol.createViewer("container", {{ backgroundColor: "white" }});
-                        
-                        // Load Keap1 Cys151 Pocket Protein
-                        var b64p = "{b64_prot}";
+                        var viewer = $3Dmol.createViewer(\"container\", { backgroundColor: \"white\" });
+                        var b64p = \"__B64_PROT__\";
                         var pdata = atob(b64p);
-                        viewer.addModel(pdata, "pdb");
-                        viewer.setStyle({{resn: "CYS"}, {{stick: {{colorscheme: "yellowCarbon", radius: 0.3}}, sphere: {{scale: 0.4, color: "yellow"}}}});
-                        viewer.setStyle({{resn: "HIS"}, {{stick: {{colorscheme: "greyCarbon"}} }});
-                        
-                        // Load Docked Ligand
-                        var b64l = "{b64_mol}";
+                        viewer.addModel(pdata, \"pdb\");
+                        viewer.setStyle({resn: \"CYS\"}, {stick: {colorscheme: \"yellowCarbon\", radius: 0.3}, sphere: {scale: 0.4, color: \"yellow\"}});
+                        viewer.setStyle({resn: \"HIS\"}, {stick: {colorscheme: \"greyCarbon\"} });
+                        var b64l = \"__B64_MOL__\";
                         var ldata = atob(b64l);
-                        viewer.addModel(ldata, "mol");
-                        viewer.setStyle({{m: 1}, {{stick: {{colorscheme: "cyanCarbon", radius: 0.25}}, sphere: {{scale: 0.3}}}});
-                        
+                        viewer.addModel(ldata, \"mol\");
+                        viewer.setStyle({m: 1}, {stick: {colorscheme: \"cyanCarbon\", radius: 0.25}, sphere: {scale: 0.3}});
                         viewer.zoomTo();
                         viewer.render();
                     </script>
                     """
+                    html_code = html_code.replace("__B64_PROT__", b64_prot).replace("__B64_MOL__", b64_mol)
                     components.html(html_code, height=315)
                 else:
                     st.info("Interactive 3D docking active.")
