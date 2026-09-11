@@ -764,24 +764,24 @@ elif mode == "🧪 Multi-Agent Skin Sensitization Predictor & Executive Dossier"
                     
                     html_code = """
                     <script src=\"https://3Dmol.csb.pitt.edu/build/3Dmol-min.js\"></script>
-                    <div id=\"container\" style=\"width: 100%; height: 300px; border-radius: 8px; border: 1px solid #e0e0e0; background: white; position: relative;\"></div>
+                    <div id=\"container\" style=\"width: 100%; height: 320px; border-radius: 8px; border: 1px solid #e0e0e0; background: white; position: relative;"></div>
                     <script>
                         var viewer = $3Dmol.createViewer(\"container\", { backgroundColor: \"white\" });
                         var b64p = \"__B64_PROT__\";
                         var pdata = atob(b64p);
                         viewer.addModel(pdata, \"pdb\");
-                        viewer.setStyle({resn: \"CYS\"}, {stick: {colorscheme: \"yellowCarbon\", radius: 0.3}, sphere: {scale: 0.4, color: \"yellow\"}});
-                        viewer.setStyle({resn: \"HIS\"}, {stick: {colorscheme: \"greyCarbon\"} });
+                        viewer.setStyle({resn: \"CYS\"}, {stick: {colorscheme: \"yellowCarbon\", radius: 0.4}, sphere: {scale: 0.6, color: \"yellow\"}});
+                        viewer.setStyle({resn: \"HIS\"}, {stick: {colorscheme: \"greyCarbon\", radius: 0.3} });
                         var b64l = \"__B64_MOL__\";
                         var ldata = atob(b64l);
                         viewer.addModel(ldata, \"mol\");
-                        viewer.setStyle({m: 1}, {stick: {colorscheme: \"cyanCarbon\", radius: 0.25}, sphere: {scale: 0.3}});
-                        viewer.zoomTo();
+                        viewer.setStyle({m: 1}, {stick: {colorscheme: \"cyanCarbon\", radius: 0.35}, sphere: {scale: 0.45}});
+                        viewer.zoomTo({resn: \"CYS\"});
                         viewer.render();
                     </script>
                     """
                     html_code = html_code.replace("__B64_PROT__", b64_prot).replace("__B64_MOL__", b64_mol)
-                    components.html(html_code, height=315)
+                    components.html(html_code, height=335)
                 else:
                     st.info("Interactive 3D docking active.")
             except Exception as e:
