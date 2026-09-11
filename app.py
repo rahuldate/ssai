@@ -418,7 +418,7 @@ def generate_qprf_report(res: Dict[str, Any]) -> bytes:
     with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp:
         pdf.output(tmp.name)
     with open(tmp.name, "rb") as f:
-    pdf_bytes = f.read()
+        pdf_bytes = f.read()
     os.unlink(tmp.name)
     return pdf_bytes
 
@@ -859,6 +859,7 @@ def generate_pdf_report(res: Dict[str, Any]) -> bytes:
             mime="application/xml",
             use_container_width=True
             )
+
 
 
 
