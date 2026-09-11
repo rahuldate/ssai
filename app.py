@@ -402,26 +402,21 @@ def generate_qprf_report(res: Dict[str, Any]) -> bytes:
     pdf.cell(0, 5, f"2-out-of-3 DA / ITS Matrix Score: {res['OECD_497_Call']} (Confidence: {res['Confidence']*100}%)", ln=True)
     pdf.cell(0, 5, f"KE1 DPRA: {res['KE1_DPRA']:.2f} | KE2 KeratinoSens: {res['KE2_KeratinoSens']:.2f} | KE3 h-CLAT: {res['KE3_hCLAT']:.2f}", ln=True)
     pdf.cell(0, 5, f"ChemBERTa Score: {res['ChemBERTa']} | Deep GNN Score: {res['GNN_Score']} (p-val: {res['GNN_Pval']})", ln=True)
-    pdf.ln(2)
-
-    pdf.set_font('Helvetica', 'B', 10)
-    pdf.cell(0, 6, '3. SARA-ICE HUMAN POD, POTENCY & BIOAVAILABILITY', ln=True, fill=True)
-    pdf.set_font('Helvetica', '', 9)
-    pdf.cell(0, 5, f"SARA Human ED01 PoD: {res['SARA_ICE']} ug/cm2 | Predicted LLNA EC3: {res['LLNA']}%", ln=True)
-    pdf.cell(0, 5, f"Skin Sensitization Potency Call: {res['OECD_497_Call']}", ln=True)
+    pdf.ln(1)
+    pdf.multi_cell(w=190, h=4, txt=f"AOP MIE & Key Events: {res['Mechanisms']}")
     pdf.ln(1)
     pdf.multi_cell(w=190, h=4, txt=f"Toxicological Synthesis: {res['Toxicologist_Synthesis']}")
     pdf.ln(2)
 
     pdf.set_font('Helvetica', 'B', 10)
-    pdf.cell(0, 6, '4. READ-ACROSS ANALOGUE SEARCH MATRIX (OECD PRINCIPLE 6)', ln=True, fill=True)
+    pdf.cell(0, 6, '3. READ-ACROSS ANALOGUE SEARCH MATRIX (OECD PRINCIPLE 6)', ln=True, fill=True)
     pdf.set_font('Helvetica', '', 8)
     for an in res.get('Analogues', []):
         pdf.cell(0, 4, f"Analogue: {an['name']} (CAS: {an['cas']}) | Tanimoto Sim: {an['similarity']}% | LLNA: {an['llna']}", ln=True)
-    pdf.ln(2)
+        pdf.ln(2)
 
     pdf.set_font('Helvetica', 'B', 10)
-    pdf.cell(0, 6, '5. APPLICABILITY DOMAIN & EXPERT HITL ASSESSMENT', ln=True, fill=True)
+    pdf.cell(0, 6, '4. APPLICABILITY DOMAIN & EXPERT HITL ASSESSMENT', ln=True, fill=True)
     pdf.set_font('Helvetica', '', 9)
     pdf.cell(0, 5, f"Applicability Domain: {res['Applicability_Domain']} (D_M: {res['Distance_Index']})", ln=True)
     pdf.ln(1)
@@ -871,6 +866,7 @@ def generate_pdf_report(res: Dict[str, Any]) -> bytes:
             mime="application/xml",
             use_container_width=True
             )
+
 
 
 
