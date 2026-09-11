@@ -686,6 +686,8 @@ if "analysis_result" in st.session_state:
         col_res1, col_res2 = st.columns(2)
         with col_res1:
             
+
+
         st.markdown("---")
         st.subheader("📊 Bayesian Integrated Testing Strategy (ITS) & Posterior Probability")
         b_col1, b_col2, b_col3, b_col4 = st.columns(4)
@@ -699,8 +701,7 @@ if "analysis_result" in st.session_state:
             st.metric("Credible Interval", "91.2% - 97.8%", help="95% Highest Density Posterior Interval (HDPI)")
         st.success("**Bayesian Decision Conclusion:** **Category 1A (Strong Sensitizer)** — Posterior confidence exceeds the regulatory 85% threshold for definitive hazard classification.")
         st.markdown("---")
-
-st.markdown("#### 🧬 AOP Key Events & NAMs Matrix")
+        st.markdown("#### 🧬 AOP Key Events & NAMs Matrix")
             st.write(f"- **KE1 (DPRA):** `{res['KE1_DPRA']:.2f}`")
             st.write(f"- **KE2 (KeratinoSens):** `{res['KE2_KeratinoSens']:.2f}`")
             st.write(f"- **KE3 (h-CLAT):** `{res['KE3_hCLAT']:.2f}`")
