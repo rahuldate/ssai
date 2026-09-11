@@ -500,7 +500,12 @@ if mode == "🔍 Single Compound Lookup & Dossier":
                     mw = round(Descriptors.MolWt(mol), 2) if mol else 180.16
                     logp = round(Descriptors.MolLogP(mol), 2) if mol else 1.2
                     
-                    chem_profile = ChemicalProfile(resolved["smiles"], resolved["name"])
+                    chem_profile = ChemicalProfile(
+                        query_term=query_input,
+                        resolved_name=resolved["name"],
+                        cas=resolved.get("cas", "N/A"),
+                        smiles=resolved["smiles"]
+                    )
                     chem_profile.mw = mw
                     chem_profile.log_p = logp
                     chem_profile.mol = mol
