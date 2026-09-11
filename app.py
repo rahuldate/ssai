@@ -470,12 +470,12 @@ def generate_qmrf_report(res: Dict[str, Any]) -> bytes:
             pdf.cell(0, 4, f"Analogue: {an['name']} (CAS: {an['cas']}) | Tanimoto Sim: {an['similarity']}% | LLNA: {an['llna']}", ln=True)
             pdf.ln(2)
 
-            pdf.set_font("Helvetica", "B", 10)
-            pdf.cell(0, 6, "4. APPLICABILITY DOMAIN & EXPERT HITL ASSESSMENT", ln=True, fill=True)
-            pdf.set_font("Helvetica", "", 9)
-            pdf.cell(0, 5, f"Applicability Domain: {res['Applicability_Domain']} (D_M: {res['Distance_Index']})", ln=True)
-            pdf.ln(1)
-            pdf.multi_cell(w=190, h=4, txt=f"Expert HITL Rationale: {res['HITL_Justification']}")
+        pdf.set_font("Helvetica", "B", 10)
+        pdf.cell(0, 6, "4. APPLICABILITY DOMAIN & EXPERT HITL ASSESSMENT", ln=True, fill=True)
+        pdf.set_font("Helvetica", "", 9)
+        pdf.cell(0, 5, f"Applicability Domain: {res['Applicability_Domain']} (D_M: {res['Distance_Index']})", ln=True)
+        pdf.ln(1)
+        pdf.multi_cell(w=190, h=4, txt=f"Expert HITL Rationale: {res['HITL_Justification']}")
 
     with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp:
         pdf.output(tmp.name)
