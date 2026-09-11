@@ -716,12 +716,10 @@ if "analysis_result" in st.session_state:
             st.write(f"- **Dermal Bioavailability:** `{adme_dat.get('bioavailability', 'N/A')}`")
 
         with col_adme2:
-            st.markdown("#### 🔄 Read-Across Analogues Matrix")
             for an in res.get("Analogues", []):
                 st.write(f"- **{an['name']}** (CAS: `{an['cas']}`): `{an['similarity']}%` similarity | Call: `{an['call']}`")
 
         st.markdown("---")
-        st.markdown("####                 st.markdown("---")
                 st.subheader("📊 Bayesian Integrated Testing Strategy (ITS) & Posterior Probability")
                 b_col1, b_col2, b_col3, b_col4 = st.columns(4)
                 with b_col1:
