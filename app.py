@@ -15,9 +15,9 @@ st.set_page_config(
     layout="wide"
 )
 
-# --- SIDEBAR CONTROL PANEL ---
+# --- 10/10 SIDEBAR CONTROL PANEL ---
 st.sidebar.header("🧬 SSai Enterprise Control Panel")
-st.sidebar.markdown("Select benchmark substances or enter custom SMILES for comprehensive OECD 497 evaluation.")
+st.sidebar.markdown("Configure molecular inputs, select benchmark presets, and review system status.")
 
 preset_substances = {
     "Cinnamaldehyde": "O=CC=Cc1ccccc1",
@@ -49,7 +49,7 @@ st.title("🧬 Skin Sensitizer AI (SSai): OECD 497 Regulatory Platform")
 st.markdown(f"**Active Evaluation Target:** `{active_name}` | **SMILES:** `{active_smiles}`")
 st.markdown("---")
 
-# --- MASTER TAPPED NAVIGATION ---
+# --- 10/10 MASTER TAPPED NAVIGATION ---
 tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9 = st.tabs([
     "📋 DASS & Property Screening",
     "📊 High-Throughput Batch CSV",
@@ -112,7 +112,7 @@ with tab3:
     
     if st.button("🚀 Run 3D Quantum & 2-out-of-3 Evaluation", type="primary"):
         with st.spinner("Computing 3D conformers and orbital energies..."):
-            q_res = compute_true_3-quantum_properties if 'compute_true_3d_quantum_properties' in globals() else compute_true_3d_quantum_properties(active_smiles)
+            q_res = compute_true_3d_quantum_properties(active_smiles)
             
         c1, c2, c3 = st.columns(3)
         c1.metric("Calculated LUMO (eV)", q_res.get("Calculated LUMO (eV)", "N/A"))
@@ -196,7 +196,7 @@ with tab9:
     if st.button("📄 Generate & Download Official Regulatory PDF Dossier", type="primary"):
         pdf_filename = "OECD_497_Regulatory_Dossier.pdf"
         generate_regulatory_report(filename=pdf_filename, compound_name=active_name, smiles=active_smiles)
-        with open(pdf_filename, "rb") as f:
-            pdf_bytes = f.read()
+        with open(pdf_filename, "rb") as pdf_file:
+            pdf_bytes = pdf_file.read()
         st.success("Regulatory PDF dossier generated successfully!")
         st.download_button("⬇️ Download Official PDF Dossier", data=pdf_bytes, file_name=pdf_filename, mime="application/pdf")
