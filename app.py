@@ -1,6 +1,10 @@
 
 def generate_regulatory_report(report_type, results_data):
     class PDFReport(FPDF):
+        def __init__(self):
+            super().__init__()
+            self.set_margins(15, 15, 15)
+
         def header(self):
             self.set_font("helvetica", "B", 12)
             self.cell(0, 10, "Skin Sensitizer AI (SSai) - Regulatory Dossier", 0, 1, "C")
