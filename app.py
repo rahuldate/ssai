@@ -24,8 +24,9 @@ def generate_regulatory_report(report_type, results_data):
         pdf.cell(0, 10, "Executive Adverse Outcome Pathway (AOP) Dossier", 0, 1)
         pdf.set_font("helvetica", "", 10)
         pdf.ln(5)
-        pdf.multi_cell(0, 8, f"Target Axis: Keap1 Cys151 Thiolate Nucleophile\nSMILES: {results_data.get('SMILES', 'N/A')}\nBinding Affinity: {results_data.get('AG_MMPBSA', -12.3)} kcal/mol")
-        pdf.multi_cell(0, 8, "AOP Summary: The evaluated compound exhibits structural alerts indicative of protein binding via covalent Michael addition, triggering downstream dendritic cell activation and skin sensitization.")
+        pdf.multi_cell(w=0, h=8, txt=f"Target Axis: Keap1 Cys151 Thiolate Nucleophile\nSMILES: {results_data.get('SMILES', 'N/A')}\nBinding Affinity: {results_data.get('AG_MMPBSA', -12.3)} kcal/mol")
+        pdf.ln(3)
+        pdf.multi_cell(w=0, h=8, txt="AOP Summary: The evaluated compound exhibits structural alerts indicative of protein binding via covalent Michael addition, triggering downstream dendritic cell activation and skin sensitization.")
         
     elif report_type == "OECD_QMRF":
         pdf.set_font("helvetica", "B", 14)
