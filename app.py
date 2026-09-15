@@ -35,7 +35,14 @@ def generate_regulatory_report(report_type, results_data):
         pdf.cell(0, 8, "1. Executive Adverse Outcome Pathway (AOP) Dossier", 0, 1)
         pdf.set_font("helvetica", "", 10)
         pdf.ln(2)
-        pdf.multi_cell(w=0, h=6, txt=f"Target Molecular Axis: Keap1 Cys151 Thiolate Nucleophile\nEvaluated SMILES: {smiles}\nPredicted Binding Affinity (AutoVina): {affinity} kcal/mol")
+        text_aop = (
+            f"Target Molecular Axis: Keap1 Cys151 Thiolate Nucleophile
+"
+            f"Evaluated SMILES: {smiles}
+"
+            f"Predicted Binding Affinity (AutoVina): {affinity} kcal/mol"
+        )
+        pdf.multi_cell(w=0, h=6, txt=text_aop)
         pdf.ln(4)
         pdf.set_font("helvetica", "B", 10)
         pdf.cell(0, 6, "Key Mechanistic Interpretation:", 0, 1)
@@ -48,11 +55,18 @@ def generate_regulatory_report(report_type, results_data):
         pdf.cell(0, 10, "2. OECD QMRF Technical Summary Report", 0, 1)
         pdf.set_font("helvetica", "", 10)
         pdf.ln(2)
-        pdf.multi_cell(w=0, h=6, txt="• 1. QSAR Model Identifier: SSai-Keap1-Vina v1.0
-• 2. Regulatory Endpoint: Skin Sensitization (OECD 442C / DPRA Mechanistic Analog)
-• 3. Algorithmic Approach: Ensemble RDKit structural descriptor extraction paired with AutoVina molecular docking.
-• 4. Applicability Domain: Organic small molecules matching Lipinski rules-of-five criteria and molecular weight < 500 Da.
-• 5. Robustness & Validation: Evaluated via cross-validation against benchmark skin sensitization databases.")
+        text_qmrf = (
+            "• 1. QSAR Model Identifier: SSai-Keap1-Vina v1.0
+"
+            "• 2. Regulatory Endpoint: Skin Sensitization (OECD 442C / DPRA Mechanistic Analog)
+"
+            "• 3. Algorithmic Approach: Ensemble RDKit structural descriptor extraction paired with AutoVina molecular docking.
+"
+            "• 4. Applicability Domain: Organic small molecules matching Lipinski rules-of-five criteria and molecular weight < 500 Da.
+"
+            "• 5. Robustness & Validation: Evaluated via cross-validation against benchmark skin sensitization databases."
+        )
+        pdf.multi_cell(w=0, h=6, txt=text_qmrf)
         
     elif report_type == "IUCLID_GHS_Classification":
         pdf.set_font("helvetica", "B", 12)
@@ -60,7 +74,12 @@ def generate_regulatory_report(report_type, results_data):
         pdf.cell(0, 10, "3. IUCLID GHS Classification & Hazard Assessment", 0, 1)
         pdf.set_font("helvetica", "", 10)
         pdf.ln(2)
-        pdf.multi_cell(w=0, h=6, txt=f"Substance SMILES: {smiles}\nComputed Covalent Affinity: {affinity} kcal/mol")
+        text_iuclid_sub = (
+            f"Substance SMILES: {smiles}
+"
+            f"Computed Covalent Affinity: {affinity} kcal/mol"
+        )
+        pdf.multi_cell(w=0, h=6, txt=text_iuclid_sub)
         pdf.ln(4)
         pdf.set_font("helvetica", "B", 10)
         pdf.cell(0, 6, "GHS Hazard Classification Statement:", 0, 1)
