@@ -23,14 +23,18 @@ preset_substances = {
     "Formaldehyde": "O=C",
     "Eugenol": "COc1cc(CC=C)ccc1O",
     "p-Phenylenediamine": "Nc1ccc(N)cc1",
-    "Glycerin": "OCC(O)CO"
+    "Glycerin": "OCC(O)CO",
+    "Custom Input": ""
 }
 
 selected_preset = st.sidebar.selectbox("Load Benchmark Substance", list(preset_substances.keys()))
-default_smiles = preset_substances[selected_preset]
 
-smiles_input = st.sidebar.text_input("SMILES Notation", value=default_smiles)
-substance_name = st.sidebar.text_input("Substance Name", value=selected_preset)
+if selected_preset == "Custom Input":
+    smiles_input = st.sidebar.text_input("Custom SMILES Notation", value="O=CC=Cc1ccccc1")
+    substance_name = st.sidebar.text_input("Custom Substance Name", value="Test Compound")
+else:
+    smiles_input = preset_substances[selected_preset]
+    substance_name = selected_preset
 
 st.sidebar.markdown("---")
 st.sidebar.subheader("System Status")
@@ -56,20 +60,28 @@ with tab1:
     st.header("3D Quantum-Chemical & Thermodynamic Screening")
     st.caption("Perform conformer generation (ETKDG) and semi-empirical orbital estimation (xTB) to evaluate electrophilic reactivity.")
     
+    # Input options directly in the main screen as well for ease of use
+    with st.expander("🧪 Custom Molecular Input Options", expanded=True):
+        col_in1, col_in2 = st.columns(2)
+        with col_in1:
+            active_substance = st.text_input("Substance Name", value=substance_name, key="main_sub_name")
+        with col_in2:
+            active_smiles = st.text_input("SMILES Notation", value=smiles_input, key="main_smiles")
+            
     col_q1, col_q2 = st.columns([2, 1])
     with col_q1:
-        st.write(f"**Evaluating Substance:** {substance_name}")
-        st.write(f"**SMILES:** `{smiles_input}`")
+        st.write(f"**Target Evaluation:** {active_substance}")
+        st.write(f"**SMILES:** `{active_smiles}`")
     
     if st.button("🚀 Run 3D Quantum & Thermodynamic Analysis", type="primary"):
         try:
-            mol = Chem.MolFromSmiles(smiles_input)
+            mol = Chem.MolFromSmiles(active_smiles)
             if mol:
                 img = Draw.MolToImage(mol, size=(300, 300))
-                col_q2.image(img, caption=substance_name)
+                col_q2.image(img, caption=active_substance)
                 
                 with st.spinner("Computing 3D conformer and xTB orbital descriptors..."):
-                    q_res = compute_true_3d_quantum_properties(smiles_input)
+                    q_res = compute_true_3d_quantum_properties(active_smiles)
                 
                 st.markdown("### Quantum-Chemical Readouts & Verdict")
                 res_col1, res_col2, res_col3 = st.columns(3)
