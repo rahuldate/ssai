@@ -45,8 +45,8 @@ def generate_regulatory_report(report_type, results_data):
         pdf.set_text_color(20, 40, 60)
         pdf.cell(0, 4.5, "1. ANALYZED MOLECULE & APPLICABILITY DOMAIN", 0, 1)
         
-        # Render real 2D molecular structure using RDKit and PIL image backend
         image_rendered = False
+        render_error_msg = "Unknown"
         try:
             from rdkit import Chem
             from rdkit.Chem import Draw
@@ -63,15 +63,22 @@ def generate_regulatory_report(report_type, results_data):
                     os.unlink(tmp_name)
                 except:
                     pass
+            else:
+                render_error_msg = "Invalid SMILES"
         except Exception as e:
-            print(f"Structure rendering error: {e}")
+            render_error_msg = str(e)
 
         if not image_rendered:
-            pdf.set_draw_color(150, 150, 150)
+            pdf.set_draw_color(200, 50, 50)
             pdf.rect(135, pdf.get_y() + 2, 62, 28)
-            pdf.set_xy(135, pdf.get_y() + 10)
-            pdf.set_font("helvetica", "I", 7.5)
-            pdf.cell(62, 4, "[2D Structure Schematic]", 0, 1, "C")
+            pdf.set_xy(135, pdf.get_y() + 8)
+            pdf.set_font("helvetica", "B", 6.5)
+            pdf.set_text_color(180, 0, 0)
+            pdf.cell(62, 3, "RDKit Render Failed:", 0, 1, "C")
+            pdf.set_font("helvetica", "", 5.5)
+            # Print truncated error message inside box for debugging
+            pdf.multi_cell(w=62, h=3, txt=render_error_msg[:90], align="C")
+            pdf.set_text_color(0, 0, 0)
 
         pdf.set_font("helvetica", "", 7.5)
         meta_text = (
