@@ -1,3 +1,5 @@
 streamlit
 rdkit
-fpdf2
+pandas
+reportlab
+matplotlib
