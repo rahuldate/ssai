@@ -14,7 +14,7 @@ def determine_ghs_potency(ec3_val, prediction):
 
 def generate_regulatory_report(report_type, results_data):
     current_timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S UTC")
-    version_tag = "SSai-Core v2.5.1-PREDSKIN"
+    version_tag = "SSai-Core v2.5.0-PREDSKIN"
 
     class PDFReport(FPDF):
         def __init__(self):
@@ -42,16 +42,21 @@ def generate_regulatory_report(report_type, results_data):
     pdf.add_page()
     pdf.set_text_color(0, 0, 0)
     
-    smiles = results_data.get('SMILES', '').strip()
-    if not smiles:
-        smiles = 'NC1=CC=C(N)C=C1'
+    # Robustly check all possible SMILES key variants from app.py
+    smiles = (
+        results_data.get('SMILES') or 
+        results_data.get('smiles') or 
+        results_data.get('Canonical_SMILES') or 
+        results_data.get('canonical_smiles') or 
+        'NC1=CC=C(N)C=C1'
+    ).strip()
         
-    affinity = results_data.get('AG_MMPBSA', -12.3)
-    compound_name = results_data.get('Name', 'p-Phenylenediamine (PPD)')
+    affinity = results_data.get('AG_MMPBSA', results_data.get('affinity', -12.3))
+    compound_name = results_data.get('Name', results_data.get('Resolved_Name', 'p-Phenylenediamine (PPD)'))
     cas_rn = results_data.get('CAS', '106-50-3')
     mw_logp = results_data.get('MW_LogP', '108.14 g/mol | 0.15')
     dom_status = results_data.get('Applicability_Domain', 'IN_DOMAIN (Distance Index D_M: 0.355)')
-    raw_pred = results_data.get('Prediction', 'SENSITIZER')
+    raw_pred = results_data.get('Prediction', results_data.get('OECD_497_Call', 'SENSITIZER'))
     ec3_pred = results_data.get('EC3', 0.083)
     
     ghs_cat, ghs_desc = determine_ghs_potency(ec3_pred, raw_pred)
@@ -61,7 +66,6 @@ def generate_regulatory_report(report_type, results_data):
         pdf.set_text_color(20, 40, 60)
         pdf.cell(0, 4.5, "1. STRUCTURE CURATION & APPLICABILITY DOMAIN (AD)", 0, 1)
         
-        # Render scaled-down 2D molecular structure to perfectly fit the header box
         image_rendered = False
         render_error_msg = ""
         try:
@@ -69,18 +73,12 @@ def generate_regulatory_report(report_type, results_data):
             from rdkit.Chem import Draw
             mol = Chem.MolFromSmiles(smiles)
             if mol:
-                # Use adjusted dimensions and drawing options for neat padding inside the box
-                dopts = Draw.MolDrawOptions()
-                dopts.bondLineWidth = 1.8
-                dopts.padding = 0.2
-                img = Draw.MolToImage(mol, size=(220, 95), options=dopts)
-                
+                img = Draw.MolToImage(mol, size=(300, 130))
                 with tempfile.NamedTemporaryFile(delete=False, suffix=".png") as tmp:
                     tmp_name = tmp.name
                 img.save(tmp_name)
                 if os.path.exists(tmp_name) and os.path.getsize(tmp_name) > 0:
-                    # Place cleanly aligned inside the right-hand metadata column
-                    pdf.image(tmp_name, x=142, y=pdf.get_y() + 2, w=52)
+                    pdf.image(tmp_name, x=135, y=pdf.get_y() + 2, w=62)
                     image_rendered = True
                 try:
                     os.unlink(tmp_name)
@@ -93,13 +91,13 @@ def generate_regulatory_report(report_type, results_data):
 
         if not image_rendered:
             pdf.set_draw_color(200, 50, 50)
-            pdf.rect(142, pdf.get_y() + 2, 52, 24)
-            pdf.set_xy(142, pdf.get_y() + 7)
-            pdf.set_font("helvetica", "B", 6)
+            pdf.rect(135, pdf.get_y() + 2, 62, 28)
+            pdf.set_xy(135, pdf.get_y() + 8)
+            pdf.set_font("helvetica", "B", 6.5)
             pdf.set_text_color(180, 0, 0)
-            pdf.cell(52, 3, "Render Failed:", 0, 1, "C")
-            pdf.set_font("helvetica", "", 5)
-            pdf.multi_cell(w=52, h=2.5, txt=render_error_msg[:80], align="C")
+            pdf.cell(62, 3, "Structure Render Failed:", 0, 1, "C")
+            pdf.set_font("helvetica", "", 5.5)
+            pdf.multi_cell(w=62, h=3, txt=render_error_msg[:90], align="C")
             pdf.set_text_color(0, 0, 0)
 
         pdf.set_font("helvetica", "", 7.5)
@@ -110,8 +108,8 @@ def generate_regulatory_report(report_type, results_data):
             f"Applicability Domain Check: {dom_status}\n"
             f"Input Curation Note: Salts stripped & charges neutralized."
         )
-        pdf.multi_cell(w=125, h=4, txt=meta_text)
-        pdf.ln(5)
+        pdf.multi_cell(w=115, h=4, txt=meta_text)
+        pdf.ln(6)
         
         pdf.set_font("helvetica", "B", 9)
         pdf.cell(0, 4.5, "2. INTEGRATED TESTING STRATEGY & GHS POTENCY CLASSIFICATION", 0, 1)
