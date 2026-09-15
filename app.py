@@ -829,3 +829,25 @@ elif mode == "🧪 Multi-Agent Skin Sensitization Predictor & Executive Dossier"
             "Developed for high-throughput in silico regulatory toxicology assessment under strict international standards.\n\n"
             "**Created with Gemini by Dr Rahul Date**"
         )
+
+
+# --- Regulatory Report Export UI ---
+st.markdown("---")
+st.subheader("📥 Regulatory Dossier Export")
+report_choice = st.selectbox(
+    "Select Report Format", 
+    ["Executive_AOP_Dossier", "OECD_QMRF"]
+)
+
+if 'res' in locals() or 'res' in globals():
+    if st.button("Generate & Download Dossier PDF"):
+        try:
+            pdf_output = generate_regulatory_report(report_choice, res)
+            st.download_button(
+                label=f"Click here to download {report_choice}.pdf",
+                data=bytes(pdf_output),
+                file_name=f"{report_choice}.pdf",
+                mime="application/pdf"
+            )
+        except Exception as e:
+            st.error(f"Error generating report: {e}")
