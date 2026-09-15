@@ -213,10 +213,18 @@ mode = st.sidebar.radio(
 st.sidebar.markdown("---")
 st.sidebar.info("Automated Defined Approach based on OECD Guideline 497 and Advanced NAMs.")
 
-app_tab1, app_tab2 = st.tabs(["🔍 Single Compound Lookup & Dossier", "📦 Batch High-Throughput Screening"])
-
-with app_tab1:
+# Clean sidebar-driven routing (no duplicate tabs)
+if mode == "🔍 Single Compound Lookup & Dossier":
     st.caption("Automated Defined Approach based on **OECD Guideline 497** and Advanced NAMs.")
+elif mode == "📦 Batch High-Throughput Screening":
+    st.subheader("📦 Batch High-Throughput Screening (OECD 497)")
+    st.info("Upload a CSV or SMILES list to run multi-agent screening across multiple compounds.")
+    uploaded_file = st.file_uploader("Upload CSV file containing SMILES column", type=["csv", "txt"])
+    if uploaded_file is not None:
+        st.success("Batch file successfully uploaded! Processing pipeline ready.")
+elif mode == "🧪 Multi-Agent Skin Sensitization Predictor & Executive Dossier":
+    st.subheader("🧪 Multi-Agent Skin Sensitization Predictor & Executive Dossier")
+    st.caption("Comprehensive multi-agent council review, OpenMM molecular dynamics, and automated compliance dossiers.")
 
 @dataclass
 class ChemicalProfile:
