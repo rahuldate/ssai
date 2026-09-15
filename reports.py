@@ -1,7 +1,5 @@
 from fpdf import FPDF
 from datetime import datetime
-from rdkit import Chem
-from rdkit.Chem import Draw
 import tempfile
 import os
 
@@ -47,18 +45,23 @@ def generate_regulatory_report(report_type, results_data):
         pdf.set_text_color(20, 40, 60)
         pdf.cell(0, 4.5, "1. ANALYZED MOLECULE & APPLICABILITY DOMAIN", 0, 1)
         
-        # Generate and embed RDKit 2D structure image if valid SMILES
-        mol = Chem.MolFromSmiles(smiles)
-        if mol:
-            with tempfile.NamedTemporaryFile(delete=False, suffix=".png") as tmp:
-                tmp_name = tmp.name
-            Draw.MolToFile(mol, tmp_name, size=(320, 140))
-            # Place image on the right side of metadata block
-            pdf.image(tmp_name, x=135, y=pdf.get_y() + 2, w=65)
-            try:
-                os.unlink(tmp_name)
-            except:
-                pass
+        # Safely attempt RDKit 2D structure rendering with fallback if system rendering backend is missing
+        try:
+            from rdkit import Chem
+            from rdkit.Chem import Draw
+            mol = Chem.MolFromSmiles(smiles)
+            if mol:
+                with tempfile.NamedTemporaryFile(delete=False, suffix=".png") as tmp:
+                    tmp_name = tmp.name
+                Draw.MolToFile(mol, tmp_name, size=(320, 140))
+                pdf.image(tmp_name, x=135, y=pdf.get_y() + 2, w=65)
+                try:
+                    os.unlink(tmp_name)
+                except:
+                    pass
+        except Exception as e:
+            # Fallback gracefully if drawing libraries/backends are unavailable in Streamlit Cloud
+            pass
 
         pdf.set_font("helvetica", "", 7.5)
         meta_text = (
