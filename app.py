@@ -1220,7 +1220,7 @@ if st.button("⚖️ Run QRA & NESL Evaluation"):
         qra_rows.append({
             "Product Category": cat,
             "Composite SAF": dat["Composite SAF"],
-            "NESL Limit": dat["NESL (Max Acceptable ug/cm²)"],
+            "NESL Limit": dat["NESL (Max Acceptable % or ug/cm2)"],
             "Safety Status": dat["Safe for Formulation?"]
         })
     df_qra = pd.DataFrame(qra_rows)
