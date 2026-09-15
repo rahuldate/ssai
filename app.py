@@ -886,10 +886,7 @@ if mode == "🔍 Single Compound Lookup & Dossier":
                 st.success("Expert adjudication successfully locked and recorded into the audit trail!")
         st.markdown("---")
 
-        st.markdown("### 📥 
-# --- UNIFIED REGULATORY DOSSIER EXPORT MODULE ---
-st.markdown("---")
-st.markdown("## 📥
+
 
 # --- REGULATORY DOSSIER EXPORT ---
 st.markdown("---")
