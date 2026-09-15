@@ -35,13 +35,9 @@ def generate_regulatory_report(report_type, results_data):
         pdf.cell(0, 8, "1. Executive Adverse Outcome Pathway (AOP) Dossier", 0, 1)
         pdf.set_font("helvetica", "", 10)
         pdf.ln(2)
-        text_aop = (
-            f"Target Molecular Axis: Keap1 Cys151 Thiolate Nucleophile
-"
-            f"Evaluated SMILES: {smiles}
-"
-            f"Predicted Binding Affinity (AutoVina): {affinity} kcal/mol"
-        )
+        text_aop = f"Target Molecular Axis: Keap1 Cys151 Thiolate Nucleophile
+Evaluated SMILES: {smiles}
+Predicted Binding Affinity (AutoVina): {affinity} kcal/mol"
         pdf.multi_cell(w=0, h=6, txt=text_aop)
         pdf.ln(4)
         pdf.set_font("helvetica", "B", 10)
@@ -74,12 +70,9 @@ def generate_regulatory_report(report_type, results_data):
         pdf.cell(0, 10, "3. IUCLID GHS Classification & Hazard Assessment", 0, 1)
         pdf.set_font("helvetica", "", 10)
         pdf.ln(2)
-        text_iuclid_sub = (
-            f"Substance SMILES: {smiles}
-"
-            f"Computed Covalent Affinity: {affinity} kcal/mol"
-        )
-        pdf.multi_cell(w=0, h=6, txt=text_iuclid_sub)
+        text_iuclid = f"Substance SMILES: {smiles}
+Computed Covalent Affinity: {affinity} kcal/mol"
+        pdf.multi_cell(w=0, h=6, txt=text_iuclid)
         pdf.ln(4)
         pdf.set_font("helvetica", "B", 10)
         pdf.cell(0, 6, "GHS Hazard Classification Statement:", 0, 1)
