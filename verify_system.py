@@ -34,12 +34,22 @@ except Exception as e:
     print(f"[FAIL] QRA module verification failed: {e}")
     sys.exit(1)
 
-# 4. Verify PDF Dossier Generator
+# 4. Verify Bayesian WoE Module
+try:
+    from bayesian_woe import compute_bayesian_woe
+    bay_res = compute_bayesian_woe(True, True, True)
+    assert "Posterior Probability" in bay_res
+    print(f"[PASS] Bayesian WoE Module verified successfully. Posterior: {bay_res['Posterior Probability']}%")
+except Exception as e:
+    print(f"[FAIL] Bayesian WoE module verification failed: {e}")
+    sys.exit(1)
+
+# 5. Verify PDF Dossier Generator (QMRF/QPRF/AOP)
 try:
     from reports import generate_regulatory_report
     generate_regulatory_report(filename="Verification_Test_Dossier.pdf")
     if os.path.exists("Verification_Test_Dossier.pdf"):
-        print("[PASS] ReportLab PDF regulatory dossier generated successfully.")
+        print("[PASS] ReportLab QMRF/QPRF regulatory dossier generated successfully.")
         os.remove("Verification_Test_Dossier.pdf")
     else:
         print("[FAIL] PDF file was not created.")
@@ -48,7 +58,7 @@ except Exception as e:
     print(f"[FAIL] PDF dossier generation failed: {e}")
     sys.exit(1)
 
-# 5. Verify Streamlit App Syntax
+# 6. Verify Streamlit App Syntax
 try:
     with open("app.py", "r") as f:
         code = f.read()
@@ -59,5 +69,5 @@ except Exception as e:
     sys.exit(1)
 
 print("=" * 60)
-print("ALL SYSTEMS OPERATIONAL. READY FOR REGULATORY DEPLOYMENT.")
+print("ALL SYSTEMS FULLY OPERATIONAL. READY FOR ENTERPRISE DEPLOYMENT.")
 print("=" * 60)
