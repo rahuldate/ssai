@@ -106,5 +106,9 @@ def generate_regulatory_report(filename="Skin_Sensitization_Dossier.pdf", compou
     )
     story.append(qa_text)
 
-    doc.build(filename)
+    # Corrected build call passing the story list of flowables
+    doc.build(story)
     return filename
+
+if __name__ == "__main__":
+    generate_regulatory_report()
