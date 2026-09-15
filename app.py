@@ -1168,3 +1168,29 @@ if uploaded_file is not None:
             st.error("Could not locate a column containing 'SMILES' in the uploaded CSV. Please check your column headers.")
     except Exception as e:
         st.error(f"Error parsing uploaded file: {e}")
+
+
+# --- TRUE 3D QUANTUM CHEMISTRY MODULE ---
+st.markdown("---")
+st.markdown("### ⚛️ True 3D Quantum-Chemical Descriptor Engine ($E_{LUMO}$)")
+st.caption("Perform 3D conformer embedding (ETKDG) and semi-empirical orbital energy evaluation to assess thermodynamic protein-binding reactivity.")
+
+q_smiles_input = st.text_input("Enter SMILES for 3D Quantum Orbital Analysis", value="O=CC=Cc1ccccc1")
+
+if st.button("🔬 Compute 3D Quantum Descriptors"):
+    from quantum_xtb import compute_true_3d_quantum_properties
+    with st.spinner("Generating 3D conformer and evaluating orbital energy..."):
+        q_results = compute_true_3d_quantum_properties(q_smiles_input)
+        
+        if "Error" in q_results:
+            st.error(q_results["Error"])
+        else:
+            q_col1, q_col2, q_col3 = st.columns(3)
+            with q_col1:
+                st.metric("Calculated LUMO", f"{q_results['Calculated LUMO (eV5)' if 'Calculated LUMO (eV5)' in q_results else 'Calculated LUMO (eV)']} eV", delta="Orbital Energy")
+            with q_col2:
+                st.metric("Electrophilicity (\u03c9)", f"{q_results['Electrophilicity Index (omega)']}", delta="Reactivity Index")
+            with q_col3:
+                st.metric("Backend Engine", q_results["Backend"].split()[0])
+            
+            st.json(q_results)
