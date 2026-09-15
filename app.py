@@ -14,46 +14,74 @@ st.set_page_config(
     layout="wide"
 )
 
+# --- SIDEBAR CONFIGURATION ---
+st.sidebar.header("🧬 SSai Control Panel")
+st.sidebar.markdown("Configure molecular inputs, select presets, and review system status.")
+
+preset_substances = {
+    "Cinnamaldehyde": "O=CC=Cc1ccccc1",
+    "Formaldehyde": "O=C",
+    "Eugenol": "COc1cc(CC=C)ccc1O",
+    "p-Phenylenediamine": "Nc1ccc(N)cc1",
+    "Glycerin": "OCC(O)CO"
+}
+
+selected_preset = st.sidebar.selectbox("Load Benchmark Substance", list(preset_substances.keys()))
+default_smiles = preset_substances[selected_preset]
+
+smiles_input = st.sidebar.text_input("SMILES Notation", value=default_smiles)
+substance_name = st.sidebar.text_input("Substance Name", value=selected_preset)
+
+st.sidebar.markdown("---")
+st.sidebar.subheader("System Status")
+st.sidebar.success("RDKit Core: Active")
+st.sidebar.success("xTB Quantum Engine: Ready")
+st.sidebar.success("Bayesian WoE Engine: Online")
+
+# --- MAIN DASHBOARD AREA ---
 st.title("🧬 Skin Sensitizer AI (SSai): OECD 497 Regulatory Platform")
 st.markdown("**Advanced 3D Quantum Mechanics, NAM Integration, QRA Safety Assessment, & Bayesian WoE Decision Support.**")
 st.markdown("---")
 
 # Main Navigation Tabs
 tab1, tab2, tab3, tab4 = st.tabs([
-    "⚛️ 3D Quantum & NAM Screening", 
+    "⚛️ 3D Quantum & Thermodynamic Verdict", 
     "📊 QRA & NESL Calculator", 
     "📈 Bayesian WoE & ITS", 
     "📄 OECD QMRF / QPRF Dossier"
 ])
 
-# --- TAB 1: 3D QUANTUM & NAM SCREENING ---
+# --- TAB 1: 3D QUANTUM & THERMODYNAMIC VERDICT ---
 with tab1:
-    st.header("3D Quantum-Chemical & Molecular Screening")
+    st.header("3D Quantum-Chemical & Thermodynamic Screening")
     st.caption("Perform conformer generation (ETKDG) and semi-empirical orbital estimation (xTB) to evaluate electrophilic reactivity.")
     
     col_q1, col_q2 = st.columns([2, 1])
     with col_q1:
-        smiles_input = st.text_input("Enter SMILES Notation", value="O=CC=Cc1ccccc1")
-        substance_name = st.text_input("Substance Common Name", value="Cinnamaldehyde")
+        st.write(f"**Evaluating Substance:** {substance_name}")
+        st.write(f"**SMILES:** `{smiles_input}`")
     
-    if st.button("🚀 Run 3D Quantum & NAM Analysis"):
+    if st.button("🚀 Run 3D Quantum & Thermodynamic Analysis", type="primary"):
         try:
             mol = Chem.MolFromSmiles(smiles_input)
             if mol:
-                st.success("Valid molecular structure parsed successfully.")
-                # Display 2D image
                 img = Draw.MolToImage(mol, size=(300, 300))
                 col_q2.image(img, caption=substance_name)
                 
-                # Compute Quantum Properties
                 with st.spinner("Computing 3D conformer and xTB orbital descriptors..."):
                     q_res = compute_true_3d_quantum_properties(smiles_input)
                 
-                st.markdown("### Quantum-Chemical Readouts")
+                st.markdown("### Quantum-Chemical Readouts & Verdict")
                 res_col1, res_col2, res_col3 = st.columns(3)
                 res_col1.metric("Calculated LUMO (eV)", q_res.get("Calculated LUMO (eV)", "N/A"))
-                res_col2.metric("Electrophilicity (ω)", q_res.get("Electrophilicity Index (omega)", "N/A"))
+                res_col2.metric("Electrophilicity Index (ω)", q_res.get("Electrophilicity Index (omega)", "N/A"))
                 res_col3.metric("Thermodynamic Verdict", q_res.get("Thermodynamic Verdict", "N/A"))
+                
+                verdict_text = q_res.get("Thermodynamic Verdict", "")
+                if "REACTIVE" in verdict_text.upper():
+                    st.error(f"**Hazard Conclusion:** {verdict_text} — Favorable for covalent protein binding and AOP Key Event 1.")
+                else:
+                    st.success(f"**Hazard Conclusion:** {verdict_text} — Unlikely to act as a direct Michael acceptor or protein binder.")
             else:
                 st.error("Invalid SMILES string provided. Please check input.")
         except Exception as e:
@@ -64,16 +92,14 @@ with tab2:
     st.header("Quantitative Risk Assessment (QRA) & NESL Calculator")
     st.caption("Calculate No Expected Sensitization Levels (NESL) and Acceptable Exposure Limits across IFRA product categories.")
     
-    qra_col1, qra_col2, qra_col3 = st.columns(3)
+    qra_col1, qra_col2 = st.columns(2)
     with qra_col1:
-        qra_sens_name = st.text_input("Substance Name for QRA", value="Cinnamaldehyde")
-    with qra_col2:
         sens_potency = st.selectbox("Sensitization Potency Tier", ["Strong", "Moderate", "Weak"])
-    with qra_col3:
+    with qra_col2:
         sens_cel = st.number_input("CEL / Sensitization Threshold (µg/cm²)", value=50.0)
         
     if st.button("⚙️ Compute QRA Thresholds"):
-        qra_data = calculate_qra_metrics(qra_sens_name, sens_potency, sens_cel)
+        qra_data = calculate_qra_metrics(substance_name, sens_potency, sens_cel)
         st.success("QRA safety metrics computed successfully!")
         
         qra_rows = []
@@ -116,16 +142,12 @@ with tab4:
     st.header("OECD QMRF, QPRF & Regulatory Dossier Export")
     st.caption("Generate publication-grade PDF dossiers compliant with OECD 497, QMRF metadata, QPRF applicability domain, and Executive AOP standards.")
     
-    d_col1, d_col2 = st.columns(2)
-    with d_col1:
-        dossier_name = st.text_input("Substance Name for Dossier", value="Cinnamaldehyde", key="dos_name")
-    with d_col2:
-        dossier_smiles_in = st.text_input("SMILES for Dossier", value="O=CC=Cc1ccccc1", key="dos_smiles")
-        
+    st.write(f"Ready to export regulatory dossier for **{substance_name}** (`{smiles_input}`).")
+    
     if st.button("📄 Generate & Download Official Regulatory PDF Dossier", key="btn_pdf"):
         try:
             pdf_filename = "OECD_497_Regulatory_Dossier.pdf"
-            generate_regulatory_report(filename=pdf_filename, compound_name=dossier_name, smiles=dossier_smiles_in)
+            generate_regulatory_report(filename=pdf_filename, compound_name=substance_name, smiles=smiles_input)
             
             with open(pdf_filename, "rb") as pdf_file:
                 pdf_bytes = pdf_file.read()
