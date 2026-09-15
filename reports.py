@@ -45,16 +45,17 @@ def generate_regulatory_report(report_type, results_data):
         pdf.set_text_color(20, 40, 60)
         pdf.cell(0, 4.5, "1. ANALYZED MOLECULE & APPLICABILITY DOMAIN", 0, 1)
         
-        # Robust structure rendering block with fallback placeholder box if rendering binaries are absent
+        # Render real 2D molecular structure using RDKit and PIL image backend
         image_rendered = False
         try:
             from rdkit import Chem
             from rdkit.Chem import Draw
             mol = Chem.MolFromSmiles(smiles)
             if mol:
+                img = Draw.MolToImage(mol, size=(300, 130))
                 with tempfile.NamedTemporaryFile(delete=False, suffix=".png") as tmp:
                     tmp_name = tmp.name
-                Draw.MolToFile(mol, tmp_name, size=(300, 130))
+                img.save(tmp_name)
                 if os.path.exists(tmp_name) and os.path.getsize(tmp_name) > 0:
                     pdf.image(tmp_name, x=135, y=pdf.get_y() + 2, w=62)
                     image_rendered = True
@@ -62,11 +63,10 @@ def generate_regulatory_report(report_type, results_data):
                     os.unlink(tmp_name)
                 except:
                     pass
-        except Exception:
-            pass
+        except Exception as e:
+            print(f"Structure rendering error: {e}")
 
         if not image_rendered:
-            # Draw clean structured placeholder box indicating chemical schematic node if image rendering is skipped
             pdf.set_draw_color(150, 150, 150)
             pdf.rect(135, pdf.get_y() + 2, 62, 28)
             pdf.set_xy(135, pdf.get_y() + 10)
