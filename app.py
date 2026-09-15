@@ -889,28 +889,31 @@ if mode == "🔍 Single Compound Lookup & Dossier":
         st.markdown("### 📥 
 # --- UNIFIED REGULATORY DOSSIER EXPORT MODULE ---
 st.markdown("---")
-st.markdown("## 📥 Regulatory Dossier Exports")
-st.caption("Generate and download an OECD 497-compliant regulatory PDF dossier for your evaluation.")
+st.markdown("## 📥
 
-dossier_col1, dossier_col2 = st.columns(2)
-with dossier_col1:
-    dossier_compound = st.text_input("Substance Name for Dossier", value="Cinnamaldehyde")
-with dossier_col2:
-    dossier_smiles = st.text_input("SMILES Notation", value="O=CC=Cc1ccccc1")
+# --- REGULATORY DOSSIER EXPORT ---
+st.markdown("---")
+st.markdown("### 📥 Regulatory Dossier Export")
+st.caption("Generate and download an OECD 497-compliant regulatory PDF dossier.")
+
+col1, col2 = st.columns(2)
+with col1:
+    compound_name = st.text_input("Substance Name", value="Cinnamaldehyde")
+with col2:
+    compound_smiles = st.text_input("SMILES", value="O=CC=Cc1ccccc1")
 
 if st.button("📄 Generate & Download Official Regulatory PDF Dossier"):
     try:
         from reports import generate_regulatory_report
         pdf_filename = "OECD_497_Regulatory_Dossier.pdf"
-        generate_regulatory_report(filename=pdf_filename, compound_name=dossier_compound, smiles=dossier_smiles)
+        generate_regulatory_report(filename=pdf_filename, compound_name=compound_name, smiles=compound_smiles)
         
-        # Read file safely in binary mode
         with open(pdf_filename, "rb") as pdf_file:
             pdf_bytes = pdf_file.read()
             
         st.success("Regulatory PDF dossier generated successfully!")
         st.download_button(
-            label="⬇️ Click Here to Download PDF",
+            label="⬇️ Download PDF Dossier",
             data=pdf_bytes,
             file_name=pdf_filename,
             mime="application/pdf"
