@@ -124,7 +124,7 @@ import time
 from dataclasses import dataclass
 from typing import Any, Dict, List, Optional
 
-from fpdf import FPDF
+from reports import generate_regulatory_report
 from rdkit import Chem
 from rdkit.Chem import Crippen, Descriptors
 import requests
