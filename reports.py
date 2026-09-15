@@ -14,7 +14,7 @@ def determine_ghs_potency(ec3_val, prediction):
 
 def generate_regulatory_report(report_type, results_data):
     current_timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S UTC")
-    version_tag = "SSai-Core v2.5.0-PREDSKIN"
+    version_tag = "SSai-Core v2.5.1-PREDSKIN"
 
     class PDFReport(FPDF):
         def __init__(self):
@@ -61,6 +61,7 @@ def generate_regulatory_report(report_type, results_data):
         pdf.set_text_color(20, 40, 60)
         pdf.cell(0, 4.5, "1. STRUCTURE CURATION & APPLICABILITY DOMAIN (AD)", 0, 1)
         
+        # Render scaled-down 2D molecular structure to perfectly fit the header box
         image_rendered = False
         render_error_msg = ""
         try:
@@ -68,12 +69,18 @@ def generate_regulatory_report(report_type, results_data):
             from rdkit.Chem import Draw
             mol = Chem.MolFromSmiles(smiles)
             if mol:
-                img = Draw.MolToImage(mol, size=(300, 130))
+                # Use adjusted dimensions and drawing options for neat padding inside the box
+                dopts = Draw.MolDrawOptions()
+                dopts.bondLineWidth = 1.8
+                dopts.padding = 0.2
+                img = Draw.MolToImage(mol, size=(220, 95), options=dopts)
+                
                 with tempfile.NamedTemporaryFile(delete=False, suffix=".png") as tmp:
                     tmp_name = tmp.name
                 img.save(tmp_name)
                 if os.path.exists(tmp_name) and os.path.getsize(tmp_name) > 0:
-                    pdf.image(tmp_name, x=135, y=pdf.get_y() + 2, w=62)
+                    # Place cleanly aligned inside the right-hand metadata column
+                    pdf.image(tmp_name, x=142, y=pdf.get_y() + 2, w=52)
                     image_rendered = True
                 try:
                     os.unlink(tmp_name)
@@ -86,13 +93,13 @@ def generate_regulatory_report(report_type, results_data):
 
         if not image_rendered:
             pdf.set_draw_color(200, 50, 50)
-            pdf.rect(135, pdf.get_y() + 2, 62, 28)
-            pdf.set_xy(135, pdf.get_y() + 8)
-            pdf.set_font("helvetica", "B", 6.5)
+            pdf.rect(142, pdf.get_y() + 2, 52, 24)
+            pdf.set_xy(142, pdf.get_y() + 7)
+            pdf.set_font("helvetica", "B", 6)
             pdf.set_text_color(180, 0, 0)
-            pdf.cell(62, 3, "Structure Render Failed:", 0, 1, "C")
-            pdf.set_font("helvetica", "", 5.5)
-            pdf.multi_cell(w=62, h=3, txt=render_error_msg[:90], align="C")
+            pdf.cell(52, 3, "Render Failed:", 0, 1, "C")
+            pdf.set_font("helvetica", "", 5)
+            pdf.multi_cell(w=52, h=2.5, txt=render_error_msg[:80], align="C")
             pdf.set_text_color(0, 0, 0)
 
         pdf.set_font("helvetica", "", 7.5)
@@ -103,8 +110,8 @@ def generate_regulatory_report(report_type, results_data):
             f"Applicability Domain Check: {dom_status}\n"
             f"Input Curation Note: Salts stripped & charges neutralized."
         )
-        pdf.multi_cell(w=115, h=4, txt=meta_text)
-        pdf.ln(6)
+        pdf.multi_cell(w=125, h=4, txt=meta_text)
+        pdf.ln(5)
         
         pdf.set_font("helvetica", "B", 9)
         pdf.cell(0, 4.5, "2. INTEGRATED TESTING STRATEGY & GHS POTENCY CLASSIFICATION", 0, 1)
