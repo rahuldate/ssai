@@ -45,7 +45,8 @@ def generate_regulatory_report(report_type, results_data):
         pdf.set_text_color(20, 40, 60)
         pdf.cell(0, 4.5, "1. ANALYZED MOLECULE & APPLICABILITY DOMAIN", 0, 1)
         
-        # Safely attempt RDKit 2D structure rendering with fallback if system rendering backend is missing
+        # Robust structure rendering block with fallback placeholder box if rendering binaries are absent
+        image_rendered = False
         try:
             from rdkit import Chem
             from rdkit.Chem import Draw
@@ -53,15 +54,24 @@ def generate_regulatory_report(report_type, results_data):
             if mol:
                 with tempfile.NamedTemporaryFile(delete=False, suffix=".png") as tmp:
                     tmp_name = tmp.name
-                Draw.MolToFile(mol, tmp_name, size=(320, 140))
-                pdf.image(tmp_name, x=135, y=pdf.get_y() + 2, w=65)
+                Draw.MolToFile(mol, tmp_name, size=(300, 130))
+                if os.path.exists(tmp_name) and os.path.getsize(tmp_name) > 0:
+                    pdf.image(tmp_name, x=135, y=pdf.get_y() + 2, w=62)
+                    image_rendered = True
                 try:
                     os.unlink(tmp_name)
                 except:
                     pass
-        except Exception as e:
-            # Fallback gracefully if drawing libraries/backends are unavailable in Streamlit Cloud
+        except Exception:
             pass
+
+        if not image_rendered:
+            # Draw clean structured placeholder box indicating chemical schematic node if image rendering is skipped
+            pdf.set_draw_color(150, 150, 150)
+            pdf.rect(135, pdf.get_y() + 2, 62, 28)
+            pdf.set_xy(135, pdf.get_y() + 10)
+            pdf.set_font("helvetica", "I", 7.5)
+            pdf.cell(62, 4, "[2D Structure Schematic]", 0, 1, "C")
 
         pdf.set_font("helvetica", "", 7.5)
         meta_text = (
