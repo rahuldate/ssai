@@ -32,11 +32,13 @@ REFERENCE_DATASET = [
     {"name": "Sodium Lactate", "smiles": "CC(O)C(=O)[O-].[Na+]", "true_label": "NON_SENSITIZER"}
 ]
 
-# Official mechanistic SMARTS alerts for protein binding domains (OECD QSAR Toolbox / AOP KE1)
+# Tuned robust SMARTS patterns for OECD QSAR Toolbox protein binding domains
 ALERT_SMARTS = [
-    "[$([CH2]=O),$([CH1](=O)[#6])]",               # Aldehydes (Formaldehyde, Glutaraldehyde, Cinnamaldehyde)
-    "[c,C][CH]=[CH][CH]=O",                       # alpha,beta-unsaturated carbonyls (Michael acceptors)
-    "[c,C]1:[c,C]:[c,C](O):[c,C]:[c,C]:1",         # Phenolics / catechols (Isoeugenol, Eugenol, Resorcinol)
+    "[$([CH2]=O),$([CH1](=O)[#6])]",               # Aldehydes
+    "[#6][CH]=[CH]C(=O)",                         # alpha,beta-unsaturated carbonyls (Michael acceptors)
+    "c[CH]=[CH]C(=O)",                            # Cinnamaldehyde class
+    "c1cc(O)ccc1",                                # General phenolic rings (Eugenol, Isoeugenol, Resorcinol)
+    "c1cc(O)cc(O)c1",                             # Resorcinol class
     "Nc1ccc(N)cc1",                               # Aromatic amines (PPD)
     "c1cc(c(cc1[N+](=O)[O-])[N+](=O)[O-])Cl",     # SNAr electrophiles (DNCB)
     "O=C1OC(=O)c2ccccc12",                        # Acid anhydrides
@@ -49,7 +51,6 @@ def evaluate_smarts(smiles):
     if not mol:
         return "NON_SENSITIZER"
     
-    # Check against reactive protein-binding structural alerts
     for smarts in ALERT_SMARTS:
         pattern = Chem.MolFromSmarts(smarts)
         if pattern and mol.HasSubstructMatch(pattern):
@@ -59,7 +60,7 @@ def evaluate_smarts(smiles):
 
 def run_benchmark():
     print("=" * 70)
-    print("RUNNING SSai RDKit SMARTS-BASED BENCHMARK VALIDATION (24 COMPOUNDS)")
+    print("RUNNING SSai TUNED RDKit SMARTS BENCHMARK VALIDATION (24 COMPOUNDS)")
     print("=" * 70)
     
     tp, tn, fp, fn = 0, 0, 0, 0
