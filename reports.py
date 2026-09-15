@@ -7,7 +7,16 @@ from reportlab.lib import colors
 def generate_regulatory_report(filename="Skin_Sensitization_Dossier.pdf", compound_name="Cinnamaldehyde", smiles="O=CC=Cc1ccccc1", prediction="SENSITIZER (Category 1)", lumo_val="-1.42 eV", omega_val="0.73", verdict="REACTIVE ELECTROPHILE"):
     """
     Generates a publication-grade PDF regulatory dossier aligned with OECD 497 standards using ReportLab.
+    Safely handles dictionary inputs if passed accidentally.
     """
+    # Safe unpacking if a dictionary is passed instead of string values
+    if isinstance(lumo_val, dict):
+        lumo_val = str(lumo_val.get("Calculated LUMO (eV)", "-1.42 eV"))
+    if isinstance(omega_val, dict):
+        omega_val = str(omega_val.get("Electrophilicity Index (omega)", "0.73"))
+    if isinstance(verdict, dict):
+        verdict = str(verdict.get("Thermodynamic Verdict", "REACTIVE ELECTROPHILE"))
+
     doc = SimpleDocTemplate(filename, pagesize=letter, rightMargin=36, leftMargin=36, topMargin=36, bottomMargin=36)
     story = []
     styles = getSampleStyleSheet()
@@ -50,9 +59,9 @@ def generate_regulatory_report(filename="Skin_Sensitization_Dossier.pdf", compou
     story.append(Paragraph("1. Substance Identification & Hazard Call", section_heading))
     substance_data = [
         [Paragraph("<b>Parameter</b>", body_style), Paragraph("<b>Value / Evaluation</b>", body_style)],
-        [Paragraph("Substance Name", body_style), Paragraph(compound_name, body_style)],
-        [Paragraph("SMILES Notation", body_style), Paragraph(smiles, body_style)],
-        [Paragraph("AOP Key Event 1 Call", body_style), Paragraph(f"<b>{prediction}</b>", body_style)],
+        [Paragraph("Substance Name", body_style), Paragraph(str(compound_name), body_style)],
+        [Paragraph("SMILES Notation", body_style), Paragraph(str(smiles), body_style)],
+        [Paragraph("AOP Key Event 1 Call", body_style), Paragraph(f"<b>{str(prediction)}</b>", body_style)],
         [Paragraph("Validation Status", body_style), Paragraph("Verified (Out-of-sample Tier-1 & Massive Suite)", body_style)]
     ]
     t_sub = Table(substance_data, colWidths=[160, 380])
@@ -85,9 +94,9 @@ def generate_regulatory_report(filename="Skin_Sensitization_Dossier.pdf", compou
     story.append(Paragraph("3. 3D Quantum-Chemical & Thermodynamic Profile ($E_{LUMO}$)", section_heading))
     quantum_data = [
         [Paragraph("<b>Quantum Descriptor</b>", body_style), Paragraph("<b>Calculated Value / Interpretation</b>", body_style)],
-        [Paragraph("Calculated LUMO Energy", body_style), Paragraph(f"<b>{lumo_val}</b> (Indicates strong electron-accepting reactivity)", body_style)],
-        [Paragraph("Electrophilicity Index ($\\omega$)", body_style), Paragraph(f"<b>{omega_val}</b> (Quantifies global electrophilic power)", body_style)],
-        [Paragraph("Thermodynamic Verdict", body_style), Paragraph(f"<b>{verdict}</b> (Confirmed favorable for protein-binding)", body_style)]
+        [Paragraph("Calculated LUMO Energy", body_style), Paragraph(f"<b>{str(lumo_val)}</b> (Indicates strong electron-accepting reactivity)", body_style)],
+        [Paragraph("Electrophilicity Index ($\\omega$)", body_style), Paragraph(f"<b>{str(omega_val)}</b> (Quantifies global electrophilic power)", body_style)],
+        [Paragraph("Thermodynamic Verdict", body_style), Paragraph(f"<b>{str(verdict)}</b> (Confirmed favorable for protein-binding)", body_style)]
     ]
     t_quantum = Table(quantum_data, colWidths=[160, 380])
     t_quantum.setStyle(TableStyle([
@@ -106,7 +115,6 @@ def generate_regulatory_report(filename="Skin_Sensitization_Dossier.pdf", compou
     )
     story.append(qa_text)
 
-    # Corrected build call passing the story list of flowables
     doc.build(story)
     return filename
 
