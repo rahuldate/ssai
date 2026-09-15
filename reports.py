@@ -50,7 +50,7 @@ def generate_regulatory_report(report_type, results_data):
         pdf.cell(0, 10, "2. OECD QMRF Technical Summary Report", 0, 1)
         pdf.set_font("helvetica", "", 10)
         pdf.ln(2)
-        text_qmrf = "• 1. QSAR Model Identifier: SSai-Keap1-Vina v1.0\n• 2. Regulatory Endpoint: Skin Sensitization (OECD 442C / DPRA Mechanistic Analog)\n• 3. Algorithmic Approach: Ensemble RDKit structural descriptor extraction paired with AutoVina molecular docking.\n• 4. Applicability Domain: Organic small molecules matching Lipinski rules-of-five criteria and molecular weight < 500 Da.\n• 5. Robustness & Validation: Evaluated via cross-validation against benchmark skin sensitization databases."
+        text_qmrf = "- 1. QSAR Model Identifier: SSai-Keap1-Vina v1.0\n- 2. Regulatory Endpoint: Skin Sensitization (OECD 442C / DPRA Mechanistic Analog)\n- 3. Algorithmic Approach: Ensemble RDKit structural descriptor extraction paired with AutoVina molecular docking.\n- 4. Applicability Domain: Organic small molecules matching Lipinski rules-of-five criteria and molecular weight < 500 Da.\n- 5. Robustness & Validation: Evaluated via cross-validation against benchmark skin sensitization databases."
         pdf.multi_cell(w=0, h=6, txt=text_qmrf)
         
     elif report_type == "IUCLID_GHS_Classification":
@@ -65,7 +65,7 @@ def generate_regulatory_report(report_type, results_data):
         pdf.set_font("helvetica", "B", 10)
         pdf.cell(0, 6, "GHS Hazard Classification Statement:", 0, 1)
         pdf.set_font("helvetica", "", 10)
-        text_ghs = "• Classification: Skin Sensitisation Category 1\n• Hazard Statement: H317 - May cause an allergic skin reaction\n• Precautionary Statements: P261 (Avoid breathing dust/fume/gas/mist/vapours/spray), P280 (Wear protective gloves/clothing), P302+P352 (IF ON SKIN: Wash with plenty of soap and water)."
+        text_ghs = "- Classification: Skin Sensitisation Category 1\n- Hazard Statement: H317 - May cause an allergic skin reaction\n- Precautionary Statements: P261 (Avoid breathing dust/fume/gas/mist/vapours/spray), P280 (Wear protective gloves/clothing), P302+P352 (IF ON SKIN: Wash with plenty of soap and water)."
         pdf.multi_cell(w=0, h=6, txt=text_ghs)
         
     return pdf.output()
