@@ -1194,3 +1194,34 @@ if st.button("🔬 Compute 3D Quantum Descriptors"):
                 st.metric("Backend Engine", q_results["Backend"].split()[0])
             
             st.json(q_results)
+
+
+# --- QUANTITATIVE RISK ASSESSMENT (QRA) & NESL MODULE ---
+st.markdown("---")
+st.markdown("## 🛡️ Quantitative Risk Assessment (QRA) & NESL Calculator")
+st.caption("Calculate IFRA/OECD-compliant No Expected Sensitization Levels (NESL) and Acceptable Exposure Limits across consumer product categories.")
+
+qra_col1, qra_col2 = st.columns(2)
+with qra_col1:
+    qra_compound = st.text_input("Substance Name for QRA", value="Cinnamaldehyde")
+    potency_select = st.selectbox("Predicted Potency Tier", ["Weak", "Moderate", "Strong", "Extreme"])
+with qra_col2:
+    base_pop = st.slider("Base Point of Departure (PoP - ug/cm²)", min_value=10.0, max_value=1000.0, value=100.0, step=10.0)
+
+if st.button("⚖️ Run QRA & NESL Evaluation"):
+    from qra_module import calculate_qra_metrics
+    qra_res = calculate_qra_metrics(qra_compound, potency_select, base_pop)
+    
+    st.success(f"Successfully computed risk thresholds for **{qra_res['Compound Name']}** ({qra_res['Potency Tier']} Potency)")
+    
+    import pandas as pd
+    qra_rows = []
+    for cat, dat in qra_res["Product Category Thresholds"].items():
+        qra_rows.append({
+            "Product Category": cat,
+            "Composite SAF": dat["Composite SAF"],
+            "NESL Limit": dat["NESL (Max Acceptable ug/cm²)"],
+            "Safety Status": dat["Safe for Formulation?"]
+        })
+    df_qra = pd.DataFrame(qra_rows)
+    st.dataframe(df_qra, use_container_width=True)
