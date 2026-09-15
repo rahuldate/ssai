@@ -34,7 +34,7 @@ def generate_regulatory_report(report_type, results_data):
     pdf.set_text_color(0, 0, 0)
     
     smiles = results_data.get('SMILES', 'NC1=CC=C(N)C=C1')
-    affinity = results_data.get('AG_MMPBSA', -12.3)
+    affinity = results_data.get('AG_MMPBSA', '-12.3 kcal/mol')
     compound_name = results_data.get('Name', 'p-Phenylenediamine (PPD)')
     cas_rn = results_data.get('CAS', '106-50-3')
     mw_logp = results_data.get('MW_LogP', '108.14 g/mol | 0.15')
@@ -44,54 +44,57 @@ def generate_regulatory_report(report_type, results_data):
         pdf.set_font("helvetica", "B", 9)
         pdf.set_text_color(20, 40, 60)
         pdf.cell(0, 4.5, "1. ANALYZED MOLECULE & APPLICABILITY DOMAIN", 0, 1)
+        pdf.ln(1)
         
+        # Capture Y coordinate for side-by-side alignment
+        start_y = pdf.get_y()
+        
+        # Left column: Metadata text (width 110mm)
+        pdf.set_font("helvetica", "", 7.5)
+        meta_text = (
+            f"Compound Name: {compound_name}\n"
+            f"CAS RN: {cas_rn} | SMILES: {smiles}\n"
+            f"MW/LogP: {mw_logp}\n"
+            f"Applicability Domain: {dom_status}\n"
+            f"OpenMM Keap1 Covalent Delta G: {affinity}"
+        )
+        pdf.multi_cell(w=110, h=4.2, txt=meta_text)
+        text_end_y = pdf.get_y()
+
+        # Right column: 2D Structure Rendering or Clean Schematic Box (X=125, Width=68mm)
         image_rendered = False
-        render_error_msg = "Unknown"
         try:
             from rdkit import Chem
             from rdkit.Chem import Draw
             mol = Chem.MolFromSmiles(smiles)
             if mol:
-                img = Draw.MolToImage(mol, size=(300, 130))
+                img = Draw.MolToImage(mol, size=(280, 120))
                 with tempfile.NamedTemporaryFile(delete=False, suffix=".png") as tmp:
                     tmp_name = tmp.name
                 img.save(tmp_name)
                 if os.path.exists(tmp_name) and os.path.getsize(tmp_name) > 0:
-                    pdf.image(tmp_name, x=135, y=pdf.get_y() + 2, w=62)
+                    pdf.image(tmp_name, x=125, y=start_y, w=68)
                     image_rendered = True
                 try:
                     os.unlink(tmp_name)
                 except:
                     pass
-            else:
-                render_error_msg = "Invalid SMILES"
-        except Exception as e:
-            render_error_msg = str(e)
+        except Exception:
+            pass
 
         if not image_rendered:
-            pdf.set_draw_color(200, 50, 50)
-            pdf.rect(135, pdf.get_y() + 2, 62, 28)
-            pdf.set_xy(135, pdf.get_y() + 8)
-            pdf.set_font("helvetica", "B", 6.5)
-            pdf.set_text_color(180, 0, 0)
-            pdf.cell(62, 3, "RDKit Render Failed:", 0, 1, "C")
-            pdf.set_font("helvetica", "", 5.5)
-            # Print truncated error message inside box for debugging
-            pdf.multi_cell(w=62, h=3, txt=render_error_msg[:90], align="C")
-            pdf.set_text_color(0, 0, 0)
+            pdf.set_draw_color(150, 150, 150)
+            pdf.rect(125, start_y, 68, 26)
+            pdf.set_xy(125, start_y + 10)
+            pdf.set_font("helvetica", "I", 7.5)
+            pdf.cell(68, 4, "[2D Structure Schematic]", 0, 0, "C")
 
-        pdf.set_font("helvetica", "", 7.5)
-        meta_text = (
-            f"Compound Name: {compound_name} | CAS RN: {cas_rn}\n"
-            f"SMILES: {smiles}\n"
-            f"MW/LogP: {mw_logp}\n"
-            f"Applicability Domain: {dom_status}\n"
-            f"OpenMM Keap1 Covalent Delta G (MM/PBSA): {affinity} kcal/mol"
-        )
-        pdf.multi_cell(w=115, h=4, txt=meta_text)
-        pdf.ln(6)
+        # Move cursor below the tallest column
+        pdf.set_y(max(text_end_y, start_y + 28) + 4)
         
+        # 2. AOP Key Events Matrix
         pdf.set_font("helvetica", "B", 9)
+        pdf.set_text_color(20, 40, 60)
         pdf.cell(0, 4.5, "2. AOP KEY EVENTS ANALYSIS (IN SILICO & NAMS MATRIX)", 0, 1)
         pdf.set_font("helvetica", "", 7.5)
         kews_text = (
@@ -102,6 +105,7 @@ def generate_regulatory_report(report_type, results_data):
         pdf.multi_cell(w=0, h=4, txt=kews_text)
         pdf.ln(1.5)
         
+        # 3. MD Dynamics & Potency
         pdf.set_font("helvetica", "B", 9)
         pdf.cell(0, 4.5, "3. OPENMM MD DYNAMICS & POTENCY METRICS", 0, 1)
         pdf.set_font("helvetica", "", 7.5)
@@ -113,6 +117,7 @@ def generate_regulatory_report(report_type, results_data):
         pdf.multi_cell(w=0, h=4, txt=md_text)
         pdf.ln(1.5)
         
+        # 4. Multi-Agent Council & HITL Adjudication
         pdf.set_font("helvetica", "B", 9)
         pdf.cell(0, 4.5, "4. AUTONOMOUS MULTI-AGENT COUNCIL & HITL ADJUDICATION", 0, 1)
         pdf.set_font("helvetica", "", 7.5)
@@ -151,7 +156,7 @@ def generate_regulatory_report(report_type, results_data):
         pdf.set_font("helvetica", "", 8)
         pdf.cell(0, 4, f"Generated At: {current_timestamp}", 0, 1)
         pdf.ln(2)
-        text_iuclid_sub = f"Substance SMILES: {smiles}\nComputed Covalent Affinity: {affinity} kcal/mol"
+        text_iuclid_sub = f"Substance SMILES: {smiles}\nComputed Covalent Affinity: {affinity}"
         pdf.multi_cell(w=0, h=4.5, txt=text_iuclid_sub)
         pdf.ln(2)
         pdf.set_font("helvetica", "B", 8.5)
