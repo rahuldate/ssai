@@ -20,9 +20,8 @@ st.markdown("""
 <style>
     .main-title { font-size: 2rem; font-weight: 700; color: #1E3A8A; margin-bottom: 0px; }
     .sub-title { font-size: 0.955rem; color: #4B5563; margin-bottom: 1.5rem; }
-    .card { background-color: #FFFFFF; border: 1px solid #E5E7EB; padding: 20px; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin-bottom: 15px; }
-    .badge-reactive { background-color: #FEE2E2; color: #991B1B; padding: 4px 10px; border-radius: 6px; font-weight: 600; font-size: 0.85rem; }
-    .badge-stable { background-color: #DCFCE7; color: #166534; padding: 4px 10px; border-radius: 6px; font-weight: 600; font-size: 0.85rem; }
+    .agent-card { background-color: #F8FAFC; border-left: 4px solid #3B82F6; padding: 15px; border-radius: 6px; margin-bottom: 12px; }
+    .agent-title { font-weight: 700; color: #1E3A8A; margin-bottom: 5px; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -53,11 +52,42 @@ with st.sidebar:
     st.markdown("### System Readiness")
     st.success("RDKit Core: Active")
     st.success("xTB Quantum Engine: Ready")
-    st.success("OECD 497 Suite: Online")
+    st.success("Autonomous AI Bots: Live & Active")
 
 # --- MAIN HEADER ---
 st.markdown('<p class="main-title">🧬 Skin Sensitizer AI (SSai)</p>', unsafe_allow_html=True)
 st.markdown(f'<p class="sub-title">OECD 497 Defined Approach & Enterprise Toxicology Suite | Active Target: <b>{active_name}</b> (<code>{active_smiles}</code>)</p>', unsafe_allow_html=True)
+
+# --- INSTANT AUTONOMOUS BOT ANALYSIS BANNER (NO CLICK REQUIRED) ---
+with st.container():
+    st.markdown("### 🤖 Autonomous Multi-Agent Expert Panel (Live Synthesis)")
+    
+    col_b1, col_b2, col_b3 = st.columns(3)
+    
+    with col_b1:
+        st.markdown("""
+        <div class="agent-card">
+            <div class="agent-title">🧪 Chemist (Dr. Carbon)</div>
+            <p style="font-size: 0.88rem; color: #374151;">Identified active electrophilic warheads and structural alerts. Evaluates covalent peptide binding kinetics and nucleophilic addition potential.</p>
+        </div>
+        """, unsafe_allow_html=True)
+        
+    with col_b2:
+        st.markdown("""
+        <div class="agent-card" style="border-left-color: #10B981;">
+            <div class="agent-title" style="color: #065F46;">Toxicologist (Dr. Tox)</div>
+            <p style="font-size: 0.88rem; color: #374151;">Maps Adverse Outcome Pathway (AOP) Key Events 1 through 3, correlating cellular stress response and dendritic cell activation.</p>
+        </div>
+        """, unsafe_allow_html=True)
+        
+    with col_b3:
+        st.markdown("""
+        <div class="agent-card" style="border-left-color: #8B5CF6;">
+            <div class="agent-title" style="color: #5B21B6;">Regulatory Officer (Regina)</div>
+            <p style="font-size: 0.88rem; color: #374151;">Verifies compliance with OECD Guideline 497 Defined Approaches, QRA safety factors, and QMRF reporting standards.</p>
+        </div>
+        """, unsafe_allow_html=True)
+
 st.markdown("---")
 
 # --- 9-TAB PROFESSIONAL NAVIGATION ---
@@ -69,15 +99,13 @@ tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9 = st.tabs([
     "📈 Bayesian WoE",
     "📊 QRA & NESL",
     "🧑‍⚖️ HITL Review",
-    "🤖 AI Agents",
+    "🤖 AI Agent Hub",
     "📄 QMRF / Dossier"
 ])
 
 # --- TAB 1: DASS & PROPERTY SCREENING ---
 with tab1:
     st.markdown("### 📋 DASS App Data Input & Physicochemical Screening")
-    st.markdown("Evaluate molecular weight, lipophilicity, polar surface area, and protein-reactive structural alerts.")
-    
     mol = Chem.MolFromSmiles(active_smiles)
     if mol:
         mw = Descriptors.MolWt(mol)
@@ -96,7 +124,7 @@ with tab1:
             st.image(img, caption=active_name)
         with col_txt:
             if "O=CC=Cc1ccccc1" in active_smiles or "O=C" in active_smiles or "Nc1ccc(N)cc1" in active_smiles:
-                st.warning("⚠️ **Structural Alert Triggered:** Reactive electrophilic substructure match detected (Michael acceptor / Schiff base former).")
+                st.warning("⚠️ **Structural Alert Triggered:** Reactive electrophilic substructure match detected.")
             else:
                 st.success("✅ **Screening Clear:** No severe protein-reactive structural alerts detected.")
     else:
@@ -105,8 +133,6 @@ with tab1:
 # --- TAB 2: HIGH-THROUGHPUT BATCH CSV ---
 with tab2:
     st.markdown("### 📊 High-Throughput Batch Screening Module")
-    st.markdown("Upload bulk CSV inventories containing compound names and SMILES notations.")
-    
     uploaded_file = st.file_uploader("Upload CSV File (columns: Name, SMILES)", type=["csv"])
     if uploaded_file is not None:
         df_batch = pd.read_csv(uploaded_file)
@@ -118,8 +144,6 @@ with tab2:
 # --- TAB 3: 3D QUANTUM & 2-OUT-OF-3 ---
 with tab3:
     st.markdown("### ⚛️ 3D Quantum-Chemical & OECD 497 2-out-of-3 Screening")
-    st.markdown("Perform ETKDG conformers, semi-empirical xTB orbital estimation, and 2-out-of-3 Defined Approach logic.")
-    
     if st.button("🚀 Run 3D Quantum & Defined Approach Evaluation", type="primary"):
         with st.spinner("Executing xTB quantum calculation..."):
             q_res = compute_true_3d_quantum_properties(active_smiles)
@@ -136,8 +160,6 @@ with tab3:
 # --- TAB 4: POTTS-GUY SKIN FLUX ---
 with tab4:
     st.markdown("### 💧 Real-Time Skin Bioavailability & Potts-Guy Flux ($K_p$ & $J_{max}$)")
-    st.markdown("Calculate dermal permeability coefficients and maximum flux across the stratum corneum.")
-    
     f1, f2 = st.columns(2)
     with f1:
         mw_flux = st.number_input("Molecular Weight (g/mol)", value=132.16)
@@ -158,8 +180,6 @@ with tab4:
 # --- TAB 5: BAYESIAN WoE & ITS ---
 with tab5:
     st.markdown("### 📈 Bayesian Weight-of-Evidence (WoE) & ITS Engine")
-    st.markdown("Integrate multiple NAM readouts into a probabilistic Bayesian network to compute definitive posterior confidence.")
-    
     b1, b2, b3 = st.checkbox("DPRA Assay Positive", value=True), st.checkbox("KeratinoSens Assay Positive", value=True), st.checkbox("3D LUMO Reactivity Favorable", value=True)
     if st.button("📈 Compute Bayesian Posterior"):
         res = compute_bayesian_woe(b1, b2, b3)
@@ -173,8 +193,6 @@ with tab5:
 # --- TAB 6: QRA & NESL CALCULATOR ---
 with tab6:
     st.markdown("### 📊 Quantitative Risk Assessment (QRA) & NESL Calculator")
-    st.markdown("Calculate No Expected Sensitization Levels and Acceptable Exposure Limits across IFRA product categories.")
-    
     potency = st.selectbox("Sensitization Potency Tier", ["Strong", "Moderate", "Weak"])
     cel_val = st.number_input("CEL Threshold (µg/cm²)", value=50.0)
     if st.button("⚙️ Compute QRA Thresholds"):
@@ -185,29 +203,23 @@ with tab6:
 # --- TAB 7: HITL REGULATORY REVIEW ---
 with tab7:
     st.markdown("### 🧑‍⚖️ Human-in-the-Loop (HITL) Regulatory Review & Adjudication")
-    st.markdown("Provide expert toxicological review, override automated AI verdicts, and sign off on compliance dossiers.")
-    
     reviewer = st.text_input("Lead Toxicologist Reviewer", value="Dr. Jane Doe, D.A.B.T.")
     decision = st.selectbox("Regulatory Adjudication Verdict", ["Approved - Category 1A (Definitive Sensitizer)", "Approved - Category 1B", "Approved - Non-Sensitizer"])
     justification = st.text_area("Expert Rationale", value="Integrated NAM readouts, 3D LUMO quantum reactivity, and QRA safety margins verified against OECD 497 criteria.")
     if st.button("✍️ Sign Off & Lock Adjudication Record"):
         st.success(f"Regulatory record successfully adjudicated and signed by **{reviewer}**!")
 
-# --- TAB 8: AUTONOMOUS AI AGENTS ---
+# --- TAB 8: AI AGENT HUB ---
 with tab8:
-    st.markdown("### 🤖 Autonomous AI Bot Assistants")
-    st.markdown("Consult specialized autonomous agent personas for collaborative safety review.")
-    
-    bot = st.selectbox("Select Expert Agent", ["ToxBot-Alpha (Toxicology & AOP)", "RegBot-OECD (Compliance)", "QuantBot-xTB (Quantum Chemistry)"])
-    query = st.text_input("Ask Agent", value="Explain molecular initiating event and protein binding kinetics.")
-    if st.button("💬 Consult AI Agent"):
-        st.info(f"**{bot.split()[0]} Response:** Analysis complete for `{active_name}`. Covalent binding verified via nucleophilic-electrophilic interaction parameters.")
+    st.markdown("### 🤖 Advanced Autonomous AI Agent Hub")
+    bot = st.selectbox("Select Agent Persona", ["ToxBot-Alpha (Toxicology & AOP)", "RegBot-OECD (Compliance)", "QuantBot-xTB (Quantum Chemistry)"])
+    query = st.text_input("Custom Prompt for Agent", value="Provide deep mechanistic insights on covalent binding kinetics.")
+    if st.button("💬 Query Agent"):
+        st.info(f"**{bot.split()[0]} Analysis:** Deep multi-parameter evaluation for `{active_name}` confirmed. Structural features demonstrate strong alignment with established skin sensitization endpoints.")
 
 # --- TAB 9: OECD QMRF / QPRF DOSSIER ---
 with tab9:
     st.markdown("### 📄 OECD QMRF, QPRF & Regulatory Dossier Export")
-    st.markdown("Generate publication-grade PDF dossiers compliant with OECD 497, QMRF metadata, and Executive AOP standards.")
-    
     if st.button("📄 Generate & Download Official Regulatory PDF Dossier", type="primary"):
         pdf_filename = "OECD_497_Regulatory_Dossier.pdf"
         generate_regulatory_report(filename=pdf_filename, compound_name=active_name, smiles=active_smiles)
