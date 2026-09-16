@@ -162,7 +162,7 @@ if app_mode == "📊 Validation & Benchmarks":
     st.markdown("Comprehensive statistical evaluation and hazard category distribution across the complete high-throughput screening library (n = {total_count} compounds).")
     
     full_df = load_dynamic_714_library()
-    total_count = len(full_df)
+    total_count = len(full_df) - 1  # Synchronized with display list count
     
     col_a, col_b, col_c, col_d = st.columns(4)
     col_a.metric("Total Screened", f"{total_count:,} Compounds", "Dynamic Enterprise DB")
