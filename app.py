@@ -52,7 +52,7 @@ if app_mode == "🔬 Assessment Dashboard":
     st.markdown("---")
 
     st.markdown("### 🤖 Dynamic Autonomous Multi-Agent Expert Panel")
-    st.text_input("Enter Analysis Query / Focus", key="agent_query_input_main"), value="Evaluate skin sensitization mechanism, protein binding, and safety margins for Cinnamaldehyde.")
+    st.text_input("Enter Analysis Query / Focus", value="Evaluate skin sensitization mechanism, protein binding, and safety margins for Cinnamaldehyde.", key="agent_query_input_main")
 
     agents = [
         ("🧪 Chemist", "Identified active electrophilic warhead (MW: 132.2 g/mol). High susceptibility to covalent peptide adduct formation via Michael addition."),
