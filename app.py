@@ -211,7 +211,7 @@ with v_col2:
     )
         
     st.markdown("---")
-    if st.button("📥 Download Full Validation Benchmark Report", key="btn_dl_benchmarks_validation"):
+    if st.button("📥 Download Full Validation Benchmark Report", key="btn_dl_validation_report_final_2026"):
         st.success("✅ Benchmark validation CSV report generated successfully!")
 
     # Validation & Benchmarks Module
@@ -241,6 +241,6 @@ with v_col2:
         )
         
         st.markdown("---")
-        if st.button("📥 Download Full Validation Benchmark Report", key="btn_dl_benchmarks_validation"):
+        if st.button("📥 Download Full Validation Benchmark Report", key="btn_dl_validation_report_final_2026"):
             st.success("✅ Benchmark validation CSV report generated successfully!")
 
