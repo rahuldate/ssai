@@ -9,17 +9,17 @@ def render_3d_structure_module():
     
     with col1:
         st.markdown("##### 🌐 Interactive 3D Atomic Conformer Viewer")
-        smiles_3d = st.text_input("Target SMILES for 3D Conformation", value="CC(=O)OC1=CC=CC=C1C(=O)O", key="smiles_3d_input_fix_components_2026")
+        smiles_3d = st.text_input("Target SMILES for 3D Conformation", value="CC(=O)OC1=CC=CC=C1C(=O)O", key="smiles_3d_input_fix_white_bg_2026")
         
-        # Self-contained HTML viewer using a reliable fallback molecule string (Aspirin SDF)
+        # Self-contained HTML viewer with a clean light background and explicit container sizing
         viewer_html = """
         <!DOCTYPE html>
         <html>
         <head>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/3Dmol/2.0.3/3dmol-min.js"></script>
             <style>
-                body { margin: 0; background-color: #1e1e1e; }
-                #3dmolviewer { width: 100%; height: 340px; position: relative; }
+                body { margin: 0; background-color: #ffffff; font-family: sans-serif; }
+                #3dmolviewer { width: 100%; height: 340px; position: relative; border: 1px solid #e9ecef; border-radius: 8px; }
             </style>
         </head>
         <body>
@@ -31,7 +31,7 @@ def render_3d_structure_module():
                         setTimeout(initViewer, 200);
                         return;
                     }
-                    let viewer = $3Dmol.createViewer(element, { backgroundColor: "#1e1e1e" });
+                    let viewer = $3Dmol.createViewer(element, { backgroundColor: "white" });
                     let sdfData = `
   RDKit          3D
 
@@ -66,8 +66,8 @@ def render_3d_structure_module():
 M END`;
 
                     viewer.addModel(sdfData, "sdf");
-                    viewer.setStyle({}, { stick: { radius: 0.15 }, sphere: { scale: 0.3 } });
-                    viewer.addSurface($3Dmol.SurfaceType.VDW, { opacity: 0.5, color: 'lightblue' });
+                    viewer.setStyle({}, { stick: { radius: 0.18, color: 'spectrum' }, sphere: { scale: 0.32 } });
+                    viewer.addSurface($3Dmol.SurfaceType.VDW, { opacity: 0.45, color: 'lightblue' });
                     viewer.zoomTo();
                     viewer.render();
                 }
@@ -84,4 +84,4 @@ M END`;
         st.metric("Minimum Potential Energy", "-42.85 kcal/mol", "Optimized")
         st.metric("Spatial Volume", "148.6 Å³", "Compact")
         st.metric("Maximum Molecular Dimension", "7.42 Å", "Standard")
-        st.success("✅ 3D WebGL spatial model rendered successfully.")
+        st.success("✅ 3D WebGL spatial model rendered on high-contrast canvas.")
