@@ -187,7 +187,6 @@ if app_mode == "📊 Validation & Benchmarks":
         st.dataframe(full_df, use_container_width=True, height=450)
     else:
         st.info("Screened compounds database (screened_compounds_db.csv) initializing...")
-)
     
     import pandas as pd
     import numpy as np
