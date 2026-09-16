@@ -165,59 +165,6 @@ High lipophilicity and low molecular weight favor rapid skin penetration.""")
         st.markdown("Generate and download fully compliant OECD QMRF/QPRF regulatory packages.")
         st.download_button("📥 Download Complete QMRF/QPRF Dossier (PDF/HTML)", data=b"Dossier export content...", file_name="SSai_Regulatory_Dossier.html", mime="text/html")
 
-    with tab1:
-        st.markdown("#### Physicochemical Parameter Breakdown")
-        st.write("Detailed ADME properties, solubility index, and reactivity flags computed for the active target.")
-        st.dataframe(pd.DataFrame({
-            "Parameter": ["Molecular Weight", "LogP", "H-Bond Donors", "H-Bond Acceptors", "Polar Surface Area", "Rotatable Bonds"],
-            "Value": ["132.22 g/mol", "1.90", "0", "1", "17.07 Å²", "2"]
-        }), use_container_width=True)
-
-    with tab2:
-        st.markdown("#### Batch Screening & Dataset Management")
-        st.write("Upload custom compound libraries (SDF/CSV) to perform batch OECD 497 Defined Approach predictions against the 1,001-compound screening database.")
-        st.text_input("Dataset File Path (CSV / SDF)", value="screened_compounds_db.csv", key="tab2_batch_filepath_input_final")
-        st.info("Batch processing engine ready. Connected to screened_compounds_db.csv.")
-
-    with tab3:
-        st.markdown("#### 3D Quantum & 2-out-of-3 Decision Tree")
-        st.write("Evaluation of Key Event 1 (DPRA), Key Event 2 (KeratinoSens), and Key Event 3 (h-CLAT) integrated under the 2-out-of-3 Defined Approach.")
-        st.metric("Defined Approach Consensus", "Positive (Sensitizer)", "2 of 3 Assays Agreed")
-
-    with tab4:
-        st.markdown("#### Skin Permeability & Flux Calculations (Kp)")
-        st.metric("Predicted Skin Permeability (Kp)", "-2.15 cm/s", "Moderate Penetration Rate")
-        st.write("Calculated steady-state flux across human stratum corneum based on molecular weight and lipophilicity bounds.")
-
-    with tab5:
-        st.markdown("#### Bayesian Weight of Evidence (WoE)")
-        st.write("Probabilistic integration of in-silico alerts, in-chemico assays, and in-vitro human cell line data.")
-        st.progress(0.91, text="Posterior Probability of Sensitization: 91.4%")
-
-    with tab6:
-        st.markdown("#### Quantitative Risk Assessment (QRA) & NESL")
-        st.write("No Expected Sensitization Level (NESL) derivations across consumer product categories:")
-        st.dataframe(pd.DataFrame({
-            "Product Category": ["Category 1 (Lip/Face)", "Category 2 (Deodorant)", "Category 5A (Body Cream)", "Category 9 (Wash-off)"],
-            "Max Allowable Concentration (%)": ["0.05%", "0.10%", "0.25%", "0.85%"],
-            "Status": ["Compliant", "Compliant", "Compliant", "Compliant"]
-        }), use_container_width=True)
-
-    with tab7:
-        st.markdown("#### Human-in-the-Loop (HITL) Regulatory Review")
-        st.text_area("Expert Toxicologist Review Notes", value="Target reviewed. Structural alert verified as Michael acceptor. Safe for consumer use under established QRA thresholds.")
-        st.button("Sign Off & Certify Assessment")
-
-    with tab8:
-        st.markdown("#### Autonomous AI Agent Hub")
-        st.write("Live logs from multi-agent reasoning loops verifying chemical reactivity, read-across consistency, and regulatory compliance.")
-        st.code("""[INFO] Chemist Agent: Warhead confirmed.
-[INFO] Read-Across: 4 analogs matched.
-[INFO] QRA Agent: NESL bounds verified.""")
-        st.markdown("#### Regulatory Dossier Export Center")
-        st.download_button("📥 Download Complete QMRF/QPRF Dossier (PDF/HTML)", data=b"Dossier export content...", file_name="SSai_Regulatory_Dossier.html", mime="text/html")
-
-
 # --- VIEW 2: VALIDATION & BENCHMARKS ---
 elif app_mode == "📊 Validation & Benchmarks":
     st.markdown("## 📊 Platform Validation & Reference Benchmark Suite")
