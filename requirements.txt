@@ -5,4 +5,3 @@ reportlab
 matplotlib
 pytest>=7.0.0
 py3dmol>=2.0.0
-stmol>=0.1.0
