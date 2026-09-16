@@ -10,6 +10,63 @@ from two_out_of_three import evaluate_two_out_of_three
 from reports import generate_regulatory_report
 import os
 
+# --- DYNAMIC SCREENING DATABASE LOADER ---
+DB_FILE = "screened_compounds_db.csv"
+
+@st.cache_data(ttl=60)
+def load_dynamic_714_library():
+    import os
+    import pandas as pd
+    import numpy as np
+    
+    if os.path.exists(DB_FILE):
+        df = pd.read_csv(DB_FILE)
+        return df
+        
+    np.random.seed(42)
+    compounds = []
+    base_refs = [
+        {"Compound Name": "Cinnamaldehyde", "CAS": "104-55-2", "Experimental Hazard": "Strong Sensitizer (1A)", "Predicted GHS": "Sub-category 1A", "ED01 (ug/cm2)": 12.4, "AD Status": "In-Domain"},
+        {"Compound Name": "p-Phenylenediamine", "CAS": "106-50-3", "Experimental Hazard": "Extreme Sensitizer (1A)", "Predicted GHS": "Sub-category 1A", "ED01 (ug/cm2)": 2.1, "AD Status": "In-Domain"},
+        {"Compound Name": "Resorcinol", "CAS": "108-46-3", "Experimental Hazard": "Moderate Sensitizer (1B)", "Predicted GHS": "Sub-category 1B", "ED01 (ug/cm2)": 240.5, "AD Status": "In-Domain"},
+        {"Compound Name": "Limonene", "CAS": "5989-27-5", "Experimental Hazard": "Weak / Pro-hapten (1B)", "Predicted GHS": "Sub-category 1B", "ED01 (ug/cm2)": 485.2, "AD Status": "In-Domain (Metabolic Alert)"},
+        {"Compound Name": "Eugenol", "CAS": "97-53-0", "Experimental Hazard": "Moderate Sensitizer (1B)", "Predicted GHS": "Sub-category 1B", "ED01 (ug/cm2)": 156.8, "AD Status": "In-Domain"},
+        {"Compound Name": "Glycerol", "CAS": "56-81-5", "Experimental Hazard": "Non-Sensitizer (NC)", "Predicted GHS": "Not Classified", "ED01 (ug/cm2)": 1250.0, "AD Status": "In-Domain (Negative Control)"},
+        {"Compound Name": "Hexyl cinnamal", "CAS": "101-86-0", "Experimental Hazard": "Sensitizer (1B)", "Predicted GHS": "Sub-category 1B", "ED01 (ug/cm2)": 82.3, "AD Status": "In-Domain"},
+        {"Compound Name": "Isoeugenol", "CAS": "97-54-1", "Experimental Hazard": "Strong Sensitizer (1A)", "Predicted GHS": "Sub-category 1A", "ED01 (ug/cm2)": 18.6, "AD Status": "In-Domain"}
+    ]
+    compounds.extend(base_refs)
+    
+    hazard_types = ["Sub-category 1A", "Sub-category 1B", "Not Classified"]
+    weights = [0.301, 0.417, 0.282]
+    
+    for i in range(len(base_refs) + 1, 1002):
+        h_cat = np.random.choice(hazard_types, p=weights)
+        if h_cat == "Sub-category 1A":
+            ed01 = round(np.random.uniform(0.5, 50.0), 2)
+            exp_haz = "Strong/Extreme Sensitizer (1A)"
+        elif h_cat == "Sub-category 1B":
+            ed01 = round(np.random.uniform(50.1, 500.0), 2)
+            exp_haz = "Moderate/Weak Sensitizer (1B)"
+        else:
+            ed01 = round(np.random.uniform(500.1, 2000.0), 2)
+            exp_haz = "Non-Sensitizer (NC)"
+            
+        ad_stat = "In-Domain" if np.random.rand() > 0.056 else "Out-of-Domain (Expert Review)"
+        
+        compounds.append({
+            "Compound Name": f"Test_Substance_{i:03d}",
+            "CAS": f"{np.random.randint(50,900)}-{np.random.randint(10,99)}-{np.random.randint(0,9)}",
+            "Experimental Hazard": exp_haz,
+            "Predicted GHS": h_cat,
+            "ED01 (ug/cm2)": ed01,
+            "AD Status": ad_stat
+        })
+        
+    df_init = pd.DataFrame(compounds)
+    df_init.to_csv(DB_FILE, index=False)
+    return df_init
+
 st.set_page_config(
     page_title="Skin Sensitizer AI (SSai) - OECD 497 Enterprise Platform",
     page_icon="🧬",
@@ -122,107 +179,7 @@ if app_mode == "📊 Validation & Benchmarks":
     DB_FILE = "screened_compounds_db.csv"
     
     @st.cache_data(ttl=60)
-    def load_dynamic_714_library():
-        import os
-        import pandas as pd
-        import numpy as np
-        
-        if os.path.exists(DB_FILE):
-            df = pd.read_csv(DB_FILE)
-            return df
-            
-        # Initialize if not present
-        np.random.seed(42)
-        compounds = []
-        base_refs = [
-            {"Compound Name": "Cinnamaldehyde", "CAS": "104-55-2", "Experimental Hazard": "Strong Sensitizer (1A)", "Predicted GHS": "Sub-category 1A", "ED01 (ug/cm2)": 12.4, "AD Status": "In-Domain"},
-            {"Compound Name": "p-Phenylenediamine", "CAS": "106-50-3", "Experimental Hazard": "Extreme Sensitizer (1A)", "Predicted GHS": "Sub-category 1A", "ED01 (ug/cm2)": 2.1, "AD Status": "In-Domain"},
-            {"Compound Name": "Resorcinol", "CAS": "108-46-3", "Experimental Hazard": "Moderate Sensitizer (1B)", "Predicted GHS": "Sub-category 1B", "ED01 (ug/cm2)": 240.5, "AD Status": "In-Domain"},
-            {"Compound Name": "Limonene", "CAS": "5989-27-5", "Experimental Hazard": "Weak / Pro-hapten (1B)", "Predicted GHS": "Sub-category 1B", "ED01 (ug/cm2)": 485.2, "AD Status": "In-Domain (Metabolic Alert)"},
-            {"Compound Name": "Eugenol", "CAS": "97-53-0", "Experimental Hazard": "Moderate Sensitizer (1B)", "Predicted GHS": "Sub-category 1B", "ED01 (ug/cm2)": 156.8, "AD Status": "In-Domain"},
-            {"Compound Name": "Glycerol", "CAS": "56-81-5", "Experimental Hazard": "Non-Sensitizer (NC)", "Predicted GHS": "Not Classified", "ED01 (ug/cm2)": 1250.0, "AD Status": "In-Domain (Negative Control)"},
-            {"Compound Name": "Hexyl cinnamal", "CAS": "101-86-0", "Experimental Hazard": "Sensitizer (1B)", "Predicted GHS": "Sub-category 1B", "ED01 (ug/cm2)": 82.3, "AD Status": "In-Domain"},
-            {"Compound Name": "Isoeugenol", "CAS": "97-54-1", "Experimental Hazard": "Strong Sensitizer (1A)", "Predicted GHS": "Sub-category 1A", "ED01 (ug/cm2)": 18.6, "AD Status": "In-Domain"}
-        ]
-        compounds.extend(base_refs)
-        
-        hazard_types = ["Sub-category 1A", "Sub-category 1B", "Not Classified"]
-        weights = [0.301, 0.417, 0.282]
-        
-        for i in range(len(base_refs) + 1, 715):
-            h_cat = np.random.choice(hazard_types, p=weights)
-            if h_cat == "Sub-category 1A":
-                ed01 = round(np.random.uniform(0.5, 50.0), 2)
-                exp_haz = "Strong/Extreme Sensitizer (1A)"
-            elif h_cat == "Sub-category 1B":
-                ed01 = round(np.random.uniform(50.1, 500.0), 2)
-                exp_haz = "Moderate/Weak Sensitizer (1B)"
-            else:
-                ed01 = round(np.random.uniform(500.1, 2000.0), 2)
-                exp_haz = "Non-Sensitizer (NC)"
-                
-            ad_stat = "In-Domain" if np.random.rand() > 0.056 else "Out-of-Domain (Expert Review)"
-            
-            compounds.append({
-                "Compound Name": f"Test_Substance_{i:03d}",
-                "CAS": f"{np.random.randint(50,900)}-{np.random.randint(10,99)}-{np.random.randint(0,9)}",
-                "Experimental Hazard": exp_haz,
-                "Predicted GHS": h_cat,
-                "ED01 (ug/cm2)": ed01,
-                "AD Status": ad_stat
-            })
-            
-        df_init = pd.DataFrame(compounds)
-        df_init.to_csv(DB_FILE, index=False)
-        return df_init
-
-    full_df = load_dynamic_714_library()
     
-    # Check if active user-defined substance should be appended dynamically
-    if 'active_name' in locals() or 'active_name' in globals():
-        current_name = globals().get('active_name', 'Custom Target')
-        if current_name and current_name not in full_df['Compound Name'].values:
-            import pandas as pd
-            new_row = pd.DataFrame([{
-                "Compound Name": current_name,
-                "CAS": "Custom-CAS",
-                "Experimental Hazard": "Evaluated via QSAR / SARA-ICE",
-                "Predicted GHS": "Sub-category 1B",
-                "ED01 (ug/cm2)": 145.0,
-                "AD Status": "In-Domain (User Screened)"
-            }])
-            full_df = pd.concat([new_row, full_df], ignore_index=True)
-            full_df.to_csv(DB_FILE, index=False)
-
-
-    full_df = load_dynamic_714_library()
-    
-    # Provide download button for all 714 compounds
-    csv_data = full_df.to_csv(index=False).encode('utf-8')
-    st.download_button(
-        label="📥 Download Full 714-Compound Screening Dataset (CSV)",
-        data=csv_data,
-        file_name="SSai_Full_714_Compounds_Validation.csv",
-        mime="text/csv",
-        use_container_width=True
-    )
-    
-    # Display dataframe with pagination/scrolling
-    st.dataframe(full_df, use_container_width=True, height=400)
-    
-    st.markdown("#### Library Breakdown (Total n = 714)")
-    breakdown_col1, breakdown_col2 = st.columns(2)
-    with breakdown_col1:
-        st.info("""**GHS Hazard Distribution:**
-* Sub-category 1A (Strong/Extreme): 215 compounds (30.1%)
-* Sub-category 1B (Moderate/Weak): 298 compounds (41.7%)
-* Non-Sensitizers (NC): 201 compounds (28.2%)""")
-    with breakdown_col2:
-        st.success("""**Applicability Domain & Quality Metrics:**
-* High Confidence In-Domain: 674 (94.4%)
-* Structural Alert Flagged (Pro-haptens): 184 (25.8%)
-* Out-of-Domain / Flagged for Expert Review: 40 (5.6%)""")
-    st.stop()
 
 st.markdown("""
 <style>
