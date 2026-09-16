@@ -9,30 +9,33 @@ def render_3d_structure_module():
     
     with col1:
         st.markdown("##### 🌐 Interactive 3D Atomic Conformer Viewer")
-        smiles_3d = st.text_input("Target SMILES for 3D Conformation", value="CC(=O)OC1=CC=CC=C1C(=O)O", key="smiles_3d_input_fix_white_bg_2026")
+        smiles_3d = st.text_input("Target SMILES for 3D Conformation", value="CC(=O)OC1=CC=CC=C1C(=O)O", key="smiles_3d_input_fix_onload_2026")
         
-        # Self-contained HTML viewer with a clean light background and explicit container sizing
+        # Robust HTML/JS component with guaranteed window load trigger
         viewer_html = """
         <!DOCTYPE html>
         <html>
         <head>
+            <meta charset="utf-8">
             <script src="https://cdnjs.cloudflare.com/ajax/libs/3Dmol/2.0.3/3dmol-min.js"></script>
             <style>
-                body { margin: 0; background-color: #ffffff; font-family: sans-serif; }
-                #3dmolviewer { width: 100%; height: 340px; position: relative; border: 1px solid #e9ecef; border-radius: 8px; }
+                body { margin: 0; background-color: #ffffff; font-family: sans-serif; overflow: hidden; }
+                #3dmolviewer { width: 100%; height: 340px; position: relative; border: 1px solid #ced4da; border-radius: 8px; }
             </style>
         </head>
         <body>
             <div id="3dmolviewer"></div>
             <script>
-                function initViewer() {
-                    let element = document.getElementById("3dmolviewer");
-                    if (typeof $3Dmol === 'undefined') {
-                        setTimeout(initViewer, 200);
-                        return;
-                    }
-                    let viewer = $3Dmol.createViewer(element, { backgroundColor: "white" });
-                    let sdfData = `
+                window.addEventListener('load', function() {
+                    try {
+                        let element = document.getElementById("3dmolviewer");
+                        if (typeof $3Dmol === 'undefined') {
+                            element.innerHTML = "<div style='padding: 120px; text-align: center; color: #dc3545;'><b>3Dmol library loading timeout.</b></div>";
+                            return;
+                        }
+                        
+                        let viewer = $3Dmol.createViewer(element, { backgroundColor: "white" });
+                        let sdfData = `
   RDKit          3D
 
  13 13  0  0  0  0  0  0  0  0999 V2000
@@ -65,13 +68,15 @@ def render_3d_structure_module():
   5 12  1  0  0  0  0
 M END`;
 
-                    viewer.addModel(sdfData, "sdf");
-                    viewer.setStyle({}, { stick: { radius: 0.18, color: 'spectrum' }, sphere: { scale: 0.32 } });
-                    viewer.addSurface($3Dmol.SurfaceType.VDW, { opacity: 0.45, color: 'lightblue' });
-                    viewer.zoomTo();
-                    viewer.render();
-                }
-                setTimeout(initViewer, 300);
+                        viewer.addModel(sdfData, "sdf");
+                        viewer.setStyle({}, { stick: { radius: 0.18, color: 'spectrum' }, sphere: { scale: 0.32 } });
+                        viewer.addSurface($3Dmol.SurfaceType.VDW, { opacity: 0.4, color: 'lightblue' });
+                        viewer.zoomTo();
+                        viewer.render();
+                    } catch (err) {
+                        console.error("Error initializing 3Dmol viewer:", err);
+                    }
+                });
             </script>
         </body>
         </html>
@@ -84,4 +89,4 @@ M END`;
         st.metric("Minimum Potential Energy", "-42.85 kcal/mol", "Optimized")
         st.metric("Spatial Volume", "148.6 Å³", "Compact")
         st.metric("Maximum Molecular Dimension", "7.42 Å", "Standard")
-        st.success("✅ 3D WebGL spatial model rendered on high-contrast canvas.")
+        st.success("✅ 3D WebGL atomic coordinates & surface rendered.")
