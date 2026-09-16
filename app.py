@@ -178,9 +178,6 @@ if app_mode == "📊 Validation & Benchmarks":
     # Dynamic Persistent Screening Database
     DB_FILE = "screened_compounds_db.csv"
     
-    @st.cache_data(ttl=60)
-    
-
     st.markdown("""
 <style>
     .main-title { font-size: 2rem; font-weight: 700; color: #1E3A8A; margin-bottom: 0px; }
