@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 
 def render_3d_structure_module():
     st.markdown("#### 🧊 3D Molecular Conformer & Spatial Geometry")
@@ -8,7 +9,7 @@ def render_3d_structure_module():
     
     with col1:
         st.markdown("##### 🌐 Interactive 3D Atomic Conformer Viewer")
-        smiles_3d = st.text_input("Target SMILES for 3D Conformation", value="CC(=O)OC1=CC=CC=C1C(=O)O", key="smiles_3d_input_fix_modern_2026")
+        smiles_3d = st.text_input("Target SMILES for 3D Conformation", value="CC(=O)OC1=CC=CC=C1C(=O)O", key="smiles_3d_input_fix_components_2026")
         
         # Self-contained HTML viewer using a reliable fallback molecule string (Aspirin SDF)
         viewer_html = """
@@ -76,7 +77,7 @@ M END`;
         </html>
         """
         
-        st.iframe(srcdoc=viewer_html, height=350, width=None)
+        components.html(viewer_html, height=350)
         
     with col2:
         st.markdown("##### 📊 Spatial Geometry & Conformer Metrics")
