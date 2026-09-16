@@ -127,10 +127,10 @@ if app_mode == "📊 Validation & Benchmarks":
     st.markdown("#### Library Breakdown (Total n = 714)")
     breakdown_col1, breakdown_col2 = st.columns(2)
     with breakdown_col1:
-        st.info("**GHS Hazard Distribution:**
+        st.info("""**GHS Hazard Distribution:**
 * Sub-category 1A (Strong/Extreme): 215 compounds (30.1%)
 * Sub-category 1B (Moderate/Weak): 298 compounds (41.7%)
-* Non-Sensitizers (NC): 201 compounds (28.2%)")
+* Non-Sensitizers (NC): 201 compounds (28.2%)""")
     with breakdown_col2:
         st.success("**Applicability Domain & Quality Metrics:**
 * High Confidence In-Domain: 674 (94.4%)
