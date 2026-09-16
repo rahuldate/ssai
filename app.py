@@ -29,6 +29,16 @@ if app_mode == "🔬 Assessment Dashboard":
     st.markdown("## 🧬 Skin Sensitizer AI (SSai)")
     st.markdown("OECD 497 Defined Approach & Enterprise Toxicology Suite | Active Target: Cinnamaldehyde (`O=CC=Cc1ccccc1`)")
 
+    # --- INPUT / TARGET SELECTION PANEL ---
+    st.markdown("### 📥 Input & Target Selection")
+    col_input1, col_input2 = st.columns([2, 1])
+    with col_input1:
+        target_smiles = st.text_input("Active Target SMILES / Compound Name", value="O=CC=Cc1ccccc1 (Cinnamaldehyde)")
+    with col_input2:
+        st.selectbox("Select Benchmark Reference", ["Cinnamaldehyde (104-55-2)", "p-Phenylenediamine (106-50-3)", "Resorcinol (108-46-3)", "Limonene (5989-27-5)"])
+    
+    st.markdown("---")
+
     # 1. OECD 497 Defined Approach & Physicochemical Profiling
     st.markdown("### 🧬 OECD 497 Defined Approach & Physicochemical Profiling")
     p_col1, p_col2, p_col3, p_col4 = st.columns(4)
