@@ -170,7 +170,7 @@ if app_mode == "📊 Validation & Benchmarks":
     col_c.metric("Applicability Domain Coverage", "94.4%", "In-Domain Rate")
     col_d.metric("False Discovery Rate", "4.1%", "Optimized Threshold")
     
-    st.markdown("#### Complete 1,001-Compound Screening Library Results"
+    st.markdown("#### Complete 1,001-Compound Screening Library Results")
 
     import pandas as pd
     import os
