@@ -80,7 +80,7 @@ if app_mode == "🔬 Assessment Dashboard":
     st.markdown("### 🗂️ Advanced Enterprise Intelligence Modules")
     st.markdown("Comprehensive auxiliary analytics, batch screening pipelines, and regulatory compliance workflows.")
     
-    tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9 = st.tabs([
+    tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8 = st.tabs([
     "🧬 Molecular & Structural Intelligence",
     "🔬 Mechanistic & AOP Pathways",
     "⚡ ADME & Physicochemical Profiling",
