@@ -227,7 +227,7 @@ High lipophilicity and low molecular weight favor rapid skin penetration.""")
             export_filename = "SSai_Regulatory_Dossier.html" if "HTML" in export_format else ("SSai_QMRF_Dossier.pdf" if "PDF" in export_format else "SSai_Audit_Payload.json")
             mime_type = "text/html" if "HTML" in export_format else ("application/pdf" if "PDF" in export_format else "application/json")
             
-            pkg_text = "=== SSai ENTERPRISE TOXICOLOGY DOSSIER ===
+            pkg_text = "=== SSai ENTERPRISE TOXICOLOGY DOSSIER ===\nReference ID: " + dossier_title + "\nFormat: " + export_format + "\nQRA NESL Limits Included\nStatus: VERIFIED & COMPLIANT"
 Reference ID: " + dossier_title + "
 Format: " + export_format + "
 QRA NESL Limits Included
