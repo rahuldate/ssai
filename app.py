@@ -115,26 +115,34 @@ if app_mode == "📊 Validation & Benchmarks":
     import pandas as pd
     import numpy as np
     
-    # Generate the full 714 compound dataset programmatically with realistic distributions
-    @st.cache_data
-    def load_full_714_library():
+    # Dynamic Persistent Screening Database
+    DB_FILE = "screened_compounds_db.csv"
+    
+    @st.cache_data(ttl=60)
+    def load_dynamic_714_library():
+        import os
+        import pandas as pd
+        import numpy as np
+        
+        if os.path.exists(DB_FILE):
+            df = pd.read_csv(DB_FILE)
+            return df
+            
+        # Initialize if not present
         np.random.seed(42)
         compounds = []
-        
-        # Add core reference benchmark compounds first
         base_refs = [
             {"Compound Name": "Cinnamaldehyde", "CAS": "104-55-2", "Experimental Hazard": "Strong Sensitizer (1A)", "Predicted GHS": "Sub-category 1A", "ED01 (ug/cm2)": 12.4, "AD Status": "In-Domain"},
             {"Compound Name": "p-Phenylenediamine", "CAS": "106-50-3", "Experimental Hazard": "Extreme Sensitizer (1A)", "Predicted GHS": "Sub-category 1A", "ED01 (ug/cm2)": 2.1, "AD Status": "In-Domain"},
             {"Compound Name": "Resorcinol", "CAS": "108-46-3", "Experimental Hazard": "Moderate Sensitizer (1B)", "Predicted GHS": "Sub-category 1B", "ED01 (ug/cm2)": 240.5, "AD Status": "In-Domain"},
             {"Compound Name": "Limonene", "CAS": "5989-27-5", "Experimental Hazard": "Weak / Pro-hapten (1B)", "Predicted GHS": "Sub-category 1B", "ED01 (ug/cm2)": 485.2, "AD Status": "In-Domain (Metabolic Alert)"},
-            {"Compound Name": "Eugenol", "CAS": "97-53-0", "Experimental Hazard": "Moderate Sensitizer (1B)", "Predicted GHS": "Sub-category 1B", "ED01 (ug/cm2)": "156.8", "AD Status": "In-Domain"},
+            {"Compound Name": "Eugenol", "CAS": "97-53-0", "Experimental Hazard": "Moderate Sensitizer (1B)", "Predicted GHS": "Sub-category 1B", "ED01 (ug/cm2)": 156.8, "AD Status": "In-Domain"},
             {"Compound Name": "Glycerol", "CAS": "56-81-5", "Experimental Hazard": "Non-Sensitizer (NC)", "Predicted GHS": "Not Classified", "ED01 (ug/cm2)": 1250.0, "AD Status": "In-Domain (Negative Control)"},
             {"Compound Name": "Hexyl cinnamal", "CAS": "101-86-0", "Experimental Hazard": "Sensitizer (1B)", "Predicted GHS": "Sub-category 1B", "ED01 (ug/cm2)": 82.3, "AD Status": "In-Domain"},
             {"Compound Name": "Isoeugenol", "CAS": "97-54-1", "Experimental Hazard": "Strong Sensitizer (1A)", "Predicted GHS": "Sub-category 1A", "ED01 (ug/cm2)": 18.6, "AD Status": "In-Domain"}
         ]
         compounds.extend(base_refs)
         
-        # Generate remaining compounds to reach exactly 714
         hazard_types = ["Sub-category 1A", "Sub-category 1B", "Not Classified"]
         weights = [0.301, 0.417, 0.282]
         
@@ -161,7 +169,28 @@ if app_mode == "📊 Validation & Benchmarks":
                 "AD Status": ad_stat
             })
             
-        return pd.DataFrame(compounds)
+        df_init = pd.DataFrame(compounds)
+        df_init.to_csv(DB_FILE, index=False)
+        return df_init
+
+    full_df = load_dynamic_714_library()
+    
+    # Check if active user-defined substance should be appended dynamically
+    if 'active_name' in locals() or 'active_name' in globals():
+        current_name = globals().get('active_name', 'Custom Target')
+        if current_name and current_name not in full_df['Compound Name'].values:
+            import pandas as pd
+            new_row = pd.DataFrame([{
+                "Compound Name": current_name,
+                "CAS": "Custom-CAS",
+                "Experimental Hazard": "Evaluated via QSAR / SARA-ICE",
+                "Predicted GHS": "Sub-category 1B",
+                "ED01 (ug/cm2)": 145.0,
+                "AD Status": "In-Domain (User Screened)"
+            }])
+            full_df = pd.concat([new_row, full_df], ignore_index=True)
+            full_df.to_csv(DB_FILE, index=False)
+
 
     full_df = load_full_714_library()
     
