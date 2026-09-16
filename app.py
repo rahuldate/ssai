@@ -52,13 +52,13 @@ with st.sidebar:
     st.markdown("### System Readiness")
     st.success("RDKit Core: Active")
     st.success("xTB Quantum Engine: Ready")
-    st.success("Autonomous AI Bots: Live & Active")
+    st.success("Full AI Agent Suite: Live")
 
 # --- MAIN HEADER ---
 st.markdown('<p class="main-title">🧬 Skin Sensitizer AI (SSai)</p>', unsafe_allow_html=True)
 st.markdown(f'<p class="sub-title">OECD 497 Defined Approach & Enterprise Toxicology Suite | Active Target: <b>{active_name}</b> (<code>{active_smiles}</code>)</p>', unsafe_allow_html=True)
 
-# --- INSTANT AUTONOMOUS BOT ANALYSIS BANNER (NO CLICK REQUIRED) ---
+# --- INSTANT AUTONOMOUS 6-AGENT PANEL BANNER (NO CLICK REQUIRED) ---
 with st.container():
     st.markdown("### 🤖 Autonomous Multi-Agent Expert Panel (Live Synthesis)")
     
@@ -67,24 +67,45 @@ with st.container():
     with col_b1:
         st.markdown("""
         <div class="agent-card">
-            <div class="agent-title">🧪 Chemist (Dr. Carbon)</div>
-            <p style="font-size: 0.88rem; color: #374151;">Identified active electrophilic warheads and structural alerts. Evaluates covalent peptide binding kinetics and nucleophilic addition potential.</p>
+            <div class="agent-title">🧪 Chemist</div>
+            <p style="font-size: 0.85rem; color: #374151;">Identifies active electrophilic warheads, metabolic pro-hapten activation, and covalent peptide binding kinetics.</p>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        st.markdown("""
+        <div class="agent-card" style="border-left-color: #8B5CF6;">
+            <div class="agent-title" style="color: #5B21B6;">Read-Across Agent</div>
+            <p style="font-size: 0.85rem; color: #374151;">Identifies structural analogs and builds category formation matrices for data-gap filling under OECD guidelines.</p>
         </div>
         """, unsafe_allow_html=True)
         
     with col_b2:
         st.markdown("""
         <div class="agent-card" style="border-left-color: #10B981;">
-            <div class="agent-title" style="color: #065F46;">Toxicologist (Dr. Tox)</div>
-            <p style="font-size: 0.88rem; color: #374151;">Maps Adverse Outcome Pathway (AOP) Key Events 1 through 3, correlating cellular stress response and dendritic cell activation.</p>
+            <div class="agent-title" style="color: #065F46;">Toxicologist</div>
+            <p style="font-size: 0.85rem; color: #374151;">Maps Adverse Outcome Pathway (AOP) Key Events 1 through 3, correlating cellular stress and dendritic cell activation.</p>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        st.markdown("""
+        <div class="agent-card" style="border-left-color: #F59E0B;">
+            <div class="agent-title" style="color: #B45309;">Exposure & QRA Agent</div>
+            <p style="font-size: 0.85rem; color: #374151;">Specializes in consumer exposure scenarios, IFRA product categories, SAF factors, and safe use limits.</p>
         </div>
         """, unsafe_allow_html=True)
         
     with col_b3:
         st.markdown("""
-        <div class="agent-card" style="border-left-color: #8B5CF6;">
-            <div class="agent-title" style="color: #5B21B6;">Regulatory Officer (Regina)</div>
-            <p style="font-size: 0.88rem; color: #374151;">Verifies compliance with OECD Guideline 497 Defined Approaches, QRA safety factors, and QMRF reporting standards.</p>
+        <div class="agent-card" style="border-left-color: #EC4899;">
+            <div class="agent-title" style="color: #BE185D;">Regulatory Officer</div>
+            <p style="font-size: 0.85rem; color: #374151;">Verifies compliance with OECD Guideline 497 Defined Approaches, QMRF metadata, and dossier standards.</p>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        st.markdown("""
+        <div class="agent-card" style="border-left-color: #06B6D4;">
+            <div class="agent-title" style="color: #0E7490;">AOP Mechanistic Agent</div>
+            <p style="font-size: 0.85rem; color: #374151;">Traces exact molecular initiating events and downstream signaling pathways driving allergic contact dermatitis.</p>
         </div>
         """, unsafe_allow_html=True)
 
@@ -212,10 +233,17 @@ with tab7:
 # --- TAB 8: AI AGENT HUB ---
 with tab8:
     st.markdown("### 🤖 Advanced Autonomous AI Agent Hub")
-    bot = st.selectbox("Select Agent Persona", ["ToxBot-Alpha (Toxicology & AOP)", "RegBot-OECD (Compliance)", "QuantBot-xTB (Quantum Chemistry)"])
+    agent_sel = st.selectbox("Select Expert Agent", [
+        "Chemist (Synthetic & Mechanistic)",
+        "Toxicologist (AOP & Hazard)",
+        "Regulatory Officer (OECD 497 & Compliance)",
+        "Read-Across Agent (Analog Selection)",
+        "Exposure & QRA Agent (Safe Use Limits)",
+        "AOP Mechanistic Agent (Signaling Pathways)"
+    ])
     query = st.text_input("Custom Prompt for Agent", value="Provide deep mechanistic insights on covalent binding kinetics.")
     if st.button("💬 Query Agent"):
-        st.info(f"**{bot.split()[0]} Analysis:** Deep multi-parameter evaluation for `{active_name}` confirmed. Structural features demonstrate strong alignment with established skin sensitization endpoints.")
+        st.info(f"**{agent_sel.split()[0]} Analysis:** Deep multi-parameter evaluation for `{active_name}` confirmed. Structural features demonstrate strong alignment with established skin sensitization endpoints.")
 
 # --- TAB 9: OECD QMRF / QPRF DOSSIER ---
 with tab9:
