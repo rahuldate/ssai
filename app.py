@@ -198,15 +198,15 @@ High lipophilicity and low molecular weight favor rapid skin penetration.""")
                     "Complete JSON Audit Payload (Raw API)",
                     "IFRA Compliance & NESL Certificate (CSV)"
                 ],
-                key="export_format_select_v5"
+                key="export_format_select_v6"
             )
             
-            include_hitl = st.checkbox("Include Expert Toxicologist Review & Sign-Off Notes", value=True, key="exp_inc_hitl_v5")
-            include_quantum = st.checkbox("Include 3D Quantum Intelligence & SARA-ICE PoD Data", value=True, key="exp_inc_quantum_v5")
-            include_woe = st.checkbox("Include Bayesian Weight of Evidence (WoE) Breakdown", value=True, key="exp_inc_woe_v5")
-            include_qra = st.checkbox("Include Quantitative Risk Assessment (QRA) NESL Summary", value=True, key="exp_inc_qra_v5")
+            include_hitl = st.checkbox("Include Expert Toxicologist Review & Sign-Off Notes", value=True, key="exp_inc_hitl_v6")
+            include_quantum = st.checkbox("Include 3D Quantum Intelligence & SARA-ICE PoD Data", value=True, key="exp_inc_quantum_v6")
+            include_woe = st.checkbox("Include Bayesian Weight of Evidence (WoE) Breakdown", value=True, key="exp_inc_woe_v6")
+            include_qra = st.checkbox("Include Quantitative Risk Assessment (QRA) NESL Summary", value=True, key="exp_inc_qra_v6")
             
-            dossier_title = st.text_input("Dossier Reference ID", value="SSai-QPRF-2026-0916-A", key="exp_ref_id_v5")
+            dossier_title = st.text_input("Dossier Reference ID", value="SSai-QPRF-2026-0916-A", key="exp_ref_id_v6")
 
         with e_col2:
             st.markdown("##### 🚀 Package Generation & Preview")
@@ -227,11 +227,11 @@ High lipophilicity and low molecular weight favor rapid skin penetration.""")
             export_filename = "SSai_Regulatory_Dossier.html" if "HTML" in export_format else ("SSai_QMRF_Dossier.pdf" if "PDF" in export_format else "SSai_Audit_Payload.json")
             mime_type = "text/html" if "HTML" in export_format else ("application/pdf" if "PDF" in export_format else "application/json")
             
-            pkg_text = "=== SSai ENTERPRISE TOXICOLOGY DOSSIER ===\nReference ID: " + dossier_title + "\nFormat: " + export_format + "\nQRA NESL Limits Included\nStatus: VERIFIED & COMPLIANT"
-Reference ID: " + dossier_title + "
-Format: " + export_format + "
+            pkg_text = f"""=== SSai ENTERPRISE TOXICOLOGY DOSSIER ===
+Reference ID: {dossier_title}
+Format: {export_format}
 QRA NESL Limits Included
-Status: VERIFIED & COMPLIANT"
+Status: VERIFIED & COMPLIANT"""
             package_content = pkg_text.encode("utf-8")
             
             st.markdown("---")
@@ -240,5 +240,5 @@ Status: VERIFIED & COMPLIANT"
                 data=package_content,
                 file_name=export_filename,
                 mime=mime_type,
-                key="btn_download_dossier_v5"
+                key="btn_download_dossier_v6"
             )
