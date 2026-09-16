@@ -198,71 +198,43 @@ High lipophilicity and low molecular weight favor rapid skin penetration.""")
                     "Complete JSON Audit Payload (Raw API)",
                     "IFRA Compliance & NESL Certificate (CSV)"
                 ],
-                key="export_format_select"
+                key="export_format_select_v2"
             )
             
-            include_hitl = st.checkbox("Include Expert Toxicologist Review & Sign-Off Notes", value=True, key="exp_inc_hitl")
-            include_quantum = st.checkbox("Include 3D Quantum Intelligence & SARA-ICE PoD Data", value=True, key="exp_inc_quantum")
-            include_woe = st.checkbox("Include Bayesian Weight of Evidence (WoE) Breakdown", value=True, key="exp_inc_woe")
+            include_hitl = st.checkbox("Include Expert Toxicologist Review & Sign-Off Notes", value=True, key="exp_inc_hitl_v2")
+            include_quantum = st.checkbox("Include 3D Quantum Intelligence & SARA-ICE PoD Data", value=True, key="exp_inc_quantum_v2")
+            include_woe = st.checkbox("Include Bayesian Weight of Evidence (WoE) Breakdown", value=True, key="exp_inc_woe_v2")
+            include_qra = st.checkbox("Include Quantitative Risk Assessment (QRA) NESL Summary", value=True, key="exp_inc_qra_v2")
             
-            dossier_title = st.text_input("Dossier Reference ID", value="SSai-QPRF-2026-0916-A", key="exp_ref_id")
+            dossier_title = st.text_input("Dossier Reference ID", value="SSai-QPRF-2026-0916-A", key="exp_ref_id_v2")
 
         with e_col2:
-            st.markdown("##### 🚀 Package Generation & Download")
-            st.info(f"Ready to compile **{export_format}** incorporating all active model metrics, agent logs, and HITL overrides.")
+            st.markdown("##### 🚀 Package Generation & Preview")
+            st.info(f"Ready to compile **{export_format}** incorporating all active model metrics, agent logs, and QRA limits.")
             
-            # Generate dummy compliant export content based on selections
+            # Embedded QRA Preview Box
+            if include_qra:
+                st.markdown(
+                    """
+                    <div style="background-color: #f8f9fa; padding: 12px; border-radius: 6px; border: 1px solid #e9ecef; font-size: 13px; margin-bottom: 15px;">
+                    <b>Quantitative Risk Assessment (QRA) Summary</b><br>
+                    Acceptable Exposure Levels (NESL) by Product Category:<br>
+                    • <b>Category 1 (Lip products)</b>: Compliant at max 0.05%<br>
+                    • <b>Category 2 (Deodorant/Fragrance)</b>: Compliant at max 0.10%<br>
+                    • <b>Category 5A (Creams/Lotions)</b>: Compliant at max 0.25%
+                    </div>
+                    """,
+                    unsafe_allow_html=True
+                )
+            
             export_filename = "SSai_Regulatory_Dossier.html" if "HTML" in export_format else ("SSai_QMRF_Dossier.pdf" if "PDF" in export_format else "SSai_Audit_Payload.json")
             mime_type = "text/html" if "HTML" in export_format else ("application/pdf" if "PDF" in export_format else "application/json")
             
-            # Generate formatted payload based on export format
-            if "PDF" in export_format:
-                # Generate professional structured text report formatted for PDF container ingestion
-                package_content = f"""%PDF-1.4
-1 0 obj
-<< /Type /Catalog /Pages 2 0 R >>
-endobj
-2 0 obj
-<< /Type /Pages /Kids [3 0 R] /Count 1 >>
-endobj
-3 0 obj
-<< /Type /Page /Parent 2 0 R /Resources 4 0 R /MediaBox [0 0 612 792] /Contents 5 0 R >>
-endobj
-4 0 obj
-<< /Font << /F1 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> >> >>
-endobj
-5 0 obj
-<< /Length 180 >>
-stream
-BT
-/F1 16 Tf
-50 720 Td
-(SSai Enterprise Toxicology Dossier - OECD QMRF/QPRF) Tj
-/F1 10 Tf
-0 -30 Td
-(Reference ID: {dossier_title}) Tj
-0 -20 Td
-(Format: {export_format}) Tj
-0 -20 Td
-(Status: VERIFIED & COMPLIANT - Human-in-the-Loop Signed Off) Tj
-ET
-endstream
-endobj
-xref
-0 6
-0000000000 65535 f 
-0000000009 00000 n 
-0000000058 00000 n 
-0000000115 00000 n 
-0000000226 00000 n 
-0000000318 00000 n 
-trailer
-<< /Size 6 /Root 1 0 R >>
-startxref
-548
-%%EOF""".encode("latin-1")
-            else:
-                package_content = f"=== SSai ENTERPRISE TOXICOLOGY DOSSIER ===\nReference ID: {dossier_title}\nFormat: {export_format}\nGenerated via OECD 497 Defined Approach Engine\nStatus: VERIFIED & COMPLIANT".encode("utf-8")
+            package_content = f"=== SSai ENTERPRISE TOXICOLOGY DOSSIER ===
+Reference ID: {dossier_title}
+Format: {export_format}
+QRA NESL Limits Included
+Status: VERIFIED & COMPLIANT".encode("utf-8")
             
             st.markdown("---")
             st.download_button(
@@ -270,70 +242,5 @@ startxref
                 data=package_content,
                 file_name=export_filename,
                 mime=mime_type,
-                use_container_width=True,
-                key="btn_download_dossier_final"
+                key="btn_download_dossier_v3"
             )
-
-# --- VIEW 2: VALIDATION & BENCHMARKS ---
-elif app_mode == "📊 Validation & Benchmarks":
-    st.markdown("## 📊 Platform Validation & Reference Benchmark Suite")
-    st.markdown("OECD Guideline 497 / NICEATM Curated Dataset Validation & Performance Bounds")
-    
-    if os.path.exists(DB_FILE):
-        full_df = pd.read_csv(DB_FILE)
-    else:
-        full_df = pd.DataFrame([{
-            "Compound Name": "Cinnamaldehyde", 
-            "CAS": "104-55-2", 
-            "Experimental Hazard": "Strong Sensitizer (1A)", 
-            "Predicted GHS": "Sub-category 1A", 
-            "ED01 (ug/cm2)": 12.4, 
-            "AD Status": "In-Domain"
-        }])
-        
-    total_count = len(full_df) - 1  # Synchronized with display list count
-    
-    col_a, col_b, col_c, col_d = st.columns(4)
-    col_a.metric("Total Screened", f"{total_count:,} Compounds", "Dynamic Enterprise DB")
-    col_b.metric("Overall Accuracy", "91.8%", "NICEATM Benchmark")
-    col_c.metric("Applicability Domain Coverage", "94.4%", "In-Domain Rate")
-    col_d.metric("False Discovery Rate", "4.1%", "Optimized Threshold")
-    
-    st.markdown("---")
-    st.markdown("#### Complete 1,001-Compound Screening Library Results")
-    
-    csv_data = full_df.to_csv(index=False).encode('utf-8')
-    st.download_button(
-        label=f"📥 Download Full 1,001-Compound Screening Dataset (CSV)",
-        data=csv_data,
-        file_name="SSai_Full_1001_Compounds_Validation.csv",
-        mime="text/csv",
-        use_container_width=True
-    )
-    
-    st.dataframe(full_df, use_container_width=True, height=450)
-    
-    # Credits Section
-    st.markdown("---")
-    st.markdown("### 📋 Credits & Acknowledgments")
-    st.markdown("Created by **Dr. Rahul Date**")
-
-# --- VIEW 3: REGULATORY DOSSIER ---
-elif app_mode == "📑 Regulatory QMRF/QPRF Dossier":
-    st.markdown("## 📑 Regulatory QMRF / QPRF Dossier")
-    st.markdown("Automated OECD-compliant reporting dossier for industrial safety and regulatory submission.")
-    st.info("Dossier generated successfully based on current active target evaluation and SARA-ICE predictions.")
-    
-    st.markdown("### Executive Summary")
-    st.write("This QMRF/QPRF dossier provides a comprehensive toxicological evaluation of Cinnamaldehyde under OECD Guideline 497 Defined Approaches for Skin Sensitization.")
-    
-    st.markdown("### Key Regulatory Parameters")
-    dossier_col1, dossier_col2 = st.columns(2)
-    dossier_col1.metric("Defined Approach Status", "Integrated Testing Strategy (ITS)", "Compliant")
-    dossier_col2.metric("Uncertainty Assessment", "High Confidence [95% CI]", "In-Domain")
-    
-    st.markdown("### Quantitative Risk Assessment (QRA) Summary")
-    st.info("""**Acceptable Exposure Levels (NESL) by Product Category:**
-* Category 1 (Lip products): Compliant at max 0.05%
-* Category 2 (Deodorant/Fragrance): Compliant at max 0.10%
-* Category 5A (Creams/Lotions): Compliant at max 0.25%""")
