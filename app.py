@@ -178,7 +178,7 @@ High lipophilicity and low molecular weight favor rapid skin penetration.""")
                 )
         st.markdown("#### Autonomous AI Agent Hub")
         st.markdown("Live execution trace from multi-agent reasoning loops verifying chemical reactivity and regulatory conformity.")
-        st.code("""[INFO] Chemist Agent: Electrophilic warhead confirmed (Michael acceptor).
+st.code("""[INFO] Chemist Agent: Electrophilic warhead confirmed (Michael acceptor).
 [INFO] Read-Across: 4 structural homologs matched in reference database.
 [INFO] QRA Agent: NESL safety margins verified across all IFRA categories.""")
 
@@ -186,14 +186,14 @@ High lipophilicity and low molecular weight favor rapid skin penetration.""")
 
 # Validation & Benchmarks Module
 st.markdown("#### 📊 Validation & Benchmarks")
-        st.markdown("Rigorous statistical validation, cross-validation metrics, and external benchmark comparisons against OECD 497 reference datasets.")
-        
-        v_col1, v_col2 = st.columns(2, gap="medium")
-        with v_col1:
-            st.markdown("##### 📈 Predictive Performance Metrics")
-            st.metric("Balanced Accuracy (Defined Approach)", "89.4%", "+2.1% vs OECD Baseline")
-            st.metric("Sensitivity / Recall (Sub-cat 1A/1B)", "92.1%", "High Confidence")
-            st.metric("Specificity (Non-Sensitizers)", "86.8%", "Robust Negative Filtering")
+st.markdown("Rigorous statistical validation, cross-validation metrics, and external benchmark comparisons against OECD 497 reference datasets.")
+
+v_col1, v_col2 = st.columns(2, gap="medium")
+with v_col1:
+st.markdown("##### 📈 Predictive Performance Metrics")
+st.metric("Balanced Accuracy (Defined Approach)", "89.4%", "+2.1% vs OECD Baseline")
+st.metric("Sensitivity / Recall (Sub-cat 1A/1B)", "92.1%", "High Confidence")
+st.metric("Specificity (Non-Sensitizers)", "86.8%", "Robust Negative Filtering")
             st.metric("ROC-AUC Score", "0.941", "Excellent Discrimination")
             
         with v_col2:
