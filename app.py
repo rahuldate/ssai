@@ -103,8 +103,8 @@ if app_mode == "🔬 Assessment Dashboard":
                 "Compliance Status": ["Optimal", "In-Domain", "Pass", "Pass", "In-Domain", "Optimal"]
             }), use_container_width=True)
         with c2:
-            st.info("💡 **Profiling Note**
-High lipophilicity and low molecular weight favor rapid skin penetration.")
+            st.info("""💡 **Profiling Note**
+High lipophilicity and low molecular weight favor rapid skin penetration.""")
 
     with tab2:
         st.markdown("#### Batch Screening & Dataset Management")
