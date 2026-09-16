@@ -73,14 +73,26 @@ try:
     
     sara_res = compute_sara_ice_pod(dpra_val, k_val, lumo_val)
     
-    # Use wider columns or custom styled info boxes for optimal readability
-    c1, c2, c3 = st.columns(3)
-    with c1:
-        st.metric("Calculated LUMO & Electrophilicity", f"{lumo_val} eV", f"ω: {q_res_main.get('Electrophilicity Index (omega)', '0.73')}")
-    with c2:
-        st.metric("Estimated ED01 (PoD)", f"{sara_res['Estimated ED01 (ug/cm2)']} µg/cm²", sara_res['Potency Tier'])
-    with c3:
-        st.metric("GHS Hazard Sub-category", sara_res['GHS Hazard Sub-category'], f"95% CI: {sara_res['Uncertainty Bound (95% CI)']}")
+    # Render using wide, custom HTML containers to prevent text clipping
+    st.markdown(f"""
+    <div style="display: flex; gap: 15px; margin-bottom: 15px;">
+        <div style="flex: 1; background-color: #F8FAFC; border: 1px solid #E2E8F0; padding: 14px; border-radius: 8px;">
+            <p style="color: #64748B; font-size: 0.8rem; font-weight: 600; margin: 0 0 4px 0;">3D QUANTUM DESCRIPTORS</p>
+            <p style="color: #1E3A8A; font-size: 1.15rem; font-weight: 700; margin: 0;">LUMO: {lumo_val} eV</p>
+            <p style="color: #475569; font-size: 0.85rem; margin: 4px 0 0 0;">Electrophilicity (ω): {q_res_main.get('Electrophilicity Index (omega)', '0.73')}</p>
+        </div>
+        <div style="flex: 1; background-color: #F8FAFC; border: 1px solid #E2E8F0; padding: 14px; border-radius: 8px;">
+            <p style="color: #64748B; font-size: 0.8rem; font-weight: 600; margin: 0 0 4px 0;">SARA-ICE PoD (ED01)</p>
+            <p style="color: #1E3A8A; font-size: 1.15rem; font-weight: 700; margin: 0;">{sara_res['Estimated ED01 (ug/cm2)']} µg/cm²</p>
+            <p style="color: #475569; font-size: 0.85rem; margin: 4px 0 0 0;">Tier: {sara_res['Potency Tier']}</p>
+        </div>
+        <div style="flex: 1; background-color: #F8FAFC; border: 1px solid #E2E8F0; padding: 14px; border-radius: 8px;">
+            <p style="color: #64748B; font-size: 0.8rem; font-weight: 600; margin: 0 0 4px 0;">GHS HAZARD SUB-CATEGORY</p>
+            <p style="color: #1E3A8A; font-size: 1.05rem; font-weight: 700; margin: 0;">{sara_res['GHS Hazard Sub-category']}</p>
+            <p style="color: #475569; font-size: 0.85rem; margin: 4px 0 0 0;">95% CI: {sara_res['Uncertainty Bound (95% CI)']}</p>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
 except Exception as e:
     st.error(f"SARA-ICE Dashboard Error: {e}")
 st.markdown("---")
