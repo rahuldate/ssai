@@ -215,13 +215,13 @@ High lipophilicity and low molecular weight favor rapid skin penetration.""")
             # Embedded QRA Preview Box
                         if include_qra:
                 qra_html = (
-                    "<div style='background-color: #f8f9fa; padding: 12px; border-radius: 6px; border: 1px solid #e9ecef; font-size: 13px; margin-bottom: 15px;'>"
-                    "<b>Quantitative Risk Assessment (QRA) Summary</b><br>"
-                    "Acceptable Exposure Levels (NESL) by Product Category:<br>"
-                    "• <b>Category 1 (Lip products)</b>: Compliant at max 0.05%<br>"
-                    "• <b>Category 2 (Deodorant/Fragrance)</b>: Compliant at max 0.10%<br>"
-                    "• <b>Category 5A (Creams/Lotions)</b>: Compliant at max 0.25%"
-                    "</div>"
+                "<div style='background-color: #f8f9fa; padding: 12px; border-radius: 6px; border: 1px solid #e9ecef; font-size: 13px; margin-bottom: 15px;'>"
+                "<b>Quantitative Risk Assessment (QRA) Summary</b><br>"
+                "Acceptable Exposure Levels (NESL) by Product Category:<br>"
+                "• <b>Category 1 (Lip products)</b>: Compliant at max 0.05%<br>"
+                "• <b>Category 2 (Deodorant/Fragrance)</b>: Compliant at max 0.10%<br>"
+                "• <b>Category 5A (Creams/Lotions)</b>: Compliant at max 0.25%"
+                "</div>"
                 )
                 st.markdown(qra_html, unsafe_allow_html=True)
             
