@@ -181,7 +181,7 @@ if app_mode == "📊 Validation & Benchmarks":
     @st.cache_data(ttl=60)
     
 
-st.markdown("""
+    st.markdown("""
 <style>
     .main-title { font-size: 2rem; font-weight: 700; color: #1E3A8A; margin-bottom: 0px; }
     .sub-title { font-size: 0.955rem; color: #4B5563; margin-bottom: 1.5rem; }
