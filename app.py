@@ -205,7 +205,7 @@ tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9 = st.tabs([
 
 # --- TAB 1: DASS & PROPERTY SCREENING ---
 with tab1:
-st.markdown("🧬 OECD 497 Defined Approach & Physicochemical Profiling")
+    st.markdown("🧬 OECD 497 Defined Approach & Physicochemical Profiling")
     mol = Chem.MolFromSmiles(active_smiles)
     if mol:
         mw = Descriptors.MolWt(mol)
