@@ -161,9 +161,48 @@ High lipophilicity and low molecular weight favor rapid skin penetration.""")
 [INFO] QRA Agent: NESL safety margins verified across all IFRA categories.""")
 
     with tab9:
-        st.markdown("#### Regulatory Dossier Export Center")
-        st.markdown("Generate and download fully compliant OECD QMRF/QPRF regulatory packages.")
-        st.download_button("📥 Download Complete QMRF/QPRF Dossier (PDF/HTML)", data=b"Dossier export content...", file_name="SSai_Regulatory_Dossier.html", mime="text/html")
+        st.markdown("#### 📑 Regulatory Dossier Export Center")
+        st.markdown("Generate, format, and download audit-ready regulatory submission packages conforming to OECD QMRF and QPRF standards.")
+        
+        e_col1, e_col2 = st.columns([1.1, 0.9], gap="medium")
+        with e_col1:
+            st.markdown("##### 📦 Export Configuration")
+            export_format = st.selectbox(
+                "Select Submission Format",
+                [
+                    "OECD QPRF HTML Package (Interactive)",
+                    "OECD QMRF PDF Summary Dossier",
+                    "Complete JSON Audit Payload (Raw API)",
+                    "IFRA Compliance & NESL Certificate (CSV)"
+                ],
+                key="export_format_select"
+            )
+            
+            include_hitl = st.checkbox("Include Expert Toxicologist Review & Sign-Off Notes", value=True, key="exp_inc_hitl")
+            include_quantum = st.checkbox("Include 3D Quantum Intelligence & SARA-ICE PoD Data", value=True, key="exp_inc_quantum")
+            include_woe = st.checkbox("Include Bayesian Weight of Evidence (WoE) Breakdown", value=True, key="exp_inc_woe")
+            
+            dossier_title = st.text_input("Dossier Reference ID", value="SSai-QPRF-2026-0916-A", key="exp_ref_id")
+
+        with e_col2:
+            st.markdown("##### 🚀 Package Generation & Download")
+            st.info(f"Ready to compile **{export_format}** incorporating all active model metrics, agent logs, and HITL overrides.")
+            
+            # Generate dummy compliant export content based on selections
+            export_filename = "SSai_Regulatory_Dossier.html" if "HTML" in export_format else ("SSai_QMRF_Dossier.pdf" if "PDF" in export_format else "SSai_Audit_Payload.json")
+            mime_type = "text/html" if "HTML" in export_format else ("application/pdf" if "PDF" in export_format else "application/json")
+            
+            package_content = f"=== SSai ENTERPRISE TOXICOLOGY DOSSIER ===\nReference ID: {dossier_title}\nFormat: {export_format}\nGenerated via OECD 497 Defined Approach Engine\nStatus: VERIFIED & COMPLIANT".encode("utf-8")
+            
+            st.markdown("---")
+            st.download_button(
+                label=f"📥 Download {export_format.split()[0]} Package",
+                data=package_content,
+                file_name=export_filename,
+                mime=mime_type,
+                use_container_width=True,
+                key="btn_download_dossier_final"
+            )
 
 # --- VIEW 2: VALIDATION & BENCHMARKS ---
 elif app_mode == "📊 Validation & Benchmarks":
