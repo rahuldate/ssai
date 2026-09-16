@@ -194,7 +194,7 @@ with v_col1:
 st.metric("Balanced Accuracy (Defined Approach)", "89.4%", "+2.1% vs OECD Baseline")
 st.metric("Sensitivity / Recall (Sub-cat 1A/1B)", "92.1%", "High Confidence")
 st.metric("Specificity (Non-Sensitizers)", "86.8%", "Robust Negative Filtering")
-            st.metric("ROC-AUC Score", "0.941", "Excellent Discrimination")
+        st.metric("ROC-AUC Score", "0.941", "Excellent Discrimination")
             
         with v_col2:
             st.markdown("##### 🧪 External Benchmark Validation")
