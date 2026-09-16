@@ -132,10 +132,10 @@ if app_mode == "📊 Validation & Benchmarks":
 * Sub-category 1B (Moderate/Weak): 298 compounds (41.7%)
 * Non-Sensitizers (NC): 201 compounds (28.2%)""")
     with breakdown_col2:
-        st.success("**Applicability Domain & Quality Metrics:**
+        st.success("""**Applicability Domain & Quality Metrics:**
 * High Confidence In-Domain: 674 (94.4%)
 * Structural Alert Flagged (Pro-haptens): 184 (25.8%)
-* Out-of-Domain / Flagged for Expert Review: 40 (5.6%)")
+* Out-of-Domain / Flagged for Expert Review: 40 (5.6%)""")
 st.stop()
 
 st.markdown("""
