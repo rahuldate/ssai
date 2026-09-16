@@ -104,8 +104,11 @@ if app_mode == "📊 Validation & Benchmarks":
             st.markdown("### 📋 Enterprise Validation Suite: Full 714 Screened Compounds Dataset")
     st.markdown("Comprehensive statistical evaluation and hazard category distribution across the complete high-throughput screening library (n = 714 compounds).")
     
+    full_df = load_dynamic_714_library()
+    total_count = len(full_df)
+    
     col_a, col_b, col_c, col_d = st.columns(4)
-    col_a.metric("Total Screened", "714 Compounds", "Full Library")
+    col_a.metric("Total Screened", f"{total_count:,} Compounds", "Dynamic Enterprise DB")
     col_b.metric("Overall Accuracy", "91.8%", "NICEATM Benchmark")
     col_c.metric("Applicability Domain Coverage", "94.4%", "In-Domain Rate")
     col_d.metric("False Discovery Rate", "4.1%", "Optimized Threshold")
