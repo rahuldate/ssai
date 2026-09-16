@@ -212,7 +212,7 @@ with v_col2:
         
     st.markdown("---")
     if st.button("📥 Download Full Validation Benchmark Report", key="btn_dl_benchmarks"):
-st.success("✅ Benchmark validation CSV report generated successfully!")
+    st.success("✅ Benchmark validation CSV report generated successfully!")
 
     # Validation & Benchmarks Module
     st.markdown("#### 📊 Validation & Benchmarks")
