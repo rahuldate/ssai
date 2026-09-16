@@ -137,10 +137,9 @@ if app_mode == "🔬 Assessment Dashboard":
     with tab8:
         st.markdown("#### Autonomous AI Agent Hub")
         st.write("Live logs from multi-agent reasoning loops verifying chemical reactivity, read-across consistency, and regulatory compliance.")
-        st.code("[INFO] Chemist Agent: Warhead confirmed.\n[INFO] Read-Across: 4 analogs matched.\n[INFO] QRA Agent: NESL bounds verified."
-[INFO] Read-Across: 4 analogs matched.\n[INFO] Read-Across: 4 analogs matched.\n[INFO] QRA Agent: NESL bounds verified."
-
-    with tab9:
+        st.code("""[INFO] Chemist Agent: Warhead confirmed.
+[INFO] Read-Across: 4 analogs matched.
+[INFO] QRA Agent: NESL bounds verified.""")
         st.markdown("#### Regulatory Dossier Export Center")
         st.download_button("📥 Download Complete QMRF/QPRF Dossier (PDF/HTML)", data=b"Dossier export content...", file_name="SSai_Regulatory_Dossier.html", mime="text/html")
 
