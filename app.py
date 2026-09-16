@@ -149,60 +149,36 @@ High lipophilicity and low molecular weight favor rapid skin penetration.""")
         }), use_container_width=True)
 
     with tab7:
-        st.markdown("#### ✍️ Human-in-the-Loop (HITL) Interactive Regulatory Review")
-        st.markdown("Expert toxicology review console with classification overrides, AOP weighting, and cryptographic certification.")
+        st.markdown("#### ✍️ Human-in-the-Loop (HITL) Regulatory Review")
+        st.markdown("Expert toxicology review console with classification overrides and certification.")
         
-        hc1, hc2 = st.columns([1.3, 0.7], gap="medium")
-        with hc1:
-            st.markdown("##### Expert Reviewer Console")
-            reviewer_name = st.text_input("Reviewing Toxicologist", value="Dr. Sarah Jenkins, DABT", key="hitl_name_clean")
-            ai_baseline = "Sub-category 1A (Strong/Moderate Sensitizer)"
-            st.info(f"🤖 **AI Baseline Prediction**: {ai_baseline}")
-            
-            expert_classification = st.selectbox(
-                "Expert Override Classification", 
-                [
-                    "Confirm AI Baseline (Sub-category 1A)", 
-                    "Override to Sub-category 1B (Weak)", 
-                    "Override to Non-Sensitizer",
-                    "Override to Category 1 (Undifferentiated)"
-                ], 
-                key="hitl_override_clean"
+        c1, c2 = st.columns(2)
+        with c1:
+            st.markdown("##### Reviewer Details")
+            rev_name = st.text_input("Reviewing Toxicologist", value="Dr. Sarah Jenkins", key="rev_name_v5")
+            override_val = st.selectbox(
+                "Classification Override",
+                ["Confirm AI Baseline (Sub-category 1A)", "Override to Sub-category 1B", "Override to Non-Sensitizer"],
+                key="override_v5"
             )
-            
-            expert_notes = st.text_area(
-                "Expert Rationale & Justification", 
-                value="Target evaluated under OECD 497. Michael acceptor warhead confirmed. Risk bounds validated.", 
-                height=90,
-                key="hitl_notes_clean"
-            )
-            
-            st.markdown("##### AOP Key Event Weight Customizer")
-            w_dpra = st.slider("DPRA Weight", 0.0, 1.0, 0.33, key="w_dpra_clean")
-            w_kerat = st.slider("KeratinoSens Weight", 0.0, 1.0, 0.33, key="w_kerat_clean")
-            w_hclat = st.slider("h-CLAT Weight", 0.0, 1.0, 0.34, key="w_hclat_clean")
-
-        with hc2:
-            st.markdown("##### Compliance Gate")
-            chk_1 = st.checkbox("QSAR alert validated", value=True, key="c1_clean")
-            chk_2 = st.checkbox("Defined Approach verified", value=True, key="c2_clean")
-            chk_3 = st.checkbox("IFRA QRA limits confirmed", value=True, key="c3_clean")
+            notes_val = st.text_area("Expert Rationale", value="Target evaluated under OECD 497. Michael acceptor confirmed.", key="notes_v5")
+        with c2:
+            st.markdown("##### Safety Gate & Sign-Off")
+            chk_a = st.checkbox("QSAR alert verified", value=True, key="chk_a_v5")
+            chk_b = st.checkbox("DA consensus confirmed", value=True, key="chk_b_v5")
             
             st.markdown("---")
-            all_ok = all([chk_1, chk_2, chk_3])
-            
-            if st.button("🔒 Certify & Lock Dossier", disabled=not all_ok, key="btn_certify_clean"):
+            if st.button("🔒 Certify & Lock Dossier", key="btn_certify_v5"):
                 st.success("✅ Dossier successfully certified and locked!")
-                cert_payload = f"SSai Dossier
-Reviewer: {reviewer_name}
-Override: {expert_classification}
-Status: LOCKED".encode("utf-8")
+                payload = f"Dossier Certified
+Reviewer: {rev_name}
+Override: {override_val}".encode("utf-8")
                 st.download_button(
                     "📥 Download Audit Certificate",
-                    data=cert_payload,
-                    file_name="SSai_Audit_Certificate.txt",
+                    data=payload,
+                    file_name="Audit_Certificate.txt",
                     mime="text/plain",
-                    key="dl_cert_clean"
+                    key="dl_cert_v5"
                 )
     with tab8:
         st.markdown("#### Autonomous AI Agent Hub")
