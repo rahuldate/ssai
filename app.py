@@ -109,7 +109,7 @@ High lipophilicity and low molecular weight favor rapid skin penetration.""")
     with tab2:
         st.markdown("#### Batch Screening & Dataset Management")
         st.markdown("Upload custom compound libraries (SDF/CSV) to perform batch OECD 497 Defined Approach predictions.")
-        uploaded_file = st.file_uploader("Upload Chemical Library (CSV / SDF)", type=["csv", "sdf"], key="tab2_batch_uploader_secure_v99")
+        uploaded_file = st.text_input("Dataset File Path (CSV / SDF)", value="screened_compounds_db.csv", key="tab2_batch_filepath_input_final")
         if uploaded_file is not None:
             st.success("File uploaded successfully. Processing 1,001 compounds against SARA-ICE models...")
         else:
@@ -176,7 +176,7 @@ High lipophilicity and low molecular weight favor rapid skin penetration.""")
     with tab2:
         st.markdown("#### Batch Screening & Dataset Management")
         st.write("Upload custom compound libraries (SDF/CSV) to perform batch OECD 497 Defined Approach predictions against the 1,001-compound screening database.")
-        st.file_uploader("Upload Chemical Library (CSV / SDF)", type=["csv", "sdf"], key="tab2_batch_uploader_secure_v99")
+        st.text_input("Dataset File Path (CSV / SDF)", value="screened_compounds_db.csv", key="tab2_batch_filepath_input_final")
         st.info("Batch processing engine ready. Connected to screened_compounds_db.csv.")
 
     with tab3:
