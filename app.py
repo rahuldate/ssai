@@ -1,76 +1,89 @@
 import streamlit as st
-from modules.auth import render_auth_module
-from modules.molecular import render_molecular_module
-from modules.structure_2d import render_2d_structure_module
+from modules.docking import render_docking_module
+from modules.bayesian import render_bayesian_module
+from modules.metabolism_oecd import render_metabolism_oecd_module
+from modules.qra2 import render_qra2_module
+from modules.read_across import render_read_across_module
+from modules.agent_hub import render_agent_hub_module
 from modules.structure_3d import render_3d_structure_module
-from modules.adme import render_adme_module
-from modules.aop import render_aop_module
-from modules.skin_models import render_skin_models_module
-from modules.qra import render_qra_module
-from modules.batch import render_batch_module
-from modules.agents import render_agent_hub_module
-from modules.hitl import render_hitl_module
-from modules.validation import render_validation_module
-from modules.export import render_export_module
+from modules.dossier import render_dossier_module
 
-st.set_page_config(page_title="Skin Sensitizer AI - Enterprise Platform", layout="wide")
+st.set_page_config(
+    page_title="ssai - Enterprise Skin Sensitization AI",
+    page_icon="🧬",
+    layout="wide"
+)
 
-st.title("🧬 Skin Sensitizer AI - Enterprise Platform")
-st.markdown("OECD 497 Defined Approach & Quantitative Risk Assessment (QRA) Engine.")
+# Custom styling for clean enterprise UI
+st.markdown("""
+<style>
+    .main-header { font-size: 24px; font-weight: bold; color: #0d6efd; margin-bottom: 10px; }
+    .sidebar .sidebar-content { background-color: #f8f9fa; }
+</style>
+""", unsafe_allow_html=True)
 
-# Navigation Tabs - Complete Enterprise Suite + 2D/3D Modules
-tab_names = [
-    "🔐 Security & RBAC",
-    "🧬 Molecular Intelligence",
-    "📐 2D Structure",
-    "🧊 3D Conformer",
-    "⚡ ADME & Profiling", 
-    "🔬 AOP Pathways", 
-    "🧫 3D Skin Models",
-    "🛡️ QRA & NESL",
-    "📊 Batch Screening", 
-    "🤖 Agent Hub", 
-    "✍️ HITL Review",
-    "📈 Validation",
-    "📦 Dossier Export"
-]
-tabs = st.tabs(tab_names)
+st.markdown('<p class="main-header">🧬 ssai: Enterprise Skin Sensitization AI Platform</p>', unsafe_allow_html=True)
 
-with tabs[0]:
-    render_auth_module()
+# Smart Sidebar Navigation (Categorized to prevent crowding)
+st.sidebar.markdown("### 🧭 Navigation Menu")
 
-with tabs[1]:
-    render_molecular_module()
+category = st.sidebar.selectbox(
+    "Select Workflow Category",
+    [
+        "1. Core Intelligence & 3D",
+        "2. Mechanistic & Metabolism",
+        "3. Safety & QRA Thresholds",
+        "4. AI Agents & Review",
+        "5. Compliance & Dossier"
+    ]
+)
 
-with tabs[2]:
-    render_2d_structure_module()
+st.sidebar.markdown("---")
 
-with tabs[3]:
-    render_3d_structure_module()
+if category == "1. Core Intelligence & 3D":
+    tab = st.sidebar.radio("Module", ["Molecular & Structural", "3D Conformer & KEAP1", "Batch Screening"])
+    st.sidebar.markdown("---")
+    if tab == "Molecular & Structural":
+        render_bayesian_module()
+    elif tab == "3D Conformer & KEAP1":
+        render_3d_structure_module()
+    else:
+        st.markdown("#### 📊 Batch Screening & High-Throughput Matrix")
+        st.info("Upload SMILES batch CSV files to screen multiple compounds simultaneously.")
 
-with tabs[4]:
-    render_adme_module()
+elif category == "2. Mechanistic & Metabolism":
+    tab = st.sidebar.radio("Module", ["AOP Pathways", "Skin Metabolism & OECD", "Read-Across Analogues"])
+    st.sidebar.markdown("---")
+    if tab == "AOP Pathways":
+        from modules.aop import render_aop_module
+        render_aop_module()
+    elif tab == "Skin Metabolism & OECD":
+        render_metabolism_oecd_module()
+    else:
+        render_read_across_module()
 
-with tabs[5]:
-    render_aop_module()
+elif category == "3. Safety & QRA Thresholds":
+    tab = st.sidebar.radio("Module", ["QRA2 & NESL Calculator", "Docking Simulation"])
+    st.sidebar.markdown("---")
+    if tab == "QRA2 & NESL Calculator":
+        render_qra2_module()
+    else:
+        render_docking_module()
 
-with tabs[6]:
-    render_skin_models_module()
+elif category == "4. AI Agents & Review":
+    tab = st.sidebar.radio("Module", ["Agent Hub", "HITL Review"])
+    st.sidebar.markdown("---")
+    if tab == "Agent Hub":
+        render_agent_hub_module()
+    else:
+        st.markdown("#### ✍️ Human-in-the-Loop (HITL) Review")
+        st.info("Review, annotate, and override automated AI toxicological decisions.")
 
-with tabs[7]:
-    render_qra_module()
-
-with tabs[8]:
-    render_batch_module()
-
-with tabs[9]:
-    render_agent_hub_module()
-
-with tabs[10]:
-    render_hitl_module()
-
-with tabs[11]:
-    render_validation_module()
-
-with tabs[12]:
-    render_export_module()
+elif category == "5. Compliance & Dossier":
+    tab = st.sidebar.radio("Module", ["Validation & Benchmarks", "Dossier Export"])
+    st.sidebar.markdown("---")
+    if tab == "Validation & Benchmarks":
+        st.markdown("#### 📈 Validation & Benchmark Metrics")
+        st.info("Performance statistics against LLNA and human benchmark datasets.")
+    else:
+        render_dossier_module()
