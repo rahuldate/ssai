@@ -64,8 +64,7 @@ if app_mode == "🔬 Assessment Dashboard":
     ]
 
     for title, desc in agents:
-        st.markdown(f"**{title}**
-{desc}")
+        st.markdown(f"**{title}**: {desc}")
 
     st.markdown("---")
 
