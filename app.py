@@ -149,80 +149,61 @@ High lipophilicity and low molecular weight favor rapid skin penetration.""")
         }), use_container_width=True)
 
     with tab7:
-        st.markdown("#### ✍️ Human-in-the-Loop (HITL) Interactive Regulatory Review & Certification")
-        st.markdown("Dynamic expert review console with live validation checks, classification overrides, AOP weighting, and cryptographic audit locking.")
+        st.markdown("#### ✍️ Human-in-the-Loop (HITL) Interactive Regulatory Review")
+        st.markdown("Expert toxicology review console with classification overrides, AOP weighting, and cryptographic certification.")
         
         hc1, hc2 = st.columns([1.3, 0.7], gap="medium")
         with hc1:
-            st.markdown("##### 🧪 Expert Toxicology Reviewer Console")
-            reviewer_name = st.text_input("Reviewing Toxicologist", value="Dr. Sarah Jenkins, DABT (Board Certified)", key="hitl_toxicologist_live")
-            reviewer_org = st.text_input("Regulatory Affiliation / Organization", value="Global Toxicology & Safety Assessment Group", key="hitl_org_live")
-            
-            ai_baseline = "Sub-category 1A (Strong/Moderate Sensitizer - ED01: 0.41 µg/cm²)"
+            st.markdown("##### Expert Reviewer Console")
+            reviewer_name = st.text_input("Reviewing Toxicologist", value="Dr. Sarah Jenkins, DABT", key="hitl_name_clean")
+            ai_baseline = "Sub-category 1A (Strong/Moderate Sensitizer)"
             st.info(f"🤖 **AI Baseline Prediction**: {ai_baseline}")
             
             expert_classification = st.selectbox(
-                "Expert Override / Confirmation (GHS / OECD 497)", 
+                "Expert Override Classification", 
                 [
-                    "Confirm AI Baseline (Sub-category 1A - Strong/Moderate)", 
-                    "Override to Sub-category 1B (Weak Sensitizer)", 
-                    "Override to Non-Sensitizer (Category Not Classified)",
-                    "Override to Category 1 (Undifferentiated Sensitizer)",
-                    "Request Additional In-Vitro / In-Chemico Assays"
+                    "Confirm AI Baseline (Sub-category 1A)", 
+                    "Override to Sub-category 1B (Weak)", 
+                    "Override to Non-Sensitizer",
+                    "Override to Category 1 (Undifferentiated)"
                 ], 
-                key="hitl_expert_override_select"
-            )
-            
-            risk_tier = st.selectbox(
-                "Assigned QRA Risk Tier",
-                ["Tier 1: High Potency / Strict Concentration Limits", "Tier 2: Moderate Potency / Standard IFRA Limits", "Tier 3: Low Potency / Broad Consumer Application"],
-                key="hitl_risk_tier_select"
+                key="hitl_override_clean"
             )
             
             expert_notes = st.text_area(
-                "Toxicological Expert Rationale & Justification", 
-                value="Target molecule evaluated under OECD 497 Defined Approach. Michael acceptor electrophilic warhead verified. Expert review concurs with predicted potency bounds and establishes safe consumer concentration caps.", 
+                "Expert Rationale & Justification", 
+                value="Target evaluated under OECD 497. Michael acceptor warhead confirmed. Risk bounds validated.", 
                 height=90,
-                key="hitl_notes_live"
+                key="hitl_notes_clean"
             )
             
-            st.markdown("##### 🧬 AOP Key Event Weight Customizer (Expert Tuning)")
-            st.write("Adjust relative assay contribution weights for the integrated Defined Approach model:")
-            w_dpra = st.slider("DPRA / Direct Peptide Reactivity (MIE) Weight", 0.0, 1.0, 0.33, key="hitl_weight_dpra")
-            w_kerat = st.slider("KeratinoSens / ARE Element Activation (KE2) Weight", 0.0, 1.0, 0.33, key="hitl_weight_kerat")
-            w_hclat = st.slider("h-CLAT / Dendritic Cell Activation (KE3) Weight", 0.0, 1.0, 0.34, key="hitl_weight_hclat")
+            st.markdown("##### AOP Key Event Weight Customizer")
+            w_dpra = st.slider("DPRA Weight", 0.0, 1.0, 0.33, key="w_dpra_clean")
+            w_kerat = st.slider("KeratinoSens Weight", 0.0, 1.0, 0.33, key="w_kerat_clean")
+            w_hclat = st.slider("h-CLAT Weight", 0.0, 1.0, 0.34, key="w_hclat_clean")
 
         with hc2:
-            st.markdown("##### 🛡️ Interactive Compliance & Safety Gate")
-            chk_1 = st.checkbox("QSAR structural alert validated", value=True, key="chk_h1")
-            chk_2 = st.checkbox("Defined Approach 2-of-3 consensus verified", value=True, key="chk_h2")
-            chk_3 = st.checkbox("IFRA QRA exposure limits confirmed", value=True, key="chk_h3")
-            chk_4 = st.checkbox("Bayesian WoE posterior confidence > 90%", value=True, key="chk_h4")
-            chk_5 = st.checkbox("Peer review sign-off completed", value=True, key="chk_h5")
+            st.markdown("##### Compliance Gate")
+            chk_1 = st.checkbox("QSAR alert validated", value=True, key="c1_clean")
+            chk_2 = st.checkbox("Defined Approach verified", value=True, key="c2_clean")
+            chk_3 = st.checkbox("IFRA QRA limits confirmed", value=True, key="c3_clean")
             
             st.markdown("---")
+            all_ok = all([chk_1, chk_2, chk_3])
             
-            all_checks_passed = all([chk_1, chk_2, chk_3, chk_4, chk_5])
-            if not all_checks_passed:
-                st.warning("⚠️ All compliance verification checkboxes must be checked to enable final certification.")
-            
-            certify_clicked = st.button("🔒 Certify & Lock Assessment", disabled=not all_checks_passed, use_container_width=True, key="btn_certify_interactive")
-            
-            if certify_clicked:
-                st.success("🎉 **Certification Successful!**")
-                st.markdown(f"**Certified By**: {reviewer_name} ({reviewer_org})")
-                st.markdown(f"**Final Disposition**: {expert_classification}")
-                st.markdown(f"**Assigned Tier**: {risk_tier}")
-                
-                certificate_payload = f"SSai Regulatory Certification Dossier\nReviewer: {reviewer_name}\nDisposition: {expert_classification}\nRisk Tier: {risk_tier}\nRationale: {expert_notes}\nStatus: LOCKED & VERIFIED".encode("utf-8")
+            if st.button("🔒 Certify & Lock Dossier", disabled=not all_ok, key="btn_certify_clean"):
+                st.success("✅ Dossier successfully certified and locked!")
+                cert_payload = f"SSai Dossier
+Reviewer: {reviewer_name}
+Override: {expert_classification}
+Status: LOCKED".encode("utf-8")
                 st.download_button(
-                    "📥 Download Cryptographic Audit Certificate",
-                certificate_payload = f"SSai Regulatory Certification Dossier\nReviewer: {reviewer_name}\nDisposition: {expert_classification}\nRisk Tier: {risk_tier}\nRationale: {expert_notes}\nStatus: LOCKED & VERIFIED".encode("utf-8")
-                    file_name="SSai_Certified_Regulatory_Dossier.txt",
+                    "📥 Download Audit Certificate",
+                    data=cert_payload,
+                    file_name="SSai_Audit_Certificate.txt",
                     mime="text/plain",
-                    key="download_signed_cert_btn"
+                    key="dl_cert_clean"
                 )
-
     with tab8:
         st.markdown("#### Autonomous AI Agent Hub")
         st.markdown("Live execution trace from multi-agent reasoning loops verifying chemical reactivity and regulatory conformity.")
