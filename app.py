@@ -71,16 +71,14 @@ if app_mode == "🔬 Assessment Dashboard":
     st.markdown("### 🔬 SARA-ICE Point of Departure (PoD) & 3D Quantum Intelligence")
     col1, col2, col3 = st.columns(3)
     with col1:
-        st.markdown("**3D QUANTUM DESCRIPTORS**
-LUMO: -1.42 eV
+        st.markdown("**3D QUANTUM DESCRIPTORS** - LUMO: -1.42 eV
 Electrophilicity (ω): 0.73")
     with col2:
         st.markdown("**SARA-ICE PoD (ED01)**
 0.41 µg/cm²
 Tier: High Potency")
     with col3:
-        st.markdown("**GHS HAZARD SUB-CATEGORY**
-Sub-category 1A (Strong/Moderate Sensitizer)
+        st.markdown("**GHS HAZARD SUB-CATEGORY** - Sub-category 1A (Strong/Moderate Sensitizer)
 95% CI: [± 0.07 ug/cm2]")
 
     st.markdown("---")
