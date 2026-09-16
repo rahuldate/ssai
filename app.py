@@ -298,7 +298,7 @@ with tab9:
             try:
                 from reports import generate_regulatory_report
                 qmrf_file = "OECD_QMRF_Report.pdf"
-                generate_regulatory_report(filename=qmrf_file, compound_name=active_name, smiles=active_smiles)
+                generate_regulatory_report(filename=qmrf_file, compound_name=active_name, smiles=active_smiles, report_type="qmrf")
                 with open(qmrf_file, "rb") as f:
                     st.download_button("⬇️ Download QMRF PDF", data=f.read(), file_name=qmrf_file, mime="application/pdf", key="dl_qmrf")
             except Exception as e:
@@ -308,7 +308,7 @@ with tab9:
             try:
                 from reports import generate_regulatory_report
                 qprf_file = "OECD_QPRF_Prediction_Report.pdf"
-                generate_regulatory_report(filename=qprf_file, compound_name=active_name, smiles=active_smiles)
+                generate_regulatory_report(filename=qprf_file, compound_name=active_name, smiles=active_smiles, report_type="qprf")
                 with open(qprf_file, "rb") as f:
                     st.download_button("⬇️ Download QPRF PDF", data=f.read(), file_name=qprf_file, mime="application/pdf", key="dl_qprf")
             except Exception as e:
