@@ -1,4 +1,5 @@
 import streamlit as st
+from modules.auth import render_auth_module
 from modules.molecular import render_molecular_module
 from modules.adme import render_adme_module
 from modules.aop import render_aop_module
@@ -15,8 +16,9 @@ st.set_page_config(page_title="Skin Sensitizer AI - Enterprise Platform", layout
 st.title("🧬 Skin Sensitizer AI - Enterprise Platform")
 st.markdown("OECD 497 Defined Approach & Quantitative Risk Assessment (QRA) Engine.")
 
-# Navigation Tabs - Complete Enterprise Suite + Export
+# Navigation Tabs - Complete Enterprise Suite + Auth & RBAC
 tab_names = [
+    "🔐 Security & RBAC",
     "🧬 Molecular Intelligence",
     "⚡ ADME & Profiling", 
     "🔬 AOP Pathways", 
@@ -31,31 +33,34 @@ tab_names = [
 tabs = st.tabs(tab_names)
 
 with tabs[0]:
-    render_molecular_module()
+    render_auth_module()
 
 with tabs[1]:
-    render_adme_module()
+    render_molecular_module()
 
 with tabs[2]:
-    render_aop_module()
+    render_adme_module()
 
 with tabs[3]:
-    render_skin_models_module()
+    render_aop_module()
 
 with tabs[4]:
-    render_qra_module()
+    render_skin_models_module()
 
 with tabs[5]:
-    render_batch_module()
+    render_qra_module()
 
 with tabs[6]:
-    render_agent_hub_module()
+    render_batch_module()
 
 with tabs[7]:
-    render_hitl_module()
+    render_agent_hub_module()
 
 with tabs[8]:
-    render_validation_module()
+    render_hitl_module()
 
 with tabs[9]:
+    render_validation_module()
+
+with tabs[10]:
     render_export_module()
