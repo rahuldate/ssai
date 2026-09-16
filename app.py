@@ -110,7 +110,7 @@ High lipophilicity and low molecular weight favor rapid skin penetration.""")
         st.markdown("Upload custom compound libraries (SDF/CSV) to perform batch OECD 497 Defined Approach predictions.")
         uploaded_file = st.text_input("Dataset File Path (CSV / SDF)", value="screened_compounds_db.csv", key="tab2_batch_filepath_input_final")
         if uploaded_file is not None:
-            st.success("File uploaded successfully. Processing 1,001 compounds against SARA-ICE models...")
+        st.success("File uploaded successfully. Processing 1,001 compounds against SARA-ICE models...")
         else:
             st.info("📂 Ready for batch ingestion. Connected to `screened_compounds_db.csv`.")
 
@@ -167,7 +167,7 @@ High lipophilicity and low molecular weight favor rapid skin penetration.""")
             chk_b = st.checkbox("DA consensus confirmed", value=True, key="chk_b_v5")
             st.markdown("---")
             if st.button("🔒 Certify & Lock Dossier", key="btn_certify_v5"):
-                st.success("✅ Dossier successfully certified and locked!")
+        st.success("✅ Dossier successfully certified and locked!")
                 payload_text = "Dossier Certified"
                 st.download_button(
                     "📥 Download Audit Certificate",
@@ -212,7 +212,7 @@ with v_col2:
         
     st.markdown("---")
     if st.button("📥 Download Full Validation Benchmark Report", key="btn_dl_benchmarks"):
-    st.success("✅ Benchmark validation CSV report generated successfully!")
+        st.success("✅ Benchmark validation CSV report generated successfully!")
 
     # Validation & Benchmarks Module
     st.markdown("#### 📊 Validation & Benchmarks")
@@ -242,5 +242,5 @@ with v_col2:
         
         st.markdown("---")
         if st.button("📥 Download Full Validation Benchmark Report", key="btn_dl_benchmarks"):
-            st.success("✅ Benchmark validation CSV report generated successfully!")
+        st.success("✅ Benchmark validation CSV report generated successfully!")
 
