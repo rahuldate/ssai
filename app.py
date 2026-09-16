@@ -170,7 +170,24 @@ if app_mode == "📊 Validation & Benchmarks":
     col_c.metric("Applicability Domain Coverage", "94.4%", "In-Domain Rate")
     col_d.metric("False Discovery Rate", "4.1%", "Optimized Threshold")
     
-    st.markdown("#### Complete 1,001-Compound Screening Library Results")
+    st.markdown("#### Complete 1,001-Compound Screening Library Results"
+
+    import pandas as pd
+    import os
+    DB_FILE = "screened_compounds_db.csv"
+    if os.path.exists(DB_FILE):
+        full_df = pd.read_csv(DB_FILE)
+        st.download_button(
+            label="📥 Download Full 1,001-Compound Screening Dataset (CSV)",
+            data=full_df.to_csv(index=False).encode('utf-8'),
+            file_name="SSai_Full_1001_Compounds_Validation.csv",
+            mime="text/csv",
+            use_container_width=True
+        )
+        st.dataframe(full_df, use_container_width=True, height=450)
+    else:
+        st.info("Screened compounds database (screened_compounds_db.csv) initializing...")
+)
     
     import pandas as pd
     import numpy as np
