@@ -192,7 +192,7 @@ if app_mode == "📊 Validation & Benchmarks":
             full_df.to_csv(DB_FILE, index=False)
 
 
-    full_df = load_full_714_library()
+    full_df = load_dynamic_714_library()
     
     # Provide download button for all 714 compounds
     csv_data = full_df.to_csv(index=False).encode('utf-8')
