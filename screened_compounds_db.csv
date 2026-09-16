@@ -1,288 +1,1002 @@
 Compound Name,CAS,Experimental Hazard,Predicted GHS,ED01 (ug/cm2),AD Status
-HighThroughput_Batch2_001,842-27-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,176.62,In-Domain
-HighThroughput_Batch2_002,213-57-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,393.43,In-Domain
-HighThroughput_Batch2_003,353-46-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,371.05,In-Domain
-HighThroughput_Batch2_004,440-49-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,328.36,In-Domain
-HighThroughput_Batch2_005,973-62-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,329.5,In-Domain
-HighThroughput_Batch2_006,688-50-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,209.83,In-Domain
-HighThroughput_Batch2_007,494-32-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,21.04,In-Domain
-HighThroughput_Batch2_008,258-62-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,238.17,In-Domain
-HighThroughput_Batch2_009,355-85-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,300.54,In-Domain
-HighThroughput_Batch2_010,637-60-4,Strong/Extreme Sensitizer (1A),Sub-category 1A,23.39,In-Domain
-HighThroughput_Batch2_011,151-54-5,Non-Sensitizer (NC),Not Classified,1130.35,In-Domain
-HighThroughput_Batch2_012,615-77-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,184.51,In-Domain
-HighThroughput_Batch2_013,359-16-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,344.83,In-Domain
-HighThroughput_Batch2_014,538-37-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,442.2,In-Domain
-HighThroughput_Batch2_015,199-75-0,Strong/Extreme Sensitizer (1A),Sub-category 1A,42.54,In-Domain
-HighThroughput_Batch2_016,415-50-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,273.66,In-Domain
-HighThroughput_Batch2_017,961-70-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,294.37,In-Domain
-HighThroughput_Batch2_018,747-98-6,Strong/Extreme Sensitizer (1A),Sub-category 1A,14.91,In-Domain
-HighThroughput_Batch2_019,731-50-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,385.76,In-Domain
-HighThroughput_Batch2_020,108-88-6,Strong/Extreme Sensitizer (1A),Sub-category 1A,16.75,In-Domain
-HighThroughput_Batch2_021,176-86-1,Strong/Extreme Sensitizer (1A),Sub-category 1A,42.52,In-Domain
-HighThroughput_Batch2_022,781-88-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,348.61,In-Domain
-HighThroughput_Batch2_023,850-97-5,Non-Sensitizer (NC),Not Classified,946.89,In-Domain
-HighThroughput_Batch2_024,657-67-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,454.83,In-Domain
-HighThroughput_Batch2_025,674-77-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,25.15,In-Domain
-HighThroughput_Batch2_026,287-33-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,328.79,In-Domain
-HighThroughput_Batch2_027,412-97-7,Strong/Extreme Sensitizer (1A),Sub-category 1A,0.65,In-Domain
-HighThroughput_Batch2_028,749-76-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,14.53,In-Domain
-HighThroughput_Batch2_029,640-76-4,Strong/Extreme Sensitizer (1A),Sub-category 1A,22.96,In-Domain
-HighThroughput_Batch2_030,390-47-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,405.44,In-Domain
-HighThroughput_Batch2_031,401-20-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,99.9,In-Domain
-HighThroughput_Batch2_032,421-17-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,130.5,In-Domain
-HighThroughput_Batch2_033,237-50-4,Strong/Extreme Sensitizer (1A),Sub-category 1A,28.14,In-Domain
-HighThroughput_Batch2_034,144-93-1,Strong/Extreme Sensitizer (1A),Sub-category 1A,16.52,In-Domain
-HighThroughput_Batch2_035,347-24-7,Non-Sensitizer (NC),Not Classified,612.72,In-Domain
-HighThroughput_Batch2_036,252-25-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,104.66,In-Domain
-HighThroughput_Batch2_037,851-14-5,Non-Sensitizer (NC),Not Classified,519.58,In-Domain
-HighThroughput_Batch2_038,715-45-6,Strong/Extreme Sensitizer (1A),Sub-category 1A,12.97,In-Domain
-HighThroughput_Batch2_039,610-63-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,222.86,In-Domain
-HighThroughput_Batch2_040,955-93-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,380.77,In-Domain
-HighThroughput_Batch2_041,461-91-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,480.94,In-Domain
-HighThroughput_Batch2_042,542-39-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,397.01,In-Domain
-HighThroughput_Batch2_043,112-93-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,338.64,In-Domain
-HighThroughput_Batch2_044,114-10-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,126.66,In-Domain
-HighThroughput_Batch2_045,626-71-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,266.77,In-Domain
-HighThroughput_Batch2_046,683-87-1,Strong/Extreme Sensitizer (1A),Sub-category 1A,38.85,In-Domain
-HighThroughput_Batch2_047,228-87-5,Non-Sensitizer (NC),Not Classified,1205.96,In-Domain
-HighThroughput_Batch2_048,324-24-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,9.05,In-Domain
-HighThroughput_Batch2_049,477-42-3,Non-Sensitizer (NC),Not Classified,1540.51,In-Domain
-HighThroughput_Batch2_050,206-88-5,Non-Sensitizer (NC),Not Classified,1260.8,In-Domain
-HighThroughput_Batch2_051,491-87-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,24.3,In-Domain
-HighThroughput_Batch2_052,997-17-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,144.95,In-Domain
-HighThroughput_Batch2_053,504-40-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,377.89,In-Domain
-HighThroughput_Batch2_054,896-75-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,22.99,In-Domain
-HighThroughput_Batch2_055,538-49-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,62.5,In-Domain
-HighThroughput_Batch2_056,910-79-3,Non-Sensitizer (NC),Not Classified,1426.11,In-Domain
-HighThroughput_Batch2_057,331-93-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,252.76,In-Domain
-HighThroughput_Batch2_058,486-59-8,Non-Sensitizer (NC),Not Classified,1601.41,In-Domain
-HighThroughput_Batch2_059,447-81-7,Strong/Extreme Sensitizer (1A),Sub-category 1A,4.44,In-Domain
-HighThroughput_Batch2_060,850-71-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,475.74,In-Domain
-HighThroughput_Batch2_061,820-12-7,Non-Sensitizer (NC),Not Classified,554.56,In-Domain
-HighThroughput_Batch2_062,305-81-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,327.93,In-Domain
-HighThroughput_Batch2_063,132-72-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,2.88,In-Domain
-HighThroughput_Batch2_064,813-65-1,Strong/Extreme Sensitizer (1A),Sub-category 1A,44.2,In-Domain
-HighThroughput_Batch2_065,630-70-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,418.55,In-Domain
-HighThroughput_Batch2_066,550-65-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,96.65,In-Domain
-HighThroughput_Batch2_067,500-81-6,Strong/Extreme Sensitizer (1A),Sub-category 1A,10.21,In-Domain
-HighThroughput_Batch2_068,390-73-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,158.57,In-Domain
-HighThroughput_Batch2_069,280-55-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,210.88,In-Domain
-HighThroughput_Batch2_070,242-30-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,272.68,In-Domain
-HighThroughput_Batch2_071,501-10-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,289.37,In-Domain
-HighThroughput_Batch2_072,307-70-4,Strong/Extreme Sensitizer (1A),Sub-category 1A,5.71,In-Domain
-HighThroughput_Batch2_073,530-16-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,432.45,In-Domain
-HighThroughput_Batch2_074,678-94-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,390.29,In-Domain
-HighThroughput_Batch2_075,748-57-5,Non-Sensitizer (NC),Not Classified,1380.8,Out-of-Domain (Expert Review)
-HighThroughput_Batch2_076,464-35-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,107.68,In-Domain
-HighThroughput_Batch2_077,227-16-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,20.45,In-Domain
-HighThroughput_Batch2_078,820-37-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,10.12,In-Domain
-HighThroughput_Batch2_079,470-45-5,Non-Sensitizer (NC),Not Classified,1056.1,In-Domain
-HighThroughput_Batch2_080,781-33-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,398.15,In-Domain
-HighThroughput_Batch2_081,489-81-3,Non-Sensitizer (NC),Not Classified,936.72,In-Domain
-HighThroughput_Batch2_082,652-77-5,Non-Sensitizer (NC),Not Classified,1562.6,In-Domain
-HighThroughput_Batch2_083,226-95-7,Strong/Extreme Sensitizer (1A),Sub-category 1A,32.56,In-Domain
-HighThroughput_Batch2_084,584-10-3,Strong/Extreme Sensitizer (1A),Sub-category 1A,12.95,In-Domain
-HighThroughput_Batch2_085,731-91-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,421.56,In-Domain
-HighThroughput_Batch2_086,182-47-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,4.99,In-Domain
-HighThroughput_Batch2_087,232-22-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,4.85,In-Domain
-HighThroughput_Batch2_088,870-17-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,54.13,In-Domain
-HighThroughput_Batch2_089,302-32-0,Non-Sensitizer (NC),Not Classified,1019.68,In-Domain
-HighThroughput_Batch2_090,973-38-7,Non-Sensitizer (NC),Not Classified,1351.28,In-Domain
-HighThroughput_Batch2_091,609-37-3,Strong/Extreme Sensitizer (1A),Sub-category 1A,29.56,In-Domain
-HighThroughput_Batch2_092,956-56-2,Non-Sensitizer (NC),Not Classified,562.39,In-Domain
-HighThroughput_Batch2_093,299-49-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,4.68,In-Domain
-HighThroughput_Batch2_094,587-96-4,Strong/Extreme Sensitizer (1A),Sub-category 1A,14.41,In-Domain
-HighThroughput_Batch2_095,613-35-1,Strong/Extreme Sensitizer (1A),Sub-category 1A,29.54,In-Domain
-HighThroughput_Batch2_096,311-32-7,Non-Sensitizer (NC),Not Classified,1648.7,In-Domain
-HighThroughput_Batch2_097,177-11-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,424.83,In-Domain
-HighThroughput_Batch2_098,259-36-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,185.18,In-Domain
-HighThroughput_Batch2_099,111-80-3,Non-Sensitizer (NC),Not Classified,1699.87,In-Domain
-HighThroughput_Batch2_100,386-30-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,390.32,In-Domain
-HighThroughput_Batch2_101,811-34-1,Non-Sensitizer (NC),Not Classified,637.52,In-Domain
-HighThroughput_Batch2_102,965-51-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,37.49,In-Domain
-HighThroughput_Batch2_103,372-52-7,Non-Sensitizer (NC),Not Classified,1609.44,In-Domain
-HighThroughput_Batch2_104,431-72-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,56.7,Out-of-Domain (Expert Review)
-HighThroughput_Batch2_105,132-10-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,287.03,In-Domain
-HighThroughput_Batch2_106,695-10-6,Strong/Extreme Sensitizer (1A),Sub-category 1A,26.41,In-Domain
-HighThroughput_Batch2_107,763-67-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,425.44,In-Domain
-HighThroughput_Batch2_108,795-24-0,Strong/Extreme Sensitizer (1A),Sub-category 1A,25.82,In-Domain
-HighThroughput_Batch2_109,829-20-1,Strong/Extreme Sensitizer (1A),Sub-category 1A,36.58,In-Domain
-HighThroughput_Batch2_110,154-68-4,Strong/Extreme Sensitizer (1A),Sub-category 1A,37.62,In-Domain
-HighThroughput_Batch2_111,563-48-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,46.38,In-Domain
-HighThroughput_Batch2_112,275-76-6,Non-Sensitizer (NC),Not Classified,1609.66,In-Domain
-HighThroughput_Batch2_113,939-69-3,Non-Sensitizer (NC),Not Classified,1290.74,In-Domain
-HighThroughput_Batch2_114,952-55-7,Strong/Extreme Sensitizer (1A),Sub-category 1A,22.54,In-Domain
-HighThroughput_Batch2_115,714-23-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,337.52,In-Domain
-HighThroughput_Batch2_116,445-49-4,Strong/Extreme Sensitizer (1A),Sub-category 1A,1.92,In-Domain
-HighThroughput_Batch2_117,391-42-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,105.94,In-Domain
-HighThroughput_Batch2_118,200-40-1,Strong/Extreme Sensitizer (1A),Sub-category 1A,23.03,In-Domain
-HighThroughput_Batch2_119,415-28-6,Strong/Extreme Sensitizer (1A),Sub-category 1A,36.31,In-Domain
-HighThroughput_Batch2_120,761-62-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,105.65,In-Domain
-HighThroughput_Batch2_121,977-44-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,339.13,In-Domain
-HighThroughput_Batch2_122,995-12-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,166.58,In-Domain
-HighThroughput_Batch2_123,729-21-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,198.6,In-Domain
-HighThroughput_Batch2_124,190-98-0,Strong/Extreme Sensitizer (1A),Sub-category 1A,10.92,In-Domain
-HighThroughput_Batch2_125,192-69-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,381.27,In-Domain
-HighThroughput_Batch2_126,620-59-6,Non-Sensitizer (NC),Not Classified,1798.29,In-Domain
-HighThroughput_Batch2_127,610-15-4,Non-Sensitizer (NC),Not Classified,722.57,In-Domain
-HighThroughput_Batch2_128,212-17-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,268.54,In-Domain
-HighThroughput_Batch2_129,393-29-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,475.67,In-Domain
-HighThroughput_Batch2_130,187-25-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,0.5,In-Domain
-HighThroughput_Batch2_131,668-45-2,Non-Sensitizer (NC),Not Classified,1003.26,In-Domain
-HighThroughput_Batch2_132,313-30-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,200.73,Out-of-Domain (Expert Review)
-HighThroughput_Batch2_133,567-37-8,Non-Sensitizer (NC),Not Classified,1677.49,In-Domain
-HighThroughput_Batch2_134,117-54-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,23.45,In-Domain
-HighThroughput_Batch2_135,812-11-1,Non-Sensitizer (NC),Not Classified,1794.56,In-Domain
-HighThroughput_Batch2_136,396-53-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,298.9,In-Domain
-HighThroughput_Batch2_137,394-24-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,399.47,In-Domain
-HighThroughput_Batch2_138,462-94-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,342.85,In-Domain
-HighThroughput_Batch2_139,987-66-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,250.1,In-Domain
-HighThroughput_Batch2_140,794-26-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,417.99,In-Domain
-HighThroughput_Batch2_141,372-90-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,180.29,In-Domain
-HighThroughput_Batch2_142,794-68-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,355.8,In-Domain
-HighThroughput_Batch2_143,462-89-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,437.09,In-Domain
-HighThroughput_Batch2_144,514-71-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,388.57,In-Domain
-HighThroughput_Batch2_145,712-46-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,328.81,In-Domain
-HighThroughput_Batch2_146,140-90-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,115.35,In-Domain
-HighThroughput_Batch2_147,806-22-6,Non-Sensitizer (NC),Not Classified,1630.6,In-Domain
-HighThroughput_Batch2_148,491-24-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,479.32,In-Domain
-HighThroughput_Batch2_149,847-35-1,Non-Sensitizer (NC),Not Classified,559.18,In-Domain
-HighThroughput_Batch2_150,916-31-3,Strong/Extreme Sensitizer (1A),Sub-category 1A,11.15,In-Domain
-HighThroughput_Batch2_151,459-48-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,6.46,In-Domain
-HighThroughput_Batch2_152,946-69-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,101.21,In-Domain
-HighThroughput_Batch2_153,703-49-5,Non-Sensitizer (NC),Not Classified,518.02,In-Domain
-HighThroughput_Batch2_154,933-63-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,33.0,In-Domain
-HighThroughput_Batch2_155,760-67-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,468.98,In-Domain
-HighThroughput_Batch2_156,286-67-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,295.02,Out-of-Domain (Expert Review)
-HighThroughput_Batch2_157,444-28-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,12.3,In-Domain
-HighThroughput_Batch2_158,678-63-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,15.59,In-Domain
-HighThroughput_Batch2_159,167-97-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,303.07,In-Domain
-HighThroughput_Batch2_160,102-18-1,Strong/Extreme Sensitizer (1A),Sub-category 1A,9.74,In-Domain
-HighThroughput_Batch2_161,860-74-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,86.65,In-Domain
-HighThroughput_Batch2_162,227-24-3,Strong/Extreme Sensitizer (1A),Sub-category 1A,44.24,In-Domain
-HighThroughput_Batch2_163,918-82-3,Strong/Extreme Sensitizer (1A),Sub-category 1A,47.29,Out-of-Domain (Expert Review)
-HighThroughput_Batch2_164,825-74-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,334.83,In-Domain
-HighThroughput_Batch2_165,736-98-0,Non-Sensitizer (NC),Not Classified,1372.28,In-Domain
-HighThroughput_Batch2_166,476-84-2,Non-Sensitizer (NC),Not Classified,1088.7,In-Domain
-HighThroughput_Batch2_167,631-21-6,Strong/Extreme Sensitizer (1A),Sub-category 1A,45.72,In-Domain
-HighThroughput_Batch2_168,178-60-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,317.6,In-Domain
-HighThroughput_Batch2_169,104-25-4,Strong/Extreme Sensitizer (1A),Sub-category 1A,29.45,In-Domain
-HighThroughput_Batch2_170,632-17-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,94.17,In-Domain
-HighThroughput_Batch2_171,602-62-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,451.32,In-Domain
-HighThroughput_Batch2_172,541-19-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,314.29,In-Domain
-HighThroughput_Batch2_173,722-40-8,Non-Sensitizer (NC),Not Classified,986.06,In-Domain
-HighThroughput_Batch2_174,642-94-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,204.71,In-Domain
-HighThroughput_Batch2_175,878-77-1,Non-Sensitizer (NC),Not Classified,1004.94,In-Domain
-HighThroughput_Batch2_176,514-96-2,Non-Sensitizer (NC),Not Classified,1616.4,In-Domain
-HighThroughput_Batch2_177,559-36-4,Non-Sensitizer (NC),Not Classified,1712.39,In-Domain
-HighThroughput_Batch2_178,765-37-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,6.23,In-Domain
-HighThroughput_Batch2_179,619-75-7,Non-Sensitizer (NC),Not Classified,1481.63,In-Domain
-HighThroughput_Batch2_180,158-26-2,Non-Sensitizer (NC),Not Classified,1630.73,In-Domain
-HighThroughput_Batch2_181,221-24-6,Strong/Extreme Sensitizer (1A),Sub-category 1A,47.36,In-Domain
-HighThroughput_Batch2_182,280-26-1,Non-Sensitizer (NC),Not Classified,850.02,In-Domain
-HighThroughput_Batch2_183,407-81-3,Non-Sensitizer (NC),Not Classified,1680.11,In-Domain
-HighThroughput_Batch2_184,288-21-5,Non-Sensitizer (NC),Not Classified,795.9,In-Domain
-HighThroughput_Batch2_185,274-54-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,279.84,In-Domain
-HighThroughput_Batch2_186,308-42-0,Strong/Extreme Sensitizer (1A),Sub-category 1A,42.74,In-Domain
-HighThroughput_Batch2_187,870-97-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,17.09,In-Domain
-HighThroughput_Batch2_188,272-20-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,262.21,In-Domain
-HighThroughput_Batch2_189,692-83-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,278.51,In-Domain
-HighThroughput_Batch2_190,720-33-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,58.44,In-Domain
-HighThroughput_Batch2_191,617-61-0,Non-Sensitizer (NC),Not Classified,930.84,In-Domain
-HighThroughput_Batch2_192,359-66-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,189.36,In-Domain
-HighThroughput_Batch2_193,535-55-7,Strong/Extreme Sensitizer (1A),Sub-category 1A,26.04,In-Domain
-HighThroughput_Batch2_194,271-37-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,52.83,In-Domain
-HighThroughput_Batch2_195,572-17-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,270.47,Out-of-Domain (Expert Review)
-HighThroughput_Batch2_196,245-68-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,360.29,In-Domain
-HighThroughput_Batch2_197,531-86-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,225.97,In-Domain
-HighThroughput_Batch2_198,224-23-1,Strong/Extreme Sensitizer (1A),Sub-category 1A,29.51,In-Domain
-HighThroughput_Batch2_199,479-33-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,247.39,In-Domain
-HighThroughput_Batch2_200,261-56-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,489.32,In-Domain
-HighThroughput_Batch2_201,205-40-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,482.09,In-Domain
-HighThroughput_Batch2_202,119-67-5,Non-Sensitizer (NC),Not Classified,813.97,In-Domain
-HighThroughput_Batch2_203,574-33-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,230.75,In-Domain
-HighThroughput_Batch2_204,136-94-2,Non-Sensitizer (NC),Not Classified,1476.18,In-Domain
-HighThroughput_Batch2_205,800-89-4,Strong/Extreme Sensitizer (1A),Sub-category 1A,10.36,In-Domain
-HighThroughput_Batch2_206,211-59-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,453.16,In-Domain
-HighThroughput_Batch2_207,101-46-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,221.77,In-Domain
-HighThroughput_Batch2_208,195-19-6,Strong/Extreme Sensitizer (1A),Sub-category 1A,5.6,Out-of-Domain (Expert Review)
-HighThroughput_Batch2_209,301-12-8,Non-Sensitizer (NC),Not Classified,1252.3,In-Domain
-HighThroughput_Batch2_210,295-69-6,Strong/Extreme Sensitizer (1A),Sub-category 1A,32.78,In-Domain
-HighThroughput_Batch2_211,737-72-0,Strong/Extreme Sensitizer (1A),Sub-category 1A,45.55,In-Domain
-HighThroughput_Batch2_212,413-40-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,109.39,In-Domain
-HighThroughput_Batch2_213,225-80-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,75.14,In-Domain
-HighThroughput_Batch2_214,617-54-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,181.15,In-Domain
-HighThroughput_Batch2_215,987-68-4,Strong/Extreme Sensitizer (1A),Sub-category 1A,3.81,In-Domain
-HighThroughput_Batch2_216,271-90-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,457.1,In-Domain
-HighThroughput_Batch2_217,785-39-4,Non-Sensitizer (NC),Not Classified,1499.52,In-Domain
-HighThroughput_Batch2_218,465-46-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,68.17,In-Domain
-HighThroughput_Batch2_219,523-36-0,Strong/Extreme Sensitizer (1A),Sub-category 1A,36.43,In-Domain
-HighThroughput_Batch2_220,998-27-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,0.86,Out-of-Domain (Expert Review)
-HighThroughput_Batch2_221,441-46-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,433.03,In-Domain
-HighThroughput_Batch2_222,229-14-0,Non-Sensitizer (NC),Not Classified,532.45,In-Domain
-HighThroughput_Batch2_223,796-97-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,263.44,In-Domain
-HighThroughput_Batch2_224,888-69-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,296.72,In-Domain
-HighThroughput_Batch2_225,542-36-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,134.34,In-Domain
-HighThroughput_Batch2_226,575-29-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,11.46,Out-of-Domain (Expert Review)
-HighThroughput_Batch2_227,620-70-6,Strong/Extreme Sensitizer (1A),Sub-category 1A,33.08,In-Domain
-HighThroughput_Batch2_228,383-79-3,Non-Sensitizer (NC),Not Classified,780.76,In-Domain
-HighThroughput_Batch2_229,134-30-7,Non-Sensitizer (NC),Not Classified,894.37,In-Domain
-HighThroughput_Batch2_230,276-37-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,21.79,In-Domain
-HighThroughput_Batch2_231,361-45-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,46.18,In-Domain
-HighThroughput_Batch2_232,933-18-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,88.79,In-Domain
-HighThroughput_Batch2_233,568-50-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,47.46,In-Domain
-HighThroughput_Batch2_234,247-31-7,Strong/Extreme Sensitizer (1A),Sub-category 1A,40.66,In-Domain
-HighThroughput_Batch2_235,156-40-7,Strong/Extreme Sensitizer (1A),Sub-category 1A,2.81,In-Domain
-HighThroughput_Batch2_236,714-89-0,Non-Sensitizer (NC),Not Classified,538.29,In-Domain
-HighThroughput_Batch2_237,286-76-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,255.14,In-Domain
-HighThroughput_Batch2_238,622-75-8,Non-Sensitizer (NC),Not Classified,1624.37,In-Domain
-HighThroughput_Batch2_239,459-30-5,Non-Sensitizer (NC),Not Classified,1691.95,In-Domain
-HighThroughput_Batch2_240,802-77-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,450.32,In-Domain
-HighThroughput_Batch2_241,444-40-6,Strong/Extreme Sensitizer (1A),Sub-category 1A,43.24,In-Domain
-HighThroughput_Batch2_242,950-52-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,255.02,In-Domain
-HighThroughput_Batch2_243,561-79-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,89.9,In-Domain
-HighThroughput_Batch2_244,879-98-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,170.28,In-Domain
-HighThroughput_Batch2_245,662-42-4,Strong/Extreme Sensitizer (1A),Sub-category 1A,44.55,In-Domain
-HighThroughput_Batch2_246,635-71-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,16.34,In-Domain
-HighThroughput_Batch2_247,887-37-4,Non-Sensitizer (NC),Not Classified,1608.55,In-Domain
-HighThroughput_Batch2_248,617-71-6,Strong/Extreme Sensitizer (1A),Sub-category 1A,24.14,In-Domain
-HighThroughput_Batch2_249,434-12-5,Non-Sensitizer (NC),Not Classified,957.71,In-Domain
-HighThroughput_Batch2_250,169-73-2,Non-Sensitizer (NC),Not Classified,1037.23,In-Domain
-HighThroughput_Batch2_251,378-65-3,Strong/Extreme Sensitizer (1A),Sub-category 1A,27.56,In-Domain
-HighThroughput_Batch2_252,699-93-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,45.15,In-Domain
-HighThroughput_Batch2_253,583-44-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,399.79,In-Domain
-HighThroughput_Batch2_254,309-49-1,Strong/Extreme Sensitizer (1A),Sub-category 1A,21.2,In-Domain
-HighThroughput_Batch2_255,620-38-8,Non-Sensitizer (NC),Not Classified,1418.81,In-Domain
-HighThroughput_Batch2_256,668-45-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,323.99,Out-of-Domain (Expert Review)
-HighThroughput_Batch2_257,444-45-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,100.36,In-Domain
-HighThroughput_Batch2_258,993-10-0,Strong/Extreme Sensitizer (1A),Sub-category 1A,1.43,In-Domain
-HighThroughput_Batch2_259,388-15-1,Non-Sensitizer (NC),Not Classified,1434.6,In-Domain
-HighThroughput_Batch2_260,407-51-5,Non-Sensitizer (NC),Not Classified,1292.26,In-Domain
-HighThroughput_Batch2_261,281-56-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,71.85,In-Domain
-HighThroughput_Batch2_262,622-10-4,Strong/Extreme Sensitizer (1A),Sub-category 1A,15.33,In-Domain
-HighThroughput_Batch2_263,586-62-5,Non-Sensitizer (NC),Not Classified,1744.52,In-Domain
-HighThroughput_Batch2_264,146-78-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,10.54,In-Domain
-HighThroughput_Batch2_265,533-38-7,Non-Sensitizer (NC),Not Classified,521.5,In-Domain
-HighThroughput_Batch2_266,455-79-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,22.38,In-Domain
-HighThroughput_Batch2_267,811-52-8,Non-Sensitizer (NC),Not Classified,1746.05,In-Domain
-HighThroughput_Batch2_268,770-87-2,Non-Sensitizer (NC),Not Classified,1377.95,In-Domain
-HighThroughput_Batch2_269,880-53-5,Non-Sensitizer (NC),Not Classified,1186.61,In-Domain
-HighThroughput_Batch2_270,583-58-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,465.74,In-Domain
-HighThroughput_Batch2_271,731-13-3,Non-Sensitizer (NC),Not Classified,1490.36,In-Domain
-HighThroughput_Batch2_272,252-45-5,Non-Sensitizer (NC),Not Classified,1691.18,In-Domain
-HighThroughput_Batch2_273,318-84-3,Non-Sensitizer (NC),Not Classified,1099.16,In-Domain
-HighThroughput_Batch2_274,703-14-4,Strong/Extreme Sensitizer (1A),Sub-category 1A,6.31,In-Domain
-HighThroughput_Batch2_275,257-72-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,257.58,In-Domain
-HighThroughput_Batch2_276,977-59-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,109.6,In-Domain
-HighThroughput_Batch2_277,723-85-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,482.45,In-Domain
-HighThroughput_Batch2_278,182-79-2,Non-Sensitizer (NC),Not Classified,514.72,In-Domain
-HighThroughput_Batch2_279,556-39-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,200.62,In-Domain
-HighThroughput_Batch2_280,933-84-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,287.15,In-Domain
-HighThroughput_Batch2_281,447-30-8,Non-Sensitizer (NC),Not Classified,1316.88,In-Domain
-HighThroughput_Batch2_282,107-92-4,Non-Sensitizer (NC),Not Classified,1167.34,In-Domain
-HighThroughput_Batch2_283,417-61-3,Non-Sensitizer (NC),Not Classified,1713.72,In-Domain
-HighThroughput_Batch2_284,871-59-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,2.45,Out-of-Domain (Expert Review)
-HighThroughput_Batch2_285,506-57-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,52.42,In-Domain
-HighThroughput_Batch2_286,600-92-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,459.16,In-Domain
-HighThroughput_Batch2_287,864-96-1,Non-Sensitizer (NC),Not Classified,1237.72,In-Domain
+Cinnamaldehyde,104-55-2,Strong Sensitizer (1A),Sub-category 1A,12.4,In-Domain
+p-Phenylenediamine,106-50-3,Extreme Sensitizer (1A),Sub-category 1A,2.1,In-Domain
+Resorcinol,108-46-3,Moderate Sensitizer (1B),Sub-category 1B,240.5,In-Domain
+Limonene,5989-27-5,Weak / Pro-hapten (1B),Sub-category 1B,485.2,In-Domain (Metabolic Alert)
+Eugenol,97-53-0,Moderate Sensitizer (1B),Sub-category 1B,156.8,In-Domain
+Glycerol,56-81-5,Non-Sensitizer (NC),Not Classified,1250.0,In-Domain (Negative Control)
+Hexyl cinnamal,101-86-0,Sensitizer (1B),Sub-category 1B,82.3,In-Domain
+Isoeugenol,97-54-1,Strong Sensitizer (1A),Sub-category 1A,18.6,In-Domain
+Test_Substance_009,750-30-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,477.83,In-Domain
+Test_Substance_010,422-33-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,95.08,In-Domain
+Test_Substance_011,855-11-4,Strong/Extreme Sensitizer (1A),Sub-category 1A,48.51,In-Domain
+Test_Substance_012,610-68-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,325.28,Out-of-Domain (Expert Review)
+Test_Substance_013,534-60-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,492.46,In-Domain
+Test_Substance_014,365-23-1,Strong/Extreme Sensitizer (1A),Sub-category 1A,3.72,In-Domain
+Test_Substance_015,141-69-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,57.28,In-Domain
+Test_Substance_016,130-45-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,424.95,In-Domain
+Test_Substance_017,155-13-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,190.34,In-Domain
+Test_Substance_018,251-71-3,Strong/Extreme Sensitizer (1A),Sub-category 1A,42.19,In-Domain
+Test_Substance_019,776-71-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,464.85,In-Domain
+Test_Substance_020,841-35-8,Non-Sensitizer (NC),Not Classified,1621.01,In-Domain
+Test_Substance_021,64-54-0,Strong/Extreme Sensitizer (1A),Sub-category 1A,27.36,In-Domain
+Test_Substance_022,697-97-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,21.46,In-Domain
+Test_Substance_023,822-50-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,378.08,In-Domain
+Test_Substance_024,552-32-7,Non-Sensitizer (NC),Not Classified,1174.23,In-Domain
+Test_Substance_025,596-74-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,316.12,In-Domain
+Test_Substance_026,267-23-6,Strong/Extreme Sensitizer (1A),Sub-category 1A,35.81,In-Domain
+Test_Substance_027,510-60-6,Strong/Extreme Sensitizer (1A),Sub-category 1A,35.68,In-Domain
+Test_Substance_028,534-32-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,303.52,In-Domain
+Test_Substance_029,209-80-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,390.02,In-Domain
+Test_Substance_030,695-37-3,Strong/Extreme Sensitizer (1A),Sub-category 1A,46.52,In-Domain
+Test_Substance_031,397-98-6,Non-Sensitizer (NC),Not Classified,1309.06,In-Domain
+Test_Substance_032,682-86-8,Non-Sensitizer (NC),Not Classified,908.27,In-Domain
+Test_Substance_033,367-46-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,124.18,In-Domain
+Test_Substance_034,423-41-7,Strong/Extreme Sensitizer (1A),Sub-category 1A,17.21,In-Domain
+Test_Substance_035,613-21-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,213.7,In-Domain
+Test_Substance_036,130-68-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,185.47,In-Domain
+Test_Substance_037,785-10-2,Non-Sensitizer (NC),Not Classified,1116.61,Out-of-Domain (Expert Review)
+Test_Substance_038,759-41-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,288.97,In-Domain
+Test_Substance_039,816-47-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,392.75,In-Domain
+Test_Substance_040,560-25-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,492.54,In-Domain
+Test_Substance_041,820-29-3,Strong/Extreme Sensitizer (1A),Sub-category 1A,25.66,In-Domain
+Test_Substance_042,760-61-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,25.85,In-Domain
+Test_Substance_043,690-20-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,224.09,In-Domain
+Test_Substance_044,660-16-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,46.27,In-Domain
+Test_Substance_045,303-21-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,167.45,In-Domain
+Test_Substance_046,148-28-2,Non-Sensitizer (NC),Not Classified,1449.69,In-Domain
+Test_Substance_047,677-84-0,Non-Sensitizer (NC),Not Classified,1106.82,In-Domain
+Test_Substance_048,276-98-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,44.98,In-Domain
+Test_Substance_049,755-63-2,Non-Sensitizer (NC),Not Classified,925.95,In-Domain
+Test_Substance_050,850-23-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,151.0,In-Domain
+Test_Substance_051,244-26-0,Strong/Extreme Sensitizer (1A),Sub-category 1A,18.64,In-Domain
+Test_Substance_052,71-39-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,279.02,In-Domain
+Test_Substance_053,76-30-0,Non-Sensitizer (NC),Not Classified,1230.16,In-Domain
+Test_Substance_054,878-57-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,271.68,In-Domain
+Test_Substance_055,221-39-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,395.87,Out-of-Domain (Expert Review)
+Test_Substance_056,398-55-4,Non-Sensitizer (NC),Not Classified,1621.6,In-Domain
+Test_Substance_057,302-94-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,491.15,In-Domain
+Test_Substance_058,784-63-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,24.52,In-Domain
+Test_Substance_059,712-75-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,93.82,In-Domain
+Test_Substance_060,295-57-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,431.92,In-Domain
+Test_Substance_061,457-22-6,Strong/Extreme Sensitizer (1A),Sub-category 1A,40.56,In-Domain
+Test_Substance_062,561-25-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,409.25,In-Domain
+Test_Substance_063,776-72-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,219.07,In-Domain
+Test_Substance_064,199-67-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,119.85,In-Domain
+Test_Substance_065,493-17-4,Strong/Extreme Sensitizer (1A),Sub-category 1A,2.42,In-Domain
+Test_Substance_066,823-56-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,48.28,In-Domain
+Test_Substance_067,685-39-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,376.77,In-Domain
+Test_Substance_068,395-71-6,Non-Sensitizer (NC),Not Classified,906.32,In-Domain
+Test_Substance_069,683-10-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,359.86,In-Domain
+Test_Substance_070,286-10-6,Strong/Extreme Sensitizer (1A),Sub-category 1A,5.15,In-Domain
+Test_Substance_071,125-35-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,246.11,In-Domain
+Test_Substance_072,118-56-0,Non-Sensitizer (NC),Not Classified,521.69,In-Domain
+Test_Substance_073,267-57-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,490.78,In-Domain
+Test_Substance_074,72-19-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,128.02,In-Domain
+Test_Substance_075,811-28-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,70.48,In-Domain
+Test_Substance_076,385-11-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,357.82,In-Domain
+Test_Substance_077,739-44-0,Non-Sensitizer (NC),Not Classified,1454.64,In-Domain
+Test_Substance_078,884-74-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,295.57,In-Domain
+Test_Substance_079,61-55-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,143.09,In-Domain
+Test_Substance_080,139-17-1,Strong/Extreme Sensitizer (1A),Sub-category 1A,31.1,In-Domain
+Test_Substance_081,675-84-7,Strong/Extreme Sensitizer (1A),Sub-category 1A,25.05,In-Domain
+Test_Substance_082,443-82-7,Non-Sensitizer (NC),Not Classified,1705.24,In-Domain
+Test_Substance_083,145-33-6,Non-Sensitizer (NC),Not Classified,1985.76,In-Domain
+Test_Substance_084,574-32-8,Non-Sensitizer (NC),Not Classified,1787.63,In-Domain
+Test_Substance_085,645-98-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,19.2,In-Domain
+Test_Substance_086,494-28-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,5.45,Out-of-Domain (Expert Review)
+Test_Substance_087,555-25-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,477.53,In-Domain
+Test_Substance_088,518-62-6,Strong/Extreme Sensitizer (1A),Sub-category 1A,30.32,In-Domain
+Test_Substance_089,235-48-4,Non-Sensitizer (NC),Not Classified,670.29,In-Domain
+Test_Substance_090,800-85-8,Non-Sensitizer (NC),Not Classified,1318.92,In-Domain
+Test_Substance_091,568-55-7,Non-Sensitizer (NC),Not Classified,1427.37,In-Domain
+Test_Substance_092,566-38-4,Strong/Extreme Sensitizer (1A),Sub-category 1A,41.18,In-Domain
+Test_Substance_093,391-26-6,Strong/Extreme Sensitizer (1A),Sub-category 1A,29.27,In-Domain
+Test_Substance_094,464-28-5,Non-Sensitizer (NC),Not Classified,1630.09,In-Domain
+Test_Substance_095,175-76-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,162.0,In-Domain
+Test_Substance_096,878-48-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,75.43,In-Domain
+Test_Substance_097,557-34-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,156.95,In-Domain
+Test_Substance_098,734-41-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,246.41,In-Domain
+Test_Substance_099,725-28-3,Strong/Extreme Sensitizer (1A),Sub-category 1A,46.27,In-Domain
+Test_Substance_100,192-40-0,Strong/Extreme Sensitizer (1A),Sub-category 1A,8.73,In-Domain
+Test_Substance_101,61-83-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,312.98,In-Domain
+Test_Substance_102,171-45-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,98.13,In-Domain
+Test_Substance_103,90-73-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,312.69,In-Domain
+Test_Substance_104,510-38-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,14.35,In-Domain
+Test_Substance_105,864-34-1,Non-Sensitizer (NC),Not Classified,1924.7,In-Domain
+Test_Substance_106,54-42-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,43.89,In-Domain
+Test_Substance_107,331-72-8,Non-Sensitizer (NC),Not Classified,1980.92,In-Domain
+Test_Substance_108,659-10-4,Non-Sensitizer (NC),Not Classified,1763.19,In-Domain
+Test_Substance_109,694-12-4,Strong/Extreme Sensitizer (1A),Sub-category 1A,43.3,In-Domain
+Test_Substance_110,132-26-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,376.78,In-Domain
+Test_Substance_111,766-13-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,108.21,In-Domain
+Test_Substance_112,121-48-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,328.2,In-Domain
+Test_Substance_113,103-14-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,424.13,In-Domain
+Test_Substance_114,278-94-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,266.07,In-Domain
+Test_Substance_115,787-47-1,Non-Sensitizer (NC),Not Classified,1854.74,In-Domain
+Test_Substance_116,496-61-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,226.57,In-Domain
+Test_Substance_117,808-60-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,402.67,In-Domain
+Test_Substance_118,379-26-3,Non-Sensitizer (NC),Not Classified,720.7,In-Domain
+Test_Substance_119,254-52-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,491.02,In-Domain
+Test_Substance_120,423-25-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,257.11,In-Domain
+Test_Substance_121,244-36-1,Strong/Extreme Sensitizer (1A),Sub-category 1A,34.98,In-Domain
+Test_Substance_122,515-51-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,150.81,In-Domain
+Test_Substance_123,395-55-1,Strong/Extreme Sensitizer (1A),Sub-category 1A,6.47,In-Domain
+Test_Substance_124,843-56-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,16.84,In-Domain
+Test_Substance_125,97-70-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,280.29,In-Domain
+Test_Substance_126,302-61-7,Strong/Extreme Sensitizer (1A),Sub-category 1A,40.41,In-Domain
+Test_Substance_127,265-11-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,328.25,In-Domain
+Test_Substance_128,412-27-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,34.51,In-Domain
+Test_Substance_129,534-37-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,159.19,In-Domain
+Test_Substance_130,861-34-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,145.23,In-Domain
+Test_Substance_131,282-27-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,263.34,In-Domain
+Test_Substance_132,418-92-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,314.12,In-Domain
+Test_Substance_133,492-65-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,454.85,In-Domain
+Test_Substance_134,759-79-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,156.83,In-Domain
+Test_Substance_135,399-33-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,432.88,In-Domain
+Test_Substance_136,278-45-7,Non-Sensitizer (NC),Not Classified,577.55,Out-of-Domain (Expert Review)
+Test_Substance_137,53-88-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,20.19,In-Domain
+Test_Substance_138,623-66-1,Non-Sensitizer (NC),Not Classified,1236.17,In-Domain
+Test_Substance_139,349-14-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,307.27,In-Domain
+Test_Substance_140,581-21-0,Non-Sensitizer (NC),Not Classified,1566.46,In-Domain
+Test_Substance_141,188-86-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,179.95,In-Domain
+Test_Substance_142,699-53-1,Strong/Extreme Sensitizer (1A),Sub-category 1A,17.16,In-Domain
+Test_Substance_143,662-82-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,414.46,In-Domain
+Test_Substance_144,468-58-4,Strong/Extreme Sensitizer (1A),Sub-category 1A,23.92,In-Domain
+Test_Substance_145,425-84-8,Non-Sensitizer (NC),Not Classified,1947.54,In-Domain
+Test_Substance_146,369-31-7,Strong/Extreme Sensitizer (1A),Sub-category 1A,19.27,In-Domain
+Test_Substance_147,340-94-4,Non-Sensitizer (NC),Not Classified,1625.78,In-Domain
+Test_Substance_148,181-98-8,Non-Sensitizer (NC),Not Classified,1497.83,In-Domain
+Test_Substance_149,849-60-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,253.43,In-Domain
+Test_Substance_150,194-75-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,247.49,In-Domain
+Test_Substance_151,695-76-6,Non-Sensitizer (NC),Not Classified,1436.39,In-Domain
+Test_Substance_152,672-38-0,Non-Sensitizer (NC),Not Classified,1540.61,In-Domain
+Test_Substance_153,599-66-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,452.26,In-Domain
+Test_Substance_154,245-95-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,400.38,In-Domain
+Test_Substance_155,855-22-3,Non-Sensitizer (NC),Not Classified,1815.16,In-Domain
+Test_Substance_156,697-14-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,321.82,In-Domain
+Test_Substance_157,804-45-3,Non-Sensitizer (NC),Not Classified,1580.08,In-Domain
+Test_Substance_158,303-83-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,319.6,In-Domain
+Test_Substance_159,351-21-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,230.44,In-Domain
+Test_Substance_160,877-52-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,325.19,Out-of-Domain (Expert Review)
+Test_Substance_161,176-40-8,Non-Sensitizer (NC),Not Classified,1685.15,Out-of-Domain (Expert Review)
+Test_Substance_162,775-20-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,381.43,In-Domain
+Test_Substance_163,469-63-6,Strong/Extreme Sensitizer (1A),Sub-category 1A,12.18,In-Domain
+Test_Substance_164,710-56-8,Non-Sensitizer (NC),Not Classified,1804.86,In-Domain
+Test_Substance_165,715-50-2,Non-Sensitizer (NC),Not Classified,808.45,In-Domain
+Test_Substance_166,435-16-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,291.87,In-Domain
+Test_Substance_167,812-60-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,463.31,In-Domain
+Test_Substance_168,210-58-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,25.17,In-Domain
+Test_Substance_169,898-93-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,11.03,In-Domain
+Test_Substance_170,750-58-6,Strong/Extreme Sensitizer (1A),Sub-category 1A,21.02,In-Domain
+Test_Substance_171,772-71-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,80.28,In-Domain
+Test_Substance_172,67-10-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,23.87,In-Domain
+Test_Substance_173,163-47-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,286.02,In-Domain
+Test_Substance_174,692-41-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,9.51,In-Domain
+Test_Substance_175,525-41-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,233.99,Out-of-Domain (Expert Review)
+Test_Substance_176,884-97-6,Non-Sensitizer (NC),Not Classified,1112.04,In-Domain
+Test_Substance_177,288-76-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,58.97,In-Domain
+Test_Substance_178,145-97-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,157.26,In-Domain
+Test_Substance_179,231-94-6,Non-Sensitizer (NC),Not Classified,1943.98,In-Domain
+Test_Substance_180,200-94-2,Non-Sensitizer (NC),Not Classified,519.6,In-Domain
+Test_Substance_181,131-11-0,Strong/Extreme Sensitizer (1A),Sub-category 1A,43.88,In-Domain
+Test_Substance_182,435-76-6,Non-Sensitizer (NC),Not Classified,1012.79,In-Domain
+Test_Substance_183,305-18-1,Strong/Extreme Sensitizer (1A),Sub-category 1A,41.62,In-Domain
+Test_Substance_184,413-33-0,Non-Sensitizer (NC),Not Classified,829.34,In-Domain
+Test_Substance_185,177-90-1,Non-Sensitizer (NC),Not Classified,1231.2,In-Domain
+Test_Substance_186,286-34-6,Strong/Extreme Sensitizer (1A),Sub-category 1A,13.8,In-Domain
+Test_Substance_187,715-67-1,Strong/Extreme Sensitizer (1A),Sub-category 1A,32.43,In-Domain
+Test_Substance_188,91-50-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,1.41,In-Domain
+Test_Substance_189,637-96-4,Strong/Extreme Sensitizer (1A),Sub-category 1A,20.56,In-Domain
+Test_Substance_190,695-49-1,Strong/Extreme Sensitizer (1A),Sub-category 1A,7.28,In-Domain
+Test_Substance_191,734-26-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,349.3,In-Domain
+Test_Substance_192,871-74-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,283.56,Out-of-Domain (Expert Review)
+Test_Substance_193,828-49-3,Strong/Extreme Sensitizer (1A),Sub-category 1A,38.66,In-Domain
+Test_Substance_194,147-64-7,Non-Sensitizer (NC),Not Classified,945.75,In-Domain
+Test_Substance_195,597-29-2,Non-Sensitizer (NC),Not Classified,1598.88,In-Domain
+Test_Substance_196,414-82-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,73.24,In-Domain
+Test_Substance_197,266-70-7,Strong/Extreme Sensitizer (1A),Sub-category 1A,4.22,In-Domain
+Test_Substance_198,278-53-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,160.96,In-Domain
+Test_Substance_199,93-68-0,Strong/Extreme Sensitizer (1A),Sub-category 1A,29.72,In-Domain
+Test_Substance_200,864-21-7,Strong/Extreme Sensitizer (1A),Sub-category 1A,47.54,In-Domain
+Test_Substance_201,534-89-5,Non-Sensitizer (NC),Not Classified,1458.46,In-Domain
+Test_Substance_202,620-35-8,Non-Sensitizer (NC),Not Classified,1855.06,In-Domain
+Test_Substance_203,760-26-6,Non-Sensitizer (NC),Not Classified,559.24,In-Domain
+Test_Substance_204,384-16-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,263.0,In-Domain
+Test_Substance_205,526-91-3,Strong/Extreme Sensitizer (1A),Sub-category 1A,6.21,In-Domain
+Test_Substance_206,322-23-7,Non-Sensitizer (NC),Not Classified,978.72,In-Domain
+Test_Substance_207,854-52-7,Strong/Extreme Sensitizer (1A),Sub-category 1A,6.47,In-Domain
+Test_Substance_208,546-13-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,232.08,In-Domain
+Test_Substance_209,475-75-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,331.69,In-Domain
+Test_Substance_210,830-22-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,495.65,Out-of-Domain (Expert Review)
+Test_Substance_211,78-71-0,Non-Sensitizer (NC),Not Classified,1698.19,In-Domain
+Test_Substance_212,489-19-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,266.0,In-Domain
+Test_Substance_213,738-12-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,285.18,In-Domain
+Test_Substance_214,714-57-0,Strong/Extreme Sensitizer (1A),Sub-category 1A,15.17,In-Domain
+Test_Substance_215,393-77-4,Non-Sensitizer (NC),Not Classified,567.75,In-Domain
+Test_Substance_216,489-72-7,Non-Sensitizer (NC),Not Classified,634.21,In-Domain
+Test_Substance_217,613-13-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,326.07,In-Domain
+Test_Substance_218,542-83-1,Non-Sensitizer (NC),Not Classified,1474.51,In-Domain
+Test_Substance_219,823-14-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,66.63,In-Domain
+Test_Substance_220,69-70-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,147.42,In-Domain
+Test_Substance_221,209-22-7,Non-Sensitizer (NC),Not Classified,1544.06,In-Domain
+Test_Substance_222,406-20-8,Non-Sensitizer (NC),Not Classified,552.39,In-Domain
+Test_Substance_223,244-34-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,172.9,In-Domain
+Test_Substance_224,310-20-1,Non-Sensitizer (NC),Not Classified,1714.29,In-Domain
+Test_Substance_225,225-27-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,217.77,In-Domain
+Test_Substance_226,642-49-2,Non-Sensitizer (NC),Not Classified,664.29,In-Domain
+Test_Substance_227,798-42-5,Non-Sensitizer (NC),Not Classified,1021.78,In-Domain
+Test_Substance_228,620-68-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,440.69,In-Domain
+Test_Substance_229,405-72-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,157.49,In-Domain
+Test_Substance_230,810-40-6,Strong/Extreme Sensitizer (1A),Sub-category 1A,44.14,In-Domain
+Test_Substance_231,600-40-1,Strong/Extreme Sensitizer (1A),Sub-category 1A,41.09,In-Domain
+Test_Substance_232,344-75-0,Non-Sensitizer (NC),Not Classified,1748.22,In-Domain
+Test_Substance_233,497-97-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,102.22,In-Domain
+Test_Substance_234,282-72-4,Strong/Extreme Sensitizer (1A),Sub-category 1A,14.53,Out-of-Domain (Expert Review)
+Test_Substance_235,291-77-0,Strong/Extreme Sensitizer (1A),Sub-category 1A,46.89,In-Domain
+Test_Substance_236,71-91-1,Non-Sensitizer (NC),Not Classified,1562.89,In-Domain
+Test_Substance_237,812-61-6,Non-Sensitizer (NC),Not Classified,1514.11,In-Domain
+Test_Substance_238,508-67-6,Strong/Extreme Sensitizer (1A),Sub-category 1A,41.16,In-Domain
+Test_Substance_239,148-22-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,173.2,In-Domain
+Test_Substance_240,849-11-3,Strong/Extreme Sensitizer (1A),Sub-category 1A,39.84,In-Domain
+Test_Substance_241,797-65-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,173.04,In-Domain
+Test_Substance_242,708-66-4,Non-Sensitizer (NC),Not Classified,1786.05,In-Domain
+Test_Substance_243,576-43-2,Non-Sensitizer (NC),Not Classified,1114.06,In-Domain
+Test_Substance_244,320-89-7,Strong/Extreme Sensitizer (1A),Sub-category 1A,32.76,In-Domain
+Test_Substance_245,569-88-1,Strong/Extreme Sensitizer (1A),Sub-category 1A,10.58,In-Domain
+Test_Substance_246,742-33-2,Non-Sensitizer (NC),Not Classified,1439.37,In-Domain
+Test_Substance_247,504-26-3,Strong/Extreme Sensitizer (1A),Sub-category 1A,23.37,Out-of-Domain (Expert Review)
+Test_Substance_248,880-95-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,140.32,In-Domain
+Test_Substance_249,113-86-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,315.66,In-Domain
+Test_Substance_250,415-47-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,4.09,In-Domain
+Test_Substance_251,263-60-7,Non-Sensitizer (NC),Not Classified,1669.8,Out-of-Domain (Expert Review)
+Test_Substance_252,512-89-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,5.59,In-Domain
+Test_Substance_253,291-11-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,366.14,In-Domain
+Test_Substance_254,165-35-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,17.86,Out-of-Domain (Expert Review)
+Test_Substance_255,171-24-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,489.86,In-Domain
+Test_Substance_256,366-76-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,33.68,In-Domain
+Test_Substance_257,602-85-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,327.51,In-Domain
+Test_Substance_258,160-16-3,Non-Sensitizer (NC),Not Classified,1437.99,In-Domain
+Test_Substance_259,564-50-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,318.9,In-Domain
+Test_Substance_260,350-28-6,Strong/Extreme Sensitizer (1A),Sub-category 1A,12.73,In-Domain
+Test_Substance_261,358-64-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,384.95,In-Domain
+Test_Substance_262,598-65-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,1.53,In-Domain
+Test_Substance_263,494-63-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,86.78,In-Domain
+Test_Substance_264,73-29-4,Non-Sensitizer (NC),Not Classified,761.37,In-Domain
+Test_Substance_265,201-59-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,217.03,In-Domain
+Test_Substance_266,561-75-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,314.67,Out-of-Domain (Expert Review)
+Test_Substance_267,235-21-2,Non-Sensitizer (NC),Not Classified,1482.55,In-Domain
+Test_Substance_268,843-17-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,334.24,In-Domain
+Test_Substance_269,383-11-6,Non-Sensitizer (NC),Not Classified,769.61,In-Domain
+Test_Substance_270,551-69-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,81.2,In-Domain
+Test_Substance_271,194-98-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,348.21,In-Domain
+Test_Substance_272,498-49-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,436.11,Out-of-Domain (Expert Review)
+Test_Substance_273,59-76-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,156.74,In-Domain
+Test_Substance_274,410-10-4,Strong/Extreme Sensitizer (1A),Sub-category 1A,26.23,In-Domain
+Test_Substance_275,625-93-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,31.05,In-Domain
+Test_Substance_276,354-53-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,210.59,In-Domain
+Test_Substance_277,383-11-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,440.74,In-Domain
+Test_Substance_278,168-44-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,471.48,Out-of-Domain (Expert Review)
+Test_Substance_279,740-87-3,Strong/Extreme Sensitizer (1A),Sub-category 1A,4.88,In-Domain
+Test_Substance_280,266-59-8,Non-Sensitizer (NC),Not Classified,1947.68,Out-of-Domain (Expert Review)
+Test_Substance_281,477-47-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,164.48,In-Domain
+Test_Substance_282,795-17-1,Strong/Extreme Sensitizer (1A),Sub-category 1A,7.07,In-Domain
+Test_Substance_283,407-14-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,36.68,In-Domain
+Test_Substance_284,476-83-1,Strong/Extreme Sensitizer (1A),Sub-category 1A,33.25,In-Domain
+Test_Substance_285,637-81-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,41.63,In-Domain
+Test_Substance_286,703-62-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,354.46,In-Domain
+Test_Substance_287,753-79-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,206.92,In-Domain
+Test_Substance_288,806-86-8,Non-Sensitizer (NC),Not Classified,1990.01,In-Domain
+Test_Substance_289,693-28-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,32.7,In-Domain
+Test_Substance_290,414-84-0,Non-Sensitizer (NC),Not Classified,1816.85,In-Domain
+Test_Substance_291,704-74-6,Strong/Extreme Sensitizer (1A),Sub-category 1A,27.45,Out-of-Domain (Expert Review)
+Test_Substance_292,466-58-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,221.25,In-Domain
+Test_Substance_293,671-87-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,56.7,In-Domain
+Test_Substance_294,865-75-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,220.97,In-Domain
+Test_Substance_295,182-57-4,Non-Sensitizer (NC),Not Classified,1720.67,In-Domain
+Test_Substance_296,392-79-1,Strong/Extreme Sensitizer (1A),Sub-category 1A,24.1,In-Domain
+Test_Substance_297,668-89-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,284.6,In-Domain
+Test_Substance_298,832-77-4,Non-Sensitizer (NC),Not Classified,865.3,In-Domain
+Test_Substance_299,422-61-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,137.63,In-Domain
+Test_Substance_300,51-58-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,90.42,In-Domain
+Test_Substance_301,157-83-6,Non-Sensitizer (NC),Not Classified,1283.77,In-Domain
+Test_Substance_302,494-51-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,369.1,In-Domain
+Test_Substance_303,434-53-7,Non-Sensitizer (NC),Not Classified,1225.37,In-Domain
+Test_Substance_304,167-30-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,100.63,Out-of-Domain (Expert Review)
+Test_Substance_305,427-51-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,407.21,In-Domain
+Test_Substance_306,629-59-7,Non-Sensitizer (NC),Not Classified,1335.0,In-Domain
+Test_Substance_307,195-28-3,Non-Sensitizer (NC),Not Classified,1135.67,In-Domain
+Test_Substance_308,610-42-6,Strong/Extreme Sensitizer (1A),Sub-category 1A,21.49,In-Domain
+Test_Substance_309,468-80-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,130.38,In-Domain
+Test_Substance_310,819-73-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,317.55,In-Domain
+Test_Substance_311,686-48-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,354.16,In-Domain
+Test_Substance_312,580-77-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,496.07,In-Domain
+Test_Substance_313,793-45-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,173.44,In-Domain
+Test_Substance_314,757-22-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,215.19,In-Domain
+Test_Substance_315,209-30-7,Non-Sensitizer (NC),Not Classified,1504.44,In-Domain
+Test_Substance_316,430-67-2,Non-Sensitizer (NC),Not Classified,1476.35,In-Domain
+Test_Substance_317,663-90-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,3.09,In-Domain
+Test_Substance_318,861-67-3,Non-Sensitizer (NC),Not Classified,1197.86,In-Domain
+Test_Substance_319,360-89-8,Non-Sensitizer (NC),Not Classified,1452.48,In-Domain
+Test_Substance_320,697-93-2,Non-Sensitizer (NC),Not Classified,501.95,In-Domain
+Test_Substance_321,153-14-3,Non-Sensitizer (NC),Not Classified,852.04,In-Domain
+Test_Substance_322,198-93-5,Non-Sensitizer (NC),Not Classified,1309.98,In-Domain
+Test_Substance_323,833-85-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,39.5,In-Domain
+Test_Substance_324,712-75-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,3.62,In-Domain
+Test_Substance_325,892-76-3,Strong/Extreme Sensitizer (1A),Sub-category 1A,46.88,In-Domain
+Test_Substance_326,311-44-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,47.15,In-Domain
+Test_Substance_327,539-21-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,496.47,In-Domain
+Test_Substance_328,265-39-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,40.96,In-Domain
+Test_Substance_329,448-30-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,10.99,In-Domain
+Test_Substance_330,837-91-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,34.9,In-Domain
+Test_Substance_331,144-23-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,265.76,In-Domain
+Test_Substance_332,532-50-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,394.19,In-Domain
+Test_Substance_333,586-88-3,Strong/Extreme Sensitizer (1A),Sub-category 1A,18.69,In-Domain
+Test_Substance_334,141-22-3,Strong/Extreme Sensitizer (1A),Sub-category 1A,38.95,In-Domain
+Test_Substance_335,92-11-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,97.64,In-Domain
+Test_Substance_336,827-98-1,Strong/Extreme Sensitizer (1A),Sub-category 1A,3.54,In-Domain
+Test_Substance_337,512-82-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,389.44,In-Domain
+Test_Substance_338,239-16-0,Strong/Extreme Sensitizer (1A),Sub-category 1A,7.54,In-Domain
+Test_Substance_339,408-61-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,498.51,In-Domain
+Test_Substance_340,534-72-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,431.62,In-Domain
+Test_Substance_341,790-95-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,236.42,In-Domain
+Test_Substance_342,295-88-4,Strong/Extreme Sensitizer (1A),Sub-category 1A,21.1,In-Domain
+Test_Substance_343,114-22-4,Non-Sensitizer (NC),Not Classified,705.75,In-Domain
+Test_Substance_344,222-41-3,Non-Sensitizer (NC),Not Classified,1443.99,In-Domain
+Test_Substance_345,357-64-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,169.71,In-Domain
+Test_Substance_346,813-91-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,117.61,In-Domain
+Test_Substance_347,603-30-0,Non-Sensitizer (NC),Not Classified,1421.16,In-Domain
+Test_Substance_348,178-11-0,Non-Sensitizer (NC),Not Classified,1680.38,In-Domain
+Test_Substance_349,838-37-6,Non-Sensitizer (NC),Not Classified,557.74,In-Domain
+Test_Substance_350,128-26-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,452.81,In-Domain
+Test_Substance_351,498-96-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,117.66,In-Domain
+Test_Substance_352,434-60-7,Strong/Extreme Sensitizer (1A),Sub-category 1A,2.38,In-Domain
+Test_Substance_353,281-67-3,Strong/Extreme Sensitizer (1A),Sub-category 1A,2.26,In-Domain
+Test_Substance_354,589-60-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,398.62,In-Domain
+Test_Substance_355,187-47-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,423.76,In-Domain
+Test_Substance_356,512-59-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,38.58,In-Domain
+Test_Substance_357,218-98-6,Strong/Extreme Sensitizer (1A),Sub-category 1A,30.94,In-Domain
+Test_Substance_358,701-11-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,48.44,In-Domain
+Test_Substance_359,337-20-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,464.14,In-Domain
+Test_Substance_360,876-87-8,Non-Sensitizer (NC),Not Classified,837.0,In-Domain
+Test_Substance_361,221-41-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,14.05,In-Domain
+Test_Substance_362,593-48-0,Non-Sensitizer (NC),Not Classified,1468.75,In-Domain
+Test_Substance_363,710-17-7,Strong/Extreme Sensitizer (1A),Sub-category 1A,27.43,In-Domain
+Test_Substance_364,305-95-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,131.35,Out-of-Domain (Expert Review)
+Test_Substance_365,515-11-4,Non-Sensitizer (NC),Not Classified,1906.09,Out-of-Domain (Expert Review)
+Test_Substance_366,456-97-5,Non-Sensitizer (NC),Not Classified,1726.7,In-Domain
+Test_Substance_367,752-28-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,315.7,In-Domain
+Test_Substance_368,177-17-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,443.01,In-Domain
+Test_Substance_369,153-73-1,Strong/Extreme Sensitizer (1A),Sub-category 1A,36.46,In-Domain
+Test_Substance_370,280-36-1,Strong/Extreme Sensitizer (1A),Sub-category 1A,27.98,In-Domain
+Test_Substance_371,647-67-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,402.73,In-Domain
+Test_Substance_372,486-29-2,Non-Sensitizer (NC),Not Classified,516.65,In-Domain
+Test_Substance_373,747-13-3,Non-Sensitizer (NC),Not Classified,1205.53,In-Domain
+Test_Substance_374,854-94-5,Non-Sensitizer (NC),Not Classified,1829.31,In-Domain
+Test_Substance_375,821-69-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,51.55,In-Domain
+Test_Substance_376,270-23-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,231.11,In-Domain
+Test_Substance_377,815-33-1,Strong/Extreme Sensitizer (1A),Sub-category 1A,29.21,In-Domain
+Test_Substance_378,866-72-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,321.01,Out-of-Domain (Expert Review)
+Test_Substance_379,166-40-3,Strong/Extreme Sensitizer (1A),Sub-category 1A,17.04,In-Domain
+Test_Substance_380,232-64-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,248.15,In-Domain
+Test_Substance_381,812-56-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,11.42,In-Domain
+Test_Substance_382,309-29-5,Non-Sensitizer (NC),Not Classified,1463.88,In-Domain
+Test_Substance_383,651-25-4,Non-Sensitizer (NC),Not Classified,1620.85,In-Domain
+Test_Substance_384,668-79-0,Strong/Extreme Sensitizer (1A),Sub-category 1A,18.43,In-Domain
+Test_Substance_385,596-55-2,Non-Sensitizer (NC),Not Classified,1673.89,In-Domain
+Test_Substance_386,123-73-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,257.83,In-Domain
+Test_Substance_387,344-44-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,334.06,Out-of-Domain (Expert Review)
+Test_Substance_388,735-69-8,Non-Sensitizer (NC),Not Classified,510.64,In-Domain
+Test_Substance_389,457-39-5,Non-Sensitizer (NC),Not Classified,1485.47,In-Domain
+Test_Substance_390,681-19-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,12.73,In-Domain
+Test_Substance_391,890-54-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,430.17,In-Domain
+Test_Substance_392,490-30-3,Strong/Extreme Sensitizer (1A),Sub-category 1A,3.6,In-Domain
+Test_Substance_393,448-91-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,397.36,In-Domain
+Test_Substance_394,475-35-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,107.68,In-Domain
+Test_Substance_395,131-78-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,36.68,In-Domain
+Test_Substance_396,420-98-4,Non-Sensitizer (NC),Not Classified,786.87,In-Domain
+Test_Substance_397,227-77-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,207.34,In-Domain
+Test_Substance_398,622-70-1,Non-Sensitizer (NC),Not Classified,1341.88,In-Domain
+Test_Substance_399,226-26-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,294.19,In-Domain
+Test_Substance_400,566-11-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,23.19,In-Domain
+Test_Substance_401,484-48-5,Non-Sensitizer (NC),Not Classified,1503.57,In-Domain
+Test_Substance_402,620-19-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,39.46,In-Domain
+Test_Substance_403,440-30-3,Strong/Extreme Sensitizer (1A),Sub-category 1A,39.42,In-Domain
+Test_Substance_404,704-94-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,391.32,In-Domain
+Test_Substance_405,729-67-0,Strong/Extreme Sensitizer (1A),Sub-category 1A,13.15,In-Domain
+Test_Substance_406,93-51-3,Strong/Extreme Sensitizer (1A),Sub-category 1A,3.73,In-Domain
+Test_Substance_407,428-59-2,Non-Sensitizer (NC),Not Classified,1057.96,In-Domain
+Test_Substance_408,57-33-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,138.1,In-Domain
+Test_Substance_409,608-24-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,335.6,In-Domain
+Test_Substance_410,435-16-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,251.48,In-Domain
+Test_Substance_411,535-42-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,453.74,In-Domain
+Test_Substance_412,737-13-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,18.5,In-Domain
+Test_Substance_413,863-25-0,Non-Sensitizer (NC),Not Classified,1785.33,In-Domain
+Test_Substance_414,318-43-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,492.85,In-Domain
+Test_Substance_415,689-36-4,Non-Sensitizer (NC),Not Classified,1969.68,In-Domain
+Test_Substance_416,715-14-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,287.38,In-Domain
+Test_Substance_417,483-15-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,42.98,In-Domain
+Test_Substance_418,413-82-4,Non-Sensitizer (NC),Not Classified,1982.1,In-Domain
+Test_Substance_419,847-30-7,Strong/Extreme Sensitizer (1A),Sub-category 1A,41.05,In-Domain
+Test_Substance_420,595-50-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,36.09,In-Domain
+Test_Substance_421,225-31-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,387.0,In-Domain
+Test_Substance_422,338-93-1,Non-Sensitizer (NC),Not Classified,1206.98,In-Domain
+Test_Substance_423,503-82-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,358.88,In-Domain
+Test_Substance_424,240-76-3,Strong/Extreme Sensitizer (1A),Sub-category 1A,41.93,In-Domain
+Test_Substance_425,582-66-4,Non-Sensitizer (NC),Not Classified,823.37,In-Domain
+Test_Substance_426,450-48-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,391.69,In-Domain
+Test_Substance_427,786-15-6,Non-Sensitizer (NC),Not Classified,1497.51,In-Domain
+Test_Substance_428,191-81-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,19.79,In-Domain
+Test_Substance_429,330-49-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,411.08,In-Domain
+Test_Substance_430,132-60-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,48.33,In-Domain
+Test_Substance_431,376-87-8,Non-Sensitizer (NC),Not Classified,1707.38,Out-of-Domain (Expert Review)
+Test_Substance_432,447-47-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,423.24,In-Domain
+Test_Substance_433,369-42-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,93.53,In-Domain
+Test_Substance_434,383-50-3,Strong/Extreme Sensitizer (1A),Sub-category 1A,41.31,In-Domain
+Test_Substance_435,686-95-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,43.92,In-Domain
+Test_Substance_436,111-57-2,Non-Sensitizer (NC),Not Classified,1439.3,In-Domain
+Test_Substance_437,710-78-3,Strong/Extreme Sensitizer (1A),Sub-category 1A,39.56,In-Domain
+Test_Substance_438,250-70-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,24.67,In-Domain
+Test_Substance_439,114-17-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,423.2,In-Domain
+Test_Substance_440,608-24-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,192.69,In-Domain
+Test_Substance_441,582-60-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,124.25,In-Domain
+Test_Substance_442,504-37-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,366.21,In-Domain
+Test_Substance_443,243-97-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,269.5,In-Domain
+Test_Substance_444,311-95-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,492.73,In-Domain
+Test_Substance_445,332-17-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,2.47,In-Domain
+Test_Substance_446,802-49-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,48.59,In-Domain
+Test_Substance_447,750-58-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,263.48,In-Domain
+Test_Substance_448,651-48-4,Strong/Extreme Sensitizer (1A),Sub-category 1A,2.32,In-Domain
+Test_Substance_449,871-18-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,148.41,In-Domain
+Test_Substance_450,868-68-6,Strong/Extreme Sensitizer (1A),Sub-category 1A,31.04,In-Domain
+Test_Substance_451,543-28-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,63.45,In-Domain
+Test_Substance_452,158-21-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,378.46,In-Domain
+Test_Substance_453,569-34-6,Non-Sensitizer (NC),Not Classified,1932.6,In-Domain
+Test_Substance_454,899-27-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,423.33,Out-of-Domain (Expert Review)
+Test_Substance_455,534-28-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,410.18,In-Domain
+Test_Substance_456,704-50-6,Non-Sensitizer (NC),Not Classified,606.6,In-Domain
+Test_Substance_457,868-84-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,340.78,In-Domain
+Test_Substance_458,820-93-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,6.23,In-Domain
+Test_Substance_459,399-49-1,Strong/Extreme Sensitizer (1A),Sub-category 1A,45.17,In-Domain
+Test_Substance_460,882-64-4,Strong/Extreme Sensitizer (1A),Sub-category 1A,21.39,In-Domain
+Test_Substance_461,328-33-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,28.15,In-Domain
+Test_Substance_462,469-54-6,Strong/Extreme Sensitizer (1A),Sub-category 1A,19.68,In-Domain
+Test_Substance_463,413-41-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,437.8,In-Domain
+Test_Substance_464,72-84-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,310.71,In-Domain
+Test_Substance_465,339-65-4,Strong/Extreme Sensitizer (1A),Sub-category 1A,19.95,In-Domain
+Test_Substance_466,608-29-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,70.25,In-Domain
+Test_Substance_467,476-20-0,Strong/Extreme Sensitizer (1A),Sub-category 1A,32.47,In-Domain
+Test_Substance_468,737-65-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,42.43,In-Domain
+Test_Substance_469,886-39-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,359.75,In-Domain
+Test_Substance_470,715-36-5,Non-Sensitizer (NC),Not Classified,1297.92,In-Domain
+Test_Substance_471,311-68-4,Non-Sensitizer (NC),Not Classified,1121.28,In-Domain
+Test_Substance_472,219-44-6,Strong/Extreme Sensitizer (1A),Sub-category 1A,45.05,In-Domain
+Test_Substance_473,846-86-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,497.69,In-Domain
+Test_Substance_474,118-46-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,48.55,In-Domain
+Test_Substance_475,428-96-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,293.81,In-Domain
+Test_Substance_476,811-94-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,422.08,In-Domain
+Test_Substance_477,653-72-7,Non-Sensitizer (NC),Not Classified,1336.61,In-Domain
+Test_Substance_478,484-26-2,Non-Sensitizer (NC),Not Classified,725.87,In-Domain
+Test_Substance_479,811-28-4,Non-Sensitizer (NC),Not Classified,1435.15,In-Domain
+Test_Substance_480,662-45-5,Non-Sensitizer (NC),Not Classified,722.06,In-Domain
+Test_Substance_481,316-63-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,48.22,In-Domain
+Test_Substance_482,233-29-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,39.63,In-Domain
+Test_Substance_483,196-35-3,Non-Sensitizer (NC),Not Classified,1916.07,In-Domain
+Test_Substance_484,151-84-0,Non-Sensitizer (NC),Not Classified,1383.14,In-Domain
+Test_Substance_485,753-90-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,248.61,In-Domain
+Test_Substance_486,736-13-6,Non-Sensitizer (NC),Not Classified,1184.02,In-Domain
+Test_Substance_487,165-54-0,Non-Sensitizer (NC),Not Classified,800.79,In-Domain
+Test_Substance_488,624-47-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,184.37,In-Domain
+Test_Substance_489,336-89-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,279.74,In-Domain
+Test_Substance_490,615-19-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,359.51,In-Domain
+Test_Substance_491,745-39-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,412.02,In-Domain
+Test_Substance_492,843-80-6,Non-Sensitizer (NC),Not Classified,1985.82,In-Domain
+Test_Substance_493,598-22-7,Strong/Extreme Sensitizer (1A),Sub-category 1A,17.42,In-Domain
+Test_Substance_494,306-45-2,Non-Sensitizer (NC),Not Classified,1732.91,In-Domain
+Test_Substance_495,433-13-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,89.96,In-Domain
+Test_Substance_496,734-43-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,297.15,In-Domain
+Test_Substance_497,424-43-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,184.87,In-Domain
+Test_Substance_498,160-40-1,Strong/Extreme Sensitizer (1A),Sub-category 1A,4.11,In-Domain
+Test_Substance_499,616-36-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,40.27,In-Domain
+Test_Substance_500,282-39-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,264.45,In-Domain
+Test_Substance_501,330-95-0,Strong/Extreme Sensitizer (1A),Sub-category 1A,11.12,In-Domain
+Test_Substance_502,533-81-5,Non-Sensitizer (NC),Not Classified,1800.41,In-Domain
+Test_Substance_503,461-62-7,Strong/Extreme Sensitizer (1A),Sub-category 1A,34.29,In-Domain
+Test_Substance_504,108-96-7,Strong/Extreme Sensitizer (1A),Sub-category 1A,28.38,In-Domain
+Test_Substance_505,899-84-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,25.09,In-Domain
+Test_Substance_506,203-27-5,Non-Sensitizer (NC),Not Classified,976.45,Out-of-Domain (Expert Review)
+Test_Substance_507,439-78-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,78.3,In-Domain
+Test_Substance_508,668-28-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,46.58,In-Domain
+Test_Substance_509,868-22-2,Non-Sensitizer (NC),Not Classified,970.09,In-Domain
+Test_Substance_510,470-26-6,Non-Sensitizer (NC),Not Classified,1066.04,In-Domain
+Test_Substance_511,681-64-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,224.5,In-Domain
+Test_Substance_512,585-20-0,Strong/Extreme Sensitizer (1A),Sub-category 1A,43.84,In-Domain
+Test_Substance_513,772-21-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,474.8,In-Domain
+Test_Substance_514,589-50-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,18.32,In-Domain
+Test_Substance_515,285-80-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,144.08,In-Domain
+Test_Substance_516,577-18-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,27.83,In-Domain
+Test_Substance_517,149-96-1,Non-Sensitizer (NC),Not Classified,1595.77,In-Domain
+Test_Substance_518,52-37-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,468.87,In-Domain
+Test_Substance_519,487-74-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,227.87,In-Domain
+Test_Substance_520,98-63-4,Strong/Extreme Sensitizer (1A),Sub-category 1A,2.63,In-Domain
+Test_Substance_521,726-33-1,Strong/Extreme Sensitizer (1A),Sub-category 1A,41.86,Out-of-Domain (Expert Review)
+Test_Substance_522,436-26-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,6.66,In-Domain
+Test_Substance_523,427-69-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,36.38,In-Domain
+Test_Substance_524,514-67-5,Non-Sensitizer (NC),Not Classified,1182.43,In-Domain
+Test_Substance_525,723-46-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,38.62,In-Domain
+Test_Substance_526,104-67-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,199.51,In-Domain
+Test_Substance_527,604-86-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,217.35,Out-of-Domain (Expert Review)
+Test_Substance_528,825-96-8,Non-Sensitizer (NC),Not Classified,1513.4,In-Domain
+Test_Substance_529,665-76-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,10.75,In-Domain
+Test_Substance_530,173-96-3,Non-Sensitizer (NC),Not Classified,1404.98,In-Domain
+Test_Substance_531,657-93-1,Non-Sensitizer (NC),Not Classified,1914.09,In-Domain
+Test_Substance_532,578-68-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,302.63,In-Domain
+Test_Substance_533,350-92-4,Strong/Extreme Sensitizer (1A),Sub-category 1A,31.31,In-Domain
+Test_Substance_534,540-74-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,457.9,In-Domain
+Test_Substance_535,618-56-8,Non-Sensitizer (NC),Not Classified,1006.08,In-Domain
+Test_Substance_536,645-61-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,360.57,In-Domain
+Test_Substance_537,787-24-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,110.51,In-Domain
+Test_Substance_538,495-91-2,Non-Sensitizer (NC),Not Classified,1431.4,In-Domain
+Test_Substance_539,284-42-0,Strong/Extreme Sensitizer (1A),Sub-category 1A,22.55,In-Domain
+Test_Substance_540,717-79-8,Non-Sensitizer (NC),Not Classified,1689.73,In-Domain
+Test_Substance_541,881-68-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,47.6,In-Domain
+Test_Substance_542,360-91-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,23.22,In-Domain
+Test_Substance_543,403-26-4,Strong/Extreme Sensitizer (1A),Sub-category 1A,39.73,In-Domain
+Test_Substance_544,411-17-3,Non-Sensitizer (NC),Not Classified,1950.58,In-Domain
+Test_Substance_545,236-93-7,Strong/Extreme Sensitizer (1A),Sub-category 1A,32.21,In-Domain
+Test_Substance_546,470-83-3,Non-Sensitizer (NC),Not Classified,1782.82,In-Domain
+Test_Substance_547,220-94-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,466.79,In-Domain
+Test_Substance_548,652-31-4,Non-Sensitizer (NC),Not Classified,766.91,In-Domain
+Test_Substance_549,222-19-3,Strong/Extreme Sensitizer (1A),Sub-category 1A,20.44,In-Domain
+Test_Substance_550,548-10-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,20.19,In-Domain
+Test_Substance_551,678-44-2,Non-Sensitizer (NC),Not Classified,1057.65,In-Domain
+Test_Substance_552,323-54-3,Non-Sensitizer (NC),Not Classified,1365.73,In-Domain
+Test_Substance_553,163-10-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,308.27,In-Domain
+Test_Substance_554,154-14-0,Strong/Extreme Sensitizer (1A),Sub-category 1A,25.54,In-Domain
+Test_Substance_555,782-77-4,Strong/Extreme Sensitizer (1A),Sub-category 1A,43.41,In-Domain
+Test_Substance_556,637-35-2,Non-Sensitizer (NC),Not Classified,1345.03,In-Domain
+Test_Substance_557,376-35-7,Strong/Extreme Sensitizer (1A),Sub-category 1A,17.98,In-Domain
+Test_Substance_558,133-24-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,393.42,In-Domain
+Test_Substance_559,196-55-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,29.76,In-Domain
+Test_Substance_560,756-33-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,182.93,In-Domain
+Test_Substance_561,585-13-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,36.47,In-Domain
+Test_Substance_562,677-32-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,258.54,Out-of-Domain (Expert Review)
+Test_Substance_563,558-69-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,296.06,In-Domain
+Test_Substance_564,664-47-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,375.44,In-Domain
+Test_Substance_565,864-77-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,153.76,Out-of-Domain (Expert Review)
+Test_Substance_566,392-67-1,Non-Sensitizer (NC),Not Classified,1460.99,In-Domain
+Test_Substance_567,255-66-5,Non-Sensitizer (NC),Not Classified,1727.06,In-Domain
+Test_Substance_568,359-30-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,149.3,In-Domain
+Test_Substance_569,251-41-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,85.4,In-Domain
+Test_Substance_570,59-95-8,Non-Sensitizer (NC),Not Classified,1375.7,In-Domain
+Test_Substance_571,684-30-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,477.15,In-Domain
+Test_Substance_572,853-90-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,25.94,In-Domain
+Test_Substance_573,472-79-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,121.65,In-Domain
+Test_Substance_574,362-90-1,Strong/Extreme Sensitizer (1A),Sub-category 1A,6.69,In-Domain
+Test_Substance_575,311-93-3,Non-Sensitizer (NC),Not Classified,792.94,In-Domain
+Test_Substance_576,224-64-0,Strong/Extreme Sensitizer (1A),Sub-category 1A,6.38,In-Domain
+Test_Substance_577,177-77-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,267.18,In-Domain
+Test_Substance_578,127-67-0,Strong/Extreme Sensitizer (1A),Sub-category 1A,39.22,In-Domain
+Test_Substance_579,364-38-2,Non-Sensitizer (NC),Not Classified,1156.55,In-Domain
+Test_Substance_580,242-78-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,290.48,In-Domain
+Test_Substance_581,708-85-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,48.09,In-Domain
+Test_Substance_582,425-31-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,15.83,In-Domain
+Test_Substance_583,424-76-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,81.99,In-Domain
+Test_Substance_584,513-81-0,Non-Sensitizer (NC),Not Classified,1859.14,Out-of-Domain (Expert Review)
+Test_Substance_585,332-21-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,179.51,In-Domain
+Test_Substance_586,118-68-0,Non-Sensitizer (NC),Not Classified,1145.87,In-Domain
+Test_Substance_587,246-75-6,Strong/Extreme Sensitizer (1A),Sub-category 1A,21.92,In-Domain
+Test_Substance_588,640-96-6,Non-Sensitizer (NC),Not Classified,1462.64,In-Domain
+Test_Substance_589,78-33-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,387.95,In-Domain
+Test_Substance_590,623-38-0,Non-Sensitizer (NC),Not Classified,1872.11,Out-of-Domain (Expert Review)
+Test_Substance_591,730-78-1,Strong/Extreme Sensitizer (1A),Sub-category 1A,27.62,In-Domain
+Test_Substance_592,253-80-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,240.29,In-Domain
+Test_Substance_593,685-33-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,24.41,In-Domain
+Test_Substance_594,718-29-8,Non-Sensitizer (NC),Not Classified,1405.5,In-Domain
+Test_Substance_595,416-75-4,Strong/Extreme Sensitizer (1A),Sub-category 1A,30.15,In-Domain
+Test_Substance_596,827-82-0,Strong/Extreme Sensitizer (1A),Sub-category 1A,48.27,In-Domain
+Test_Substance_597,108-11-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,312.64,In-Domain
+Test_Substance_598,128-68-5,Non-Sensitizer (NC),Not Classified,658.95,In-Domain
+Test_Substance_599,659-39-8,Non-Sensitizer (NC),Not Classified,510.12,In-Domain
+Test_Substance_600,56-58-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,31.56,In-Domain
+Test_Substance_601,286-55-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,480.92,In-Domain
+Test_Substance_602,103-59-2,Non-Sensitizer (NC),Not Classified,652.93,Out-of-Domain (Expert Review)
+Test_Substance_603,416-24-3,Non-Sensitizer (NC),Not Classified,626.54,In-Domain
+Test_Substance_604,297-26-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,375.58,Out-of-Domain (Expert Review)
+Test_Substance_605,88-32-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,365.42,In-Domain
+Test_Substance_606,118-52-1,Strong/Extreme Sensitizer (1A),Sub-category 1A,12.79,In-Domain
+Test_Substance_607,363-42-1,Strong/Extreme Sensitizer (1A),Sub-category 1A,23.22,In-Domain
+Test_Substance_608,688-28-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,199.93,In-Domain
+Test_Substance_609,882-17-2,Non-Sensitizer (NC),Not Classified,1316.43,In-Domain
+Test_Substance_610,668-98-6,Non-Sensitizer (NC),Not Classified,1141.3,In-Domain
+Test_Substance_611,698-91-7,Strong/Extreme Sensitizer (1A),Sub-category 1A,18.74,In-Domain
+Test_Substance_612,172-69-5,Non-Sensitizer (NC),Not Classified,1117.07,In-Domain
+Test_Substance_613,598-88-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,249.2,In-Domain
+Test_Substance_614,234-86-3,Non-Sensitizer (NC),Not Classified,938.65,In-Domain
+Test_Substance_615,137-77-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,233.49,In-Domain
+Test_Substance_616,434-47-4,Non-Sensitizer (NC),Not Classified,1114.57,In-Domain
+Test_Substance_617,70-80-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,3.99,In-Domain
+Test_Substance_618,118-10-3,Non-Sensitizer (NC),Not Classified,1527.73,In-Domain
+Test_Substance_619,714-30-3,Non-Sensitizer (NC),Not Classified,1165.02,In-Domain
+Test_Substance_620,616-14-3,Non-Sensitizer (NC),Not Classified,1742.19,In-Domain
+Test_Substance_621,897-94-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,218.15,In-Domain
+Test_Substance_622,474-14-6,Strong/Extreme Sensitizer (1A),Sub-category 1A,41.53,In-Domain
+Test_Substance_623,874-95-8,Non-Sensitizer (NC),Not Classified,1788.16,In-Domain
+Test_Substance_624,607-32-0,Strong/Extreme Sensitizer (1A),Sub-category 1A,33.85,In-Domain
+Test_Substance_625,669-27-5,Non-Sensitizer (NC),Not Classified,1794.47,In-Domain
+Test_Substance_626,465-51-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,205.42,In-Domain
+Test_Substance_627,723-82-6,Strong/Extreme Sensitizer (1A),Sub-category 1A,18.04,In-Domain
+Test_Substance_628,431-37-7,Strong/Extreme Sensitizer (1A),Sub-category 1A,19.86,In-Domain
+Test_Substance_629,530-28-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,300.64,In-Domain
+Test_Substance_630,403-22-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,366.0,In-Domain
+Test_Substance_631,609-58-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,60.06,In-Domain
+Test_Substance_632,331-26-6,Strong/Extreme Sensitizer (1A),Sub-category 1A,17.19,In-Domain
+Test_Substance_633,363-58-6,Strong/Extreme Sensitizer (1A),Sub-category 1A,38.36,In-Domain
+Test_Substance_634,586-12-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,58.25,In-Domain
+Test_Substance_635,871-37-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,35.87,In-Domain
+Test_Substance_636,385-50-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,426.27,In-Domain
+Test_Substance_637,462-92-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,14.63,In-Domain
+Test_Substance_638,742-55-8,Non-Sensitizer (NC),Not Classified,1823.85,In-Domain
+Test_Substance_639,785-17-5,Non-Sensitizer (NC),Not Classified,1852.67,In-Domain
+Test_Substance_640,384-66-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,131.86,In-Domain
+Test_Substance_641,384-29-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,19.09,In-Domain
+Test_Substance_642,108-64-3,Strong/Extreme Sensitizer (1A),Sub-category 1A,17.85,In-Domain
+Test_Substance_643,668-39-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,375.26,In-Domain
+Test_Substance_644,173-70-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,267.85,Out-of-Domain (Expert Review)
+Test_Substance_645,299-67-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,80.0,In-Domain
+Test_Substance_646,549-90-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,207.66,In-Domain
+Test_Substance_647,632-18-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,329.25,In-Domain
+Test_Substance_648,838-73-3,Non-Sensitizer (NC),Not Classified,1862.35,In-Domain
+Test_Substance_649,893-51-5,Non-Sensitizer (NC),Not Classified,1312.52,In-Domain
+Test_Substance_650,286-68-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,314.87,In-Domain
+Test_Substance_651,256-89-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,458.54,In-Domain
+Test_Substance_652,840-27-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,110.23,In-Domain
+Test_Substance_653,727-76-0,Strong/Extreme Sensitizer (1A),Sub-category 1A,34.77,In-Domain
+Test_Substance_654,671-22-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,421.68,In-Domain
+Test_Substance_655,256-13-6,Non-Sensitizer (NC),Not Classified,594.8,In-Domain
+Test_Substance_656,389-85-0,Non-Sensitizer (NC),Not Classified,1680.08,In-Domain
+Test_Substance_657,119-30-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,64.11,In-Domain
+Test_Substance_658,737-15-8,Non-Sensitizer (NC),Not Classified,1445.1,In-Domain
+Test_Substance_659,504-86-5,Non-Sensitizer (NC),Not Classified,1832.19,In-Domain
+Test_Substance_660,817-47-3,Strong/Extreme Sensitizer (1A),Sub-category 1A,37.53,In-Domain
+Test_Substance_661,622-83-2,Non-Sensitizer (NC),Not Classified,1900.36,In-Domain
+Test_Substance_662,302-22-0,Non-Sensitizer (NC),Not Classified,862.32,Out-of-Domain (Expert Review)
+Test_Substance_663,557-57-4,Non-Sensitizer (NC),Not Classified,1837.58,In-Domain
+Test_Substance_664,163-58-3,Strong/Extreme Sensitizer (1A),Sub-category 1A,1.21,In-Domain
+Test_Substance_665,404-12-4,Strong/Extreme Sensitizer (1A),Sub-category 1A,41.94,In-Domain
+Test_Substance_666,622-38-2,Non-Sensitizer (NC),Not Classified,1380.45,In-Domain
+Test_Substance_667,325-57-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,368.36,In-Domain
+Test_Substance_668,589-78-4,Non-Sensitizer (NC),Not Classified,1068.75,In-Domain
+Test_Substance_669,162-51-3,Non-Sensitizer (NC),Not Classified,1971.68,In-Domain
+Test_Substance_670,238-27-6,Non-Sensitizer (NC),Not Classified,1256.06,In-Domain
+Test_Substance_671,694-96-8,Non-Sensitizer (NC),Not Classified,665.18,In-Domain
+Test_Substance_672,882-73-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,488.41,In-Domain
+Test_Substance_673,775-56-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,130.79,In-Domain
+Test_Substance_674,161-42-6,Non-Sensitizer (NC),Not Classified,754.68,Out-of-Domain (Expert Review)
+Test_Substance_675,581-47-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,22.95,In-Domain
+Test_Substance_676,883-46-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,479.1,In-Domain
+Test_Substance_677,860-31-3,Strong/Extreme Sensitizer (1A),Sub-category 1A,46.1,In-Domain
+Test_Substance_678,689-93-3,Strong/Extreme Sensitizer (1A),Sub-category 1A,21.46,In-Domain
+Test_Substance_679,94-68-7,Strong/Extreme Sensitizer (1A),Sub-category 1A,34.69,In-Domain
+Test_Substance_680,560-82-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,37.0,In-Domain
+Test_Substance_681,272-66-7,Strong/Extreme Sensitizer (1A),Sub-category 1A,11.2,In-Domain
+Test_Substance_682,429-62-6,Non-Sensitizer (NC),Not Classified,1663.89,In-Domain
+Test_Substance_683,543-20-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,351.22,In-Domain
+Test_Substance_684,325-59-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,10.93,In-Domain
+Test_Substance_685,133-12-4,Non-Sensitizer (NC),Not Classified,612.32,In-Domain
+Test_Substance_686,105-32-7,Non-Sensitizer (NC),Not Classified,1951.65,In-Domain
+Test_Substance_687,617-69-6,Strong/Extreme Sensitizer (1A),Sub-category 1A,31.71,In-Domain
+Test_Substance_688,85-35-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,209.23,In-Domain
+Test_Substance_689,425-96-5,Non-Sensitizer (NC),Not Classified,1665.23,In-Domain
+Test_Substance_690,145-71-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,186.16,In-Domain
+Test_Substance_691,404-53-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,401.27,In-Domain
+Test_Substance_692,874-64-4,Strong/Extreme Sensitizer (1A),Sub-category 1A,23.25,In-Domain
+Test_Substance_693,737-27-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,256.35,In-Domain
+Test_Substance_694,880-48-0,Non-Sensitizer (NC),Not Classified,1496.34,In-Domain
+Test_Substance_695,131-86-8,Non-Sensitizer (NC),Not Classified,1910.63,Out-of-Domain (Expert Review)
+Test_Substance_696,376-57-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,267.48,In-Domain
+Test_Substance_697,273-71-7,Strong/Extreme Sensitizer (1A),Sub-category 1A,35.08,In-Domain
+Test_Substance_698,638-69-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,47.6,In-Domain
+Test_Substance_699,721-68-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,27.86,In-Domain
+Test_Substance_700,500-37-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,42.81,In-Domain
+Test_Substance_701,471-81-6,Strong/Extreme Sensitizer (1A),Sub-category 1A,41.37,In-Domain
+Test_Substance_702,660-19-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,114.44,In-Domain
+Test_Substance_703,398-78-3,Non-Sensitizer (NC),Not Classified,1006.29,In-Domain
+Test_Substance_704,811-93-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,149.3,In-Domain
+Test_Substance_705,675-58-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,388.28,In-Domain
+Test_Substance_706,322-33-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,154.5,In-Domain
+Test_Substance_707,825-68-6,Non-Sensitizer (NC),Not Classified,560.18,In-Domain
+Test_Substance_708,51-91-0,Strong/Extreme Sensitizer (1A),Sub-category 1A,38.74,In-Domain
+Test_Substance_709,287-91-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,470.83,In-Domain
+Test_Substance_710,516-24-8,Non-Sensitizer (NC),Not Classified,568.27,In-Domain
+Test_Substance_711,433-61-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,398.12,In-Domain
+Test_Substance_712,93-84-1,Non-Sensitizer (NC),Not Classified,1892.58,In-Domain
+Test_Substance_713,286-87-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,17.13,In-Domain
+Test_Substance_714,370-51-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,176.54,In-Domain
+Test_Substance_715,465-94-4,Non-Sensitizer (NC),Not Classified,688.32,In-Domain
+Test_Substance_716,663-46-2,Non-Sensitizer (NC),Not Classified,1891.04,In-Domain
+Test_Substance_717,188-97-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,398.88,In-Domain
+Test_Substance_718,717-26-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,182.27,Out-of-Domain (Expert Review)
+Test_Substance_719,168-46-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,192.97,In-Domain
+Test_Substance_720,725-67-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,207.75,In-Domain
+Test_Substance_721,749-92-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,294.41,In-Domain
+Test_Substance_722,259-57-7,Strong/Extreme Sensitizer (1A),Sub-category 1A,16.0,In-Domain
+Test_Substance_723,419-13-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,493.18,In-Domain
+Test_Substance_724,637-40-7,Strong/Extreme Sensitizer (1A),Sub-category 1A,5.07,In-Domain
+Test_Substance_725,628-33-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,252.01,In-Domain
+Test_Substance_726,59-92-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,388.05,In-Domain
+Test_Substance_727,162-24-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,6.18,In-Domain
+Test_Substance_728,211-96-1,Strong/Extreme Sensitizer (1A),Sub-category 1A,33.34,In-Domain
+Test_Substance_729,232-10-5,Non-Sensitizer (NC),Not Classified,1863.77,In-Domain
+Test_Substance_730,482-95-4,Strong/Extreme Sensitizer (1A),Sub-category 1A,9.64,In-Domain
+Test_Substance_731,192-61-8,Non-Sensitizer (NC),Not Classified,1297.23,In-Domain
+Test_Substance_732,674-56-6,Strong/Extreme Sensitizer (1A),Sub-category 1A,6.27,In-Domain
+Test_Substance_733,775-32-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,469.21,In-Domain
+Test_Substance_734,761-84-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,302.3,In-Domain
+Test_Substance_735,492-78-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,4.25,In-Domain
+Test_Substance_736,868-39-6,Non-Sensitizer (NC),Not Classified,1675.27,In-Domain
+Test_Substance_737,494-63-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,28.61,In-Domain
+Test_Substance_738,723-40-3,Strong/Extreme Sensitizer (1A),Sub-category 1A,39.21,In-Domain
+Test_Substance_739,662-10-0,Strong/Extreme Sensitizer (1A),Sub-category 1A,26.42,In-Domain
+Test_Substance_740,384-90-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,34.59,In-Domain
+Test_Substance_741,736-26-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,207.93,In-Domain
+Test_Substance_742,545-87-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,120.3,In-Domain
+Test_Substance_743,704-63-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,132.28,In-Domain
+Test_Substance_744,758-95-0,Strong/Extreme Sensitizer (1A),Sub-category 1A,10.61,Out-of-Domain (Expert Review)
+Test_Substance_745,581-15-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,320.8,In-Domain
+Test_Substance_746,298-23-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,328.7,In-Domain
+Test_Substance_747,540-44-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,102.45,In-Domain
+Test_Substance_748,171-57-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,154.24,In-Domain
+Test_Substance_749,99-74-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,247.24,In-Domain
+Test_Substance_750,447-46-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,235.99,In-Domain
+Test_Substance_751,437-54-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,63.22,In-Domain
+Test_Substance_752,220-40-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,154.2,In-Domain
+Test_Substance_753,420-66-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,426.44,Out-of-Domain (Expert Review)
+Test_Substance_754,782-48-1,Strong/Extreme Sensitizer (1A),Sub-category 1A,16.08,Out-of-Domain (Expert Review)
+Test_Substance_755,683-13-6,Non-Sensitizer (NC),Not Classified,719.74,In-Domain
+Test_Substance_756,657-82-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,245.25,In-Domain
+Test_Substance_757,496-76-0,Non-Sensitizer (NC),Not Classified,822.89,In-Domain
+Test_Substance_758,465-95-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,196.02,In-Domain
+Test_Substance_759,808-20-2,Non-Sensitizer (NC),Not Classified,1920.14,In-Domain
+Test_Substance_760,579-82-6,Non-Sensitizer (NC),Not Classified,786.78,In-Domain
+Test_Substance_761,305-96-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,44.41,In-Domain
+Test_Substance_762,74-83-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,8.96,In-Domain
+Test_Substance_763,74-87-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,203.31,In-Domain
+Test_Substance_764,572-94-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,123.44,In-Domain
+Test_Substance_765,625-11-8,Non-Sensitizer (NC),Not Classified,956.97,In-Domain
+Test_Substance_766,290-27-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,72.88,Out-of-Domain (Expert Review)
+Test_Substance_767,413-56-3,Strong/Extreme Sensitizer (1A),Sub-category 1A,29.37,Out-of-Domain (Expert Review)
+Test_Substance_768,332-88-7,Non-Sensitizer (NC),Not Classified,1316.34,In-Domain
+Test_Substance_769,61-22-0,Non-Sensitizer (NC),Not Classified,1062.15,In-Domain
+Test_Substance_770,569-78-3,Strong/Extreme Sensitizer (1A),Sub-category 1A,16.22,In-Domain
+Test_Substance_771,712-25-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,201.92,In-Domain
+Test_Substance_772,244-24-3,Strong/Extreme Sensitizer (1A),Sub-category 1A,24.88,In-Domain
+Test_Substance_773,70-73-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,298.79,In-Domain
+Test_Substance_774,887-72-3,Non-Sensitizer (NC),Not Classified,730.93,In-Domain
+Test_Substance_775,79-54-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,106.59,In-Domain
+Test_Substance_776,270-31-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,137.13,In-Domain
+Test_Substance_777,599-79-3,Non-Sensitizer (NC),Not Classified,946.0,In-Domain
+Test_Substance_778,437-59-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,421.75,In-Domain
+Test_Substance_779,327-67-3,Strong/Extreme Sensitizer (1A),Sub-category 1A,32.99,In-Domain
+Test_Substance_780,667-16-3,Strong/Extreme Sensitizer (1A),Sub-category 1A,4.52,In-Domain
+Test_Substance_781,490-94-2,Non-Sensitizer (NC),Not Classified,1690.75,In-Domain
+Test_Substance_782,187-11-1,Non-Sensitizer (NC),Not Classified,1652.03,In-Domain
+Test_Substance_783,351-48-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,303.95,In-Domain
+Test_Substance_784,390-13-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,175.59,In-Domain
+Test_Substance_785,274-84-0,Strong/Extreme Sensitizer (1A),Sub-category 1A,41.01,Out-of-Domain (Expert Review)
+Test_Substance_786,667-33-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,401.44,In-Domain
+Test_Substance_787,220-84-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,6.73,In-Domain
+Test_Substance_788,866-25-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,354.45,In-Domain
+Test_Substance_789,842-19-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,243.14,In-Domain
+Test_Substance_790,352-46-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,347.55,In-Domain
+Test_Substance_791,412-36-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,30.5,In-Domain
+Test_Substance_792,61-49-8,Non-Sensitizer (NC),Not Classified,775.26,In-Domain
+Test_Substance_793,787-57-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,56.26,In-Domain
+Test_Substance_794,725-33-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,399.88,In-Domain
+Test_Substance_795,334-24-4,Strong/Extreme Sensitizer (1A),Sub-category 1A,33.36,In-Domain
+Test_Substance_796,671-87-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,303.81,In-Domain
+Test_Substance_797,381-31-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,203.5,In-Domain
+Test_Substance_798,688-89-3,Non-Sensitizer (NC),Not Classified,1987.18,In-Domain
+Test_Substance_799,197-27-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,188.62,In-Domain
+Test_Substance_800,748-78-3,Strong/Extreme Sensitizer (1A),Sub-category 1A,0.56,In-Domain
+Test_Substance_801,767-79-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,107.59,In-Domain
+Test_Substance_802,849-24-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,300.5,In-Domain
+Test_Substance_803,158-36-3,Non-Sensitizer (NC),Not Classified,1877.6,In-Domain
+Test_Substance_804,92-40-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,179.78,In-Domain
+Test_Substance_805,849-49-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,164.59,Out-of-Domain (Expert Review)
+Test_Substance_806,458-31-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,281.56,In-Domain
+Test_Substance_807,296-10-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,224.99,In-Domain
+Test_Substance_808,615-97-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,4.51,In-Domain
+Test_Substance_809,242-67-4,Non-Sensitizer (NC),Not Classified,1993.35,In-Domain
+Test_Substance_810,375-17-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,231.28,In-Domain
+Test_Substance_811,413-85-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,382.35,In-Domain
+Test_Substance_812,836-54-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,389.09,In-Domain
+Test_Substance_813,92-92-7,Strong/Extreme Sensitizer (1A),Sub-category 1A,22.43,In-Domain
+Test_Substance_814,75-32-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,48.19,In-Domain
+Test_Substance_815,829-88-6,Strong/Extreme Sensitizer (1A),Sub-category 1A,3.32,In-Domain
+Test_Substance_816,855-52-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,32.07,In-Domain
+Test_Substance_817,269-74-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,163.62,In-Domain
+Test_Substance_818,425-16-6,Non-Sensitizer (NC),Not Classified,1374.74,In-Domain
+Test_Substance_819,701-52-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,135.55,In-Domain
+Test_Substance_820,318-98-5,Non-Sensitizer (NC),Not Classified,531.5,In-Domain
+Test_Substance_821,529-58-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,484.95,In-Domain
+Test_Substance_822,264-54-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,235.58,In-Domain
+Test_Substance_823,103-38-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,310.92,In-Domain
+Test_Substance_824,397-26-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,8.72,In-Domain
+Test_Substance_825,128-98-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,209.69,In-Domain
+Test_Substance_826,295-47-6,Strong/Extreme Sensitizer (1A),Sub-category 1A,30.89,In-Domain
+Test_Substance_827,218-83-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,378.75,In-Domain
+Test_Substance_828,869-42-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,311.82,In-Domain
+Test_Substance_829,693-52-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,33.94,Out-of-Domain (Expert Review)
+Test_Substance_830,506-70-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,27.84,In-Domain
+Test_Substance_831,805-52-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,13.09,In-Domain
+Test_Substance_832,608-68-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,183.42,In-Domain
+Test_Substance_833,88-13-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,285.7,In-Domain
+Test_Substance_834,579-62-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,333.58,In-Domain
+Test_Substance_835,139-15-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,195.46,In-Domain
+Test_Substance_836,656-39-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,410.78,In-Domain
+Test_Substance_837,204-48-8,Non-Sensitizer (NC),Not Classified,723.8,In-Domain
+Test_Substance_838,796-71-4,Non-Sensitizer (NC),Not Classified,519.46,In-Domain
+Test_Substance_839,323-12-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,339.82,In-Domain
+Test_Substance_840,413-68-3,Non-Sensitizer (NC),Not Classified,1074.88,In-Domain
+Test_Substance_841,71-75-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,13.59,In-Domain
+Test_Substance_842,812-25-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,250.48,Out-of-Domain (Expert Review)
+Test_Substance_843,314-67-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,149.3,In-Domain
+Test_Substance_844,529-68-6,Strong/Extreme Sensitizer (1A),Sub-category 1A,30.42,In-Domain
+Test_Substance_845,436-92-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,331.44,Out-of-Domain (Expert Review)
+Test_Substance_846,196-76-7,Strong/Extreme Sensitizer (1A),Sub-category 1A,20.19,In-Domain
+Test_Substance_847,740-94-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,10.11,In-Domain
+Test_Substance_848,545-18-4,Strong/Extreme Sensitizer (1A),Sub-category 1A,28.91,In-Domain
+Test_Substance_849,474-31-7,Strong/Extreme Sensitizer (1A),Sub-category 1A,5.35,Out-of-Domain (Expert Review)
+Test_Substance_850,257-81-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,253.09,In-Domain
+Test_Substance_851,749-35-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,471.62,In-Domain
+Test_Substance_852,476-34-1,Strong/Extreme Sensitizer (1A),Sub-category 1A,3.43,In-Domain
+Test_Substance_853,364-69-8,Non-Sensitizer (NC),Not Classified,636.8,In-Domain
+Test_Substance_854,186-93-0,Strong/Extreme Sensitizer (1A),Sub-category 1A,16.89,In-Domain
+Test_Substance_855,567-89-7,Strong/Extreme Sensitizer (1A),Sub-category 1A,49.43,Out-of-Domain (Expert Review)
+Test_Substance_856,586-29-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,226.98,In-Domain
+Test_Substance_857,862-56-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,143.58,In-Domain
+Test_Substance_858,358-35-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,341.39,In-Domain
+Test_Substance_859,775-32-7,Non-Sensitizer (NC),Not Classified,1234.86,In-Domain
+Test_Substance_860,748-42-2,Non-Sensitizer (NC),Not Classified,1001.36,In-Domain
+Test_Substance_861,86-35-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,80.68,In-Domain
+Test_Substance_862,894-96-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,21.08,In-Domain
+Test_Substance_863,734-55-7,Strong/Extreme Sensitizer (1A),Sub-category 1A,31.82,In-Domain
+Test_Substance_864,793-94-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,47.49,In-Domain
+Test_Substance_865,392-52-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,209.53,In-Domain
+Test_Substance_866,512-30-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,472.41,In-Domain
+Test_Substance_867,137-56-7,Strong/Extreme Sensitizer (1A),Sub-category 1A,16.09,In-Domain
+Test_Substance_868,396-15-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,23.91,Out-of-Domain (Expert Review)
+Test_Substance_869,345-54-0,Non-Sensitizer (NC),Not Classified,1118.66,In-Domain
+Test_Substance_870,450-37-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,13.44,In-Domain
+Test_Substance_871,380-47-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,16.29,In-Domain
+Test_Substance_872,552-33-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,29.45,In-Domain
+Test_Substance_873,798-44-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,297.78,In-Domain
+Test_Substance_874,540-98-1,Strong/Extreme Sensitizer (1A),Sub-category 1A,1.62,In-Domain
+Test_Substance_875,231-82-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,413.8,In-Domain
+Test_Substance_876,488-27-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,124.16,In-Domain
+Test_Substance_877,119-57-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,317.36,In-Domain
+Test_Substance_878,323-69-7,Non-Sensitizer (NC),Not Classified,1659.03,In-Domain
+Test_Substance_879,240-49-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,415.36,Out-of-Domain (Expert Review)
+Test_Substance_880,192-61-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,182.16,In-Domain
+Test_Substance_881,819-22-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,304.11,In-Domain
+Test_Substance_882,57-76-8,Non-Sensitizer (NC),Not Classified,1580.26,In-Domain
+Test_Substance_883,347-22-3,Strong/Extreme Sensitizer (1A),Sub-category 1A,0.55,In-Domain
+Test_Substance_884,122-61-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,353.73,In-Domain
+Test_Substance_885,857-73-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,234.87,In-Domain
+Test_Substance_886,246-98-1,Strong/Extreme Sensitizer (1A),Sub-category 1A,19.6,In-Domain
+Test_Substance_887,714-22-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,74.6,In-Domain
+Test_Substance_888,148-91-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,376.78,In-Domain
+Test_Substance_889,516-71-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,336.27,In-Domain
+Test_Substance_890,596-64-0,Non-Sensitizer (NC),Not Classified,1692.61,In-Domain
+Test_Substance_891,354-98-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,338.74,Out-of-Domain (Expert Review)
+Test_Substance_892,549-92-0,Strong/Extreme Sensitizer (1A),Sub-category 1A,12.8,In-Domain
+Test_Substance_893,595-45-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,436.43,In-Domain
+Test_Substance_894,175-34-6,Non-Sensitizer (NC),Not Classified,646.35,In-Domain
+Test_Substance_895,164-37-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,340.61,In-Domain
+Test_Substance_896,737-30-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,0.75,In-Domain
+Test_Substance_897,837-95-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,388.35,In-Domain
+Test_Substance_898,361-77-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,35.4,In-Domain
+Test_Substance_899,332-10-5,Non-Sensitizer (NC),Not Classified,753.37,Out-of-Domain (Expert Review)
+Test_Substance_900,347-42-1,Strong/Extreme Sensitizer (1A),Sub-category 1A,10.13,In-Domain
+Test_Substance_901,258-57-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,310.06,In-Domain
+Test_Substance_902,660-23-0,Non-Sensitizer (NC),Not Classified,1898.74,In-Domain
+Test_Substance_903,551-87-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,112.75,In-Domain
+Test_Substance_904,853-17-2,Strong/Extreme Sensitizer (1A),Sub-category 1A,48.09,In-Domain
+Test_Substance_905,537-70-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,438.58,In-Domain
+Test_Substance_906,285-87-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,489.1,In-Domain
+Test_Substance_907,753-34-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,8.79,In-Domain
+Test_Substance_908,406-87-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,20.14,In-Domain
+Test_Substance_909,806-31-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,236.87,In-Domain
+Test_Substance_910,322-89-6,Non-Sensitizer (NC),Not Classified,1779.88,In-Domain
+Test_Substance_911,439-90-6,Non-Sensitizer (NC),Not Classified,1269.36,In-Domain
+Test_Substance_912,868-46-7,Non-Sensitizer (NC),Not Classified,889.48,Out-of-Domain (Expert Review)
+Test_Substance_913,661-95-5,Moderate/Weak Sensitizer (1B),Sub-category 1B,437.95,In-Domain
+Test_Substance_914,658-27-6,Non-Sensitizer (NC),Not Classified,751.81,In-Domain
+Test_Substance_915,309-91-0,Non-Sensitizer (NC),Not Classified,1145.86,In-Domain
+Test_Substance_916,631-71-1,Non-Sensitizer (NC),Not Classified,665.99,Out-of-Domain (Expert Review)
+Test_Substance_917,62-65-1,Strong/Extreme Sensitizer (1A),Sub-category 1A,9.9,Out-of-Domain (Expert Review)
+Test_Substance_918,238-51-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,382.62,In-Domain
+Test_Substance_919,811-67-3,Non-Sensitizer (NC),Not Classified,1799.07,Out-of-Domain (Expert Review)
+Test_Substance_920,345-79-5,Non-Sensitizer (NC),Not Classified,1224.9,In-Domain
+Test_Substance_921,412-38-4,Non-Sensitizer (NC),Not Classified,1829.77,In-Domain
+Test_Substance_922,347-60-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,436.46,In-Domain
+Test_Substance_923,889-74-5,Non-Sensitizer (NC),Not Classified,1006.06,In-Domain
+Test_Substance_924,132-95-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,12.06,In-Domain
+Test_Substance_925,583-84-3,Strong/Extreme Sensitizer (1A),Sub-category 1A,21.16,In-Domain
+Test_Substance_926,592-39-1,Non-Sensitizer (NC),Not Classified,1606.14,In-Domain
+Test_Substance_927,256-65-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,15.25,In-Domain
+Test_Substance_928,531-44-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,177.7,In-Domain
+Test_Substance_929,370-60-0,Strong/Extreme Sensitizer (1A),Sub-category 1A,41.15,In-Domain
+Test_Substance_930,110-63-7,Strong/Extreme Sensitizer (1A),Sub-category 1A,43.05,In-Domain
+Test_Substance_931,753-52-0,Strong/Extreme Sensitizer (1A),Sub-category 1A,6.22,In-Domain
+Test_Substance_932,376-88-1,Non-Sensitizer (NC),Not Classified,1832.3,In-Domain
+Test_Substance_933,376-28-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,227.05,In-Domain
+Test_Substance_934,887-31-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,15.86,In-Domain
+Test_Substance_935,247-92-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,120.18,In-Domain
+Test_Substance_936,510-16-0,Strong/Extreme Sensitizer (1A),Sub-category 1A,9.71,In-Domain
+Test_Substance_937,234-78-1,Strong/Extreme Sensitizer (1A),Sub-category 1A,9.37,In-Domain
+Test_Substance_938,680-89-2,Non-Sensitizer (NC),Not Classified,663.11,In-Domain
+Test_Substance_939,218-50-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,136.49,In-Domain
+Test_Substance_940,92-16-8,Non-Sensitizer (NC),Not Classified,1738.93,In-Domain
+Test_Substance_941,152-19-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,191.24,In-Domain
+Test_Substance_942,258-83-2,Non-Sensitizer (NC),Not Classified,1533.25,In-Domain
+Test_Substance_943,105-89-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,15.34,In-Domain
+Test_Substance_944,881-68-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,391.71,In-Domain
+Test_Substance_945,62-24-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,220.26,In-Domain
+Test_Substance_946,764-83-8,Moderate/Weak Sensitizer (1B),Sub-category 1B,61.5,In-Domain
+Test_Substance_947,478-97-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,158.44,In-Domain
+Test_Substance_948,874-11-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,27.43,In-Domain
+Test_Substance_949,322-59-7,Strong/Extreme Sensitizer (1A),Sub-category 1A,40.71,In-Domain
+Test_Substance_950,201-83-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,158.17,In-Domain
+Test_Substance_951,131-26-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,8.73,In-Domain
+Test_Substance_952,453-56-8,Non-Sensitizer (NC),Not Classified,672.45,Out-of-Domain (Expert Review)
+Test_Substance_953,296-28-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,274.69,In-Domain
+Test_Substance_954,482-91-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,361.17,In-Domain
+Test_Substance_955,637-58-7,Strong/Extreme Sensitizer (1A),Sub-category 1A,45.9,In-Domain
+Test_Substance_956,404-81-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,245.22,In-Domain
+Test_Substance_957,457-70-5,Non-Sensitizer (NC),Not Classified,1402.12,In-Domain
+Test_Substance_958,513-25-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,73.16,In-Domain
+Test_Substance_959,385-80-8,Non-Sensitizer (NC),Not Classified,1035.54,In-Domain
+Test_Substance_960,210-35-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,6.09,In-Domain
+Test_Substance_961,814-35-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,147.29,In-Domain
+Test_Substance_962,605-42-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,263.85,In-Domain
+Test_Substance_963,865-49-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,350.06,In-Domain
+Test_Substance_964,386-57-1,Strong/Extreme Sensitizer (1A),Sub-category 1A,18.22,In-Domain
+Test_Substance_965,317-49-1,Strong/Extreme Sensitizer (1A),Sub-category 1A,36.54,In-Domain
+Test_Substance_966,605-15-3,Non-Sensitizer (NC),Not Classified,1127.49,In-Domain
+Test_Substance_967,783-60-7,Strong/Extreme Sensitizer (1A),Sub-category 1A,16.73,In-Domain
+Test_Substance_968,204-62-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,434.56,In-Domain
+Test_Substance_969,241-12-4,Non-Sensitizer (NC),Not Classified,1771.34,In-Domain
+Test_Substance_970,142-79-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,290.95,In-Domain
+Test_Substance_971,471-81-7,Moderate/Weak Sensitizer (1B),Sub-category 1B,386.63,In-Domain
+Test_Substance_972,827-21-5,Non-Sensitizer (NC),Not Classified,959.47,In-Domain
+Test_Substance_973,683-26-0,Moderate/Weak Sensitizer (1B),Sub-category 1B,166.58,Out-of-Domain (Expert Review)
+Test_Substance_974,565-51-1,Non-Sensitizer (NC),Not Classified,1717.38,In-Domain
+Test_Substance_975,246-28-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,327.78,In-Domain
+Test_Substance_976,686-60-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,36.2,In-Domain
+Test_Substance_977,700-62-3,Moderate/Weak Sensitizer (1B),Sub-category 1B,270.45,In-Domain
+Test_Substance_978,526-85-5,Strong/Extreme Sensitizer (1A),Sub-category 1A,40.36,In-Domain
+Test_Substance_979,527-48-3,Non-Sensitizer (NC),Not Classified,1707.69,In-Domain
+Test_Substance_980,471-47-5,Non-Sensitizer (NC),Not Classified,1253.61,In-Domain
+Test_Substance_981,495-15-0,Non-Sensitizer (NC),Not Classified,974.06,In-Domain
+Test_Substance_982,169-81-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,78.49,In-Domain
+Test_Substance_983,850-68-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,326.42,In-Domain
+Test_Substance_984,865-51-8,Strong/Extreme Sensitizer (1A),Sub-category 1A,5.75,In-Domain
+Test_Substance_985,892-32-1,Non-Sensitizer (NC),Not Classified,593.01,In-Domain
+Test_Substance_986,848-73-6,Moderate/Weak Sensitizer (1B),Sub-category 1B,241.29,In-Domain
+Test_Substance_987,278-93-2,Moderate/Weak Sensitizer (1B),Sub-category 1B,429.81,In-Domain
+Test_Substance_988,815-97-7,Non-Sensitizer (NC),Not Classified,1019.36,In-Domain
+Test_Substance_989,485-58-1,Strong/Extreme Sensitizer (1A),Sub-category 1A,18.66,In-Domain
+Test_Substance_990,857-98-3,Non-Sensitizer (NC),Not Classified,1797.62,In-Domain
+Test_Substance_991,328-63-0,Non-Sensitizer (NC),Not Classified,1527.79,In-Domain
+Test_Substance_992,579-66-4,Strong/Extreme Sensitizer (1A),Sub-category 1A,21.25,In-Domain
+Test_Substance_993,308-67-1,Strong/Extreme Sensitizer (1A),Sub-category 1A,3.66,In-Domain
+Test_Substance_994,307-16-7,Strong/Extreme Sensitizer (1A),Sub-category 1A,48.2,In-Domain
+Test_Substance_995,378-41-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,65.94,In-Domain
+Test_Substance_996,218-62-1,Moderate/Weak Sensitizer (1B),Sub-category 1B,136.46,In-Domain
+Test_Substance_997,465-24-3,Non-Sensitizer (NC),Not Classified,1214.54,In-Domain
+Test_Substance_998,75-70-4,Non-Sensitizer (NC),Not Classified,1211.29,In-Domain
+Test_Substance_999,268-49-6,Non-Sensitizer (NC),Not Classified,1175.47,In-Domain
+Test_Substance_1000,665-89-4,Non-Sensitizer (NC),Not Classified,1012.86,In-Domain
+Test_Substance_1001,305-18-4,Moderate/Weak Sensitizer (1B),Sub-category 1B,54.05,In-Domain
