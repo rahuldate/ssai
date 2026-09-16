@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  skin-sensitizer-ai:
+    build: .
+    container_name: skin_sensitizer_ai_app
+    ports:
+      - "8501:8501"
+    restart: unless-stopped
+    environment:
+      - STREAMLIT_SERVER_HEADLESS=true
+      - STREAMLIT_SERVER_ENABLE_CORS=false
+      - STREAMLIT_SERVER_ENABLE_XSRF_PROTECTION=true
+    volumes:
+      - ./:/app
