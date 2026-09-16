@@ -189,7 +189,8 @@ if app_mode == "📊 Validation & Benchmarks":
         st.success("""**Applicability Domain & Quality Metrics:**
 * High Confidence In-Domain: 674 (94.4%)
 * Structural Alert Flagged (Pro-haptens): 184 (25.8%)
-* Out-of-Domain / Flagged for Expert Review: 40 (5.6%)""")st.stop()
+* Out-of-Domain / Flagged for Expert Review: 40 (5.6%)""")
+    st.stop()
 
 st.markdown("""
 <style>
