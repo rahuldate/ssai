@@ -167,14 +167,14 @@ High lipophilicity and low molecular weight favor rapid skin penetration.""")
             chk_b = st.checkbox("DA consensus confirmed", value=True, key="chk_b_v5")
             st.markdown("---")
             if st.button("🔒 Certify & Lock Dossier", key="btn_certify_v5"):
-        st.success("✅ Dossier successfully certified and locked!")
+                st.success("✅ Dossier successfully certified and locked!")
                 payload_text = "Dossier Certified"
                 st.download_button(
-                    "📥 Download Audit Certificate",
-                    data=payload_text.encode("utf-8"),
-                    file_name="Audit_Certificate.txt",
-                    mime="text/plain",
-                    key="dl_cert_v5"
+                "📥 Download Audit Certificate",
+                data=payload_text.encode("utf-8"),
+                file_name="Audit_Certificate.txt",
+                mime="text/plain",
+                key="dl_cert_v5"
                 )
         st.markdown("#### Autonomous AI Agent Hub")
         st.markdown("Live execution trace from multi-agent reasoning loops verifying chemical reactivity and regulatory conformity.")
