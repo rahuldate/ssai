@@ -214,15 +214,24 @@ High lipophilicity and low molecular weight favor rapid skin penetration.""")
                 st.markdown(f"**Final Disposition**: {expert_classification}")
                 st.markdown(f"**Assigned Tier**: {risk_tier}")
                 
-                certificate_payload = f"SSai Regulatory Certification Dossier\nReviewer: {reviewer_name}\nDisposition: {expert_classification}\nRisk Tier: {risk_tier}\nRationale: {expert_notes}\nStatus: LOCKED & VERIFIED".encode("utf-8")
-Reviewer: {reviewer_name}
-Disposition: {expert_classification}
-Risk Tier: {risk_tier}
-Rationale: {expert_notes}
-Status: LOCKED & VERIFIED".encode("utf-8")
+                certificate_payload = (
+                    f"SSai Regulatory Certification Dossier\n"
+                    f"Reviewer: {reviewer_name}\n"
+                    f"Disposition: {expert_classification}\n"
+                    f"Risk Tier: {risk_tier}\n"
+                    f"Rationale: {expert_notes}\n"
+                    f"Status: LOCKED & VERIFIED"
+                ).encode("utf-8")
                 st.download_button(
                     "📥 Download Cryptographic Audit Certificate",
-                certificate_payload = f"SSai Regulatory Certification Dossier\nReviewer: {reviewer_name}\nDisposition: {expert_classification}\nRisk Tier: {risk_tier}\nRationale: {expert_notes}\nStatus: LOCKED & VERIFIED".encode("utf-8")
+                certificate_payload = (
+                    f"SSai Regulatory Certification Dossier\n"
+                    f"Reviewer: {reviewer_name}\n"
+                    f"Disposition: {expert_classification}\n"
+                    f"Risk Tier: {risk_tier}\n"
+                    f"Rationale: {expert_notes}\n"
+                    f"Status: LOCKED & VERIFIED"
+                ).encode("utf-8")
                     file_name="SSai_Certified_Regulatory_Dossier.txt",
                     mime="text/plain",
                     key="download_signed_cert_btn"
