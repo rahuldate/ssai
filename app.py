@@ -73,12 +73,14 @@ try:
     
     sara_res = compute_sara_ice_pod(dpra_val, k_val, lumo_val)
     
-    sc1, sc2, sc3, sc4, sc5 = st.columns(5)
-    sc1.metric("Calculated LUMO", f"{lumo_val} eV")
-    sc2.metric("Electrophilicity (ω)", q_res_main.get("Electrophilicity Index (omega)", "0.73"))
-    sc3.metric("Estimated ED01", f"{sara_res['Estimated ED01 (ug/cm2)']} µg/cm²")
-    sc4.metric("GHS Sub-category", sara_res['GHS Hazard Sub-category'].split()[0] + " " + sara_res['GHS Hazard Sub-category'].split()[1])
-    sc5.metric("95% Uncertainty", sara_res['Uncertainty Bound (95% CI)'])
+    # Use wider columns or custom styled info boxes for optimal readability
+    c1, c2, c3 = st.columns(3)
+    with c1:
+        st.metric("Calculated LUMO & Electrophilicity", f"{lumo_val} eV", f"ω: {q_res_main.get('Electrophilicity Index (omega)', '0.73')}")
+    with c2:
+        st.metric("Estimated ED01 (PoD)", f"{sara_res['Estimated ED01 (ug/cm2)']} µg/cm²", sara_res['Potency Tier'])
+    with c3:
+        st.metric("GHS Hazard Sub-category", sara_res['GHS Hazard Sub-category'], f"95% CI: {sara_res['Uncertainty Bound (95% CI)']}")
 except Exception as e:
     st.error(f"SARA-ICE Dashboard Error: {e}")
 st.markdown("---")
