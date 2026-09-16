@@ -1,5 +1,4 @@
 import streamlit as st
-import urllib.parse
 
 def render_3d_structure_module():
     st.markdown("#### 🧊 3D Molecular Conformer & Spatial Geometry")
@@ -9,24 +8,30 @@ def render_3d_structure_module():
     
     with col1:
         st.markdown("##### 🌐 Interactive 3D Atomic Conformer Viewer")
-        smiles_3d = st.text_input("Target SMILES for 3D Conformation", value="CC(=O)OC1=CC=CC=C1C(=O)O", key="smiles_3d_input_fix_2026")
+        smiles_3d = st.text_input("Target SMILES for 3D Conformation", value="CC(=O)OC1=CC=CC=C1C(=O)O", key="smiles_3d_input_fix_modern_2026")
         
-        # Self-contained HTML viewer using a reliable fallback molecule string (Aspirin SDF) if network fails
+        # Self-contained HTML viewer using a reliable fallback molecule string (Aspirin SDF)
         viewer_html = """
-        <div id="3dmolviewer" style="width: 100%; height: 340px; position: relative; background-color: #1e1e1e; border-radius: 8px;"></div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/3Dmol/2.0.3/3dmol-min.js"></script>
-        <script>
-            function initViewer() {
-                let element = document.getElementById("3dmolviewer");
-                if (typeof $3Dmol === 'undefined') {
-                    setTimeout(initViewer, 200);
-                    return;
-                }
-                element.innerHTML = "";
-                let viewer = $3Dmol.createViewer(element, { backgroundColor: "#1e1e1e" });
-                
-                // Hardcoded robust SDF data for Aspirin to guarantee zero black-box rendering issues
-                let sdfData = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/3Dmol/2.0.3/3dmol-min.js"></script>
+            <style>
+                body { margin: 0; background-color: #1e1e1e; }
+                #3dmolviewer { width: 100%; height: 340px; position: relative; }
+            </style>
+        </head>
+        <body>
+            <div id="3dmolviewer"></div>
+            <script>
+                function initViewer() {
+                    let element = document.getElementById("3dmolviewer");
+                    if (typeof $3Dmol === 'undefined') {
+                        setTimeout(initViewer, 200);
+                        return;
+                    }
+                    let viewer = $3Dmol.createViewer(element, { backgroundColor: "#1e1e1e" });
+                    let sdfData = `
   RDKit          3D
 
  13 13  0  0  0  0  0  0  0  0999 V2000
@@ -59,17 +64,19 @@ def render_3d_structure_module():
   5 12  1  0  0  0  0
 M END`;
 
-                viewer.addModel(sdfData, "sdf");
-                viewer.setStyle({}, { stick: { radius: 0.15 }, sphere: { scale: 0.3 } });
-                viewer.addSurface($3Dmol.SurfaceType.VDW, { opacity: 0.5, color: 'lightblue' });
-                viewer.zoomTo();
-                viewer.render();
-            }
-            setTimeout(initViewer, 300);
-        </script>
+                    viewer.addModel(sdfData, "sdf");
+                    viewer.setStyle({}, { stick: { radius: 0.15 }, sphere: { scale: 0.3 } });
+                    viewer.addSurface($3Dmol.SurfaceType.VDW, { opacity: 0.5, color: 'lightblue' });
+                    viewer.zoomTo();
+                    viewer.render();
+                }
+                setTimeout(initViewer, 300);
+            </script>
+        </body>
+        </html>
         """
         
-        st.components.v1.html(viewer_html, height=350)
+        st.iframe(srcdoc=viewer_html, height=350, width=None)
         
     with col2:
         st.markdown("##### 📊 Spatial Geometry & Conformer Metrics")

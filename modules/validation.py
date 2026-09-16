@@ -67,5 +67,5 @@ def render_validation_module():
     else:
         filtered_df = df_1001
 
-    st.dataframe(filtered_df, use_container_width=True, height=380)
+    st.dataframe(filtered_df, width="stretch", height=380)
     st.caption(f"Showing {len(filtered_df)} of 1,001 registered benchmark compounds.")
