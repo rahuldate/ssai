@@ -186,7 +186,7 @@ st.code("""[INFO] Chemist Agent: Electrophilic warhead confirmed (Michael accept
 
 # Validation & Benchmarks Module
 # Validation & Benchmarks Module
-    st.markdown("Rigorous statistical validation, cross-validation metrics, and external benchmark comparisons against OECD 497 reference datasets.")
+st.markdown("#### 📊 Validation & Benchmarks")
     
     v_col1, v_col2 = st.columns(2, gap="medium")
     
