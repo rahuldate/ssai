@@ -2,10 +2,11 @@ import streamlit as st
 from modules.validation import render_validation_module
 from modules.adme import render_adme_module
 from modules.aop import render_aop_module
+from modules.skin_models import render_skin_models_module
 from modules.batch import render_batch_module
 from modules.agents import render_agent_hub_module
 from modules.hitl import render_hitl_module
-from modules.skin_models import render_skin_models_module
+from modules.qra import render_qra_module
 
 st.set_page_config(page_title="Skin Sensitizer AI - Enterprise Platform", layout="wide")
 
@@ -17,6 +18,7 @@ tab_names = [
     "⚡ ADME & Profiling", 
     "🔬 AOP Pathways", 
     "🧫 3D Skin Models",
+    "🛡️ QRA & NESL",
     "📊 Batch Screening", 
     "🤖 Agent Hub", 
     "✍️ HITL Review",
@@ -34,13 +36,16 @@ with tabs[2]:
     render_skin_models_module()
 
 with tabs[3]:
-    render_batch_module()
+    render_qra_module()
 
 with tabs[4]:
-    render_agent_hub_module()
+    render_batch_module()
 
 with tabs[5]:
-    render_hitl_module()
+    render_agent_hub_module()
 
 with tabs[6]:
+    render_hitl_module()
+
+with tabs[7]:
     render_validation_module()
