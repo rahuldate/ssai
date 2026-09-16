@@ -8,13 +8,14 @@ from modules.batch import render_batch_module
 from modules.agents import render_agent_hub_module
 from modules.hitl import render_hitl_module
 from modules.validation import render_validation_module
+from modules.export import render_export_module
 
 st.set_page_config(page_title="Skin Sensitizer AI - Enterprise Platform", layout="wide")
 
 st.title("🧬 Skin Sensitizer AI - Enterprise Platform")
 st.markdown("OECD 497 Defined Approach & Quantitative Risk Assessment (QRA) Engine.")
 
-# Navigation Tabs - Complete Enterprise Suite
+# Navigation Tabs - Complete Enterprise Suite + Export
 tab_names = [
     "🧬 Molecular Intelligence",
     "⚡ ADME & Profiling", 
@@ -24,7 +25,8 @@ tab_names = [
     "📊 Batch Screening", 
     "🤖 Agent Hub", 
     "✍️ HITL Review",
-    "📈 Validation & Benchmarks"
+    "📈 Validation",
+    "📦 Dossier Export"
 ]
 tabs = st.tabs(tab_names)
 
@@ -54,3 +56,6 @@ with tabs[7]:
 
 with tabs[8]:
     render_validation_module()
+
+with tabs[9]:
+    render_export_module()
