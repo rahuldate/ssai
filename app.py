@@ -63,6 +63,9 @@ st.markdown(f'<p class="sub-title">OECD 497 Defined Approach & Enterprise Toxico
 # --- SARA-ICE POD & QUANTUM QSAR MAIN DASHBOARD VIEW ---
 st.markdown("### 🔬 SARA-ICE Point of Departure (PoD) & 3D Quantum Intelligence")
 try:
+    mol_main = Chem.MolFromSmiles(active_smiles) if active_smiles else None
+    is_reactive = active_smiles and ("O=CC=Cc1ccccc1" in active_smiles or "O=C" in active_smiles or "Nc1ccc(N)cc1" in active_smiles)
+    
     q_res_main = compute_true_3d_quantum_properties(active_smiles)
     dpra_val = 85.0 if is_reactive else 5.0
     k_val = 50.0 if is_reactive else 2500.0
@@ -78,7 +81,6 @@ try:
     sc5.metric("95% Uncertainty", sara_res['Uncertainty Bound (95% CI)'])
 except Exception as e:
     st.error(f"SARA-ICE Dashboard Error: {e}")
-
 st.markdown("---")
 
 
