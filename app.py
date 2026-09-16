@@ -4,6 +4,7 @@ from modules.adme import render_adme_module
 from modules.aop import render_aop_module
 from modules.batch import render_batch_module
 from modules.agents import render_agent_hub_module
+from modules.hitl import render_hitl_module
 
 st.set_page_config(page_title="Skin Sensitizer AI - Enterprise Platform", layout="wide")
 
@@ -16,6 +17,7 @@ tab_names = [
     "🔬 AOP Pathways", 
     "📊 Batch Screening", 
     "🤖 Agent Hub", 
+    "✍️ HITL Review",
     "📈 Validation & Benchmarks"
 ]
 tabs = st.tabs(tab_names)
@@ -33,4 +35,7 @@ with tabs[3]:
     render_agent_hub_module()
 
 with tabs[4]:
+    render_hitl_module()
+
+with tabs[5]:
     render_validation_module()
