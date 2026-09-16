@@ -71,16 +71,11 @@ if app_mode == "🔬 Assessment Dashboard":
     st.markdown("### 🔬 SARA-ICE Point of Departure (PoD) & 3D Quantum Intelligence")
     col1, col2, col3 = st.columns(3)
     with col1:
-        st.markdown("**3D QUANTUM DESCRIPTORS** - LUMO: -1.42 eV
-Electrophilicity (ω): 0.73")
+        st.markdown("**3D QUANTUM DESCRIPTORS**<br>LUMO: -1.42 eV<br>Electrophilicity (ω): 0.73", unsafe_allow_html=True)
     with col2:
-        st.markdown("**SARA-ICE PoD (ED01)**
-0.41 µg/cm²
-Tier: High Potency")
+        st.markdown("**SARA-ICE PoD (ED01)**<br>0.41 µg/cm²<br>Tier: High Potency", unsafe_allow_html=True)
     with col3:
-        st.markdown("**GHS HAZARD SUB-CATEGORY** - Sub-category 1A (Strong/Moderate Sensitizer)
-95% CI: [± 0.07 ug/cm2]")
-
+        st.markdown("**GHS HAZARD SUB-CATEGORY**<br>Sub-category 1A<br>95% CI: [± 0.07 ug/cm2]", unsafe_allow_html=True)
     st.markdown("---")
     st.markdown("### 🗂️ Advanced Enterprise Intelligence Modules (Auxiliary Tabs)")
     
