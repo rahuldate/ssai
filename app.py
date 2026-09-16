@@ -102,7 +102,7 @@ if app_mode == "📊 Validation & Benchmarks":
             
     
             st.markdown("### 📋 Enterprise Validation Suite: Full 714 Screened Compounds Dataset")
-    st.markdown("Comprehensive statistical evaluation and hazard category distribution across the complete high-throughput screening library (n = 714 compounds).")
+    st.markdown("Comprehensive statistical evaluation and hazard category distribution across the complete high-throughput screening library (n = {total_count} compounds).")
     
     full_df = load_dynamic_714_library()
     total_count = len(full_df)
