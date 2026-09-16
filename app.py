@@ -24,20 +24,23 @@ with st.sidebar:
 
 DB_FILE = "screened_compounds_db.csv"
 
-# --- VIEW 1: ASSESSMENT DASHBOARD ---
+# --- VIEW 1: ASSESSMENT DASHBOARD (Reordered) ---
 if app_mode == "🔬 Assessment Dashboard":
     st.markdown("## 🧬 Skin Sensitizer AI (SSai)")
     st.markdown("OECD 497 Defined Approach & Enterprise Toxicology Suite | Active Target: Cinnamaldehyde (`O=CC=Cc1ccccc1`)")
 
-    st.markdown("### 🔬 SARA-ICE Point of Departure (PoD) & 3D Quantum Intelligence")
-    col1, col2, col3 = st.columns(3)
-    with col1:
-        st.markdown("**3D QUANTUM DESCRIPTORS**\nLUMO: -1.42 eV\nElectrophilicity (ω): 0.73")
-    with col2:
-        st.markdown("**SARA-ICE PoD (ED01)**\n0.41 µg/cm²\nTier: High Potency")
-    with col3:
-        st.markdown("**GHS HAZARD SUB-CATEGORY**\nSub-category 1A (Strong/Moderate Sensitizer)\n95% CI: [± 0.07 ug/cm2]")
+    # 1. OECD 497 Defined Approach & Physicochemical Profiling
+    st.markdown("### 🧬 OECD 497 Defined Approach & Physicochemical Profiling")
+    p_col1, p_col2, p_col3, p_col4 = st.columns(4)
+    p_col1.metric("Molecular Weight", "132.2 g/mol")
+    p_col2.metric("Crippen LogP", "1.90")
+    p_col3.metric("TPSA", "17.1 Å²")
+    p_col4.metric("Predicted LLNA EC3", "0.5%")
+    st.warning("⚠️ Structural Alert Triggered: Reactive electrophilic substructure match detected.")
 
+    st.markdown("---")
+
+    # 2. Dynamic Autonomous Multi-Agent Expert Panel
     st.markdown("### 🤖 Dynamic Autonomous Multi-Agent Expert Panel")
     st.text_input("Enter Analysis Query / Focus", value="Evaluate skin sensitization mechanism, protein binding, and safety margins for Cinnamaldehyde.")
 
@@ -54,13 +57,16 @@ if app_mode == "🔬 Assessment Dashboard":
         st.markdown(f"**{title}**\n{desc}")
 
     st.markdown("---")
-    st.markdown("### 🧬 OECD 497 Defined Approach & Physicochemical Profiling")
-    p_col1, p_col2, p_col3, p_col4 = st.columns(4)
-    p_col1.metric("Molecular Weight", "132.2 g/mol")
-    p_col2.metric("Crippen LogP", "1.90")
-    p_col3.metric("TPSA", "17.1 Å²")
-    p_col4.metric("Predicted LLNA EC3", "0.5%")
-    st.warning("⚠️ Structural Alert Triggered: Reactive electrophilic substructure match detected.")
+
+    # 3. SARA-ICE Point of Departure (PoD) & 3D Quantum Intelligence
+    st.markdown("### 🔬 SARA-ICE Point of Departure (PoD) & 3D Quantum Intelligence")
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.markdown("**3D QUANTUM DESCRIPTORS**\nLUMO: -1.42 eV\nElectrophilicity (ω): 0.73")
+    with col2:
+        st.markdown("**SARA-ICE PoD (ED01)**\n0.41 µg/cm²\nTier: High Potency")
+    with col3:
+        st.markdown("**GHS HAZARD SUB-CATEGORY**\nSub-category 1A (Strong/Moderate Sensitizer)\n95% CI: [± 0.07 ug/cm2]")
 
 # --- VIEW 2: VALIDATION & BENCHMARKS ---
 elif app_mode == "📊 Validation & Benchmarks":
