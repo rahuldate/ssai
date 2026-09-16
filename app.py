@@ -81,16 +81,15 @@ if app_mode == "🔬 Assessment Dashboard":
     st.markdown("Comprehensive auxiliary analytics, batch screening pipelines, and regulatory compliance workflows.")
     
     tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9 = st.tabs([
-        "🧪 Physicochemical", 
-        "📁 Batch CSV Processing", 
-        "⚛️ 3D Quantum & 2-out-of-3", 
-        "💧 Skin Flux (Kp)", 
-        "📊 Bayesian WoE", 
-        "🛡️ QRA & NESL", 
-        "✍️ HITL Review", 
-        "🤖 AI Agent Hub", 
-        "📑 Dossier Export"
-    ])
+    "🧬 Molecular & Structural Intelligence",
+    "🔬 Mechanistic & AOP Pathways",
+    "⚡ ADME & Physicochemical Profiling",
+    "📉 Predictive Toxicity (QSAR / SARA)",
+    "🧪 In-Vitro & Assay Matrix",
+    "🛡️ QRA & NESL Safety Thresholds",
+    "✍️ Human-in-the-Loop (HITL) Review",
+    "🤖 Autonomous Agent Hub"
+])
 
     with tab1:
         st.markdown("#### Physicochemical Parameter Breakdown")
@@ -183,62 +182,3 @@ High lipophilicity and low molecular weight favor rapid skin penetration.""")
 [INFO] Read-Across: 4 structural homologs matched in reference database.
 [INFO] QRA Agent: NESL safety margins verified across all IFRA categories.""")
 
-    with tab9:
-        st.markdown("#### 📑 Regulatory Dossier Export Center")
-        st.markdown("Generate, format, and download audit-ready regulatory submission packages conforming to OECD QMRF and QPRF standards.")
-        
-        e_col1, e_col2 = st.columns([1.1, 0.9], gap="medium")
-        with e_col1:
-            st.markdown("##### 📦 Export Configuration")
-            export_format = st.selectbox(
-                "Select Submission Format",
-                [
-                    "OECD QPRF HTML Package (Interactive)",
-                    "OECD QMRF PDF Summary Dossier",
-                    "Complete JSON Audit Payload (Raw API)",
-                    "IFRA Compliance & NESL Certificate (CSV)"
-                ],
-                key="export_format_select_v6"
-            )
-            
-            include_hitl = st.checkbox("Include Expert Toxicologist Review & Sign-Off Notes", value=True, key="exp_inc_hitl_v6")
-            include_quantum = st.checkbox("Include 3D Quantum Intelligence & SARA-ICE PoD Data", value=True, key="exp_inc_quantum_v6")
-            include_woe = st.checkbox("Include Bayesian Weight of Evidence (WoE) Breakdown", value=True, key="exp_inc_woe_v6")
-            include_qra = st.checkbox("Include Quantitative Risk Assessment (QRA) NESL Summary", value=True, key="exp_inc_qra_v6")
-            
-            dossier_title = st.text_input("Dossier Reference ID", value="SSai-QPRF-2026-0916-A", key="exp_ref_id_v6")
-
-        with e_col2:
-            st.markdown("##### 🚀 Package Generation & Preview")
-            st.info(f"Ready to compile **{export_format}** incorporating active model metrics and QRA limits.")
-            
-            if include_qra:
-                qra_html = (
-                    "<div style='background-color: #f8f9fa; padding: 12px; border-radius: 6px; border: 1px solid #e9ecef; font-size: 13px; margin-bottom: 15px;'>"
-                    "<b>Quantitative Risk Assessment (QRA) Summary</b><br>"
-                    "Acceptable Exposure Levels (NESL) by Product Category:<br>"
-                    "• <b>Category 1 (Lip products)</b>: Compliant at max 0.05%<br>"
-                    "• <b>Category 2 (Deodorant/Fragrance)</b>: Compliant at max 0.10%<br>"
-                    "• <b>Category 5A (Creams/Lotions)</b>: Compliant at max 0.25%"
-                    "</div>"
-                )
-                st.markdown(qra_html, unsafe_allow_html=True)
-            
-            export_filename = "SSai_Regulatory_Dossier.html" if "HTML" in export_format else ("SSai_QMRF_Dossier.pdf" if "PDF" in export_format else "SSai_Audit_Payload.json")
-            mime_type = "text/html" if "HTML" in export_format else ("application/pdf" if "PDF" in export_format else "application/json")
-            
-            pkg_text = f"""=== SSai ENTERPRISE TOXICOLOGY DOSSIER ===
-Reference ID: {dossier_title}
-Format: {export_format}
-QRA NESL Limits Included
-Status: VERIFIED & COMPLIANT"""
-            package_content = pkg_text.encode("utf-8")
-            
-            st.markdown("---")
-            st.download_button(
-                label=f"📥 Download {export_format.split()[0]} Package",
-                data=package_content,
-                file_name=export_filename,
-                mime=mime_type,
-                key="btn_download_dossier_v6"
-            )
