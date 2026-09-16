@@ -165,7 +165,7 @@ if app_mode == "📊 Validation & Benchmarks":
     total_count = len(full_df)
     
     col_a, col_b, col_c, col_d = st.columns(4)
-    col_a.metric("Total Screened (1,001)", f"{total_count:,} Compounds", "Dynamic Enterprise DB")
+    col_a.metric("Total Screened", f"{total_count:,} Compounds", "Dynamic Enterprise DB")
     col_b.metric("Overall Accuracy", "91.8%", "NICEATM Benchmark")
     col_c.metric("Applicability Domain Coverage", "94.4%", "In-Domain Rate")
     col_d.metric("False Discovery Rate", "4.1%", "Optimized Threshold")
