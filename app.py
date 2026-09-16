@@ -198,30 +198,29 @@ High lipophilicity and low molecular weight favor rapid skin penetration.""")
                     "Complete JSON Audit Payload (Raw API)",
                     "IFRA Compliance & NESL Certificate (CSV)"
                 ],
-                key="export_format_select_v2"
+                key="export_format_select_v3"
             )
             
-            include_hitl = st.checkbox("Include Expert Toxicologist Review & Sign-Off Notes", value=True, key="exp_inc_hitl_v2")
-            include_quantum = st.checkbox("Include 3D Quantum Intelligence & SARA-ICE PoD Data", value=True, key="exp_inc_quantum_v2")
-            include_woe = st.checkbox("Include Bayesian Weight of Evidence (WoE) Breakdown", value=True, key="exp_inc_woe_v2")
-            include_qra = st.checkbox("Include Quantitative Risk Assessment (QRA) NESL Summary", value=True, key="exp_inc_qra_v2")
+            include_hitl = st.checkbox("Include Expert Toxicologist Review & Sign-Off Notes", value=True, key="exp_inc_hitl_v3")
+            include_quantum = st.checkbox("Include 3D Quantum Intelligence & SARA-ICE PoD Data", value=True, key="exp_inc_quantum_v3")
+            include_woe = st.checkbox("Include Bayesian Weight of Evidence (WoE) Breakdown", value=True, key="exp_inc_woe_v3")
+            include_qra = st.checkbox("Include Quantitative Risk Assessment (QRA) NESL Summary", value=True, key="exp_inc_qra_v3")
             
-            dossier_title = st.text_input("Dossier Reference ID", value="SSai-QPRF-2026-0916-A", key="exp_ref_id_v2")
+            dossier_title = st.text_input("Dossier Reference ID", value="SSai-QPRF-2026-0916-A", key="exp_ref_id_v3")
 
         with e_col2:
             st.markdown("##### 🚀 Package Generation & Preview")
-            st.info(f"Ready to compile **{export_format}** incorporating all active model metrics, agent logs, and QRA limits.")
+            st.info(f"Ready to compile **{export_format}** incorporating active model metrics and QRA limits.")
             
-            # Embedded QRA Preview Box
-                        if include_qra:
+            if include_qra:
                 qra_html = (
-                "<div style='background-color: #f8f9fa; padding: 12px; border-radius: 6px; border: 1px solid #e9ecef; font-size: 13px; margin-bottom: 15px;'>"
-                "<b>Quantitative Risk Assessment (QRA) Summary</b><br>"
-                "Acceptable Exposure Levels (NESL) by Product Category:<br>"
-                "• <b>Category 1 (Lip products)</b>: Compliant at max 0.05%<br>"
-                "• <b>Category 2 (Deodorant/Fragrance)</b>: Compliant at max 0.10%<br>"
-                "• <b>Category 5A (Creams/Lotions)</b>: Compliant at max 0.25%"
-                "</div>"
+                    "<div style='background-color: #f8f9fa; padding: 12px; border-radius: 6px; border: 1px solid #e9ecef; font-size: 13px; margin-bottom: 15px;'>"
+                    "<b>Quantitative Risk Assessment (QRA) Summary</b><br>"
+                    "Acceptable Exposure Levels (NESL) by Product Category:<br>"
+                    "• <b>Category 1 (Lip products)</b>: Compliant at max 0.05%<br>"
+                    "• <b>Category 2 (Deodorant/Fragrance)</b>: Compliant at max 0.10%<br>"
+                    "• <b>Category 5A (Creams/Lotions)</b>: Compliant at max 0.25%"
+                    "</div>"
                 )
                 st.markdown(qra_html, unsafe_allow_html=True)
             
@@ -240,5 +239,5 @@ Status: VERIFIED & COMPLIANT".encode("utf-8")
                 data=package_content,
                 file_name=export_filename,
                 mime=mime_type,
-                key="btn_download_dossier_v3"
+                key="btn_download_dossier_v4"
             )
