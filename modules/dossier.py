@@ -1,6 +1,69 @@
 import streamlit as st
 import pandas as pd
 import datetime
+import io
+
+from reportlab.lib.pagesizes import letter
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
+from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+from reportlab.lib import colors
+
+def generate_pdf_report(title, target, assessor, framework, body_text):
+    buffer = io.BytesIO()
+    doc = SimpleDocTemplate(buffer, pagesize=letter, rightMargin=36, leftMargin=36, topMargin=36, bottomMargin=36)
+    story = []
+    
+    styles = getSampleStyleSheet()
+    title_style = ParagraphStyle(
+        'ReportTitle',
+        parent=styles['Heading1'],
+        fontName='Helvetica-Bold',
+        fontSize=18,
+        textColor=colors.HexColor('#0d6efd'),
+        spaceAfter=10
+    )
+    heading_style = ParagraphStyle(
+        'SectionHeading',
+        parent=styles['Heading2'],
+        fontName='Helvetica-Bold',
+        fontSize=12,
+        textColor=colors.HexColor('#212529'),
+        spaceBefore=12,
+        spaceAfter=6
+    )
+    body_style = ParagraphStyle(
+        'ReportBody',
+        parent=styles['Normal'],
+        fontName='Helvetica',
+        fontSize=9.5,
+        textColor=colors.HexColor('#333333'),
+        leading=14,
+        spaceAfter=8
+    )
+    
+    story.append(Paragraph("🧬 SS Ai Enterprise Regulatory Safety Dossier", title_style))
+    story.append(Paragraph(f"<b>Title:</b> {title}", body_style))
+    story.append(Paragraph(f"<b>Target Substance:</b> {target}", body_style))
+    story.append(Paragraph(f"<b>Lead Assessor:</b> {assessor}", body_style))
+    story.append(Paragraph(f"<b>Framework:</b> {framework} | <b>Generated:</b> {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}", body_style))
+    story.append(Spacer(1, 10))
+    
+    sections = body_text.split("\n\n")
+    for sec in sections:
+        lines = sec.strip().split("\n")
+        if lines:
+            header_line = lines[0]
+            if header_line.startswith("1.") or header_line.startswith("2.") or header_line.startswith("3.") or header_line.startswith("4.") or header_line.startswith("5.") or header_line.startswith("6.") or header_line.startswith("7.") or header_line.startswith("8."):
+                story.append(Paragraph(header_line, heading_style))
+                content_block = "<br/>".join(lines[1:])
+                if content_block:
+                    story.append(Paragraph(content_block, body_style))
+            else:
+                story.append(Paragraph(sec.replace("\n", "<br/>"), body_style))
+                
+    doc.build(story)
+    buffer.seek(0)
+    return buffer.getvalue()
 
 def render_dossier_module():
     st.markdown("#### 📦 Comprehensive Regulatory Safety Dossier & Reporting Hub")
@@ -39,27 +102,11 @@ def render_dossier_module():
         
         timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         
-        # Build comprehensive data payload covering all modules
-        comprehensive_body = f"""======================================================================
-SS AI ENTERPRISE REGULATORY SAFETY DOSSIER (COMPLETE RECORD)
-======================================================================
-Report Title: {dossier_title}
-Template Type: {dossier_template}
-Generated On: {timestamp}
-Regulatory Framework: {regulatory_framework}
-Target Substance: {current_target}
-Lead Assessor: {lead_assessor} (DABT / PhD Certified)
-Status: VERIFIED & LOCKED FOR REGULATORY SUBMISSION
-
-1. EXECUTIVE SUMMARY & METADATA
-----------------------------------------------------------------------
-- This exhaustive safety dossier compiles multi-agent predictive toxicology, 
-  structural alerts, molecular docking, QRA2 consumer safety thresholds, 
-  and validation benchmarks for {current_target}.
+        comprehensive_body = f"""1. EXECUTIVE SUMMARY & METADATA
+- This exhaustive safety dossier compiles multi-agent predictive toxicology, structural alerts, molecular docking, QRA2 consumer safety thresholds, and validation benchmarks for {current_target}.
 - Evaluated under rigorous OECD TG 442 principles and EU REACH standards.
 
 2. MOLECULAR TOPOLOGY & PHYSIOCHEMICAL PROPERTIES
-----------------------------------------------------------------------
 - Identifier: {current_target}
 - Molecular Weight: ~132.16 g/mol (Lipinski Compliant)
 - Octanol-Water Partition (LogP): 1.90
@@ -68,28 +115,24 @@ Status: VERIFIED & LOCKED FOR REGULATORY SUBMISSION
 - Structural Alert: Alpha,beta-unsaturated aldehyde (Schiff base protein reactivity).
 
 3. MOLECULAR DOCKING & BINDING AFFINITY (PDB: 1X2J)
-----------------------------------------------------------------------
 - Target Receptor: KEAP1 Kelch Domain (PDB: 1X2J)
 - Active Pocket Interaction: Covalent binding with active cysteine residues (Cys151).
 - Binding Free Energy (ΔG): -7.4 kcal/mol (Strong Binding Affinity).
 - Conformation Stability: High spatial overlap with reference electrophiles.
 
 4. BAYESIAN WEIGHT-OF-EVIDENCE (WoE) & AOP PATHWAYS
-----------------------------------------------------------------------
 - Molecular Initiation Event (MIE): Cysteine/Lysine protein reactivity (DPRA > 75%).
 - Keratinocyte Activation (KE2): Positive ARE-Nrf2 luciferase response.
 - Bayesian Posterior Probability of Sensitization: 92.4% (Positive Sensitizer).
 - OECD Test Guideline Alignment: TG 442C (DPRA), TG 442D (ARE-Nrf2), TG 442E (h-CLAT).
 
 5. QUANTITATIVE RISK ASSESSMENT (QRA2) & NESL / AEL THRESHOLDS
-----------------------------------------------------------------------
 - No Expected Sensitization Level (NESL): 120 µg/cm²
 - Sensitization Assessment Factor (SAF): 100x (Consumer Leave-On Matrix)
 - Acceptable Exposure Level (AEL): 0.05% (Max Allowable Concentration)
 - Margin of Safety (MoS): Verified safe for rinse-off; restricted for leave-on.
 
 6. MULTI-AGENT CONSENSUS & AI VOTING PANEL
-----------------------------------------------------------------------
 - KEAP1 Docking Agent: Strong Binder (Confidence: 94.2%)
 - DPRA Reactivity Agent: Positive >75% (Confidence: 89.1%)
 - Keratinocyte Assay Agent: Positive ARE-Nrf2 (Confidence: 91.5%)
@@ -97,45 +140,35 @@ Status: VERIFIED & LOCKED FOR REGULATORY SUBMISSION
 - Multi-Agent Consensus Score: 90.7% (High Concordance - Sensitizer)
 
 7. MODEL VALIDATION BENCHMARKS (n = 1,501)
-----------------------------------------------------------------------
 - Benchmark Dataset: Global Enterprise Toxicological Database (n=1,501)
 - Balanced Accuracy: 89.8% | Matthews Correlation Coefficient (MCC): 0.81
 - Sensitivity: 91.5% | Specificity: 88.1%
 - Discordance Accounting: Accounted for biological assay noise (10-15% experimental variance).
 
 8. IMMUTABLE AUDIT TRAIL & EXPERT SIGN-OFF
-----------------------------------------------------------------------
 Lead Reviewer: {lead_assessor}
 Security Token Verified: sk-ssai-lead-tox-token-9988
 Audit Log Status: Immutable Audit Trail Active
 Compliance Check: PASSED all OECD & REACH validation gates.
-======================================================================
-Created by Dr Rahul Date with Gemini AI
-"""
+Created by Dr Rahul Date with Gemini AI"""
 
-        # Template specific tailoring
         if "IUCLID6" in dossier_template:
             file_prefix = "IUCLID6_Dossier"
-            export_content = f"=== IUCLID6 COMPREHENSIVE ENDPOINT STUDY RECORD ===\n{comprehensive_body}"
         elif "Executive" in dossier_template:
             file_prefix = "Executive_AOP_Dossier"
-            export_content = f"=== EXECUTIVE AOP SUMMARY DOSSIER ===\n{comprehensive_body}"
         elif "QPRF" in dossier_template:
             file_prefix = "QPRF_Report"
-            export_content = f"=== QSAR PREDICTION REPORTING FORMAT (QPRF) ===\n{comprehensive_body}"
         elif "QMRF" in dossier_template:
             file_prefix = "QMRF_Report"
-            export_content = f"=== QSAR MODEL REPORTING FORMAT (QMRF) ===\n{comprehensive_body}"
         else:
             file_prefix = "Safety_Dossier"
-            export_content = comprehensive_body
 
         col_ex1, col_ex2 = st.columns(2)
         
         with col_ex1:
             st.download_button(
                 label="📥 Download Complete Report (.txt)",
-                data=export_content,
+                data=comprehensive_body,
                 file_name=f"{file_prefix}_{safe_filename_base}.txt",
                 mime="text/plain",
                 use_container_width=True
@@ -161,9 +194,12 @@ Created by Dr Rahul Date with Gemini AI
                 use_container_width=True
             )
             
+        # Generate genuine PDF binary bytes via ReportLab
+        pdf_bytes = generate_pdf_report(dossier_title, current_target, lead_assessor, regulatory_framework, comprehensive_body)
+        
         st.download_button(
             label="📑 Download Professional PDF Report (.pdf)",
-            data=export_content.encode('utf-8'),
+            data=pdf_bytes,
             file_name=f"{file_prefix}_{safe_filename_base}.pdf",
             mime="application/pdf",
             type="primary",
@@ -200,4 +236,4 @@ Created by Dr Rahul Date with Gemini AI
             })
             
         st.dataframe(summary_df, use_container_width=True, hide_index=True)
-        st.success(f"✅ All 13 modules and data points fully integrated into export files for **{current_target}**.")
+        st.success(f"✅ Professional PDF generation enabled via ReportLab for **{current_target}**.")
