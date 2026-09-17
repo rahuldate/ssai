@@ -11,7 +11,6 @@ def render_3d_structure_module():
     with col1:
         st.markdown("##### 🌐 Interactive 3D Pose Inspection")
         
-        # Generate interactive Plotly 3D scatter for KEAP1 binding pocket
         np.random.seed(101)
         pocket_x = np.random.normal(0, 5, 120)
         pocket_y = np.random.normal(0, 5, 120)
@@ -23,7 +22,6 @@ def render_3d_structure_module():
         
         fig = go.Figure()
         
-        # KEAP1 pocket residues scatter
         fig.add_trace(go.Scatter3d(
             x=pocket_x, y=pocket_y, z=pocket_z,
             mode='markers',
@@ -31,7 +29,6 @@ def render_3d_structure_module():
             name='KEAP1 Kelch Pocket'
         ))
         
-        # Ligand pose scatter
         fig.add_trace(go.Scatter3d(
             x=ligand_x, y=ligand_y, z=ligand_z,
             mode='markers+lines',
@@ -44,7 +41,7 @@ def render_3d_structure_module():
             scene=dict(
                 xaxis_title='X (Å)',
                 yaxis_title='Y (Å)',
-                zorder_title='Z (Å)'
+                zaxis_title='Z (Å)'
             ),
             margin=dict(l=0, r=0, b=0, t=30),
             height=420,
