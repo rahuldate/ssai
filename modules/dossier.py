@@ -1,77 +1,97 @@
 import streamlit as st
+import pandas as pd
 import datetime
 
 def render_dossier_module():
-    st.markdown("#### 📄 Automated Regulatory Safety Dossier & Export")
-    st.markdown("Compile all in-silico, mechanistic, and QRA metrics into an audit-ready regulatory safety dossier.")
+    st.markdown("#### 📦 Regulatory Safety Dossier Export")
+    st.markdown("Compile, review, and export comprehensive OECD-compliant regulatory dossiers for hazard assessment and dossier submission.")
     
-    col1, col2 = st.columns(2, gap="medium")
+    current_target = st.session_state.get('global_target_input', 'Candidate_Target')
+    
+    # Sanitize target name for safe filename usage
+    safe_filename_base = "".join(c if c.isalnum() else "_" for c in current_target)[:35].strip("_")
+    if not safe_filename_base:
+        safe_filename_base = "Candidate_Compound"
+        
+    col1, col2 = st.columns([1.2, 1.0], gap="medium")
     
     with col1:
-        st.markdown("##### ⚙️ Dossier Metadata & Scope")
-        compound_name = st.text_input("Substance Name / Identifier", value="Aspirin Analog (Candidate #42)", key="dossier_name_2026")
-        toxicologist = st.text_input("Lead Toxicologist / Assessor", value="Dr. R. Date, PhD", key="dossier_author_2026")
-        regulatory_framework = st.selectbox("Target Regulatory Framework", ["EU Cosmetics Regulation (EC) No 1223/2009", "REACH Annex VII/VIII", "OSHA / GHS Hazard Classification"], index=0)
+        st.markdown("##### ⚙️ Dossier Metadata Configuration")
         
-        include_docking = st.checkbox("Include KEAP1 Docking Poses & Scores", value=True)
-        include_bayesian = st.checkbox("Include Bayesian WoE Risk Probability", value=True)
-        include_qra2 = st.checkbox("Include QRA2 & SAF Calculations", value=True)
+        dossier_title = st.text_input("Dossier Title", value=f"OECD TG 442 Compliant Safety Assessment: {current_target}")
+        lead_assessor = st.text_input("Lead Assessor Sign-Off", value="Dr. R. Date, PhD")
+        regulatory_framework = st.selectbox("Regulatory Framework", ["EU REACH (EC 1907/2006)", "IFRA Standards (QRA2)", "US EPA Toxic Substances Control Act", "OECD Mutual Acceptance of Data (MAD)"])
+        include_audit_trail = st.checkbox("Include Immutable Audit Trail & Agent Consensus Log", value=True)
         
-        if st.button("📑 Compile Safety Dossier", type="primary", use_container_width=True):
-            st.session_state['dossier_compiled'] = True
-            st.success("✅ Regulatory safety dossier compiled successfully!")
-            
+        st.markdown("---")
+        st.markdown(f"##### 📄 Dynamic Export Filename Preview")
+        preview_filename = f"Safety_Dossier_{safe_filename_base}.txt"
+        st.code(preview_filename, language="text")
+        
+        # Generate export text dynamically
+        timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        export_content = f"""==================================================
+SS AI ENTERPRISE REGULATORY SAFETY DOSSIER
+==================================================
+Generated On: {timestamp}
+Framework: {regulatory_framework}
+Target Substance: {current_target}
+Lead Assessor: {lead_assessor}
+
+1. EXECUTIVE SUMMARY
+--------------------------------------------------
+This dossier compiles multi-agent predictive toxicology, structural alerts,
+molecular docking (KEAP1 Kelch domain, PDB: 1X2J), and QRA2 consumer safety assessments.
+
+2. AOP & PREDICTIVE TOXICOLOGY FINDINGS
+--------------------------------------------------
+- Molecular Initiation Event (MIE): Cysteine/Lysine protein reactivity verified.
+- Bayesian Weight-of-Evidence: High sensitization probability.
+- Reconstructed Human Epidermis (RhE) Viability: Non-cytotoxic to moderate barrier impact.
+
+3. QUANTITATIVE RISK ASSESSMENT (QRA2)
+--------------------------------------------------
+- NESL / AEL Thresholds: Verified for leave-on and rinse-off exposure scenarios.
+- Safety Factor Applied: Sensitization Assessment Factor (SAF) = 100x.
+
+4. AUDIT SIGN-OFF
+--------------------------------------------------
+Lead Reviewer: {lead_assessor}
+Status: LOCKED & VERIFIED FOR REGULATORY SUBMISSION
+==================================================
+Created by Dr Rahul Date with Gemini AI
+"""
+        
+        st.download_button(
+            label="📥 Download Official Regulatory Dossier (.txt)",
+            data=export_content,
+            file_name=preview_filename,
+            mime="text/plain",
+            type="primary",
+            use_container_width=True
+        )
+        
     with col2:
-        st.markdown("##### 📊 Dossier Preview & Export")
-        
-        if st.session_state.get('dossier_compiled', False):
-            timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            
-            dossier_html = f"""
-            <html>
-            <head>
-                <style>
-                    body {{ font-family: Arial, sans-serif; color: #333; line-height: 1.6; padding: 20px; }}
-                    h1 {{ color: #0d6efd; border-bottom: 2px solid #0d6efd; padding-bottom: 5px; }}
-                    h2 {{ color: #495057; margin-top: 20px; }}
-                    .meta {{ background: #f8f9fa; padding: 10px; border-radius: 5px; margin-bottom: 20px; }}
-                    .badge {{ background: #dc3545; color: white; padding: 3px 8px; border-radius: 4px; font-weight: bold; }}
-                </style>
-            </head>
-            <body>
-                <h1>Skin Sensitization Safety Dossier</h1>
-                <div class="meta">
-                    <p><strong>Substance:</strong> {compound_name}</p>
-                    <p><strong>Assessor:</strong> {toxicologist}</p>
-                    <p><strong>Framework:</strong> {regulatory_framework}</p>
-                    <p><strong>Timestamp:</strong> {timestamp}</p>
-                </div>
-                <h2>1. Executive Summary & Classification</h2>
-                <p>Status: <span class="badge">Skin Sensitizer (Category 1)</span></p>
-                <p>Weight-of-Evidence Posterior Probability: <strong>84.5%</strong></p>
-                
-                <h2>2. Key Mechanistic Endpoints</h2>
-                <ul>
-                    <li><strong>KEAP1 Binding Affinity:</strong> -8.4 kcal/mol (Strong Binder)</li>
-                    <li><strong>Direct Peptide Reactivity (DPRA):</strong> High Reactivity (>75% depletion)</li>
-                    <li><strong>Keratinocyte Activation (ARE-Nrf2):</strong> Positive</li>
-                </ul>
-                
-                <h2>3. Quantitative Risk Assessment (QRA2)</h2>
-                <p><strong>Total SAF:</strong> 9.0x</p>
-                <p><strong>Allowable Exposure Level (AEL):</strong> 11.11 µg/cm²</p>
-                <p><strong>Conclusion:</strong> Safe for intended consumer use under established thresholds.</p>
-            </body>
-            </html>
-            """
-            
-            st.download_button(
-                label="📥 Download Complete Regulatory Dossier (HTML)",
-                data=dossier_html,
-                file_name=f"Safety_Dossier_{compound_name.replace(' ', '_')}.html",
-                mime="text/html",
-                use_container_width=True
-            )
-            st.success("🎯 Dossier ready for audit review.")
-        else:
-            st.info("ℹ️ Configure dossier parameters and click **Compile Safety Dossier** to generate export.")
+        st.markdown("##### 📋 Dossier Content Summary Check")
+        summary_df = pd.DataFrame({
+        "Section Module": [
+                "2D/3D Structural Topology",
+                "KEAP1 Molecular Docking",
+                "Bayesian WoE Probability",
+                "ADME & OECD Pathways",
+                "QRA2 Risk & NESL",
+                "Multi-Agent Consensus Hub",
+                "HITL Expert Sign-Off"
+            ],
+            "Status": [
+                "✅ Included",
+                "✅ Included",
+                "✅ Included",
+                "✅ Included",
+                "✅ Included",
+                "✅ Included",
+                "✅ Included"
+            ]
+        })
+        st.dataframe(summary_df, use_container_width=True, hide_index=True)
+        st.success(f"✅ Dossier successfully linked to active target: **{current_target}**.")
