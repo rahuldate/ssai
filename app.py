@@ -1,8 +1,4 @@
 import streamlit as st
-import matplotlib.pyplot as plt
-import numpy as np
-import pandas as pd
-
 from modules.docking import render_docking_module
 from modules.bayesian import render_bayesian_module
 from modules.metabolism_oecd import render_metabolism_oecd_module
@@ -12,6 +8,10 @@ from modules.agent_hub import render_agent_hub_module
 from modules.structure_3d import render_3d_structure_module
 from modules.dossier import render_dossier_module
 from modules.aop import render_aop_module
+from modules.hitl import render_hitl_module
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
 
 st.set_page_config(
     page_title="ssai - Enterprise Skin Sensitization AI",
@@ -80,17 +80,14 @@ elif category == "2. Molecular & Structural":
             
             with col_2d_1:
                 st.markdown("##### 🌐 2D Molecular Topology Graph")
-                # Generate clean 2D network plot using matplotlib
                 fig_2d, ax_2d = plt.subplots(figsize=(5, 3.8))
                 np.random.seed(42)
                 node_x = np.random.uniform(0, 10, 8)
                 node_y = np.random.uniform(0, 8, 8)
                 
-                # Draw bonds
                 for i in range(len(node_x) - 1):
                     ax_2d.plot([node_x[i], node_x[i+1]], [node_y[i], node_y[i+1]], color='#adb5bd', lw=2.5, zorder=1)
                 
-                # Draw atoms
                 ax_2d.scatter(node_x, node_y, s=200, c='#0d6efd', edgecolors='#212529', linewidths=1.5, zorder=2)
                 
                 for idx, (nx, ny) in enumerate(zip(node_x, node_y)):
@@ -104,8 +101,6 @@ elif category == "2. Molecular & Structural":
                 
             with col_2d_2:
                 st.markdown("##### 📊 Physiochemical Properties")
-                
-                # Compute mock-realistic properties based on input length/string hash
                 hash_val = sum(ord(c) for c in universal_input)
                 mw = 180.16 + (hash_val % 120)
                 logp = 1.2 + ((hash_val % 35) / 10.0)
@@ -180,9 +175,7 @@ elif category == "4. Risk & AI Review":
     if tab == "🤖 Agent Hub":
         render_agent_hub_module()
     else:
-        st.markdown("#### ✍️ Human-in-the-Loop (HITL) Expert Review")
-        st.info("Review, annotate, and override automated AI toxicological decisions with expert sign-off.")
-        st.text_area("Toxicologist Sign-off Notes", value="Concur with multi-agent consensus. Low risk for standard cosmetic leave-on applications.")
+        render_hitl_module()
 
 elif category == "5. Validation & Export":
     tab = st.sidebar.radio("Module", [
