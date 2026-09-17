@@ -40,7 +40,7 @@ st.markdown("""
         padding-top: 15px;
     }
 </style>
-""", unsafe_allow_html=True, x_experimental=True)
+""", unsafe_allow_html=True)
 
 # Initialize global target input with Cinnamic Aldehyde for immediate end-to-end testing
 if 'global_target_input' not in st.session_state:
