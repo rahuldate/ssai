@@ -16,19 +16,19 @@ import numpy as np
 import pandas as pd
 
 st.set_page_config(
-    page_title="ssai - Enterprise Skin Sensitization AI",
+    page_title="SS Ai - Enterprise Skin Sensitization AI",
     page_icon="🧬",
     layout="wide"
 )
 
 st.markdown("""
 <style>
-    .main-header { font-size: 34px; font-weight: 800; color: #0d6efd; margin-bottom: 15px; letter-spacing: -0.5px; }
+    .main-header { font-size: 40px; font-weight: 900; color: #0d6efd; margin-bottom: 15px; letter-spacing: -0.5px; }
     .footer-credit { text-align: center; font-size: 13px; color: #6c757d; margin-top: 40px; border-top: 1px solid #dee2e6; padding-top: 15px; }
 </style>
 """, unsafe_allow_html=True)
 
-st.markdown('<p class="main-header">🧬 ssai: Enterprise Skin Sensitization AI Platform</p>', unsafe_allow_html=True)
+st.markdown('<p class="main-header">🧬 SS Ai: Enterprise Skin Sensitization AI Platform</p>', unsafe_allow_html=True)
 
 st.sidebar.markdown("### 🧭 Enterprise Navigation")
 
