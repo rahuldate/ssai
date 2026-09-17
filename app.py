@@ -72,7 +72,6 @@ elif category == "2. Molecular & Structural":
     tab = st.sidebar.radio("Module", [
         "📐 2D Structure & Attribution Heatmap",
         "🧊 3D Conformer",
-        "🧬 Molecular Intelligence",
         "📊 Batch Screening"
     ])
     st.sidebar.markdown("---")
@@ -100,7 +99,6 @@ elif category == "2. Molecular & Structural":
                 node_x = np.random.uniform(0, 10, 9)
                 node_y = np.random.uniform(0, 8, 9)
                 
-                # Highlight reactive center nodes with warm colormap
                 node_weights = [0.95, 0.88, 0.45, 0.20, 0.15, 0.10, 0.12, 0.08, 0.05]
                 
                 for i in range(len(node_x) - 1):
@@ -149,8 +147,6 @@ elif category == "2. Molecular & Structural":
             
     elif tab == "🧊 3D Conformer":
         render_3d_structure_module()
-    elif tab == "🧬 Molecular Intelligence":
-        render_bayesian_module()
     else:
         st.markdown("#### 📊 Batch Screening & High-Throughput Matrix")
         st.info("Upload SMILES batch CSV files to screen multiple compounds simultaneously.")
