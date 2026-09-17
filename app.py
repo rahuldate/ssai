@@ -42,7 +42,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Initialize global target input with Cinnamic Aldehyde for immediate end-to-end testing
 if 'global_target_input' not in st.session_state:
     st.session_state['global_target_input'] = "Cinnamic Aldehyde (O=CC=CC1=CC=CC=C1)"
 
@@ -57,7 +56,8 @@ category = st.sidebar.selectbox(
         "2. Molecular & Structural",
         "3. Toxicology & Pathways",
         "4. Risk & AI Review",
-        "5. Validation & Export"
+        "5. Export & Reporting (Module 5)",
+        "6. Validation & Benchmarks (Module 6)"
     ]
 )
 
@@ -88,7 +88,7 @@ elif category == "2. Molecular & Structural":
         
         if universal_input:
             st.session_state['global_target_input'] = universal_input
-            st.success("✅ Cinnamic Aldehyde target successfully parsed and synchronized across all 13 modules.")
+            st.success("✅ Cinnamic Aldehyde target successfully parsed and synchronized across all modules.")
             
             st.markdown("---")
             col_2d_1, col_2d_2 = st.columns(2, gap="medium")
@@ -184,15 +184,14 @@ elif category == "4. Risk & AI Review":
     else:
         render_hitl_module()
 
-elif category == "5. Validation & Export":
-    tab = st.sidebar.radio("Module", [
-        "📈 Validation",
-        "📦 Dossier Export"
-    ])
+elif category == "5. Export & Reporting (Module 5)":
+    tab = st.sidebar.radio("Module", ["📦 Regulatory Export Hub"])
     st.sidebar.markdown("---")
-    if tab == "📈 Validation":
-        render_validation_module()
-    else:
-        render_dossier_module()
+    render_dossier_module()
+
+elif category == "6. Validation & Benchmarks (Module 6)":
+    tab = st.sidebar.radio("Module", ["📈 Model Validation & Benchmarks"])
+    st.sidebar.markdown("---")
+    render_validation_module()
 
 st.markdown('<div class="footer-credit">Created by Dr Rahul Date with Gemini AI</div>', unsafe_allow_html=True)
