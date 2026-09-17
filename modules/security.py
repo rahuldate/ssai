@@ -10,7 +10,6 @@ def render_security_module():
     with col1:
         st.markdown("##### ⚙️ Access Level & Session Configuration")
         
-        # Interactive role selector
         selected_role = st.selectbox(
             "Select Assessor Role Level",
             [
@@ -19,11 +18,10 @@ def render_security_module():
                 "Junior Assessor / Screening User (Read & Screen)",
                 "Guest Reviewer (Read-Only)"
             ],
-            index=0,
+            index=2, # Default to Junior Assessor to highlight the note
             key="rbac_role_selector_dynamic"
         )
         
-        # Unique access codes corresponding to each role level
         role_tokens = {
             "Lead Toxicologist": "sk-ssai-lead-tox-token-9988",
             "Regulatory Compliance Officer": "sk-ssai-compliance-officer-4455",
@@ -31,12 +29,15 @@ def render_security_module():
             "Guest Reviewer": "sk-ssai-guest-readonly-0000"
         }
         
-        # Determine current role key
-        matched_key = "Lead Toxicologist"
-        for k in role_tokens.keys():
-            if k in selected_role:
-                matched_key = k
-                break
+        matched_key = "Junior Assessor"
+        if "Lead Toxicologist" in selected_role:
+            matched_key = "Lead Toxicologist"
+        elif "Regulatory Compliance Officer" in selected_role:
+            matched_key = "Regulatory Compliance Officer"
+        elif "Junior Assessor" in selected_role:
+            matched_key = "Junior Assessor"
+        else:
+            matched_key = "Guest Reviewer"
                 
         default_token = role_tokens[matched_key]
         
@@ -57,9 +58,9 @@ def render_security_module():
         st.markdown("---")
         st.markdown("##### 📝 Active Role Permission Summary Note")
         
-        # Dynamic note updating based on the selected role
+        # Explicit role notes for each level including Junior Assessor
         if matched_key == "Lead Toxicologist":
-            st.info("**Lead Toxicologist Note:** Holds full read, write, and override privileges across all 13 modules. Authorized to modify AI predictions, execute final expert HITL sign-offs, and lock regulatory dossiers (Dr. R. Date, PhD equivalent).")
+            st.info("**Lead Toxicologist Note:** Holds full read, write, and override privileges across all 13 modules. Authorized to modify AI predictions, execute final expert HITL sign-offs, and lock regulatory dossiers (Dr. R. Date, PhD).")
         elif matched_key == "Regulatory Compliance Officer":
             st.info("**Regulatory Compliance Officer Note:** Focuses on QRA2 risk assessment thresholds, model validation benchmarks, and final dossier exports. Can review and sign off on regulatory compliance checklists without altering core molecular docking models.")
         elif matched_key == "Junior Assessor":
@@ -78,7 +79,7 @@ def render_security_module():
                 "Guest Reviewer"
             ],
             "Access Capabilities & Responsibilities": [
-                "Full read/write/override access across all 13 modules. Authorized to sign off on HITL verdicts and lock regulatory dossiers (Dr. R. Date, PhD equivalent).",
+                "Full read/write/override access across all 13 modules. Authorized to sign off on HITL verdicts and lock regulatory dossiers (Dr. R. Date, PhD).",
                 "Manages QRA2 thresholds, validation benchmarks, and final regulatory dossier export. Can sign off on compliance checklists.",
                 "Executes 2D/3D structure parsing, molecular intelligence screening, and batch uploads. Cannot modify official regulatory sign-offs.",
                 "Strictly read-only access to compiled reports and summary dashboards for audit inspection."
