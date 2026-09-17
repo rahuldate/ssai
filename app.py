@@ -10,6 +10,7 @@ from modules.dossier import render_dossier_module
 from modules.aop import render_aop_module
 from modules.hitl import render_hitl_module
 from modules.validation import render_validation_module
+from modules.security import render_security_module
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -23,6 +24,7 @@ st.set_page_config(
 st.markdown("""
 <style>
     .main-header { font-size: 24px; font-weight: bold; color: #0d6efd; margin-bottom: 10px; }
+    .footer-credit { text-align: center; font-size: 13px; color: #6c757d; margin-top: 40px; border-top: 1px solid #dee2e6; padding-top: 15px; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -46,10 +48,7 @@ st.sidebar.markdown("---")
 if category == "1. Security & Access":
     tab = st.sidebar.radio("Module", ["🔐 Security & RBAC"])
     st.sidebar.markdown("---")
-    st.markdown("#### 🔐 Security & Role-Based Access Control (RBAC)")
-    st.info("Manage enterprise user permissions, API token security, and audit logging parameters.")
-    st.text_input("Enterprise Security Token", type="password", value="sk-ssai-enterprise-sec-token-2026")
-    st.selectbox("Assessor Role Assignment", ["Lead Toxicologist", "Regulatory Compliance Officer", "Guest Reviewer"], index=0)
+    render_security_module()
 
 elif category == "2. Molecular & Structural":
     tab = st.sidebar.radio("Module", [
@@ -188,3 +187,6 @@ elif category == "5. Validation & Export":
         render_validation_module()
     else:
         render_dossier_module()
+
+# Universal footer credit displayed at the bottom of every screen
+st.markdown('<div class="footer-credit">Created by Dr Rahul Date with Gemini AI</div>', unsafe_allow_html=True)
