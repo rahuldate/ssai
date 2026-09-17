@@ -9,6 +9,7 @@ from modules.structure_3d import render_3d_structure_module
 from modules.dossier import render_dossier_module
 from modules.aop import render_aop_module
 from modules.hitl import render_hitl_module
+from modules.validation import render_validation_module
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -184,9 +185,6 @@ elif category == "5. Validation & Export":
     ])
     st.sidebar.markdown("---")
     if tab == "📈 Validation":
-        st.markdown("#### 📈 Model Validation & Benchmarking")
-        st.metric("LLNA Concordance Rate", "89.4%", "Cross-Validated")
-        st.metric("Sensitivity / Specificity", "91.2% / 87.8%", "OECD Dataset")
-        st.success("✅ Validation benchmarks satisfy rigorous predictive toxicology standards.")
+        render_validation_module()
     else:
         render_dossier_module()
