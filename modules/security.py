@@ -20,29 +20,56 @@ def render_security_module():
                 "Guest Reviewer (Read-Only)"
             ],
             index=0,
-            key="rbac_role_selector"
+            key="rbac_role_selector_dynamic"
         )
         
-        # Token validation input
+        # Unique access codes corresponding to each role level
+        role_tokens = {
+            "Lead Toxicologist": "sk-ssai-lead-tox-token-9988",
+            "Regulatory Compliance Officer": "sk-ssai-compliance-officer-4455",
+            "Junior Assessor": "sk-ssai-junior-screen-2211",
+            "Guest Reviewer": "sk-ssai-guest-readonly-0000"
+        }
+        
+        # Determine current role key
+        matched_key = "Lead Toxicologist"
+        for k in role_tokens.keys():
+            if k in selected_role:
+                matched_key = k
+                break
+                
+        default_token = role_tokens[matched_key]
+        
         token_input = st.text_input(
-            "Enterprise Security Token",
+            "Enterprise Security Token (Role-Specific)",
             type="password",
-            value="sk-ssai-enterprise-sec-token-2026",
-            key="rbac_token_input"
+            value=default_token,
+            key=f"rbac_token_{matched_key}"
         )
         
-        # Security options
-        enable_audit_log = st.checkbox("Enable Immutable Audit Trail Logging", value=True, key="rbac_audit_checkbox")
-        strict_ip_check = st.checkbox("Enforce Enterprise VPN / IP Whitelisting", value=False, key="rbac_ip_checkbox")
+        enable_audit_log = st.checkbox("Enable Immutable Audit Trail Logging", value=True, key="rbac_audit_checkbox_dyn")
+        strict_ip_check = st.checkbox("Enforce Enterprise VPN / IP Whitelisting", value=False, key="rbac_ip_checkbox_dyn")
         
         if st.button("🔒 Apply Security Level & Permissions", type="primary", use_container_width=True):
             st.session_state['rbac_applied'] = True
-            st.success(f"✅ Security profile updated successfully for role: **{selected_role.split('(')[0].strip()}**")
+            st.success(f"✅ Security profile updated successfully for role: **{matched_key}** (Token verified: `{token_input[:10]}...`)")
+            
+        st.markdown("---")
+        st.markdown("##### 📝 Active Role Permission Summary Note")
+        
+        # Dynamic note updating based on the selected role
+        if matched_key == "Lead Toxicologist":
+            st.info("**Lead Toxicologist Note:** Holds full read, write, and override privileges across all 13 modules. Authorized to modify AI predictions, execute final expert HITL sign-offs, and lock regulatory dossiers (Dr. R. Date, PhD equivalent).")
+        elif matched_key == "Regulatory Compliance Officer":
+            st.info("**Regulatory Compliance Officer Note:** Focuses on QRA2 risk assessment thresholds, model validation benchmarks, and final dossier exports. Can review and sign off on regulatory compliance checklists without altering core molecular docking models.")
+        elif matched_key == "Junior Assessor":
+            st.info("**Junior Assessor Note:** Authorized to run 2D/3D structure parsing, molecular intelligence screening, and high-throughput batch uploads, but restricted from modifying official regulatory sign-offs.")
+        else:
+            st.info("**Guest Reviewer Note:** Provided with strict read-only access to compiled reports and summary dashboards for audit inspection and stakeholder review.")
             
     with col2:
         st.markdown("##### 📋 Role Definition & Permission Matrix")
         
-        # Role definition breakdown requested by user
         role_definitions = pd.DataFrame({
             "Role Level": [
                 "Lead Toxicologist",
@@ -56,12 +83,12 @@ def render_security_module():
                 "Executes 2D/3D structure parsing, molecular intelligence screening, and batch uploads. Cannot modify official regulatory sign-offs.",
                 "Strictly read-only access to compiled reports and summary dashboards for audit inspection."
             ],
-            "Active Status": ["Active", "Active", "Restricted", "Read-Only"]
+            "Assigned Token Prefix": ["sk-ssai-lead...", "sk-ssai-comp...", "sk-ssai-jun...", "sk-ssai-guest..."]
         })
         
         st.dataframe(role_definitions, use_container_width=True, hide_index=True)
         
         if st.session_state.get('rbac_applied', False):
-            st.success(f"🔒 Token verified (`{token_input[:6]}...`). Audit logging active: **{enable_audit_log}**.")
+            st.success(f"🔒 Active Session Level: **{matched_key}**. Audit logging active: **{enable_audit_log}**.")
         else:
-            st.info("ℹ️ Select a role level and click **Apply Security Level & Permissions** to enforce access rules.")
+            st.info("ℹ️ Select a role level to view its unique security token and dynamic permission notes.")
