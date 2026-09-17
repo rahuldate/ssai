@@ -23,7 +23,7 @@ st.set_page_config(
 
 st.markdown("""
 <style>
-    .main-header { font-size: 24px; font-weight: bold; color: #0d6efd; margin-bottom: 10px; }
+    .main-header { font-size: 34px; font-weight: 800; color: #0d6efd; margin-bottom: 15px; letter-spacing: -0.5px; }
     .footer-credit { text-align: center; font-size: 13px; color: #6c757d; margin-top: 40px; border-top: 1px solid #dee2e6; padding-top: 15px; }
 </style>
 """, unsafe_allow_html=True)
@@ -188,5 +188,4 @@ elif category == "5. Validation & Export":
     else:
         render_dossier_module()
 
-# Universal footer credit displayed at the bottom of every screen
 st.markdown('<div class="footer-credit">Created by Dr Rahul Date with Gemini AI</div>', unsafe_allow_html=True)
