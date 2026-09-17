@@ -23,7 +23,7 @@ st.markdown("""
 
 st.markdown('<p class="main-header">🧬 ssai: Enterprise Skin Sensitization AI Platform</p>', unsafe_allow_html=True)
 
-# Sidebar Navigation keeping all 13 modules cleanly organized
+# Sidebar Navigation with precise requested module ordering
 st.sidebar.markdown("### 🧭 Enterprise Navigation")
 
 category = st.sidebar.selectbox(
@@ -48,23 +48,26 @@ if category == "1. Security & Access":
     st.text_input("Enterprise Security Token", type="password", value="sk-ssai-enterprise-sec-token-2026")
     st.selectbox("Assessor Role Assignment", ["Lead Toxicologist", "Regulatory Compliance Officer", "Guest Reviewer"], index=0)
 
-# 2. Molecular & Structural
+# 2. Molecular & Structural (Rearranged order: 2D -> 3D -> Molecular Intelligence -> Batch)
 elif category == "2. Molecular & Structural":
     tab = st.sidebar.radio("Module", [
-        "🧬 Molecular Intelligence",
         "📐 2D Structure",
         "🧊 3D Conformer",
+        "🧬 Molecular Intelligence",
         "📊 Batch Screening"
     ])
     st.sidebar.markdown("---")
-    if tab == "🧬 Molecular Intelligence":
-        render_bayesian_module()
-    elif tab == "📐 2D Structure":
+    if tab == "📐 2D Structure":
         st.markdown("#### 📐 2D Molecular Structure & SMILES Parser")
-        st.text_input("Input Target SMILES", value="CC(=O)OC1=CC=CC=C1C(=O)O")
-        st.success("✅ 2D graph topology parsed successfully.")
+        if 'global_target_input' not in st.session_state:
+            st.session_state['global_target_input'] = "CC(=O)OC1=CC=CC=C1C(=O)O"
+        universal_input = st.text_input("Target Identifier (SMILES, CAS, Name, or Structure)", value=st.session_state['global_target_input'], key="2d_global_input")
+        st.session_state['global_target_input'] = universal_input
+        st.success("✅ 2D graph topology parsed and synchronized across all modules.")
     elif tab == "🧊 3D Conformer":
         render_3d_structure_module()
+    elif tab == "🧬 Molecular Intelligence":
+        render_bayesian_module()
     else:
         st.markdown("#### 📊 Batch Screening & High-Throughput Matrix")
         st.info("Upload SMILES batch CSV files to screen multiple compounds simultaneously.")
