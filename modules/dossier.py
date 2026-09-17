@@ -10,7 +10,7 @@ def render_dossier_module():
     with col1:
         st.markdown("##### ⚙️ Dossier Metadata & Scope")
         compound_name = st.text_input("Substance Name / Identifier", value="Aspirin Analog (Candidate #42)", key="dossier_name_2026")
-        toxicologist = st.text_input("Lead Toxicologist / Assessor", value="Dr. R. Date, DABT", key="dossier_author_2026")
+        toxicologist = st.text_input("Lead Toxicologist / Assessor", value="Dr. R. Date, PhD", key="dossier_author_2026")
         regulatory_framework = st.selectbox("Target Regulatory Framework", ["EU Cosmetics Regulation (EC) No 1223/2009", "REACH Annex VII/VIII", "OSHA / GHS Hazard Classification"], index=0)
         
         include_docking = st.checkbox("Include KEAP1 Docking Poses & Scores", value=True)
